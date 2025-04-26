@@ -53,6 +53,47 @@ Partial Class CFReport
         Panel14 = New Panel()
         TableLayoutPanel4 = New TableLayoutPanel()
         TableLayoutPanel5 = New TableLayoutPanel()
+        PNLUserActivity = New Panel()
+        TLPUserActivity = New TableLayoutPanel()
+        TLPFillActivityUsers = New TableLayoutPanel()
+        TLPVariablesUserActivity = New TableLayoutPanel()
+        TableLayoutPanel10 = New TableLayoutPanel()
+        Panel27 = New Panel()
+        Label9 = New Label()
+        Panel28 = New Panel()
+        LblNumberOfNewRegistration = New Label()
+        TableLayoutPanel11 = New TableLayoutPanel()
+        Panel29 = New Panel()
+        Label13 = New Label()
+        Panel36 = New Panel()
+        LblNumberOfBooksBorrowed = New Label()
+        TableLayoutPanel12 = New TableLayoutPanel()
+        Panel37 = New Panel()
+        Label15 = New Label()
+        Panel38 = New Panel()
+        LblNumberOfLibraryVisits = New Label()
+        TLPActiveMembers = New TableLayoutPanel()
+        PnlForNumberOfActiveMembers = New Panel()
+        LblNumberOfActiveMembers = New Label()
+        Panel40 = New Panel()
+        Label18 = New Label()
+        TLPMemberEngagement = New TableLayoutPanel()
+        Panel41 = New Panel()
+        Label19 = New Label()
+        PnlForBarMemberEngagement = New Panel()
+        PnlBarForMemberEngagement = New Panel()
+        PnlBarBackMemberEngagement = New Panel()
+        PnlFillBarMemberEngagement = New Panel()
+        TableLayoutPanel15 = New TableLayoutPanel()
+        Panel46 = New Panel()
+        LblLastUpdatedUserActivity = New Label()
+        Panel47 = New Panel()
+        LblPercentMemberEngagement = New Label()
+        TLPTopUserActivity = New TableLayoutPanel()
+        Panel48 = New Panel()
+        Label22 = New Label()
+        Panel49 = New Panel()
+        Label23 = New Label()
         PnlBorrowingStatistics = New Panel()
         TLPBorrowingStatistics = New TableLayoutPanel()
         TLPFillBorrowingStatistics = New TableLayoutPanel()
@@ -162,6 +203,33 @@ Partial Class CFReport
         Panel12.SuspendLayout()
         TableLayoutPanel4.SuspendLayout()
         TableLayoutPanel5.SuspendLayout()
+        PNLUserActivity.SuspendLayout()
+        TLPUserActivity.SuspendLayout()
+        TLPFillActivityUsers.SuspendLayout()
+        TLPVariablesUserActivity.SuspendLayout()
+        TableLayoutPanel10.SuspendLayout()
+        Panel27.SuspendLayout()
+        Panel28.SuspendLayout()
+        TableLayoutPanel11.SuspendLayout()
+        Panel29.SuspendLayout()
+        Panel36.SuspendLayout()
+        TableLayoutPanel12.SuspendLayout()
+        Panel37.SuspendLayout()
+        Panel38.SuspendLayout()
+        TLPActiveMembers.SuspendLayout()
+        PnlForNumberOfActiveMembers.SuspendLayout()
+        Panel40.SuspendLayout()
+        TLPMemberEngagement.SuspendLayout()
+        Panel41.SuspendLayout()
+        PnlForBarMemberEngagement.SuspendLayout()
+        PnlBarForMemberEngagement.SuspendLayout()
+        PnlBarBackMemberEngagement.SuspendLayout()
+        TableLayoutPanel15.SuspendLayout()
+        Panel46.SuspendLayout()
+        Panel47.SuspendLayout()
+        TLPTopUserActivity.SuspendLayout()
+        Panel48.SuspendLayout()
+        Panel49.SuspendLayout()
         PnlBorrowingStatistics.SuspendLayout()
         TLPBorrowingStatistics.SuspendLayout()
         TLPFillBorrowingStatistics.SuspendLayout()
@@ -624,6 +692,7 @@ Partial Class CFReport
         TableLayoutPanel5.ColumnCount = 2
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel5.Controls.Add(PNLUserActivity, 0, 1)
         TableLayoutPanel5.Controls.Add(PnlBorrowingStatistics, 0, 0)
         TableLayoutPanel5.Controls.Add(PnlPopularCategories, 1, 0)
         TableLayoutPanel5.Dock = DockStyle.Fill
@@ -635,6 +704,501 @@ Partial Class CFReport
         TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
         TableLayoutPanel5.Size = New Size(840, 492)
         TableLayoutPanel5.TabIndex = 0
+        ' 
+        ' PNLUserActivity
+        ' 
+        PNLUserActivity.BackColor = Color.White
+        PNLUserActivity.Controls.Add(TLPUserActivity)
+        PNLUserActivity.Dock = DockStyle.Fill
+        PNLUserActivity.Location = New Point(3, 249)
+        PNLUserActivity.Name = "PNLUserActivity"
+        PNLUserActivity.Size = New Size(414, 240)
+        PNLUserActivity.TabIndex = 2
+        ' 
+        ' TLPUserActivity
+        ' 
+        TLPUserActivity.ColumnCount = 1
+        TLPUserActivity.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TLPUserActivity.Controls.Add(TLPFillActivityUsers, 0, 1)
+        TLPUserActivity.Controls.Add(TLPTopUserActivity, 0, 0)
+        TLPUserActivity.Dock = DockStyle.Fill
+        TLPUserActivity.Location = New Point(0, 0)
+        TLPUserActivity.Name = "TLPUserActivity"
+        TLPUserActivity.RowCount = 2
+        TLPUserActivity.RowStyles.Add(New RowStyle(SizeType.Percent, 15F))
+        TLPUserActivity.RowStyles.Add(New RowStyle(SizeType.Percent, 85F))
+        TLPUserActivity.Size = New Size(414, 240)
+        TLPUserActivity.TabIndex = 0
+        ' 
+        ' TLPFillActivityUsers
+        ' 
+        TLPFillActivityUsers.ColumnCount = 1
+        TLPFillActivityUsers.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TLPFillActivityUsers.Controls.Add(TLPVariablesUserActivity, 0, 0)
+        TLPFillActivityUsers.Controls.Add(TLPMemberEngagement, 0, 1)
+        TLPFillActivityUsers.Dock = DockStyle.Fill
+        TLPFillActivityUsers.Location = New Point(0, 36)
+        TLPFillActivityUsers.Margin = New Padding(0)
+        TLPFillActivityUsers.Name = "TLPFillActivityUsers"
+        TLPFillActivityUsers.RowCount = 2
+        TLPFillActivityUsers.RowStyles.Add(New RowStyle(SizeType.Percent, 70F))
+        TLPFillActivityUsers.RowStyles.Add(New RowStyle(SizeType.Percent, 30F))
+        TLPFillActivityUsers.Size = New Size(414, 204)
+        TLPFillActivityUsers.TabIndex = 1
+        ' 
+        ' TLPVariablesUserActivity
+        ' 
+        TLPVariablesUserActivity.ColumnCount = 1
+        TLPVariablesUserActivity.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TLPVariablesUserActivity.Controls.Add(TableLayoutPanel10, 0, 3)
+        TLPVariablesUserActivity.Controls.Add(TableLayoutPanel11, 0, 2)
+        TLPVariablesUserActivity.Controls.Add(TableLayoutPanel12, 0, 1)
+        TLPVariablesUserActivity.Controls.Add(TLPActiveMembers, 0, 0)
+        TLPVariablesUserActivity.Dock = DockStyle.Fill
+        TLPVariablesUserActivity.Location = New Point(0, 0)
+        TLPVariablesUserActivity.Margin = New Padding(0)
+        TLPVariablesUserActivity.Name = "TLPVariablesUserActivity"
+        TLPVariablesUserActivity.RowCount = 4
+        TLPVariablesUserActivity.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TLPVariablesUserActivity.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TLPVariablesUserActivity.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TLPVariablesUserActivity.RowStyles.Add(New RowStyle(SizeType.Percent, 25F))
+        TLPVariablesUserActivity.Size = New Size(414, 142)
+        TLPVariablesUserActivity.TabIndex = 0
+        ' 
+        ' TableLayoutPanel10
+        ' 
+        TableLayoutPanel10.ColumnCount = 2
+        TableLayoutPanel10.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
+        TableLayoutPanel10.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 85F))
+        TableLayoutPanel10.Controls.Add(Panel27, 1, 0)
+        TableLayoutPanel10.Controls.Add(Panel28, 0, 0)
+        TableLayoutPanel10.Dock = DockStyle.Fill
+        TableLayoutPanel10.Location = New Point(3, 108)
+        TableLayoutPanel10.Name = "TableLayoutPanel10"
+        TableLayoutPanel10.RowCount = 1
+        TableLayoutPanel10.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel10.Size = New Size(408, 31)
+        TableLayoutPanel10.TabIndex = 3
+        ' 
+        ' Panel27
+        ' 
+        Panel27.Controls.Add(Label9)
+        Panel27.Dock = DockStyle.Fill
+        Panel27.Location = New Point(61, 3)
+        Panel27.Margin = New Padding(0, 3, 3, 3)
+        Panel27.Name = "Panel27"
+        Panel27.Size = New Size(344, 25)
+        Panel27.TabIndex = 2
+        ' 
+        ' Label9
+        ' 
+        Label9.Dock = DockStyle.Fill
+        Label9.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label9.ForeColor = Color.DarkSlateGray
+        Label9.Location = New Point(0, 0)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(344, 25)
+        Label9.TabIndex = 1
+        Label9.Text = "New Registration"
+        Label9.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Panel28
+        ' 
+        Panel28.Controls.Add(LblNumberOfNewRegistration)
+        Panel28.Dock = DockStyle.Fill
+        Panel28.Location = New Point(0, 0)
+        Panel28.Margin = New Padding(0)
+        Panel28.Name = "Panel28"
+        Panel28.Size = New Size(61, 31)
+        Panel28.TabIndex = 1
+        ' 
+        ' LblNumberOfNewRegistration
+        ' 
+        LblNumberOfNewRegistration.Dock = DockStyle.Fill
+        LblNumberOfNewRegistration.Font = New Font("Arial", 15F, FontStyle.Bold)
+        LblNumberOfNewRegistration.ForeColor = Color.DarkSlateGray
+        LblNumberOfNewRegistration.Location = New Point(0, 0)
+        LblNumberOfNewRegistration.Name = "LblNumberOfNewRegistration"
+        LblNumberOfNewRegistration.Size = New Size(61, 31)
+        LblNumberOfNewRegistration.TabIndex = 0
+        LblNumberOfNewRegistration.Text = "45"
+        LblNumberOfNewRegistration.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' TableLayoutPanel11
+        ' 
+        TableLayoutPanel11.ColumnCount = 2
+        TableLayoutPanel11.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
+        TableLayoutPanel11.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 85F))
+        TableLayoutPanel11.Controls.Add(Panel29, 1, 0)
+        TableLayoutPanel11.Controls.Add(Panel36, 0, 0)
+        TableLayoutPanel11.Dock = DockStyle.Fill
+        TableLayoutPanel11.Location = New Point(3, 73)
+        TableLayoutPanel11.Name = "TableLayoutPanel11"
+        TableLayoutPanel11.RowCount = 1
+        TableLayoutPanel11.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel11.Size = New Size(408, 29)
+        TableLayoutPanel11.TabIndex = 2
+        ' 
+        ' Panel29
+        ' 
+        Panel29.Controls.Add(Label13)
+        Panel29.Dock = DockStyle.Fill
+        Panel29.Location = New Point(61, 3)
+        Panel29.Margin = New Padding(0, 3, 3, 3)
+        Panel29.Name = "Panel29"
+        Panel29.Size = New Size(344, 23)
+        Panel29.TabIndex = 2
+        ' 
+        ' Label13
+        ' 
+        Label13.Dock = DockStyle.Fill
+        Label13.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label13.ForeColor = Color.DarkSlateGray
+        Label13.Location = New Point(0, 0)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(344, 23)
+        Label13.TabIndex = 1
+        Label13.Text = "Books Borrowed"
+        Label13.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Panel36
+        ' 
+        Panel36.Controls.Add(LblNumberOfBooksBorrowed)
+        Panel36.Dock = DockStyle.Fill
+        Panel36.Location = New Point(0, 0)
+        Panel36.Margin = New Padding(0)
+        Panel36.Name = "Panel36"
+        Panel36.Size = New Size(61, 29)
+        Panel36.TabIndex = 1
+        ' 
+        ' LblNumberOfBooksBorrowed
+        ' 
+        LblNumberOfBooksBorrowed.Dock = DockStyle.Fill
+        LblNumberOfBooksBorrowed.Font = New Font("Arial", 15F, FontStyle.Bold)
+        LblNumberOfBooksBorrowed.ForeColor = Color.DarkSlateGray
+        LblNumberOfBooksBorrowed.Location = New Point(0, 0)
+        LblNumberOfBooksBorrowed.Name = "LblNumberOfBooksBorrowed"
+        LblNumberOfBooksBorrowed.Size = New Size(61, 29)
+        LblNumberOfBooksBorrowed.TabIndex = 0
+        LblNumberOfBooksBorrowed.Text = "186"
+        LblNumberOfBooksBorrowed.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' TableLayoutPanel12
+        ' 
+        TableLayoutPanel12.ColumnCount = 2
+        TableLayoutPanel12.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
+        TableLayoutPanel12.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 85F))
+        TableLayoutPanel12.Controls.Add(Panel37, 1, 0)
+        TableLayoutPanel12.Controls.Add(Panel38, 0, 0)
+        TableLayoutPanel12.Dock = DockStyle.Fill
+        TableLayoutPanel12.Location = New Point(3, 38)
+        TableLayoutPanel12.Name = "TableLayoutPanel12"
+        TableLayoutPanel12.RowCount = 1
+        TableLayoutPanel12.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel12.Size = New Size(408, 29)
+        TableLayoutPanel12.TabIndex = 1
+        ' 
+        ' Panel37
+        ' 
+        Panel37.Controls.Add(Label15)
+        Panel37.Dock = DockStyle.Fill
+        Panel37.Location = New Point(61, 3)
+        Panel37.Margin = New Padding(0, 3, 3, 3)
+        Panel37.Name = "Panel37"
+        Panel37.Size = New Size(344, 23)
+        Panel37.TabIndex = 2
+        ' 
+        ' Label15
+        ' 
+        Label15.Dock = DockStyle.Fill
+        Label15.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label15.ForeColor = Color.DarkSlateGray
+        Label15.Location = New Point(0, 0)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(344, 23)
+        Label15.TabIndex = 1
+        Label15.Text = "Library Visits"
+        Label15.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Panel38
+        ' 
+        Panel38.Controls.Add(LblNumberOfLibraryVisits)
+        Panel38.Dock = DockStyle.Fill
+        Panel38.Location = New Point(0, 0)
+        Panel38.Margin = New Padding(0)
+        Panel38.Name = "Panel38"
+        Panel38.Size = New Size(61, 29)
+        Panel38.TabIndex = 1
+        ' 
+        ' LblNumberOfLibraryVisits
+        ' 
+        LblNumberOfLibraryVisits.Dock = DockStyle.Fill
+        LblNumberOfLibraryVisits.Font = New Font("Arial", 15F, FontStyle.Bold)
+        LblNumberOfLibraryVisits.ForeColor = Color.DarkSlateGray
+        LblNumberOfLibraryVisits.Location = New Point(0, 0)
+        LblNumberOfLibraryVisits.Name = "LblNumberOfLibraryVisits"
+        LblNumberOfLibraryVisits.Size = New Size(61, 29)
+        LblNumberOfLibraryVisits.TabIndex = 0
+        LblNumberOfLibraryVisits.Text = "762"
+        LblNumberOfLibraryVisits.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' TLPActiveMembers
+        ' 
+        TLPActiveMembers.ColumnCount = 2
+        TLPActiveMembers.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
+        TLPActiveMembers.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 85F))
+        TLPActiveMembers.Controls.Add(PnlForNumberOfActiveMembers, 0, 0)
+        TLPActiveMembers.Controls.Add(Panel40, 1, 0)
+        TLPActiveMembers.Dock = DockStyle.Fill
+        TLPActiveMembers.Location = New Point(3, 3)
+        TLPActiveMembers.Name = "TLPActiveMembers"
+        TLPActiveMembers.RowCount = 1
+        TLPActiveMembers.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TLPActiveMembers.Size = New Size(408, 29)
+        TLPActiveMembers.TabIndex = 0
+        ' 
+        ' PnlForNumberOfActiveMembers
+        ' 
+        PnlForNumberOfActiveMembers.Controls.Add(LblNumberOfActiveMembers)
+        PnlForNumberOfActiveMembers.Dock = DockStyle.Fill
+        PnlForNumberOfActiveMembers.Location = New Point(0, 0)
+        PnlForNumberOfActiveMembers.Margin = New Padding(0)
+        PnlForNumberOfActiveMembers.Name = "PnlForNumberOfActiveMembers"
+        PnlForNumberOfActiveMembers.Size = New Size(61, 29)
+        PnlForNumberOfActiveMembers.TabIndex = 0
+        ' 
+        ' LblNumberOfActiveMembers
+        ' 
+        LblNumberOfActiveMembers.Dock = DockStyle.Fill
+        LblNumberOfActiveMembers.Font = New Font("Arial", 15F, FontStyle.Bold)
+        LblNumberOfActiveMembers.ForeColor = Color.DarkSlateGray
+        LblNumberOfActiveMembers.Location = New Point(0, 0)
+        LblNumberOfActiveMembers.Name = "LblNumberOfActiveMembers"
+        LblNumberOfActiveMembers.Size = New Size(61, 29)
+        LblNumberOfActiveMembers.TabIndex = 0
+        LblNumberOfActiveMembers.Text = "1024"
+        LblNumberOfActiveMembers.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Panel40
+        ' 
+        Panel40.Controls.Add(Label18)
+        Panel40.Dock = DockStyle.Fill
+        Panel40.Location = New Point(61, 3)
+        Panel40.Margin = New Padding(0, 3, 3, 3)
+        Panel40.Name = "Panel40"
+        Panel40.Size = New Size(344, 23)
+        Panel40.TabIndex = 1
+        ' 
+        ' Label18
+        ' 
+        Label18.Dock = DockStyle.Fill
+        Label18.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label18.ForeColor = Color.DarkSlateGray
+        Label18.Location = New Point(0, 0)
+        Label18.Name = "Label18"
+        Label18.Size = New Size(344, 23)
+        Label18.TabIndex = 1
+        Label18.Text = "Active Members"
+        Label18.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' TLPMemberEngagement
+        ' 
+        TLPMemberEngagement.ColumnCount = 1
+        TLPMemberEngagement.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TLPMemberEngagement.Controls.Add(Panel41, 0, 0)
+        TLPMemberEngagement.Controls.Add(PnlForBarMemberEngagement, 0, 1)
+        TLPMemberEngagement.Controls.Add(TableLayoutPanel15, 0, 2)
+        TLPMemberEngagement.Dock = DockStyle.Fill
+        TLPMemberEngagement.Location = New Point(0, 142)
+        TLPMemberEngagement.Margin = New Padding(0)
+        TLPMemberEngagement.Name = "TLPMemberEngagement"
+        TLPMemberEngagement.RowCount = 3
+        TLPMemberEngagement.RowStyles.Add(New RowStyle(SizeType.Percent, 30F))
+        TLPMemberEngagement.RowStyles.Add(New RowStyle(SizeType.Percent, 40F))
+        TLPMemberEngagement.RowStyles.Add(New RowStyle(SizeType.Percent, 30F))
+        TLPMemberEngagement.Size = New Size(414, 62)
+        TLPMemberEngagement.TabIndex = 1
+        ' 
+        ' Panel41
+        ' 
+        Panel41.Controls.Add(Label19)
+        Panel41.Dock = DockStyle.Fill
+        Panel41.Location = New Point(0, 3)
+        Panel41.Margin = New Padding(0, 3, 3, 3)
+        Panel41.Name = "Panel41"
+        Panel41.Size = New Size(411, 12)
+        Panel41.TabIndex = 3
+        ' 
+        ' Label19
+        ' 
+        Label19.Dock = DockStyle.Fill
+        Label19.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label19.ForeColor = Color.DarkSlateGray
+        Label19.Location = New Point(0, 0)
+        Label19.Name = "Label19"
+        Label19.Size = New Size(411, 12)
+        Label19.TabIndex = 1
+        Label19.Text = "Member Engagement"
+        Label19.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' PnlForBarMemberEngagement
+        ' 
+        PnlForBarMemberEngagement.Controls.Add(PnlBarForMemberEngagement)
+        PnlForBarMemberEngagement.Dock = DockStyle.Fill
+        PnlForBarMemberEngagement.Location = New Point(3, 23)
+        PnlForBarMemberEngagement.Margin = New Padding(3, 5, 9, 12)
+        PnlForBarMemberEngagement.Name = "PnlForBarMemberEngagement"
+        PnlForBarMemberEngagement.Size = New Size(402, 7)
+        PnlForBarMemberEngagement.TabIndex = 4
+        ' 
+        ' PnlBarForMemberEngagement
+        ' 
+        PnlBarForMemberEngagement.Controls.Add(PnlBarBackMemberEngagement)
+        PnlBarForMemberEngagement.Dock = DockStyle.Fill
+        PnlBarForMemberEngagement.Location = New Point(0, 0)
+        PnlBarForMemberEngagement.Margin = New Padding(0)
+        PnlBarForMemberEngagement.Name = "PnlBarForMemberEngagement"
+        PnlBarForMemberEngagement.Size = New Size(402, 7)
+        PnlBarForMemberEngagement.TabIndex = 0
+        ' 
+        ' PnlBarBackMemberEngagement
+        ' 
+        PnlBarBackMemberEngagement.BackColor = Color.FromArgb(CByte(223), CByte(222), CByte(223))
+        PnlBarBackMemberEngagement.Controls.Add(PnlFillBarMemberEngagement)
+        PnlBarBackMemberEngagement.Dock = DockStyle.Fill
+        PnlBarBackMemberEngagement.Location = New Point(0, 0)
+        PnlBarBackMemberEngagement.Name = "PnlBarBackMemberEngagement"
+        PnlBarBackMemberEngagement.Size = New Size(402, 7)
+        PnlBarBackMemberEngagement.TabIndex = 0
+        ' 
+        ' PnlFillBarMemberEngagement
+        ' 
+        PnlFillBarMemberEngagement.BackColor = Color.FromArgb(CByte(46), CByte(203), CByte(112))
+        PnlFillBarMemberEngagement.Dock = DockStyle.Left
+        PnlFillBarMemberEngagement.Location = New Point(0, 0)
+        PnlFillBarMemberEngagement.Name = "PnlFillBarMemberEngagement"
+        PnlFillBarMemberEngagement.Size = New Size(34, 7)
+        PnlFillBarMemberEngagement.TabIndex = 1
+        ' 
+        ' TableLayoutPanel15
+        ' 
+        TableLayoutPanel15.ColumnCount = 2
+        TableLayoutPanel15.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel15.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel15.Controls.Add(Panel46, 1, 0)
+        TableLayoutPanel15.Controls.Add(Panel47, 0, 0)
+        TableLayoutPanel15.Dock = DockStyle.Fill
+        TableLayoutPanel15.Location = New Point(3, 45)
+        TableLayoutPanel15.Name = "TableLayoutPanel15"
+        TableLayoutPanel15.RowCount = 1
+        TableLayoutPanel15.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel15.Size = New Size(408, 14)
+        TableLayoutPanel15.TabIndex = 5
+        ' 
+        ' Panel46
+        ' 
+        Panel46.Controls.Add(LblLastUpdatedUserActivity)
+        Panel46.Dock = DockStyle.Fill
+        Panel46.Font = New Font("Arial", 9F)
+        Panel46.Location = New Point(204, 0)
+        Panel46.Margin = New Padding(0, 0, 6, 4)
+        Panel46.Name = "Panel46"
+        Panel46.Size = New Size(198, 10)
+        Panel46.TabIndex = 1
+        ' 
+        ' LblLastUpdatedUserActivity
+        ' 
+        LblLastUpdatedUserActivity.Dock = DockStyle.Fill
+        LblLastUpdatedUserActivity.Font = New Font("Arial", 7F)
+        LblLastUpdatedUserActivity.ForeColor = Color.DarkSlateGray
+        LblLastUpdatedUserActivity.Location = New Point(0, 0)
+        LblLastUpdatedUserActivity.Margin = New Padding(2, 0, 6, 6)
+        LblLastUpdatedUserActivity.Name = "LblLastUpdatedUserActivity"
+        LblLastUpdatedUserActivity.Padding = New Padding(0, 0, 0, 1)
+        LblLastUpdatedUserActivity.Size = New Size(198, 10)
+        LblLastUpdatedUserActivity.TabIndex = 0
+        LblLastUpdatedUserActivity.Text = "Last updated: 04-07-2025 10:30 AM"
+        LblLastUpdatedUserActivity.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' Panel47
+        ' 
+        Panel47.Controls.Add(LblPercentMemberEngagement)
+        Panel47.Dock = DockStyle.Fill
+        Panel47.Location = New Point(0, 0)
+        Panel47.Margin = New Padding(0)
+        Panel47.Name = "Panel47"
+        Panel47.Size = New Size(204, 14)
+        Panel47.TabIndex = 0
+        ' 
+        ' LblPercentMemberEngagement
+        ' 
+        LblPercentMemberEngagement.Dock = DockStyle.Fill
+        LblPercentMemberEngagement.Font = New Font("Arial", 9F)
+        LblPercentMemberEngagement.ForeColor = Color.DarkSlateGray
+        LblPercentMemberEngagement.Location = New Point(0, 0)
+        LblPercentMemberEngagement.Name = "LblPercentMemberEngagement"
+        LblPercentMemberEngagement.Size = New Size(204, 14)
+        LblPercentMemberEngagement.TabIndex = 0
+        LblPercentMemberEngagement.Text = "Percent"
+        ' 
+        ' TLPTopUserActivity
+        ' 
+        TLPTopUserActivity.ColumnCount = 2
+        TLPTopUserActivity.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TLPTopUserActivity.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TLPTopUserActivity.Controls.Add(Panel48, 1, 0)
+        TLPTopUserActivity.Controls.Add(Panel49, 0, 0)
+        TLPTopUserActivity.Dock = DockStyle.Fill
+        TLPTopUserActivity.Location = New Point(0, 0)
+        TLPTopUserActivity.Margin = New Padding(0)
+        TLPTopUserActivity.Name = "TLPTopUserActivity"
+        TLPTopUserActivity.RowCount = 1
+        TLPTopUserActivity.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TLPTopUserActivity.Size = New Size(414, 36)
+        TLPTopUserActivity.TabIndex = 0
+        ' 
+        ' Panel48
+        ' 
+        Panel48.Controls.Add(Label22)
+        Panel48.Dock = DockStyle.Fill
+        Panel48.Location = New Point(210, 3)
+        Panel48.Name = "Panel48"
+        Panel48.Size = New Size(201, 30)
+        Panel48.TabIndex = 1
+        ' 
+        ' Label22
+        ' 
+        Label22.Dock = DockStyle.Fill
+        Label22.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label22.ForeColor = Color.DarkSlateGray
+        Label22.Location = New Point(0, 0)
+        Label22.Name = "Label22"
+        Label22.Size = New Size(201, 30)
+        Label22.TabIndex = 1
+        Label22.Text = "April 2025"
+        Label22.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' Panel49
+        ' 
+        Panel49.Controls.Add(Label23)
+        Panel49.Dock = DockStyle.Fill
+        Panel49.Location = New Point(3, 3)
+        Panel49.Name = "Panel49"
+        Panel49.Size = New Size(201, 30)
+        Panel49.TabIndex = 0
+        ' 
+        ' Label23
+        ' 
+        Label23.Dock = DockStyle.Fill
+        Label23.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label23.ForeColor = Color.DarkSlateGray
+        Label23.Location = New Point(0, 0)
+        Label23.Name = "Label23"
+        Label23.Size = New Size(201, 30)
+        Label23.TabIndex = 0
+        Label23.Text = "User Activity"
+        Label23.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PnlBorrowingStatistics
         ' 
@@ -1740,6 +2304,33 @@ Partial Class CFReport
         Panel12.ResumeLayout(False)
         TableLayoutPanel4.ResumeLayout(False)
         TableLayoutPanel5.ResumeLayout(False)
+        PNLUserActivity.ResumeLayout(False)
+        TLPUserActivity.ResumeLayout(False)
+        TLPFillActivityUsers.ResumeLayout(False)
+        TLPVariablesUserActivity.ResumeLayout(False)
+        TableLayoutPanel10.ResumeLayout(False)
+        Panel27.ResumeLayout(False)
+        Panel28.ResumeLayout(False)
+        TableLayoutPanel11.ResumeLayout(False)
+        Panel29.ResumeLayout(False)
+        Panel36.ResumeLayout(False)
+        TableLayoutPanel12.ResumeLayout(False)
+        Panel37.ResumeLayout(False)
+        Panel38.ResumeLayout(False)
+        TLPActiveMembers.ResumeLayout(False)
+        PnlForNumberOfActiveMembers.ResumeLayout(False)
+        Panel40.ResumeLayout(False)
+        TLPMemberEngagement.ResumeLayout(False)
+        Panel41.ResumeLayout(False)
+        PnlForBarMemberEngagement.ResumeLayout(False)
+        PnlBarForMemberEngagement.ResumeLayout(False)
+        PnlBarBackMemberEngagement.ResumeLayout(False)
+        TableLayoutPanel15.ResumeLayout(False)
+        Panel46.ResumeLayout(False)
+        Panel47.ResumeLayout(False)
+        TLPTopUserActivity.ResumeLayout(False)
+        Panel48.ResumeLayout(False)
+        Panel49.ResumeLayout(False)
         PnlBorrowingStatistics.ResumeLayout(False)
         TLPBorrowingStatistics.ResumeLayout(False)
         TLPFillBorrowingStatistics.ResumeLayout(False)
@@ -1927,4 +2518,45 @@ Partial Class CFReport
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel23 As Panel
     Friend WithEvents Label4 As Label
+    Friend WithEvents PNLUserActivity As Panel
+    Friend WithEvents TLPUserActivity As TableLayoutPanel
+    Friend WithEvents TLPFillActivityUsers As TableLayoutPanel
+    Friend WithEvents TLPVariablesUserActivity As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel10 As TableLayoutPanel
+    Friend WithEvents Panel27 As Panel
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Panel28 As Panel
+    Friend WithEvents LblNumberOfNewRegistration As Label
+    Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
+    Friend WithEvents Panel29 As Panel
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Panel36 As Panel
+    Friend WithEvents LblNumberOfBooksBorrowed As Label
+    Friend WithEvents TableLayoutPanel12 As TableLayoutPanel
+    Friend WithEvents Panel37 As Panel
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Panel38 As Panel
+    Friend WithEvents LblNumberOfLibraryVisits As Label
+    Friend WithEvents TLPActiveMembers As TableLayoutPanel
+    Friend WithEvents PnlForNumberOfActiveMembers As Panel
+    Friend WithEvents LblNumberOfActiveMembers As Label
+    Friend WithEvents Panel40 As Panel
+    Friend WithEvents Label18 As Label
+    Friend WithEvents TLPMemberEngagement As TableLayoutPanel
+    Friend WithEvents Panel41 As Panel
+    Friend WithEvents Label19 As Label
+    Friend WithEvents PnlForBarMemberEngagement As Panel
+    Friend WithEvents PnlBarForMemberEngagement As Panel
+    Friend WithEvents PnlBarBackMemberEngagement As Panel
+    Friend WithEvents PnlFillBarMemberEngagement As Panel
+    Friend WithEvents TableLayoutPanel15 As TableLayoutPanel
+    Friend WithEvents Panel46 As Panel
+    Friend WithEvents LblLastUpdatedUserActivity As Label
+    Friend WithEvents Panel47 As Panel
+    Friend WithEvents LblPercentMemberEngagement As Label
+    Friend WithEvents TLPTopUserActivity As TableLayoutPanel
+    Friend WithEvents Panel48 As Panel
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Panel49 As Panel
+    Friend WithEvents Label23 As Label
 End Class

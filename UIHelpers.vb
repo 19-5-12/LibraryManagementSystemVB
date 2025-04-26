@@ -176,11 +176,33 @@ Module UIHelpers
         End While
 
         Dim fillPercent As Double = value / maxValue
-        Dim fillWidth As Integer = CInt(fullBarWidth * fillPercent)
+        Dim fillWidth As Integer = CInt(Math.Round(fullBarWidth * fillPercent))
+
+        If value = maxValue Then
+            fillWidth = fullBarWidth
+        Else
+            fillWidth = CInt(Math.Round(fullBarWidth * fillPercent))
+        End If
+
 
         fillPanel.Width = fillWidth
     End Sub
 
+    Public Function CalculateMemberEngagement(activeMembers As Integer, libraryVisits As Integer, booksBorrowed As Integer, newRegistrations As Integer) As Double
+        If activeMembers <= 0 Then Return 0
+
+        Dim memberActivity As Integer = libraryVisits + booksBorrowed + newRegistrations
+        Dim engagementRate As Double = (memberActivity / activeMembers) * 100
+
+        Return engagementRate
+    End Function
+
+    Public Sub SetEngagementBar(bgPanel As Panel, fillPanel As Panel, engagementRate As Double)
+        Dim percent As Double = Math.Min(engagementRate / 100.0, 1.0) ' Ensure max is 100%
+        Dim fillWidth As Integer = CInt(bgPanel.Width * percent)
+
+        fillPanel.Width = fillWidth
+    End Sub
 
 
 End Module
