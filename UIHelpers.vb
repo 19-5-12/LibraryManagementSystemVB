@@ -56,6 +56,20 @@ Module UIHelpers
         End Using
     End Sub
 
+    Public Sub RoundPanel(pnl As Panel, e As PaintEventArgs, Optional radius As Integer = 20)
+        Dim path As New Drawing2D.GraphicsPath()
+
+        path.StartFigure()
+        path.AddArc(0, 0, radius, radius, 180, 90)
+        path.AddArc(pnl.Width - radius, 0, radius, radius, 270, 90)
+        path.AddArc(pnl.Width - radius, pnl.Height - radius, radius, radius, 0, 90)
+        path.AddArc(0, pnl.Height - radius, radius, radius, 90, 90)
+        path.CloseFigure()
+
+        pnl.Region = New Region(path)
+    End Sub
+
+
     Public Sub SetupFormUI(CRUDBtns As Button(), grid As DataGridView, timer As Timer, timeLabel As Label, loadDataAction As Action)
         ' Style buttons
         For Each btn In CRUDBtns
@@ -214,6 +228,20 @@ Module UIHelpers
         Dim fillWidth As Integer = CInt(Math.Round(fullBarWidth * fillPercent))
 
         fillPanel.Width = fillWidth
+    End Sub
+
+    Public Sub RoundTableLayoutPanel(tbl As TableLayoutPanel, e As PaintEventArgs, Optional radius As Integer = 20)
+        Dim path As New Drawing2D.GraphicsPath()
+
+        ' Create a rounded rectangle
+        path.StartFigure()
+        path.AddArc(0, 0, radius, radius, 180, 90)
+        path.AddArc(tbl.Width - radius, 0, radius, radius, 270, 90)
+        path.AddArc(tbl.Width - radius, tbl.Height - radius, radius, radius, 0, 90)
+        path.AddArc(0, tbl.Height - radius, radius, radius, 90, 90)
+        path.CloseFigure()
+
+        tbl.Region = New Region(path)
     End Sub
 
 End Module

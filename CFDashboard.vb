@@ -9,9 +9,7 @@ Public Class CFDashboard
         PnlImageTotalBooks,
         PnlImageBooksBorrowed,
         PnlImageActMem,
-        PnlIMageOverdue,
-        PnlForDataGridView,
-        TableLayoutPanel9
+        PnlIMageOverdue
     }
 
         For Each pnl In panelsToStyle
@@ -51,4 +49,7 @@ Public Class CFDashboard
         End Using
     End Sub
 
+    Private Sub TLPRecentStudentAttendance_Paint(sender As Object, e As PaintEventArgs) Handles TLPRecentStudentAttendance.Paint
+        StyleShadowPanel(CType(sender, Panel), e)
+    End Sub
 End Class

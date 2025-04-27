@@ -4,6 +4,7 @@ Public Class CFMeetingRooms
     Private Sub CFMeetingRooms_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim CRUDBtns As Button() = {BtnAdd, BtnModify, BtnDelete, BtnBack}
         SetupFormUI(CRUDBtns, DataGridView1, TimerDateTime, LblDateTimeMeeting, AddressOf LoadMeetingData)
+
     End Sub
 
     Private Sub LoadMeetingData()
@@ -29,6 +30,7 @@ Public Class CFMeetingRooms
     End Sub
 
     Private Sub TBLPMeeting_Paint(sender As Object, e As PaintEventArgs) Handles TBLPMeeting.Paint
-        StyleShadowPanel(CType(sender, Panel), e)
+        RoundTableLayoutPanel(TBLPMeeting, e) ' <- Rounded corners
     End Sub
+
 End Class

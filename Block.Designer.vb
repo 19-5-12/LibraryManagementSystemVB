@@ -36,6 +36,7 @@ Partial Class Block
         LblDateTime = New Label()
         Label2 = New Label()
         TBLPBlock = New TableLayoutPanel()
+        Panel10 = New Panel()
         TBLTopOfData = New TableLayoutPanel()
         LblViewAll = New Label()
         Label1 = New Label()
@@ -186,15 +187,26 @@ Partial Class Block
         TBLPBlock.BackColor = Color.White
         TBLPBlock.ColumnCount = 1
         TBLPBlock.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TBLPBlock.Controls.Add(Panel10, 0, 1)
         TBLPBlock.Controls.Add(TBLTopOfData, 0, 0)
-        TBLPBlock.Controls.Add(PnlForData, 0, 1)
+        TBLPBlock.Controls.Add(PnlForData, 0, 2)
         TBLPBlock.Location = New Point(19, 23)
         TBLPBlock.Name = "TBLPBlock"
-        TBLPBlock.RowCount = 2
+        TBLPBlock.RowCount = 3
         TBLPBlock.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
+        TBLPBlock.RowStyles.Add(New RowStyle(SizeType.Absolute, 1F))
         TBLPBlock.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
         TBLPBlock.Size = New Size(931, 369)
         TBLPBlock.TabIndex = 0
+        ' 
+        ' Panel10
+        ' 
+        Panel10.BackColor = SystemColors.Control
+        Panel10.Dock = DockStyle.Fill
+        Panel10.Location = New Point(3, 39)
+        Panel10.Name = "Panel10"
+        Panel10.Size = New Size(925, 1)
+        Panel10.TabIndex = 3
         ' 
         ' TBLTopOfData
         ' 
@@ -243,10 +255,10 @@ Partial Class Block
         PnlForData.BackColor = Color.White
         PnlForData.Controls.Add(PnlForDataGridView)
         PnlForData.Dock = DockStyle.Fill
-        PnlForData.Location = New Point(0, 36)
+        PnlForData.Location = New Point(0, 37)
         PnlForData.Margin = New Padding(0)
         PnlForData.Name = "PnlForData"
-        PnlForData.Size = New Size(931, 333)
+        PnlForData.Size = New Size(931, 332)
         PnlForData.TabIndex = 1
         ' 
         ' PnlForDataGridView
@@ -257,7 +269,7 @@ Partial Class Block
         PnlForDataGridView.Controls.Add(DataGridView1)
         PnlForDataGridView.Location = New Point(25, 13)
         PnlForDataGridView.Name = "PnlForDataGridView"
-        PnlForDataGridView.Size = New Size(881, 294)
+        PnlForDataGridView.Size = New Size(881, 293)
         PnlForDataGridView.TabIndex = 0
         ' 
         ' DataGridView1
@@ -305,7 +317,7 @@ Partial Class Block
         DataGridView1.RowTemplate.ReadOnly = True
         DataGridView1.RowTemplate.Resizable = DataGridViewTriState.False
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView1.Size = New Size(881, 294)
+        DataGridView1.Size = New Size(881, 293)
         DataGridView1.TabIndex = 0
         ' 
         ' Panel1
@@ -532,4 +544,5 @@ Partial Class Block
     Friend WithEvents PnlForDataGridView As Panel
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents TimerDateTime As Timer
+    Friend WithEvents Panel10 As Panel
 End Class

@@ -244,4 +244,22 @@
         BtnCurrentlyHighlighted = BtnReport
         HighlightButton(BtnReport)
     End Sub
+
+    Private Sub BtnBorrowing_Click(sender As Object, e As EventArgs) Handles BtnBorrowing.Click
+        ChildForm(New CFBorrowing())
+        BtnCurrentlyHighlighted = BtnBorrowing
+        HighlightButton(BtnBorrowing)
+    End Sub
+
+    Private Sub BtnUser_Click(sender As Object, e As EventArgs) Handles BtnUser.Click
+        ChildForm(New CFUser())
+        BtnCurrentlyHighlighted = BtnUser
+        HighlightButton(BtnUser)
+    End Sub
+
+    Private Sub BtnSettings_Click(sender As Object, e As EventArgs) Handles BtnSettings.Click
+        ChildForm(New CFSettings())
+        BtnCurrentlyHighlighted = BtnSettings
+        HighlightButton(BtnSettings)
+    End Sub
 End Class

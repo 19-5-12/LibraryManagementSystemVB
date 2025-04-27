@@ -4,6 +4,7 @@ Public Class Block
     Private Sub Block_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim CRUDBtns As Button() = {BtnAdd, BtnModify, BtnDelete, BtnBack}
         SetupFormUI(CRUDBtns, DataGridView1, TimerDateTime, LblDateTimeBlock, AddressOf LoadBlocksData)
+
     End Sub
 
     Private Sub LoadBlocksData()
@@ -29,6 +30,6 @@ Public Class Block
     End Sub
 
     Private Sub TBLPBlock_Paint(sender As Object, e As PaintEventArgs) Handles TBLPBlock.Paint
-        StyleShadowPanel(CType(sender, Panel), e)
+        RoundTableLayoutPanel(TBLPBlock, e)
     End Sub
 End Class

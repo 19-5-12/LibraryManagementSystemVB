@@ -82,14 +82,15 @@ Partial Class CFDashboard
         Panel7 = New Panel()
         LblDateTime = New Label()
         Label2 = New Label()
-        TableLayoutPanel9 = New TableLayoutPanel()
+        TLPRecentStudentAttendance = New TableLayoutPanel()
         TBLTopOfData = New TableLayoutPanel()
         LblViewAll = New Label()
         Label1 = New Label()
         PnlForData = New Panel()
-        TimerDateTime = New Timer(components)
-        DataGridView1 = New DataGridView()
         PnlForDataGridView = New Panel()
+        DataGridView1 = New DataGridView()
+        Panel8 = New Panel()
+        TimerDateTime = New Timer(components)
         PnlFill.SuspendLayout()
         TBLFill.SuspendLayout()
         TBL4.SuspendLayout()
@@ -135,11 +136,11 @@ Partial Class CFDashboard
         Panel4.SuspendLayout()
         PnlBelow.SuspendLayout()
         Panel7.SuspendLayout()
-        TableLayoutPanel9.SuspendLayout()
+        TLPRecentStudentAttendance.SuspendLayout()
         TBLTopOfData.SuspendLayout()
         PnlForData.SuspendLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         PnlForDataGridView.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' PnlFill
@@ -754,7 +755,7 @@ Partial Class CFDashboard
         ' PnlBelow
         ' 
         PnlBelow.Controls.Add(Panel7)
-        PnlBelow.Controls.Add(TableLayoutPanel9)
+        PnlBelow.Controls.Add(TLPRecentStudentAttendance)
         PnlBelow.Dock = DockStyle.Fill
         PnlBelow.Location = New Point(0, 114)
         PnlBelow.Margin = New Padding(0)
@@ -795,22 +796,24 @@ Partial Class CFDashboard
         Label2.Text = "© 2025 Quezon City University Library Management System | Current Time:"
         Label2.TextAlign = ContentAlignment.MiddleRight
         ' 
-        ' TableLayoutPanel9
+        ' TLPRecentStudentAttendance
         ' 
-        TableLayoutPanel9.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TableLayoutPanel9.AutoSize = True
-        TableLayoutPanel9.BackColor = Color.White
-        TableLayoutPanel9.ColumnCount = 1
-        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TableLayoutPanel9.Controls.Add(TBLTopOfData, 0, 0)
-        TableLayoutPanel9.Controls.Add(PnlForData, 0, 1)
-        TableLayoutPanel9.Location = New Point(19, 23)
-        TableLayoutPanel9.Name = "TableLayoutPanel9"
-        TableLayoutPanel9.RowCount = 2
-        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
-        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
-        TableLayoutPanel9.Size = New Size(931, 369)
-        TableLayoutPanel9.TabIndex = 0
+        TLPRecentStudentAttendance.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        TLPRecentStudentAttendance.AutoSize = True
+        TLPRecentStudentAttendance.BackColor = Color.White
+        TLPRecentStudentAttendance.ColumnCount = 1
+        TLPRecentStudentAttendance.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TLPRecentStudentAttendance.Controls.Add(TBLTopOfData, 0, 0)
+        TLPRecentStudentAttendance.Controls.Add(PnlForData, 0, 2)
+        TLPRecentStudentAttendance.Controls.Add(Panel8, 0, 1)
+        TLPRecentStudentAttendance.Location = New Point(19, 23)
+        TLPRecentStudentAttendance.Name = "TLPRecentStudentAttendance"
+        TLPRecentStudentAttendance.RowCount = 3
+        TLPRecentStudentAttendance.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
+        TLPRecentStudentAttendance.RowStyles.Add(New RowStyle(SizeType.Absolute, 1F))
+        TLPRecentStudentAttendance.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
+        TLPRecentStudentAttendance.Size = New Size(931, 369)
+        TLPRecentStudentAttendance.TabIndex = 0
         ' 
         ' TBLTopOfData
         ' 
@@ -859,14 +862,22 @@ Partial Class CFDashboard
         PnlForData.BackColor = Color.White
         PnlForData.Controls.Add(PnlForDataGridView)
         PnlForData.Dock = DockStyle.Fill
-        PnlForData.Location = New Point(0, 36)
+        PnlForData.Location = New Point(0, 37)
         PnlForData.Margin = New Padding(0)
         PnlForData.Name = "PnlForData"
-        PnlForData.Size = New Size(931, 333)
+        PnlForData.Size = New Size(931, 332)
         PnlForData.TabIndex = 1
         ' 
-        ' TimerDateTime
+        ' PnlForDataGridView
         ' 
+        PnlForDataGridView.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        PnlForDataGridView.AutoScroll = True
+        PnlForDataGridView.AutoSize = True
+        PnlForDataGridView.Controls.Add(DataGridView1)
+        PnlForDataGridView.Location = New Point(25, 13)
+        PnlForDataGridView.Name = "PnlForDataGridView"
+        PnlForDataGridView.Size = New Size(881, 293)
+        PnlForDataGridView.TabIndex = 0
         ' 
         ' DataGridView1
         ' 
@@ -913,19 +924,20 @@ Partial Class CFDashboard
         DataGridView1.RowTemplate.ReadOnly = True
         DataGridView1.RowTemplate.Resizable = DataGridViewTriState.False
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView1.Size = New Size(881, 294)
+        DataGridView1.Size = New Size(881, 293)
         DataGridView1.TabIndex = 0
         ' 
-        ' PnlForDataGridView
+        ' Panel8
         ' 
-        PnlForDataGridView.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        PnlForDataGridView.AutoScroll = True
-        PnlForDataGridView.AutoSize = True
-        PnlForDataGridView.Controls.Add(DataGridView1)
-        PnlForDataGridView.Location = New Point(25, 13)
-        PnlForDataGridView.Name = "PnlForDataGridView"
-        PnlForDataGridView.Size = New Size(881, 294)
-        PnlForDataGridView.TabIndex = 0
+        Panel8.BackColor = SystemColors.Control
+        Panel8.Dock = DockStyle.Fill
+        Panel8.Location = New Point(3, 39)
+        Panel8.Name = "Panel8"
+        Panel8.Size = New Size(925, 1)
+        Panel8.TabIndex = 2
+        ' 
+        ' TimerDateTime
+        ' 
         ' 
         ' CFDashboard
         ' 
@@ -986,12 +998,12 @@ Partial Class CFDashboard
         PnlBelow.ResumeLayout(False)
         PnlBelow.PerformLayout()
         Panel7.ResumeLayout(False)
-        TableLayoutPanel9.ResumeLayout(False)
+        TLPRecentStudentAttendance.ResumeLayout(False)
         TBLTopOfData.ResumeLayout(False)
         PnlForData.ResumeLayout(False)
         PnlForData.PerformLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         PnlForDataGridView.ResumeLayout(False)
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -1046,7 +1058,7 @@ Partial Class CFDashboard
     Friend WithEvents Panel12 As Panel
     Friend WithEvents LblNumBorrowed As Label
     Friend WithEvents PnlBelow As Panel
-    Friend WithEvents TableLayoutPanel9 As TableLayoutPanel
+    Friend WithEvents TLPRecentStudentAttendance As TableLayoutPanel
     Friend WithEvents TBLTopOfData As TableLayoutPanel
     Friend WithEvents LblViewAll As Label
     Friend WithEvents Label1 As Label
@@ -1058,4 +1070,5 @@ Partial Class CFDashboard
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PnlForDataGridView As Panel
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Panel8 As Panel
 End Class

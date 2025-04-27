@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class CFMeetingRooms
+Partial Class CFUser
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -29,19 +29,18 @@ Partial Class CFMeetingRooms
         TBLFill = New TableLayoutPanel()
         PnlBelow = New Panel()
         Panel8 = New Panel()
-        LblDateTimeMeeting = New Label()
+        LblDateTimeUser = New Label()
         Label4 = New Label()
         Panel7 = New Panel()
         LblDateTime = New Label()
         Label2 = New Label()
-        TBLPMeeting = New TableLayoutPanel()
+        TBLPUser = New TableLayoutPanel()
         TBLTopOfData = New TableLayoutPanel()
         LblViewAll = New Label()
         Label1 = New Label()
         PnlForData = New Panel()
         PnlForDataGridView = New Panel()
         DataGridView1 = New DataGridView()
-        Panel10 = New Panel()
         Panel1 = New Panel()
         TableLayoutPanel1 = New TableLayoutPanel()
         Panel5 = New Panel()
@@ -56,11 +55,12 @@ Partial Class CFMeetingRooms
         BtnAdd = New Button()
         Panel3 = New Panel()
         TimerDateTime = New Timer(components)
+        Panel10 = New Panel()
         TBLFill.SuspendLayout()
         PnlBelow.SuspendLayout()
         Panel8.SuspendLayout()
         Panel7.SuspendLayout()
-        TBLPMeeting.SuspendLayout()
+        TBLPUser.SuspendLayout()
         TBLTopOfData.SuspendLayout()
         PnlForData.SuspendLayout()
         PnlForDataGridView.SuspendLayout()
@@ -88,13 +88,13 @@ Partial Class CFMeetingRooms
         TBLFill.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
         TBLFill.RowStyles.Add(New RowStyle(SizeType.Percent, 80F))
         TBLFill.Size = New Size(967, 570)
-        TBLFill.TabIndex = 1
+        TBLFill.TabIndex = 2
         ' 
         ' PnlBelow
         ' 
         PnlBelow.Controls.Add(Panel8)
         PnlBelow.Controls.Add(Panel7)
-        PnlBelow.Controls.Add(TBLPMeeting)
+        PnlBelow.Controls.Add(TBLPUser)
         PnlBelow.Dock = DockStyle.Fill
         PnlBelow.Location = New Point(0, 114)
         PnlBelow.Margin = New Padding(0)
@@ -105,7 +105,7 @@ Partial Class CFMeetingRooms
         ' Panel8
         ' 
         Panel8.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        Panel8.Controls.Add(LblDateTimeMeeting)
+        Panel8.Controls.Add(LblDateTimeUser)
         Panel8.Controls.Add(Label4)
         Panel8.Location = New Point(227, 433)
         Panel8.Margin = New Padding(0)
@@ -113,16 +113,16 @@ Partial Class CFMeetingRooms
         Panel8.Size = New Size(556, 23)
         Panel8.TabIndex = 2
         ' 
-        ' LblDateTimeMeeting
+        ' LblDateTimeUser
         ' 
-        LblDateTimeMeeting.Font = New Font("Arial", 8F)
-        LblDateTimeMeeting.ForeColor = Color.Gray
-        LblDateTimeMeeting.Location = New Point(369, 0)
-        LblDateTimeMeeting.Name = "LblDateTimeMeeting"
-        LblDateTimeMeeting.Size = New Size(184, 23)
-        LblDateTimeMeeting.TabIndex = 3
-        LblDateTimeMeeting.Text = "time"
-        LblDateTimeMeeting.TextAlign = ContentAlignment.MiddleLeft
+        LblDateTimeUser.Font = New Font("Arial", 8F)
+        LblDateTimeUser.ForeColor = Color.Gray
+        LblDateTimeUser.Location = New Point(369, 0)
+        LblDateTimeUser.Name = "LblDateTimeUser"
+        LblDateTimeUser.Size = New Size(184, 23)
+        LblDateTimeUser.TabIndex = 3
+        LblDateTimeUser.Text = "time"
+        LblDateTimeUser.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Label4
         ' 
@@ -140,10 +140,10 @@ Partial Class CFMeetingRooms
         Panel7.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Panel7.Controls.Add(LblDateTime)
         Panel7.Controls.Add(Label2)
-        Panel7.Location = New Point(227, 1501)
+        Panel7.Location = New Point(227, 1857)
         Panel7.Margin = New Padding(0)
         Panel7.Name = "Panel7"
-        Panel7.Size = New Size(2857, 23)
+        Panel7.Size = New Size(3624, 23)
         Panel7.TabIndex = 1
         ' 
         ' LblDateTime
@@ -168,24 +168,24 @@ Partial Class CFMeetingRooms
         Label2.Text = "© 2025 Quezon City University Library Management System | Current Time:"
         Label2.TextAlign = ContentAlignment.MiddleRight
         ' 
-        ' TBLPMeeting
+        ' TBLPUser
         ' 
-        TBLPMeeting.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TBLPMeeting.AutoSize = True
-        TBLPMeeting.BackColor = Color.White
-        TBLPMeeting.ColumnCount = 1
-        TBLPMeeting.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TBLPMeeting.Controls.Add(TBLTopOfData, 0, 0)
-        TBLPMeeting.Controls.Add(PnlForData, 0, 2)
-        TBLPMeeting.Controls.Add(Panel10, 0, 1)
-        TBLPMeeting.Location = New Point(19, 23)
-        TBLPMeeting.Name = "TBLPMeeting"
-        TBLPMeeting.RowCount = 3
-        TBLPMeeting.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
-        TBLPMeeting.RowStyles.Add(New RowStyle(SizeType.Absolute, 5F))
-        TBLPMeeting.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
-        TBLPMeeting.Size = New Size(931, 369)
-        TBLPMeeting.TabIndex = 0
+        TBLPUser.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        TBLPUser.AutoSize = True
+        TBLPUser.BackColor = Color.White
+        TBLPUser.ColumnCount = 1
+        TBLPUser.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TBLPUser.Controls.Add(Panel10, 0, 1)
+        TBLPUser.Controls.Add(TBLTopOfData, 0, 0)
+        TBLPUser.Controls.Add(PnlForData, 0, 2)
+        TBLPUser.Location = New Point(19, 23)
+        TBLPUser.Name = "TBLPUser"
+        TBLPUser.RowCount = 3
+        TBLPUser.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
+        TBLPUser.RowStyles.Add(New RowStyle(SizeType.Absolute, 5F))
+        TBLPUser.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
+        TBLPUser.Size = New Size(931, 369)
+        TBLPUser.TabIndex = 0
         ' 
         ' TBLTopOfData
         ' 
@@ -226,7 +226,7 @@ Partial Class CFMeetingRooms
         Label1.Name = "Label1"
         Label1.Size = New Size(738, 36)
         Label1.TabIndex = 0
-        Label1.Text = "List of Meeting Rooms"
+        Label1.Text = "List of User Information"
         Label1.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PnlForData
@@ -246,10 +246,10 @@ Partial Class CFMeetingRooms
         PnlForDataGridView.AutoScroll = True
         PnlForDataGridView.AutoSize = True
         PnlForDataGridView.Controls.Add(DataGridView1)
-        PnlForDataGridView.Location = New Point(25, 13)
+        PnlForDataGridView.Location = New Point(25, 19)
         PnlForDataGridView.Name = "PnlForDataGridView"
         PnlForDataGridView.Size = New Size(881, 289)
-        PnlForDataGridView.TabIndex = 0
+        PnlForDataGridView.TabIndex = 1
         ' 
         ' DataGridView1
         ' 
@@ -298,15 +298,6 @@ Partial Class CFMeetingRooms
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridView1.Size = New Size(881, 289)
         DataGridView1.TabIndex = 0
-        ' 
-        ' Panel10
-        ' 
-        Panel10.BackColor = SystemColors.Control
-        Panel10.Dock = DockStyle.Fill
-        Panel10.Location = New Point(3, 39)
-        Panel10.Name = "Panel10"
-        Panel10.Size = New Size(925, 1)
-        Panel10.TabIndex = 2
         ' 
         ' Panel1
         ' 
@@ -472,20 +463,29 @@ Partial Class CFMeetingRooms
         Panel3.Size = New Size(14, 43)
         Panel3.TabIndex = 1
         ' 
-        ' CFMeetingRooms
+        ' Panel10
+        ' 
+        Panel10.BackColor = SystemColors.Control
+        Panel10.Dock = DockStyle.Fill
+        Panel10.Location = New Point(3, 39)
+        Panel10.Name = "Panel10"
+        Panel10.Size = New Size(925, 1)
+        Panel10.TabIndex = 3
+        ' 
+        ' CFUser
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(967, 570)
         Controls.Add(TBLFill)
-        Name = "CFMeetingRooms"
-        Text = "CFMeetingRooms"
+        Name = "CFUser"
+        Text = "CFUser"
         TBLFill.ResumeLayout(False)
         PnlBelow.ResumeLayout(False)
         PnlBelow.PerformLayout()
         Panel8.ResumeLayout(False)
         Panel7.ResumeLayout(False)
-        TBLPMeeting.ResumeLayout(False)
+        TBLPUser.ResumeLayout(False)
         TBLTopOfData.ResumeLayout(False)
         PnlForData.ResumeLayout(False)
         PnlForData.PerformLayout()
@@ -504,18 +504,16 @@ Partial Class CFMeetingRooms
     Friend WithEvents TBLFill As TableLayoutPanel
     Friend WithEvents PnlBelow As Panel
     Friend WithEvents Panel8 As Panel
-    Friend WithEvents LblDateTimeMeeting As Label
+    Friend WithEvents LblDateTimeUser As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel7 As Panel
     Friend WithEvents LblDateTime As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents TBLPMeeting As TableLayoutPanel
+    Friend WithEvents TBLPUser As TableLayoutPanel
     Friend WithEvents TBLTopOfData As TableLayoutPanel
     Friend WithEvents LblViewAll As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents PnlForData As Panel
-    Friend WithEvents PnlForDataGridView As Panel
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Panel1 As Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Panel5 As Panel
@@ -529,6 +527,8 @@ Partial Class CFMeetingRooms
     Friend WithEvents Panel2 As Panel
     Friend WithEvents BtnAdd As Button
     Friend WithEvents Panel3 As Panel
+    Friend WithEvents PnlForDataGridView As Panel
+    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents TimerDateTime As Timer
     Friend WithEvents Panel10 As Panel
 End Class
