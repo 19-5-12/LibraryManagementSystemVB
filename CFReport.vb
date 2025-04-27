@@ -8,6 +8,17 @@ Public Class CFReport
             EnableResponsiveCornerRadius(btn)
         Next
 
+        For Each pnl As Panel In New Panel() {
+            PnlRow, PnlCLBar, PnlBarST, PnlBarHistory, PnlBarFiction,
+            PnlBarForMemberEngagement, PnlBarStudyRoomA, PnlBarCollaborationSpace, PnlBarConferenceRoom,
+            PnlBarQuietStudyRoom, PnlBarMediaLab
+}
+            Dim currentPanel = pnl
+            AddHandler currentPanel.Paint, Sub(sender2, e2)
+                                               PanelPillRadius(currentPanel, e2)
+                                           End Sub
+        Next
+
         For Each pnl In New Panel() {PnlBorrowingStatistics, PnlPopularCategories, PNLUserActivity, PnlMeetingRoomUsage}
             Dim currentPanel = pnl
 
@@ -19,6 +30,11 @@ Public Class CFReport
                                                 currentPanel.Invalidate()
                                             End Sub
         Next
+
+        TimerDateTime.Interval = 1000
+        TimerDateTime.Start()
+        AddHandler TimerDateTime.Tick, Sub() LblDateTimeMeeting.Text = DateTime.Now.ToString("MMMM dd, yyyy - hh:mm:ss tt")
+        LblDateTimeMeeting.Text = DateTime.Now.ToString("MMMM dd, yyyy - hh:mm:ss tt")
 
         AddShadowBetweenRows(TLPBorrowingStatistics, 0, 1)
         AddShadowBetweenRows(TLPPopularCategories, 0, 1)
@@ -52,6 +68,8 @@ Public Class CFReport
         AddHandler PnlBarBack.Resize, AddressOf UpdateReturnRateBar
         AddHandler PnlBarBackMemberEngagement.Resize, AddressOf UpdateEngagementBar
 
+        SetupRoomBars()
+
 
     End Sub
 
@@ -64,7 +82,7 @@ Public Class CFReport
     End Sub
 
 
-    Private Sub PnlRow_Paint(sender As Object, e As PaintEventArgs) Handles PnlRow.Paint
+    Private Sub PnlRow_Paint(sender As Object, e As PaintEventArgs)
         PanelPillRadius(PnlRow, e)
     End Sub
 
@@ -85,35 +103,11 @@ Public Class CFReport
         LblPercentMemberEngagement.Text = engagementRate.ToString("0.0") & "%"
     End Sub
 
-    Private Sub PnlCLBar_Paint(sender As Object, e As PaintEventArgs) Handles PnlCLBar.Paint
-        PanelPillRadius(PnlCLBar, e)
-    End Sub
-
-    Private Sub PnlBarST_Paint(sender As Object, e As PaintEventArgs) Handles PnlBarST.Paint
-        PanelPillRadius(PnlBarST, e)
-    End Sub
-
-    Private Sub PnlBarHistory_Paint(sender As Object, e As PaintEventArgs) Handles PnlBarHistory.Paint
-        PanelPillRadius(PnlBarHistory, e)
-    End Sub
-
-    Private Sub PnlBarFiction_Paint(sender As Object, e As PaintEventArgs) Handles PnlBarFiction.Paint
-        PanelPillRadius(PnlBarFiction, e)
-    End Sub
-
-    Private Sub PnlBarForMemberEngagement_Paint(sender As Object, e As PaintEventArgs) Handles PnlBarForMemberEngagement.Paint
-        PanelPillRadius(PnlBarForMemberEngagement, e)
-    End Sub
-
-    Private Sub PnlBarStudyRoomA_Paint(sender As Object, e As PaintEventArgs) Handles PnlBarStudyRoomA.Paint
-        PanelPillRadius(PnlBarStudyRoomA, e)
-    End Sub
-
     Private Sub SetupRoomBars()
         Dim totalBookings As Integer = 87 ' Or get dynamically if needed
 
         Dim roomData As New Dictionary(Of Panel, Integer) From {
-        {PnlFillStudyRoomA, 35},
+        {PnlFillStudyRoomA, 37},
         {PnlFillCollaborationSpace, 25},
         {PnlFillConferenceRoom, 15},
         {PnlFillQuietStudyRoom, 7},
