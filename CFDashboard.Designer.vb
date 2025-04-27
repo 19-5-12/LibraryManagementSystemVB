@@ -87,9 +87,9 @@ Partial Class CFDashboard
         LblViewAll = New Label()
         Label1 = New Label()
         PnlForData = New Panel()
-        PnlForDataGridView = New Panel()
-        DataGridView1 = New DataGridView()
         TimerDateTime = New Timer(components)
+        DataGridView1 = New DataGridView()
+        PnlForDataGridView = New Panel()
         PnlFill.SuspendLayout()
         TBLFill.SuspendLayout()
         TBL4.SuspendLayout()
@@ -138,8 +138,8 @@ Partial Class CFDashboard
         TableLayoutPanel9.SuspendLayout()
         TBLTopOfData.SuspendLayout()
         PnlForData.SuspendLayout()
-        PnlForDataGridView.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        PnlForDataGridView.SuspendLayout()
         SuspendLayout()
         ' 
         ' PnlFill
@@ -865,16 +865,8 @@ Partial Class CFDashboard
         PnlForData.Size = New Size(931, 333)
         PnlForData.TabIndex = 1
         ' 
-        ' PnlForDataGridView
+        ' TimerDateTime
         ' 
-        PnlForDataGridView.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        PnlForDataGridView.AutoScroll = True
-        PnlForDataGridView.AutoSize = True
-        PnlForDataGridView.Controls.Add(DataGridView1)
-        PnlForDataGridView.Location = New Point(25, 13)
-        PnlForDataGridView.Name = "PnlForDataGridView"
-        PnlForDataGridView.Size = New Size(881, 294)
-        PnlForDataGridView.TabIndex = 0
         ' 
         ' DataGridView1
         ' 
@@ -924,8 +916,16 @@ Partial Class CFDashboard
         DataGridView1.Size = New Size(881, 294)
         DataGridView1.TabIndex = 0
         ' 
-        ' TimerDateTime
+        ' PnlForDataGridView
         ' 
+        PnlForDataGridView.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        PnlForDataGridView.AutoScroll = True
+        PnlForDataGridView.AutoSize = True
+        PnlForDataGridView.Controls.Add(DataGridView1)
+        PnlForDataGridView.Location = New Point(25, 13)
+        PnlForDataGridView.Name = "PnlForDataGridView"
+        PnlForDataGridView.Size = New Size(881, 294)
+        PnlForDataGridView.TabIndex = 0
         ' 
         ' CFDashboard
         ' 
@@ -990,8 +990,8 @@ Partial Class CFDashboard
         TBLTopOfData.ResumeLayout(False)
         PnlForData.ResumeLayout(False)
         PnlForData.PerformLayout()
-        PnlForDataGridView.ResumeLayout(False)
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        PnlForDataGridView.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -1051,11 +1051,11 @@ Partial Class CFDashboard
     Friend WithEvents LblViewAll As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents PnlForData As Panel
-    Friend WithEvents PnlForDataGridView As Panel
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents LblDateTime As Label
     Friend WithEvents TimerDateTime As Timer
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PnlForDataGridView As Panel
+    Friend WithEvents DataGridView1 As DataGridView
 End Class

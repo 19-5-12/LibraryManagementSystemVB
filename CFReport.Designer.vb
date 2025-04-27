@@ -53,6 +53,63 @@ Partial Class CFReport
         Panel14 = New Panel()
         TableLayoutPanel4 = New TableLayoutPanel()
         TableLayoutPanel5 = New TableLayoutPanel()
+        PnlMeetingRoomUsage = New Panel()
+        TLPMeetingRoomUsage = New TableLayoutPanel()
+        TableLayoutPanel8 = New TableLayoutPanel()
+        LblLastUpdatedMeetingRoom = New Label()
+        TableLayoutPanel9 = New TableLayoutPanel()
+        PnlForTLPTotalBookings = New Panel()
+        TableLayoutPanel13 = New TableLayoutPanel()
+        Panel42 = New Panel()
+        Label14 = New Label()
+        Panel39 = New Panel()
+        LblNumbersOfTotalBookings = New Label()
+        TLPVariablesMeetingRoomUsage = New TableLayoutPanel()
+        Panel65 = New Panel()
+        TableLayoutPanel19 = New TableLayoutPanel()
+        Panel66 = New Panel()
+        Label24 = New Label()
+        Panel67 = New Panel()
+        Panel68 = New Panel()
+        Panel71 = New Panel()
+        PnlFillMediaLab = New Panel()
+        Panel59 = New Panel()
+        TableLayoutPanel18 = New TableLayoutPanel()
+        Panel60 = New Panel()
+        Label21 = New Label()
+        Panel61 = New Panel()
+        Panel62 = New Panel()
+        Panel63 = New Panel()
+        PnlFillQuietStudyRoom = New Panel()
+        Panel53 = New Panel()
+        TableLayoutPanel17 = New TableLayoutPanel()
+        Panel54 = New Panel()
+        Label20 = New Label()
+        Panel55 = New Panel()
+        Panel56 = New Panel()
+        Panel57 = New Panel()
+        PnlFillConferenceRoom = New Panel()
+        Panel26 = New Panel()
+        TableLayoutPanel7 = New TableLayoutPanel()
+        Panel44 = New Panel()
+        Label17 = New Label()
+        Panel45 = New Panel()
+        Panel50 = New Panel()
+        Panel51 = New Panel()
+        PnlFillCollaborationSpace = New Panel()
+        PnlForStudyRoomA = New Panel()
+        TableLayoutPanel16 = New TableLayoutPanel()
+        Panel43 = New Panel()
+        Label16 = New Label()
+        PnlForBarRoomA = New Panel()
+        PnlBarStudyRoomA = New Panel()
+        PnlBackBarStudyRoomA = New Panel()
+        PnlFillStudyRoomA = New Panel()
+        TableLayoutPanel22 = New TableLayoutPanel()
+        Panel69 = New Panel()
+        Label27 = New Label()
+        Panel70 = New Panel()
+        Label28 = New Label()
         PNLUserActivity = New Panel()
         TLPUserActivity = New TableLayoutPanel()
         TLPFillActivityUsers = New TableLayoutPanel()
@@ -203,6 +260,48 @@ Partial Class CFReport
         Panel12.SuspendLayout()
         TableLayoutPanel4.SuspendLayout()
         TableLayoutPanel5.SuspendLayout()
+        PnlMeetingRoomUsage.SuspendLayout()
+        TLPMeetingRoomUsage.SuspendLayout()
+        TableLayoutPanel8.SuspendLayout()
+        TableLayoutPanel9.SuspendLayout()
+        PnlForTLPTotalBookings.SuspendLayout()
+        TableLayoutPanel13.SuspendLayout()
+        Panel42.SuspendLayout()
+        Panel39.SuspendLayout()
+        TLPVariablesMeetingRoomUsage.SuspendLayout()
+        Panel65.SuspendLayout()
+        TableLayoutPanel19.SuspendLayout()
+        Panel66.SuspendLayout()
+        Panel67.SuspendLayout()
+        Panel68.SuspendLayout()
+        Panel71.SuspendLayout()
+        Panel59.SuspendLayout()
+        TableLayoutPanel18.SuspendLayout()
+        Panel60.SuspendLayout()
+        Panel61.SuspendLayout()
+        Panel62.SuspendLayout()
+        Panel63.SuspendLayout()
+        Panel53.SuspendLayout()
+        TableLayoutPanel17.SuspendLayout()
+        Panel54.SuspendLayout()
+        Panel55.SuspendLayout()
+        Panel56.SuspendLayout()
+        Panel57.SuspendLayout()
+        Panel26.SuspendLayout()
+        TableLayoutPanel7.SuspendLayout()
+        Panel44.SuspendLayout()
+        Panel45.SuspendLayout()
+        Panel50.SuspendLayout()
+        Panel51.SuspendLayout()
+        PnlForStudyRoomA.SuspendLayout()
+        TableLayoutPanel16.SuspendLayout()
+        Panel43.SuspendLayout()
+        PnlForBarRoomA.SuspendLayout()
+        PnlBarStudyRoomA.SuspendLayout()
+        PnlBackBarStudyRoomA.SuspendLayout()
+        TableLayoutPanel22.SuspendLayout()
+        Panel69.SuspendLayout()
+        Panel70.SuspendLayout()
         PNLUserActivity.SuspendLayout()
         TLPUserActivity.SuspendLayout()
         TLPFillActivityUsers.SuspendLayout()
@@ -692,6 +791,7 @@ Partial Class CFReport
         TableLayoutPanel5.ColumnCount = 2
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel5.Controls.Add(PnlMeetingRoomUsage, 1, 1)
         TableLayoutPanel5.Controls.Add(PNLUserActivity, 0, 1)
         TableLayoutPanel5.Controls.Add(PnlBorrowingStatistics, 0, 0)
         TableLayoutPanel5.Controls.Add(PnlPopularCategories, 1, 0)
@@ -704,6 +804,668 @@ Partial Class CFReport
         TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
         TableLayoutPanel5.Size = New Size(840, 492)
         TableLayoutPanel5.TabIndex = 0
+        ' 
+        ' PnlMeetingRoomUsage
+        ' 
+        PnlMeetingRoomUsage.Controls.Add(TLPMeetingRoomUsage)
+        PnlMeetingRoomUsage.Dock = DockStyle.Fill
+        PnlMeetingRoomUsage.Location = New Point(423, 249)
+        PnlMeetingRoomUsage.Name = "PnlMeetingRoomUsage"
+        PnlMeetingRoomUsage.Size = New Size(414, 240)
+        PnlMeetingRoomUsage.TabIndex = 3
+        ' 
+        ' TLPMeetingRoomUsage
+        ' 
+        TLPMeetingRoomUsage.BackColor = Color.White
+        TLPMeetingRoomUsage.ColumnCount = 1
+        TLPMeetingRoomUsage.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TLPMeetingRoomUsage.Controls.Add(TableLayoutPanel8, 0, 1)
+        TLPMeetingRoomUsage.Controls.Add(TableLayoutPanel22, 0, 0)
+        TLPMeetingRoomUsage.Dock = DockStyle.Fill
+        TLPMeetingRoomUsage.Location = New Point(0, 0)
+        TLPMeetingRoomUsage.Name = "TLPMeetingRoomUsage"
+        TLPMeetingRoomUsage.RowCount = 2
+        TLPMeetingRoomUsage.RowStyles.Add(New RowStyle(SizeType.Percent, 15F))
+        TLPMeetingRoomUsage.RowStyles.Add(New RowStyle(SizeType.Percent, 85F))
+        TLPMeetingRoomUsage.Size = New Size(414, 240)
+        TLPMeetingRoomUsage.TabIndex = 2
+        ' 
+        ' TableLayoutPanel8
+        ' 
+        TableLayoutPanel8.ColumnCount = 1
+        TableLayoutPanel8.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TableLayoutPanel8.Controls.Add(LblLastUpdatedMeetingRoom, 0, 1)
+        TableLayoutPanel8.Controls.Add(TableLayoutPanel9, 0, 0)
+        TableLayoutPanel8.Dock = DockStyle.Fill
+        TableLayoutPanel8.Location = New Point(0, 36)
+        TableLayoutPanel8.Margin = New Padding(0)
+        TableLayoutPanel8.Name = "TableLayoutPanel8"
+        TableLayoutPanel8.RowCount = 2
+        TableLayoutPanel8.RowStyles.Add(New RowStyle(SizeType.Percent, 90.68627F))
+        TableLayoutPanel8.RowStyles.Add(New RowStyle(SizeType.Percent, 9.313725F))
+        TableLayoutPanel8.Size = New Size(414, 204)
+        TableLayoutPanel8.TabIndex = 2
+        ' 
+        ' LblLastUpdatedMeetingRoom
+        ' 
+        LblLastUpdatedMeetingRoom.Dock = DockStyle.Fill
+        LblLastUpdatedMeetingRoom.Font = New Font("Arial", 7F)
+        LblLastUpdatedMeetingRoom.ForeColor = Color.DarkSlateGray
+        LblLastUpdatedMeetingRoom.Location = New Point(3, 185)
+        LblLastUpdatedMeetingRoom.Margin = New Padding(3, 0, 10, 6)
+        LblLastUpdatedMeetingRoom.Name = "LblLastUpdatedMeetingRoom"
+        LblLastUpdatedMeetingRoom.Size = New Size(401, 13)
+        LblLastUpdatedMeetingRoom.TabIndex = 1
+        LblLastUpdatedMeetingRoom.Text = "Last updated: 04-07-2025 10:30 AM"
+        LblLastUpdatedMeetingRoom.TextAlign = ContentAlignment.BottomRight
+        ' 
+        ' TableLayoutPanel9
+        ' 
+        TableLayoutPanel9.ColumnCount = 1
+        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TableLayoutPanel9.Controls.Add(PnlForTLPTotalBookings, 0, 0)
+        TableLayoutPanel9.Controls.Add(TLPVariablesMeetingRoomUsage, 0, 1)
+        TableLayoutPanel9.Dock = DockStyle.Fill
+        TableLayoutPanel9.Location = New Point(3, 3)
+        TableLayoutPanel9.Name = "TableLayoutPanel9"
+        TableLayoutPanel9.RowCount = 2
+        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 11.7318439F))
+        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 88.26816F))
+        TableLayoutPanel9.Size = New Size(408, 179)
+        TableLayoutPanel9.TabIndex = 0
+        ' 
+        ' PnlForTLPTotalBookings
+        ' 
+        PnlForTLPTotalBookings.Controls.Add(TableLayoutPanel13)
+        PnlForTLPTotalBookings.Dock = DockStyle.Fill
+        PnlForTLPTotalBookings.Location = New Point(0, 0)
+        PnlForTLPTotalBookings.Margin = New Padding(0)
+        PnlForTLPTotalBookings.Name = "PnlForTLPTotalBookings"
+        PnlForTLPTotalBookings.Size = New Size(408, 21)
+        PnlForTLPTotalBookings.TabIndex = 0
+        ' 
+        ' TableLayoutPanel13
+        ' 
+        TableLayoutPanel13.ColumnCount = 2
+        TableLayoutPanel13.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 9.20398F))
+        TableLayoutPanel13.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 90.79602F))
+        TableLayoutPanel13.Controls.Add(Panel42, 1, 0)
+        TableLayoutPanel13.Controls.Add(Panel39, 0, 0)
+        TableLayoutPanel13.Dock = DockStyle.Fill
+        TableLayoutPanel13.Location = New Point(0, 0)
+        TableLayoutPanel13.Margin = New Padding(0)
+        TableLayoutPanel13.Name = "TableLayoutPanel13"
+        TableLayoutPanel13.RowCount = 1
+        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel13.Size = New Size(408, 21)
+        TableLayoutPanel13.TabIndex = 0
+        ' 
+        ' Panel42
+        ' 
+        Panel42.Controls.Add(Label14)
+        Panel42.Dock = DockStyle.Fill
+        Panel42.Location = New Point(37, 0)
+        Panel42.Margin = New Padding(0)
+        Panel42.Name = "Panel42"
+        Panel42.Size = New Size(371, 21)
+        Panel42.TabIndex = 2
+        ' 
+        ' Label14
+        ' 
+        Label14.Dock = DockStyle.Fill
+        Label14.Font = New Font("Arial", 9F)
+        Label14.ForeColor = Color.DarkSlateGray
+        Label14.Location = New Point(0, 0)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(371, 21)
+        Label14.TabIndex = 1
+        Label14.Text = "Total Bookings"
+        Label14.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Panel39
+        ' 
+        Panel39.Controls.Add(LblNumbersOfTotalBookings)
+        Panel39.Dock = DockStyle.Fill
+        Panel39.Location = New Point(6, 0)
+        Panel39.Margin = New Padding(6, 0, 0, 0)
+        Panel39.Name = "Panel39"
+        Panel39.Size = New Size(31, 21)
+        Panel39.TabIndex = 1
+        ' 
+        ' LblNumbersOfTotalBookings
+        ' 
+        LblNumbersOfTotalBookings.Dock = DockStyle.Fill
+        LblNumbersOfTotalBookings.Font = New Font("Arial", 15F, FontStyle.Bold)
+        LblNumbersOfTotalBookings.ForeColor = Color.DarkSlateGray
+        LblNumbersOfTotalBookings.Location = New Point(0, 0)
+        LblNumbersOfTotalBookings.Name = "LblNumbersOfTotalBookings"
+        LblNumbersOfTotalBookings.Size = New Size(31, 21)
+        LblNumbersOfTotalBookings.TabIndex = 0
+        LblNumbersOfTotalBookings.Text = "87"
+        ' 
+        ' TLPVariablesMeetingRoomUsage
+        ' 
+        TLPVariablesMeetingRoomUsage.ColumnCount = 1
+        TLPVariablesMeetingRoomUsage.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TLPVariablesMeetingRoomUsage.Controls.Add(Panel65, 0, 4)
+        TLPVariablesMeetingRoomUsage.Controls.Add(Panel59, 0, 3)
+        TLPVariablesMeetingRoomUsage.Controls.Add(Panel53, 0, 2)
+        TLPVariablesMeetingRoomUsage.Controls.Add(Panel26, 0, 1)
+        TLPVariablesMeetingRoomUsage.Controls.Add(PnlForStudyRoomA, 0, 0)
+        TLPVariablesMeetingRoomUsage.Dock = DockStyle.Fill
+        TLPVariablesMeetingRoomUsage.Location = New Point(3, 24)
+        TLPVariablesMeetingRoomUsage.Name = "TLPVariablesMeetingRoomUsage"
+        TLPVariablesMeetingRoomUsage.RowCount = 5
+        TLPVariablesMeetingRoomUsage.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
+        TLPVariablesMeetingRoomUsage.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
+        TLPVariablesMeetingRoomUsage.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
+        TLPVariablesMeetingRoomUsage.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
+        TLPVariablesMeetingRoomUsage.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
+        TLPVariablesMeetingRoomUsage.Size = New Size(402, 152)
+        TLPVariablesMeetingRoomUsage.TabIndex = 1
+        ' 
+        ' Panel65
+        ' 
+        Panel65.Controls.Add(TableLayoutPanel19)
+        Panel65.Dock = DockStyle.Fill
+        Panel65.Location = New Point(0, 120)
+        Panel65.Margin = New Padding(0)
+        Panel65.Name = "Panel65"
+        Panel65.Size = New Size(402, 32)
+        Panel65.TabIndex = 4
+        ' 
+        ' TableLayoutPanel19
+        ' 
+        TableLayoutPanel19.ColumnCount = 1
+        TableLayoutPanel19.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel19.Controls.Add(Panel66, 0, 0)
+        TableLayoutPanel19.Controls.Add(Panel67, 0, 1)
+        TableLayoutPanel19.Dock = DockStyle.Fill
+        TableLayoutPanel19.Location = New Point(0, 0)
+        TableLayoutPanel19.Margin = New Padding(0)
+        TableLayoutPanel19.Name = "TableLayoutPanel19"
+        TableLayoutPanel19.RowCount = 2
+        TableLayoutPanel19.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel19.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel19.Size = New Size(402, 32)
+        TableLayoutPanel19.TabIndex = 0
+        ' 
+        ' Panel66
+        ' 
+        Panel66.Controls.Add(Label24)
+        Panel66.Dock = DockStyle.Fill
+        Panel66.Location = New Point(3, 0)
+        Panel66.Margin = New Padding(3, 0, 0, 0)
+        Panel66.Name = "Panel66"
+        Panel66.Size = New Size(399, 16)
+        Panel66.TabIndex = 3
+        ' 
+        ' Label24
+        ' 
+        Label24.Dock = DockStyle.Fill
+        Label24.Font = New Font("Arial", 9F)
+        Label24.ForeColor = Color.DarkSlateGray
+        Label24.Location = New Point(0, 0)
+        Label24.Margin = New Padding(0, 0, 3, 0)
+        Label24.Name = "Label24"
+        Label24.Size = New Size(399, 16)
+        Label24.TabIndex = 1
+        Label24.Text = "Media Lab"
+        Label24.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Panel67
+        ' 
+        Panel67.Controls.Add(Panel68)
+        Panel67.Dock = DockStyle.Fill
+        Panel67.Location = New Point(6, 20)
+        Panel67.Margin = New Padding(6, 4, 6, 4)
+        Panel67.Name = "Panel67"
+        Panel67.Size = New Size(390, 8)
+        Panel67.TabIndex = 4
+        ' 
+        ' Panel68
+        ' 
+        Panel68.Controls.Add(Panel71)
+        Panel68.Dock = DockStyle.Fill
+        Panel68.Location = New Point(0, 0)
+        Panel68.Margin = New Padding(0)
+        Panel68.Name = "Panel68"
+        Panel68.Size = New Size(390, 8)
+        Panel68.TabIndex = 0
+        ' 
+        ' Panel71
+        ' 
+        Panel71.BackColor = Color.FromArgb(CByte(223), CByte(222), CByte(223))
+        Panel71.Controls.Add(PnlFillMediaLab)
+        Panel71.Dock = DockStyle.Fill
+        Panel71.Location = New Point(0, 0)
+        Panel71.Margin = New Padding(0)
+        Panel71.Name = "Panel71"
+        Panel71.Size = New Size(390, 8)
+        Panel71.TabIndex = 0
+        ' 
+        ' PnlFillMediaLab
+        ' 
+        PnlFillMediaLab.BackColor = Color.FromArgb(CByte(54), CByte(151), CByte(219))
+        PnlFillMediaLab.Dock = DockStyle.Left
+        PnlFillMediaLab.Location = New Point(0, 0)
+        PnlFillMediaLab.Name = "PnlFillMediaLab"
+        PnlFillMediaLab.Size = New Size(31, 8)
+        PnlFillMediaLab.TabIndex = 0
+        ' 
+        ' Panel59
+        ' 
+        Panel59.Controls.Add(TableLayoutPanel18)
+        Panel59.Dock = DockStyle.Fill
+        Panel59.Location = New Point(0, 90)
+        Panel59.Margin = New Padding(0)
+        Panel59.Name = "Panel59"
+        Panel59.Size = New Size(402, 30)
+        Panel59.TabIndex = 3
+        ' 
+        ' TableLayoutPanel18
+        ' 
+        TableLayoutPanel18.ColumnCount = 1
+        TableLayoutPanel18.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel18.Controls.Add(Panel60, 0, 0)
+        TableLayoutPanel18.Controls.Add(Panel61, 0, 1)
+        TableLayoutPanel18.Dock = DockStyle.Fill
+        TableLayoutPanel18.Location = New Point(0, 0)
+        TableLayoutPanel18.Margin = New Padding(0)
+        TableLayoutPanel18.Name = "TableLayoutPanel18"
+        TableLayoutPanel18.RowCount = 2
+        TableLayoutPanel18.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel18.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel18.Size = New Size(402, 30)
+        TableLayoutPanel18.TabIndex = 0
+        ' 
+        ' Panel60
+        ' 
+        Panel60.Controls.Add(Label21)
+        Panel60.Dock = DockStyle.Fill
+        Panel60.Location = New Point(3, 0)
+        Panel60.Margin = New Padding(3, 0, 0, 0)
+        Panel60.Name = "Panel60"
+        Panel60.Size = New Size(399, 15)
+        Panel60.TabIndex = 3
+        ' 
+        ' Label21
+        ' 
+        Label21.Dock = DockStyle.Fill
+        Label21.Font = New Font("Arial", 9F)
+        Label21.ForeColor = Color.DarkSlateGray
+        Label21.Location = New Point(0, 0)
+        Label21.Margin = New Padding(0, 0, 3, 0)
+        Label21.Name = "Label21"
+        Label21.Size = New Size(399, 15)
+        Label21.TabIndex = 1
+        Label21.Text = "Quiet Study Room"
+        Label21.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Panel61
+        ' 
+        Panel61.Controls.Add(Panel62)
+        Panel61.Dock = DockStyle.Fill
+        Panel61.Location = New Point(6, 19)
+        Panel61.Margin = New Padding(6, 4, 6, 4)
+        Panel61.Name = "Panel61"
+        Panel61.Size = New Size(390, 7)
+        Panel61.TabIndex = 4
+        ' 
+        ' Panel62
+        ' 
+        Panel62.Controls.Add(Panel63)
+        Panel62.Dock = DockStyle.Fill
+        Panel62.Location = New Point(0, 0)
+        Panel62.Margin = New Padding(0)
+        Panel62.Name = "Panel62"
+        Panel62.Size = New Size(390, 7)
+        Panel62.TabIndex = 0
+        ' 
+        ' Panel63
+        ' 
+        Panel63.BackColor = Color.FromArgb(CByte(223), CByte(222), CByte(223))
+        Panel63.Controls.Add(PnlFillQuietStudyRoom)
+        Panel63.Dock = DockStyle.Fill
+        Panel63.Location = New Point(0, 0)
+        Panel63.Margin = New Padding(0)
+        Panel63.Name = "Panel63"
+        Panel63.Size = New Size(390, 7)
+        Panel63.TabIndex = 0
+        ' 
+        ' PnlFillQuietStudyRoom
+        ' 
+        PnlFillQuietStudyRoom.BackColor = Color.FromArgb(CByte(54), CByte(144), CByte(208))
+        PnlFillQuietStudyRoom.Dock = DockStyle.Left
+        PnlFillQuietStudyRoom.Location = New Point(0, 0)
+        PnlFillQuietStudyRoom.Name = "PnlFillQuietStudyRoom"
+        PnlFillQuietStudyRoom.Size = New Size(31, 7)
+        PnlFillQuietStudyRoom.TabIndex = 0
+        ' 
+        ' Panel53
+        ' 
+        Panel53.Controls.Add(TableLayoutPanel17)
+        Panel53.Dock = DockStyle.Fill
+        Panel53.Location = New Point(0, 60)
+        Panel53.Margin = New Padding(0)
+        Panel53.Name = "Panel53"
+        Panel53.Size = New Size(402, 30)
+        Panel53.TabIndex = 2
+        ' 
+        ' TableLayoutPanel17
+        ' 
+        TableLayoutPanel17.ColumnCount = 1
+        TableLayoutPanel17.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel17.Controls.Add(Panel54, 0, 0)
+        TableLayoutPanel17.Controls.Add(Panel55, 0, 1)
+        TableLayoutPanel17.Dock = DockStyle.Fill
+        TableLayoutPanel17.Location = New Point(0, 0)
+        TableLayoutPanel17.Margin = New Padding(0)
+        TableLayoutPanel17.Name = "TableLayoutPanel17"
+        TableLayoutPanel17.RowCount = 2
+        TableLayoutPanel17.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel17.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel17.Size = New Size(402, 30)
+        TableLayoutPanel17.TabIndex = 0
+        ' 
+        ' Panel54
+        ' 
+        Panel54.Controls.Add(Label20)
+        Panel54.Dock = DockStyle.Fill
+        Panel54.Location = New Point(3, 0)
+        Panel54.Margin = New Padding(3, 0, 0, 0)
+        Panel54.Name = "Panel54"
+        Panel54.Size = New Size(399, 15)
+        Panel54.TabIndex = 3
+        ' 
+        ' Label20
+        ' 
+        Label20.Dock = DockStyle.Fill
+        Label20.Font = New Font("Arial", 9F)
+        Label20.ForeColor = Color.DarkSlateGray
+        Label20.Location = New Point(0, 0)
+        Label20.Margin = New Padding(0, 0, 3, 0)
+        Label20.Name = "Label20"
+        Label20.Size = New Size(399, 15)
+        Label20.TabIndex = 1
+        Label20.Text = "Conference Room"
+        Label20.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Panel55
+        ' 
+        Panel55.Controls.Add(Panel56)
+        Panel55.Dock = DockStyle.Fill
+        Panel55.Location = New Point(6, 19)
+        Panel55.Margin = New Padding(6, 4, 6, 4)
+        Panel55.Name = "Panel55"
+        Panel55.Size = New Size(390, 7)
+        Panel55.TabIndex = 4
+        ' 
+        ' Panel56
+        ' 
+        Panel56.Controls.Add(Panel57)
+        Panel56.Dock = DockStyle.Fill
+        Panel56.Location = New Point(0, 0)
+        Panel56.Margin = New Padding(0)
+        Panel56.Name = "Panel56"
+        Panel56.Size = New Size(390, 7)
+        Panel56.TabIndex = 0
+        ' 
+        ' Panel57
+        ' 
+        Panel57.BackColor = Color.FromArgb(CByte(223), CByte(222), CByte(223))
+        Panel57.Controls.Add(PnlFillConferenceRoom)
+        Panel57.Dock = DockStyle.Fill
+        Panel57.Location = New Point(0, 0)
+        Panel57.Margin = New Padding(0)
+        Panel57.Name = "Panel57"
+        Panel57.Size = New Size(390, 7)
+        Panel57.TabIndex = 0
+        ' 
+        ' PnlFillConferenceRoom
+        ' 
+        PnlFillConferenceRoom.BackColor = Color.FromArgb(CByte(231), CByte(130), CByte(32))
+        PnlFillConferenceRoom.Dock = DockStyle.Left
+        PnlFillConferenceRoom.Location = New Point(0, 0)
+        PnlFillConferenceRoom.Name = "PnlFillConferenceRoom"
+        PnlFillConferenceRoom.Size = New Size(31, 7)
+        PnlFillConferenceRoom.TabIndex = 0
+        ' 
+        ' Panel26
+        ' 
+        Panel26.Controls.Add(TableLayoutPanel7)
+        Panel26.Dock = DockStyle.Fill
+        Panel26.Location = New Point(0, 30)
+        Panel26.Margin = New Padding(0)
+        Panel26.Name = "Panel26"
+        Panel26.Size = New Size(402, 30)
+        Panel26.TabIndex = 1
+        ' 
+        ' TableLayoutPanel7
+        ' 
+        TableLayoutPanel7.ColumnCount = 1
+        TableLayoutPanel7.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel7.Controls.Add(Panel44, 0, 0)
+        TableLayoutPanel7.Controls.Add(Panel45, 0, 1)
+        TableLayoutPanel7.Dock = DockStyle.Fill
+        TableLayoutPanel7.Location = New Point(0, 0)
+        TableLayoutPanel7.Margin = New Padding(0)
+        TableLayoutPanel7.Name = "TableLayoutPanel7"
+        TableLayoutPanel7.RowCount = 2
+        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel7.Size = New Size(402, 30)
+        TableLayoutPanel7.TabIndex = 0
+        ' 
+        ' Panel44
+        ' 
+        Panel44.Controls.Add(Label17)
+        Panel44.Dock = DockStyle.Fill
+        Panel44.Location = New Point(3, 0)
+        Panel44.Margin = New Padding(3, 0, 0, 0)
+        Panel44.Name = "Panel44"
+        Panel44.Size = New Size(399, 15)
+        Panel44.TabIndex = 3
+        ' 
+        ' Label17
+        ' 
+        Label17.Dock = DockStyle.Fill
+        Label17.Font = New Font("Arial", 9F)
+        Label17.ForeColor = Color.DarkSlateGray
+        Label17.Location = New Point(0, 0)
+        Label17.Margin = New Padding(0, 0, 3, 0)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(399, 15)
+        Label17.TabIndex = 1
+        Label17.Text = "Collaboration Space"
+        Label17.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Panel45
+        ' 
+        Panel45.Controls.Add(Panel50)
+        Panel45.Dock = DockStyle.Fill
+        Panel45.Location = New Point(6, 19)
+        Panel45.Margin = New Padding(6, 4, 6, 4)
+        Panel45.Name = "Panel45"
+        Panel45.Size = New Size(390, 7)
+        Panel45.TabIndex = 4
+        ' 
+        ' Panel50
+        ' 
+        Panel50.Controls.Add(Panel51)
+        Panel50.Dock = DockStyle.Fill
+        Panel50.Location = New Point(0, 0)
+        Panel50.Margin = New Padding(0)
+        Panel50.Name = "Panel50"
+        Panel50.Size = New Size(390, 7)
+        Panel50.TabIndex = 0
+        ' 
+        ' Panel51
+        ' 
+        Panel51.BackColor = Color.FromArgb(CByte(223), CByte(222), CByte(223))
+        Panel51.Controls.Add(PnlFillCollaborationSpace)
+        Panel51.Dock = DockStyle.Fill
+        Panel51.Location = New Point(0, 0)
+        Panel51.Margin = New Padding(0)
+        Panel51.Name = "Panel51"
+        Panel51.Size = New Size(390, 7)
+        Panel51.TabIndex = 0
+        ' 
+        ' PnlFillCollaborationSpace
+        ' 
+        PnlFillCollaborationSpace.BackColor = Color.FromArgb(CByte(233), CByte(127), CByte(31))
+        PnlFillCollaborationSpace.Dock = DockStyle.Left
+        PnlFillCollaborationSpace.Location = New Point(0, 0)
+        PnlFillCollaborationSpace.Name = "PnlFillCollaborationSpace"
+        PnlFillCollaborationSpace.Size = New Size(31, 7)
+        PnlFillCollaborationSpace.TabIndex = 0
+        ' 
+        ' PnlForStudyRoomA
+        ' 
+        PnlForStudyRoomA.Controls.Add(TableLayoutPanel16)
+        PnlForStudyRoomA.Dock = DockStyle.Fill
+        PnlForStudyRoomA.Location = New Point(0, 0)
+        PnlForStudyRoomA.Margin = New Padding(0)
+        PnlForStudyRoomA.Name = "PnlForStudyRoomA"
+        PnlForStudyRoomA.Size = New Size(402, 30)
+        PnlForStudyRoomA.TabIndex = 0
+        ' 
+        ' TableLayoutPanel16
+        ' 
+        TableLayoutPanel16.ColumnCount = 1
+        TableLayoutPanel16.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel16.Controls.Add(Panel43, 0, 0)
+        TableLayoutPanel16.Controls.Add(PnlForBarRoomA, 0, 1)
+        TableLayoutPanel16.Dock = DockStyle.Fill
+        TableLayoutPanel16.Location = New Point(0, 0)
+        TableLayoutPanel16.Margin = New Padding(0)
+        TableLayoutPanel16.Name = "TableLayoutPanel16"
+        TableLayoutPanel16.RowCount = 2
+        TableLayoutPanel16.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel16.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel16.Size = New Size(402, 30)
+        TableLayoutPanel16.TabIndex = 0
+        ' 
+        ' Panel43
+        ' 
+        Panel43.Controls.Add(Label16)
+        Panel43.Dock = DockStyle.Fill
+        Panel43.Location = New Point(3, 0)
+        Panel43.Margin = New Padding(3, 0, 0, 0)
+        Panel43.Name = "Panel43"
+        Panel43.Size = New Size(399, 15)
+        Panel43.TabIndex = 3
+        ' 
+        ' Label16
+        ' 
+        Label16.Dock = DockStyle.Fill
+        Label16.Font = New Font("Arial", 9F)
+        Label16.ForeColor = Color.DarkSlateGray
+        Label16.Location = New Point(0, 0)
+        Label16.Margin = New Padding(0, 0, 3, 0)
+        Label16.Name = "Label16"
+        Label16.Size = New Size(399, 15)
+        Label16.TabIndex = 1
+        Label16.Text = "Study Room A"
+        Label16.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' PnlForBarRoomA
+        ' 
+        PnlForBarRoomA.Controls.Add(PnlBarStudyRoomA)
+        PnlForBarRoomA.Dock = DockStyle.Fill
+        PnlForBarRoomA.Location = New Point(6, 19)
+        PnlForBarRoomA.Margin = New Padding(6, 4, 6, 4)
+        PnlForBarRoomA.Name = "PnlForBarRoomA"
+        PnlForBarRoomA.Size = New Size(390, 7)
+        PnlForBarRoomA.TabIndex = 4
+        ' 
+        ' PnlBarStudyRoomA
+        ' 
+        PnlBarStudyRoomA.Controls.Add(PnlBackBarStudyRoomA)
+        PnlBarStudyRoomA.Dock = DockStyle.Fill
+        PnlBarStudyRoomA.Location = New Point(0, 0)
+        PnlBarStudyRoomA.Margin = New Padding(0)
+        PnlBarStudyRoomA.Name = "PnlBarStudyRoomA"
+        PnlBarStudyRoomA.Size = New Size(390, 7)
+        PnlBarStudyRoomA.TabIndex = 0
+        ' 
+        ' PnlBackBarStudyRoomA
+        ' 
+        PnlBackBarStudyRoomA.BackColor = Color.FromArgb(CByte(223), CByte(222), CByte(223))
+        PnlBackBarStudyRoomA.Controls.Add(PnlFillStudyRoomA)
+        PnlBackBarStudyRoomA.Dock = DockStyle.Fill
+        PnlBackBarStudyRoomA.Location = New Point(0, 0)
+        PnlBackBarStudyRoomA.Margin = New Padding(0)
+        PnlBackBarStudyRoomA.Name = "PnlBackBarStudyRoomA"
+        PnlBackBarStudyRoomA.Size = New Size(390, 7)
+        PnlBackBarStudyRoomA.TabIndex = 0
+        ' 
+        ' PnlFillStudyRoomA
+        ' 
+        PnlFillStudyRoomA.BackColor = Color.Brown
+        PnlFillStudyRoomA.Dock = DockStyle.Left
+        PnlFillStudyRoomA.Location = New Point(0, 0)
+        PnlFillStudyRoomA.Name = "PnlFillStudyRoomA"
+        PnlFillStudyRoomA.Size = New Size(31, 7)
+        PnlFillStudyRoomA.TabIndex = 0
+        ' 
+        ' TableLayoutPanel22
+        ' 
+        TableLayoutPanel22.ColumnCount = 2
+        TableLayoutPanel22.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel22.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel22.Controls.Add(Panel69, 1, 0)
+        TableLayoutPanel22.Controls.Add(Panel70, 0, 0)
+        TableLayoutPanel22.Dock = DockStyle.Fill
+        TableLayoutPanel22.Location = New Point(0, 0)
+        TableLayoutPanel22.Margin = New Padding(0)
+        TableLayoutPanel22.Name = "TableLayoutPanel22"
+        TableLayoutPanel22.RowCount = 1
+        TableLayoutPanel22.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel22.Size = New Size(414, 36)
+        TableLayoutPanel22.TabIndex = 1
+        ' 
+        ' Panel69
+        ' 
+        Panel69.Controls.Add(Label27)
+        Panel69.Dock = DockStyle.Fill
+        Panel69.Location = New Point(210, 3)
+        Panel69.Name = "Panel69"
+        Panel69.Size = New Size(201, 30)
+        Panel69.TabIndex = 1
+        ' 
+        ' Label27
+        ' 
+        Label27.Dock = DockStyle.Fill
+        Label27.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label27.ForeColor = Color.DarkSlateGray
+        Label27.Location = New Point(0, 0)
+        Label27.Name = "Label27"
+        Label27.Size = New Size(201, 30)
+        Label27.TabIndex = 1
+        Label27.Text = "April 2025"
+        Label27.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' Panel70
+        ' 
+        Panel70.Controls.Add(Label28)
+        Panel70.Dock = DockStyle.Fill
+        Panel70.Location = New Point(3, 3)
+        Panel70.Name = "Panel70"
+        Panel70.Size = New Size(201, 30)
+        Panel70.TabIndex = 0
+        ' 
+        ' Label28
+        ' 
+        Label28.Dock = DockStyle.Fill
+        Label28.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label28.ForeColor = Color.DarkSlateGray
+        Label28.Location = New Point(0, 0)
+        Label28.Name = "Label28"
+        Label28.Size = New Size(201, 30)
+        Label28.TabIndex = 0
+        Label28.Text = "Meeting Room Usage"
+        Label28.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PNLUserActivity
         ' 
@@ -2304,6 +3066,48 @@ Partial Class CFReport
         Panel12.ResumeLayout(False)
         TableLayoutPanel4.ResumeLayout(False)
         TableLayoutPanel5.ResumeLayout(False)
+        PnlMeetingRoomUsage.ResumeLayout(False)
+        TLPMeetingRoomUsage.ResumeLayout(False)
+        TableLayoutPanel8.ResumeLayout(False)
+        TableLayoutPanel9.ResumeLayout(False)
+        PnlForTLPTotalBookings.ResumeLayout(False)
+        TableLayoutPanel13.ResumeLayout(False)
+        Panel42.ResumeLayout(False)
+        Panel39.ResumeLayout(False)
+        TLPVariablesMeetingRoomUsage.ResumeLayout(False)
+        Panel65.ResumeLayout(False)
+        TableLayoutPanel19.ResumeLayout(False)
+        Panel66.ResumeLayout(False)
+        Panel67.ResumeLayout(False)
+        Panel68.ResumeLayout(False)
+        Panel71.ResumeLayout(False)
+        Panel59.ResumeLayout(False)
+        TableLayoutPanel18.ResumeLayout(False)
+        Panel60.ResumeLayout(False)
+        Panel61.ResumeLayout(False)
+        Panel62.ResumeLayout(False)
+        Panel63.ResumeLayout(False)
+        Panel53.ResumeLayout(False)
+        TableLayoutPanel17.ResumeLayout(False)
+        Panel54.ResumeLayout(False)
+        Panel55.ResumeLayout(False)
+        Panel56.ResumeLayout(False)
+        Panel57.ResumeLayout(False)
+        Panel26.ResumeLayout(False)
+        TableLayoutPanel7.ResumeLayout(False)
+        Panel44.ResumeLayout(False)
+        Panel45.ResumeLayout(False)
+        Panel50.ResumeLayout(False)
+        Panel51.ResumeLayout(False)
+        PnlForStudyRoomA.ResumeLayout(False)
+        TableLayoutPanel16.ResumeLayout(False)
+        Panel43.ResumeLayout(False)
+        PnlForBarRoomA.ResumeLayout(False)
+        PnlBarStudyRoomA.ResumeLayout(False)
+        PnlBackBarStudyRoomA.ResumeLayout(False)
+        TableLayoutPanel22.ResumeLayout(False)
+        Panel69.ResumeLayout(False)
+        Panel70.ResumeLayout(False)
         PNLUserActivity.ResumeLayout(False)
         TLPUserActivity.ResumeLayout(False)
         TLPFillActivityUsers.ResumeLayout(False)
@@ -2559,4 +3363,61 @@ Partial Class CFReport
     Friend WithEvents Label22 As Label
     Friend WithEvents Panel49 As Panel
     Friend WithEvents Label23 As Label
+    Friend WithEvents PnlMeetingRoomUsage As Panel
+    Friend WithEvents TLPMeetingRoomUsage As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel8 As TableLayoutPanel
+    Friend WithEvents LblLastUpdatedMeetingRoom As Label
+    Friend WithEvents TableLayoutPanel9 As TableLayoutPanel
+    Friend WithEvents PnlForTLPTotalBookings As Panel
+    Friend WithEvents TableLayoutPanel13 As TableLayoutPanel
+    Friend WithEvents Panel39 As Panel
+    Friend WithEvents LblNumbersOfTotalBookings As Label
+    Friend WithEvents TableLayoutPanel22 As TableLayoutPanel
+    Friend WithEvents Panel69 As Panel
+    Friend WithEvents Label27 As Label
+    Friend WithEvents Panel70 As Panel
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Panel42 As Panel
+    Friend WithEvents Label14 As Label
+    Friend WithEvents TLPVariablesMeetingRoomUsage As TableLayoutPanel
+    Friend WithEvents PnlForStudyRoomA As Panel
+    Friend WithEvents TableLayoutPanel16 As TableLayoutPanel
+    Friend WithEvents Panel43 As Panel
+    Friend WithEvents Label16 As Label
+    Friend WithEvents PnlForBarRoomA As Panel
+    Friend WithEvents PnlBarStudyRoomA As Panel
+    Friend WithEvents PnlBackBarStudyRoomA As Panel
+    Friend WithEvents PnlFillStudyRoomA As Panel
+    Friend WithEvents Panel65 As Panel
+    Friend WithEvents TableLayoutPanel19 As TableLayoutPanel
+    Friend WithEvents Panel66 As Panel
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Panel67 As Panel
+    Friend WithEvents Panel68 As Panel
+    Friend WithEvents Panel71 As Panel
+    Friend WithEvents PnlFillMediaLab As Panel
+    Friend WithEvents Panel59 As Panel
+    Friend WithEvents TableLayoutPanel18 As TableLayoutPanel
+    Friend WithEvents Panel60 As Panel
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Panel61 As Panel
+    Friend WithEvents Panel62 As Panel
+    Friend WithEvents Panel63 As Panel
+    Friend WithEvents PnlFillQuietStudyRoom As Panel
+    Friend WithEvents Panel53 As Panel
+    Friend WithEvents TableLayoutPanel17 As TableLayoutPanel
+    Friend WithEvents Panel54 As Panel
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Panel55 As Panel
+    Friend WithEvents Panel56 As Panel
+    Friend WithEvents Panel57 As Panel
+    Friend WithEvents PnlFillConferenceRoom As Panel
+    Friend WithEvents Panel26 As Panel
+    Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
+    Friend WithEvents Panel44 As Panel
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Panel45 As Panel
+    Friend WithEvents Panel50 As Panel
+    Friend WithEvents Panel51 As Panel
+    Friend WithEvents PnlFillCollaborationSpace As Panel
 End Class

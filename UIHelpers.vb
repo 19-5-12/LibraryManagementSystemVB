@@ -204,5 +204,16 @@ Module UIHelpers
         fillPanel.Width = fillWidth
     End Sub
 
+    Public Sub SetRoomBookingBar(fillPanel As Panel, roomBookings As Integer, totalBookings As Integer, fullBarWidth As Integer)
+        If totalBookings <= 0 Then
+            fillPanel.Width = 0
+            Return
+        End If
+
+        Dim fillPercent As Double = roomBookings / totalBookings
+        Dim fillWidth As Integer = CInt(Math.Round(fullBarWidth * fillPercent))
+
+        fillPanel.Width = fillWidth
+    End Sub
 
 End Module
