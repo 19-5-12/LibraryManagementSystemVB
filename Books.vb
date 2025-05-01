@@ -33,4 +33,8 @@ Public Class Books
     Private Sub TBLListOfBooks_Paint(sender As Object, e As PaintEventArgs) Handles TBLListOfBooks.Paint
         StyleShadowPanel(CType(sender, Panel), e)
     End Sub
+
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
+        FormAddBooks.ShowDialog()
+    End Sub
 End Class

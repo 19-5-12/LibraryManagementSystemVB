@@ -125,8 +125,8 @@ Public Class LoginForm
     End Sub
 
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
-        If TxtUser1.Text = "Admin" And
-            TxtPass1.Text = "Admin" Then
+        If TxtUser1.Text = "a" And
+            TxtPass1.Text = "a" Then
             TxtUser1.Text = "Enter your Username"
             TxtUser1.ForeColor = Color.LightGray
 

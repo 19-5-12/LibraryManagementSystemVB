@@ -30,7 +30,7 @@ Public Class CFMeetingRooms
     End Sub
 
     Private Sub TBLPMeeting_Paint(sender As Object, e As PaintEventArgs) Handles TBLPMeeting.Paint
-        RoundTableLayoutPanel(TBLPMeeting, e) ' <- Rounded corners
+        StyleShadowPanel(CType(sender, Panel), e)
     End Sub
 
 End Class

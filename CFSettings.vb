@@ -6,7 +6,7 @@
 
     End Sub
 
-    Private Sub PnlAppearanceSettings_Paint(sender As Object, e As PaintEventArgs) Handles PnlAppearanceSettings.Paint
-        RoundPanel(CType(sender, Panel), e) ' 👈 Make it rounded
+    Private Sub TableLayoutPanel2_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel2.Paint
+        StyleShadowPanel(CType(sender, Panel), e)
     End Sub
 End Class

@@ -244,4 +244,23 @@ Module UIHelpers
         tbl.Region = New Region(path)
     End Sub
 
+    Public Sub MakeRoundedPanel(panel As Panel, radius As Integer, e As PaintEventArgs)
+        Dim path As New Drawing2D.GraphicsPath()
+
+        path.StartFigure()
+        path.AddArc(New Rectangle(0, 0, radius, radius), 180, 90)
+        path.AddArc(New Rectangle(panel.Width - radius, 0, radius, radius), 270, 90)
+        path.AddArc(New Rectangle(panel.Width - radius, panel.Height - radius, radius, radius), 0, 90)
+        path.AddArc(New Rectangle(0, panel.Height - radius, radius, radius), 90, 90)
+        path.CloseFigure()
+
+        panel.Region = New Region(path)
+
+        ' Optional: draw a nice border
+        Using pen As New Pen(Color.LightGray, 2)
+            e.Graphics.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
+            e.Graphics.DrawPath(pen, path)
+        End Using
+    End Sub
+
 End Module

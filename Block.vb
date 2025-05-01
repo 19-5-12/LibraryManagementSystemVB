@@ -30,6 +30,6 @@ Public Class Block
     End Sub
 
     Private Sub TBLPBlock_Paint(sender As Object, e As PaintEventArgs) Handles TBLPBlock.Paint
-        RoundTableLayoutPanel(TBLPBlock, e)
+        StyleShadowPanel(CType(sender, Panel), e)
     End Sub
 End Class

@@ -113,7 +113,7 @@ Partial Class CFSettings
         TableLayoutPanel2.Name = "TableLayoutPanel2"
         TableLayoutPanel2.RowCount = 3
         TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 21.73913F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Absolute, 5F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Absolute, 1F))
         TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 78.26087F))
         TableLayoutPanel2.Size = New Size(947, 161)
         TableLayoutPanel2.TabIndex = 0
@@ -125,7 +125,7 @@ Partial Class CFSettings
         Panel1.Location = New Point(0, 0)
         Panel1.Margin = New Padding(0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(947, 33)
+        Panel1.Size = New Size(947, 34)
         Panel1.TabIndex = 0
         ' 
         ' Label1
@@ -134,7 +134,7 @@ Partial Class CFSettings
         Label1.Font = New Font("Arial", 12F, FontStyle.Bold)
         Label1.Location = New Point(0, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(947, 33)
+        Label1.Size = New Size(947, 34)
         Label1.TabIndex = 0
         Label1.Text = "Appearance Settings"
         Label1.TextAlign = ContentAlignment.MiddleLeft
@@ -143,10 +143,10 @@ Partial Class CFSettings
         ' 
         Panel2.Controls.Add(Panel3)
         Panel2.Dock = DockStyle.Fill
-        Panel2.Location = New Point(0, 38)
+        Panel2.Location = New Point(0, 35)
         Panel2.Margin = New Padding(0)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(947, 123)
+        Panel2.Size = New Size(947, 126)
         Panel2.TabIndex = 1
         ' 
         ' Panel3
@@ -156,7 +156,7 @@ Partial Class CFSettings
         Panel3.Location = New Point(0, 0)
         Panel3.Margin = New Padding(0)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(947, 123)
+        Panel3.Size = New Size(947, 126)
         Panel3.TabIndex = 0
         ' 
         ' TableLayoutPanel3
@@ -174,7 +174,7 @@ Partial Class CFSettings
         TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 33.3333321F))
         TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 33.3333321F))
-        TableLayoutPanel3.Size = New Size(947, 123)
+        TableLayoutPanel3.Size = New Size(947, 126)
         TableLayoutPanel3.TabIndex = 0
         ' 
         ' TableLayoutPanel6
@@ -185,11 +185,11 @@ Partial Class CFSettings
         TableLayoutPanel6.Controls.Add(Panel9, 0, 0)
         TableLayoutPanel6.Controls.Add(Panel10, 1, 0)
         TableLayoutPanel6.Dock = DockStyle.Fill
-        TableLayoutPanel6.Location = New Point(3, 85)
+        TableLayoutPanel6.Location = New Point(3, 87)
         TableLayoutPanel6.Name = "TableLayoutPanel6"
         TableLayoutPanel6.RowCount = 1
         TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel6.Size = New Size(941, 35)
+        TableLayoutPanel6.Size = New Size(941, 36)
         TableLayoutPanel6.TabIndex = 2
         ' 
         ' Panel9
@@ -198,7 +198,7 @@ Partial Class CFSettings
         Panel9.Dock = DockStyle.Fill
         Panel9.Location = New Point(3, 3)
         Panel9.Name = "Panel9"
-        Panel9.Size = New Size(143, 29)
+        Panel9.Size = New Size(143, 30)
         Panel9.TabIndex = 0
         ' 
         ' Label4
@@ -208,7 +208,7 @@ Partial Class CFSettings
         Label4.ImageAlign = ContentAlignment.MiddleRight
         Label4.Location = New Point(0, 0)
         Label4.Name = "Label4"
-        Label4.Size = New Size(143, 29)
+        Label4.Size = New Size(143, 30)
         Label4.TabIndex = 1
         Label4.Text = "Date Format"
         Label4.TextAlign = ContentAlignment.MiddleRight
@@ -220,7 +220,7 @@ Partial Class CFSettings
         Panel10.Location = New Point(152, 7)
         Panel10.Margin = New Padding(3, 7, 3, 3)
         Panel10.Name = "Panel10"
-        Panel10.Size = New Size(786, 25)
+        Panel10.Size = New Size(786, 26)
         Panel10.TabIndex = 1
         ' 
         ' ComboBox3
@@ -244,11 +244,11 @@ Partial Class CFSettings
         TableLayoutPanel5.Controls.Add(Panel7, 0, 0)
         TableLayoutPanel5.Controls.Add(Panel8, 1, 0)
         TableLayoutPanel5.Dock = DockStyle.Fill
-        TableLayoutPanel5.Location = New Point(3, 44)
+        TableLayoutPanel5.Location = New Point(3, 45)
         TableLayoutPanel5.Name = "TableLayoutPanel5"
         TableLayoutPanel5.RowCount = 1
         TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel5.Size = New Size(941, 35)
+        TableLayoutPanel5.Size = New Size(941, 36)
         TableLayoutPanel5.TabIndex = 1
         ' 
         ' Panel7
@@ -257,7 +257,7 @@ Partial Class CFSettings
         Panel7.Dock = DockStyle.Fill
         Panel7.Location = New Point(3, 3)
         Panel7.Name = "Panel7"
-        Panel7.Size = New Size(143, 29)
+        Panel7.Size = New Size(143, 30)
         Panel7.TabIndex = 0
         ' 
         ' Label3
@@ -267,7 +267,7 @@ Partial Class CFSettings
         Label3.ImageAlign = ContentAlignment.MiddleRight
         Label3.Location = New Point(0, 0)
         Label3.Name = "Label3"
-        Label3.Size = New Size(143, 29)
+        Label3.Size = New Size(143, 30)
         Label3.TabIndex = 1
         Label3.Text = "Records Per Page"
         Label3.TextAlign = ContentAlignment.MiddleRight
@@ -279,7 +279,7 @@ Partial Class CFSettings
         Panel8.Location = New Point(152, 7)
         Panel8.Margin = New Padding(3, 7, 3, 3)
         Panel8.Name = "Panel8"
-        Panel8.Size = New Size(786, 25)
+        Panel8.Size = New Size(786, 26)
         Panel8.TabIndex = 1
         ' 
         ' ComboBox2
@@ -305,7 +305,7 @@ Partial Class CFSettings
         TableLayoutPanel4.Name = "TableLayoutPanel4"
         TableLayoutPanel4.RowCount = 1
         TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel4.Size = New Size(941, 35)
+        TableLayoutPanel4.Size = New Size(941, 36)
         TableLayoutPanel4.TabIndex = 0
         ' 
         ' Panel4
@@ -314,7 +314,7 @@ Partial Class CFSettings
         Panel4.Dock = DockStyle.Fill
         Panel4.Location = New Point(3, 3)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(143, 29)
+        Panel4.Size = New Size(143, 30)
         Panel4.TabIndex = 0
         ' 
         ' Label2
@@ -324,7 +324,7 @@ Partial Class CFSettings
         Label2.ImageAlign = ContentAlignment.MiddleRight
         Label2.Location = New Point(0, 0)
         Label2.Name = "Label2"
-        Label2.Size = New Size(143, 29)
+        Label2.Size = New Size(143, 30)
         Label2.TabIndex = 0
         Label2.Text = "Theme"
         Label2.TextAlign = ContentAlignment.MiddleRight
@@ -336,7 +336,7 @@ Partial Class CFSettings
         Panel6.Location = New Point(152, 7)
         Panel6.Margin = New Padding(3, 7, 3, 3)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(786, 25)
+        Panel6.Size = New Size(786, 26)
         Panel6.TabIndex = 1
         ' 
         ' ComboBox1
@@ -355,7 +355,7 @@ Partial Class CFSettings
         ' 
         Panel5.BackColor = SystemColors.Control
         Panel5.Dock = DockStyle.Fill
-        Panel5.Location = New Point(3, 36)
+        Panel5.Location = New Point(3, 37)
         Panel5.Name = "Panel5"
         Panel5.Size = New Size(941, 1)
         Panel5.TabIndex = 2

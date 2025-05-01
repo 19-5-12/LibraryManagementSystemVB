@@ -182,7 +182,7 @@ Partial Class CFMeetingRooms
         TBLPMeeting.Name = "TBLPMeeting"
         TBLPMeeting.RowCount = 3
         TBLPMeeting.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
-        TBLPMeeting.RowStyles.Add(New RowStyle(SizeType.Absolute, 5F))
+        TBLPMeeting.RowStyles.Add(New RowStyle(SizeType.Absolute, 1F))
         TBLPMeeting.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
         TBLPMeeting.Size = New Size(931, 369)
         TBLPMeeting.TabIndex = 0
@@ -234,10 +234,10 @@ Partial Class CFMeetingRooms
         PnlForData.BackColor = Color.White
         PnlForData.Controls.Add(PnlForDataGridView)
         PnlForData.Dock = DockStyle.Fill
-        PnlForData.Location = New Point(0, 41)
+        PnlForData.Location = New Point(0, 37)
         PnlForData.Margin = New Padding(0)
         PnlForData.Name = "PnlForData"
-        PnlForData.Size = New Size(931, 328)
+        PnlForData.Size = New Size(931, 332)
         PnlForData.TabIndex = 1
         ' 
         ' PnlForDataGridView
@@ -248,7 +248,7 @@ Partial Class CFMeetingRooms
         PnlForDataGridView.Controls.Add(DataGridView1)
         PnlForDataGridView.Location = New Point(25, 13)
         PnlForDataGridView.Name = "PnlForDataGridView"
-        PnlForDataGridView.Size = New Size(881, 289)
+        PnlForDataGridView.Size = New Size(881, 293)
         PnlForDataGridView.TabIndex = 0
         ' 
         ' DataGridView1
@@ -296,7 +296,7 @@ Partial Class CFMeetingRooms
         DataGridView1.RowTemplate.ReadOnly = True
         DataGridView1.RowTemplate.Resizable = DataGridViewTriState.False
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView1.Size = New Size(881, 289)
+        DataGridView1.Size = New Size(881, 293)
         DataGridView1.TabIndex = 0
         ' 
         ' Panel10

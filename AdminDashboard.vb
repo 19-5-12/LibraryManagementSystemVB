@@ -219,24 +219,28 @@
         ChildForm(New Books())
         BtnCurrentlyHighlighted = BtnBooks
         HighlightButton(BtnBooks)
+        LblAdminDashBoard.Text = "Book Management"
     End Sub
 
     Private Sub BtnDashboard_Click(sender As Object, e As EventArgs) Handles BtnDashboard.Click
         ChildForm(New CFDashboard())
         BtnCurrentlyHighlighted = BtnDashboard
         HighlightButton(BtnDashboard)
+        LblAdminDashBoard.Text = "Admin Dashboard"
     End Sub
 
     Private Sub BtnBlock_Click(sender As Object, e As EventArgs) Handles BtnBlock.Click
         ChildForm(New Block())
         BtnCurrentlyHighlighted = BtnBlock
         HighlightButton(BtnBlock)
+        LblAdminDashBoard.Text = "Blocking Management"
     End Sub
 
     Private Sub BtnMeeting_Click(sender As Object, e As EventArgs) Handles BtnMeeting.Click
         ChildForm(New CFMeetingRooms())
         BtnCurrentlyHighlighted = BtnMeeting
         HighlightButton(BtnMeeting)
+        LblAdminDashBoard.Text = "Meeting Room Management"
     End Sub
 
     Private Sub BtnReport_Click(sender As Object, e As EventArgs) Handles BtnReport.Click
@@ -249,17 +253,20 @@
         ChildForm(New CFBorrowing())
         BtnCurrentlyHighlighted = BtnBorrowing
         HighlightButton(BtnBorrowing)
+        LblAdminDashBoard.Text = "Books Borrowed Management"
     End Sub
 
     Private Sub BtnUser_Click(sender As Object, e As EventArgs) Handles BtnUser.Click
         ChildForm(New CFUser())
         BtnCurrentlyHighlighted = BtnUser
         HighlightButton(BtnUser)
+        LblAdminDashBoard.Text = "Users Management"
     End Sub
 
     Private Sub BtnSettings_Click(sender As Object, e As EventArgs) Handles BtnSettings.Click
         ChildForm(New CFSettings())
         BtnCurrentlyHighlighted = BtnSettings
         HighlightButton(BtnSettings)
+        LblAdminDashBoard.Text = "Settings"
     End Sub
 End Class

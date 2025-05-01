@@ -35,6 +35,7 @@ Partial Class CFUser
         LblDateTime = New Label()
         Label2 = New Label()
         TBLPUser = New TableLayoutPanel()
+        Panel10 = New Panel()
         TBLTopOfData = New TableLayoutPanel()
         LblViewAll = New Label()
         Label1 = New Label()
@@ -55,7 +56,6 @@ Partial Class CFUser
         BtnAdd = New Button()
         Panel3 = New Panel()
         TimerDateTime = New Timer(components)
-        Panel10 = New Panel()
         TBLFill.SuspendLayout()
         PnlBelow.SuspendLayout()
         Panel8.SuspendLayout()
@@ -182,10 +182,19 @@ Partial Class CFUser
         TBLPUser.Name = "TBLPUser"
         TBLPUser.RowCount = 3
         TBLPUser.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
-        TBLPUser.RowStyles.Add(New RowStyle(SizeType.Absolute, 5F))
+        TBLPUser.RowStyles.Add(New RowStyle(SizeType.Absolute, 1F))
         TBLPUser.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
         TBLPUser.Size = New Size(931, 369)
         TBLPUser.TabIndex = 0
+        ' 
+        ' Panel10
+        ' 
+        Panel10.BackColor = SystemColors.Control
+        Panel10.Dock = DockStyle.Fill
+        Panel10.Location = New Point(3, 39)
+        Panel10.Name = "Panel10"
+        Panel10.Size = New Size(925, 1)
+        Panel10.TabIndex = 3
         ' 
         ' TBLTopOfData
         ' 
@@ -234,10 +243,10 @@ Partial Class CFUser
         PnlForData.BackColor = Color.White
         PnlForData.Controls.Add(PnlForDataGridView)
         PnlForData.Dock = DockStyle.Fill
-        PnlForData.Location = New Point(0, 41)
+        PnlForData.Location = New Point(0, 37)
         PnlForData.Margin = New Padding(0)
         PnlForData.Name = "PnlForData"
-        PnlForData.Size = New Size(931, 328)
+        PnlForData.Size = New Size(931, 332)
         PnlForData.TabIndex = 1
         ' 
         ' PnlForDataGridView
@@ -248,7 +257,7 @@ Partial Class CFUser
         PnlForDataGridView.Controls.Add(DataGridView1)
         PnlForDataGridView.Location = New Point(25, 19)
         PnlForDataGridView.Name = "PnlForDataGridView"
-        PnlForDataGridView.Size = New Size(881, 289)
+        PnlForDataGridView.Size = New Size(881, 293)
         PnlForDataGridView.TabIndex = 1
         ' 
         ' DataGridView1
@@ -296,7 +305,7 @@ Partial Class CFUser
         DataGridView1.RowTemplate.ReadOnly = True
         DataGridView1.RowTemplate.Resizable = DataGridViewTriState.False
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView1.Size = New Size(881, 289)
+        DataGridView1.Size = New Size(881, 293)
         DataGridView1.TabIndex = 0
         ' 
         ' Panel1
@@ -462,15 +471,6 @@ Partial Class CFUser
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(14, 43)
         Panel3.TabIndex = 1
-        ' 
-        ' Panel10
-        ' 
-        Panel10.BackColor = SystemColors.Control
-        Panel10.Dock = DockStyle.Fill
-        Panel10.Location = New Point(3, 39)
-        Panel10.Name = "Panel10"
-        Panel10.Size = New Size(925, 1)
-        Panel10.TabIndex = 3
         ' 
         ' CFUser
         ' 

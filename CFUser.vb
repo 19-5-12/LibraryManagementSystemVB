@@ -30,6 +30,6 @@ Public Class CFUser
     End Sub
 
     Private Sub TBLPUser_Paint(sender As Object, e As PaintEventArgs) Handles TBLPUser.Paint
-        RoundTableLayoutPanel(TBLPUser, e)
+        StyleShadowPanel(CType(sender, Panel), e)
     End Sub
 End Class

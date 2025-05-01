@@ -73,7 +73,7 @@ Partial Class AdminDashboard
         Panel17 = New Panel()
         PnlBtnAdd = New Panel()
         BtnAdd = New Button()
-        Label9 = New Label()
+        LblAdminDashBoard = New Label()
         Panel15 = New Panel()
         PnlSearch = New Panel()
         Panel16 = New Panel()
@@ -777,7 +777,7 @@ Partial Class AdminDashboard
         TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20F))
         TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20F))
         TableLayoutPanel9.Controls.Add(Panel17, 2, 0)
-        TableLayoutPanel9.Controls.Add(Label9, 0, 0)
+        TableLayoutPanel9.Controls.Add(LblAdminDashBoard, 0, 0)
         TableLayoutPanel9.Controls.Add(Panel15, 1, 0)
         TableLayoutPanel9.Dock = DockStyle.Fill
         TableLayoutPanel9.Location = New Point(0, 0)
@@ -827,17 +827,17 @@ Partial Class AdminDashboard
         BtnAdd.TextImageRelation = TextImageRelation.ImageBeforeText
         BtnAdd.UseVisualStyleBackColor = False
         ' 
-        ' Label9
+        ' LblAdminDashBoard
         ' 
-        Label9.Dock = DockStyle.Fill
-        Label9.Font = New Font("Arial", 13F, FontStyle.Bold)
-        Label9.ForeColor = Color.FromArgb(CByte(64), CByte(70), CByte(88))
-        Label9.Location = New Point(3, 0)
-        Label9.Name = "Label9"
-        Label9.Padding = New Padding(20, 10, 0, 0)
-        Label9.Size = New Size(523, 52)
-        Label9.TabIndex = 1
-        Label9.Text = "Admin Dashboard"
+        LblAdminDashBoard.Dock = DockStyle.Fill
+        LblAdminDashBoard.Font = New Font("Arial", 13F, FontStyle.Bold)
+        LblAdminDashBoard.ForeColor = Color.FromArgb(CByte(64), CByte(70), CByte(88))
+        LblAdminDashBoard.Location = New Point(3, 0)
+        LblAdminDashBoard.Name = "LblAdminDashBoard"
+        LblAdminDashBoard.Padding = New Padding(20, 10, 0, 0)
+        LblAdminDashBoard.Size = New Size(523, 52)
+        LblAdminDashBoard.TabIndex = 1
+        LblAdminDashBoard.Text = "Admin Dashboard"
         ' 
         ' Panel15
         ' 
@@ -1000,7 +1000,7 @@ Partial Class AdminDashboard
     Friend WithEvents PanelTop As Panel
     Friend WithEvents PnlChildForm As Panel
     Friend WithEvents TableLayoutPanel9 As TableLayoutPanel
-    Friend WithEvents Label9 As Label
+    Friend WithEvents LblAdminDashBoard As Label
     Friend WithEvents Panel15 As Panel
     Friend WithEvents PnlSearch As Panel
     Friend WithEvents Panel16 As Panel
