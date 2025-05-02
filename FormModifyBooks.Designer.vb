@@ -392,7 +392,7 @@ Partial Class FormModifyBooks
         Label8.Name = "Label8"
         Label8.Size = New Size(156, 43)
         Label8.TabIndex = 0
-        Label8.Text = "PUBLICATION YEAR"
+        Label8.Text = "PUBLICATION DATE"
         Label8.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' Panel11
@@ -449,7 +449,7 @@ Partial Class FormModifyBooks
         ComboCategory.DropDownStyle = ComboBoxStyle.DropDownList
         ComboCategory.Font = New Font("Arial", 11F)
         ComboCategory.FormattingEnabled = True
-        ComboCategory.Items.AddRange(New Object() {"Dystopian", "Classic Literature"})
+        ComboCategory.Items.AddRange(New Object() {"Dystopian", "Classic Literature", "History", "Fiction", "Science and Technology"})
         ComboCategory.Location = New Point(10, 5)
         ComboCategory.Name = "ComboCategory"
         ComboCategory.Size = New Size(299, 25)
@@ -997,7 +997,7 @@ Partial Class FormModifyBooks
         Label1.Name = "Label1"
         Label1.Size = New Size(447, 23)
         Label1.TabIndex = 1
-        Label1.Text = "Select a book to modify:"
+        Label1.Text = "Select a book ID to modify:"
         Label1.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' FormModifyBooks

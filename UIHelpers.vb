@@ -263,4 +263,33 @@ Module UIHelpers
         End Using
     End Sub
 
+
+    Public roundedPanels As New Dictionary(Of Panel, Integer)
+
+    Public Sub HandlePanelPaint(sender As Object, e As PaintEventArgs)
+        Dim pnl = TryCast(sender, Panel)
+        If pnl IsNot Nothing AndAlso RoundedPanels.ContainsKey(pnl) Then
+            MakeRoundedPanel(pnl, RoundedPanels(pnl), e)
+        End If
+    End Sub
+
+    Public Sub SetupPlaceholder(txtBox As TextBox, placeholder As String)
+        txtBox.Text = placeholder
+        txtBox.ForeColor = Color.Gray
+
+        AddHandler txtBox.GotFocus, Sub(s, e)
+                                        If txtBox.Text = placeholder Then
+                                            txtBox.Text = ""
+                                            txtBox.ForeColor = SystemColors.WindowText
+                                        End If
+                                    End Sub
+
+        AddHandler txtBox.LostFocus, Sub(s, e)
+                                         If txtBox.Text = "" Then
+                                             txtBox.Text = placeholder
+                                             txtBox.ForeColor = Color.Gray
+                                         End If
+                                     End Sub
+    End Sub
+
 End Module

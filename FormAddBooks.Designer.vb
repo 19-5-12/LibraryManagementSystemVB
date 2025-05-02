@@ -72,9 +72,9 @@ Partial Class FormAddBooks
         Label5 = New Label()
         PnlBookID = New Panel()
         TLPBookID = New TableLayoutPanel()
-        PnlTxtForBookID = New Panel()
-        PnlFakeTextBox = New Panel()
-        Label3 = New Label()
+        PnlBorderBookID = New Panel()
+        Panel24 = New Panel()
+        TxtBookID = New TextBox()
         PnlForLabelBookID = New Panel()
         Label2 = New Label()
         PnlCancelAdd = New Panel()
@@ -128,8 +128,8 @@ Partial Class FormAddBooks
         Panel5.SuspendLayout()
         PnlBookID.SuspendLayout()
         TLPBookID.SuspendLayout()
-        PnlTxtForBookID.SuspendLayout()
-        PnlFakeTextBox.SuspendLayout()
+        PnlBorderBookID.SuspendLayout()
+        Panel24.SuspendLayout()
         PnlForLabelBookID.SuspendLayout()
         PnlCancelAdd.SuspendLayout()
         TLPCancelAdd.SuspendLayout()
@@ -383,7 +383,7 @@ Partial Class FormAddBooks
         Label8.Name = "Label8"
         Label8.Size = New Size(156, 45)
         Label8.TabIndex = 0
-        Label8.Text = "PUBLICATION YEAR"
+        Label8.Text = "PUBLICATION DATE"
         Label8.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' Panel11
@@ -440,7 +440,7 @@ Partial Class FormAddBooks
         ComboCategory.DropDownStyle = ComboBoxStyle.DropDownList
         ComboCategory.Font = New Font("Arial", 11F)
         ComboCategory.FormattingEnabled = True
-        ComboCategory.Items.AddRange(New Object() {"Dystopian", "Classic Literature"})
+        ComboCategory.Items.AddRange(New Object() {"Dystopian", "Classic Literature", "History", "Fiction", "Science and Technology"})
         ComboCategory.Location = New Point(10, 5)
         ComboCategory.Name = "ComboCategory"
         ComboCategory.Size = New Size(299, 25)
@@ -715,7 +715,7 @@ Partial Class FormAddBooks
         TLPBookID.ColumnCount = 2
         TLPBookID.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 34.4418068F))
         TLPBookID.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 65.5582F))
-        TLPBookID.Controls.Add(PnlTxtForBookID, 1, 0)
+        TLPBookID.Controls.Add(PnlBorderBookID, 1, 0)
         TLPBookID.Controls.Add(PnlForLabelBookID, 0, 0)
         TLPBookID.Dock = DockStyle.Fill
         TLPBookID.Location = New Point(0, 0)
@@ -725,39 +725,38 @@ Partial Class FormAddBooks
         TLPBookID.Size = New Size(471, 51)
         TLPBookID.TabIndex = 0
         ' 
-        ' PnlTxtForBookID
+        ' PnlBorderBookID
         ' 
-        PnlTxtForBookID.Controls.Add(PnlFakeTextBox)
-        PnlTxtForBookID.Dock = DockStyle.Fill
-        PnlTxtForBookID.Location = New Point(162, 5)
-        PnlTxtForBookID.Margin = New Padding(0, 5, 0, 5)
-        PnlTxtForBookID.Name = "PnlTxtForBookID"
-        PnlTxtForBookID.Size = New Size(309, 41)
-        PnlTxtForBookID.TabIndex = 1
+        PnlBorderBookID.Controls.Add(Panel24)
+        PnlBorderBookID.Dock = DockStyle.Fill
+        PnlBorderBookID.Location = New Point(162, 5)
+        PnlBorderBookID.Margin = New Padding(0, 5, 0, 5)
+        PnlBorderBookID.Name = "PnlBorderBookID"
+        PnlBorderBookID.Size = New Size(309, 41)
+        PnlBorderBookID.TabIndex = 2
         ' 
-        ' PnlFakeTextBox
+        ' Panel24
         ' 
-        PnlFakeTextBox.BackColor = Color.White
-        PnlFakeTextBox.Controls.Add(Label3)
-        PnlFakeTextBox.Dock = DockStyle.Fill
-        PnlFakeTextBox.ForeColor = Color.FromArgb(CByte(46), CByte(80), CByte(127))
-        PnlFakeTextBox.Location = New Point(0, 0)
-        PnlFakeTextBox.Margin = New Padding(0)
-        PnlFakeTextBox.Name = "PnlFakeTextBox"
-        PnlFakeTextBox.Size = New Size(309, 41)
-        PnlFakeTextBox.TabIndex = 0
+        Panel24.BackColor = Color.White
+        Panel24.Controls.Add(TxtBookID)
+        Panel24.Dock = DockStyle.Fill
+        Panel24.ForeColor = Color.Black
+        Panel24.Location = New Point(0, 0)
+        Panel24.Margin = New Padding(0)
+        Panel24.Name = "Panel24"
+        Panel24.Padding = New Padding(0, 5, 0, 0)
+        Panel24.Size = New Size(309, 41)
+        Panel24.TabIndex = 0
         ' 
-        ' Label3
+        ' TxtBookID
         ' 
-        Label3.Dock = DockStyle.Fill
-        Label3.Font = New Font("Arial", 11F)
-        Label3.ForeColor = Color.Black
-        Label3.Location = New Point(0, 0)
-        Label3.Name = "Label3"
-        Label3.Padding = New Padding(6, 9, 0, 0)
-        Label3.Size = New Size(309, 41)
-        Label3.TabIndex = 0
-        Label3.Text = "Auto"
+        TxtBookID.BorderStyle = BorderStyle.None
+        TxtBookID.Font = New Font("Arial", 11F)
+        TxtBookID.Location = New Point(13, 7)
+        TxtBookID.Name = "TxtBookID"
+        TxtBookID.Size = New Size(267, 17)
+        TxtBookID.TabIndex = 0
+        TxtBookID.Text = "Enter"
         ' 
         ' PnlForLabelBookID
         ' 
@@ -975,8 +974,9 @@ Partial Class FormAddBooks
         Panel5.ResumeLayout(False)
         PnlBookID.ResumeLayout(False)
         TLPBookID.ResumeLayout(False)
-        PnlTxtForBookID.ResumeLayout(False)
-        PnlFakeTextBox.ResumeLayout(False)
+        PnlBorderBookID.ResumeLayout(False)
+        Panel24.ResumeLayout(False)
+        Panel24.PerformLayout()
         PnlForLabelBookID.ResumeLayout(False)
         PnlCancelAdd.ResumeLayout(False)
         TLPCancelAdd.ResumeLayout(False)
@@ -1002,9 +1002,6 @@ Partial Class FormAddBooks
     Friend WithEvents TLPBookID As TableLayoutPanel
     Friend WithEvents PnlForLabelBookID As Panel
     Friend WithEvents Label2 As Label
-    Friend WithEvents PnlTxtForBookID As Panel
-    Friend WithEvents PnlFakeTextBox As Panel
-    Friend WithEvents Label3 As Label
     Friend WithEvents PnlTitle As Panel
     Friend WithEvents TLPTitle As TableLayoutPanel
     Friend WithEvents Panel3 As Panel
@@ -1057,4 +1054,7 @@ Partial Class FormAddBooks
     Friend WithEvents TxtQuantity As TextBox
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Panel20 As Panel
+    Friend WithEvents PnlBorderBookID As Panel
+    Friend WithEvents Panel24 As Panel
+    Friend WithEvents TxtBookID As TextBox
 End Class

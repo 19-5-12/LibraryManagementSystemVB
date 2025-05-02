@@ -35,10 +35,22 @@ Public Class Books
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
-        FormAddBooks.ShowDialog()
+        Dim addForm As New FormAddBooks()
+        AddHandler addForm.BookAdded, AddressOf BookAddedHandler
+        addForm.ShowDialog()
+        RemoveHandler addForm.BookAdded, AddressOf BookAddedHandler
     End Sub
+
+    Private Sub BookAddedHandler(sender As Object, e As EventArgs)
+        LoadBooksData()
+    End Sub
+
 
     Private Sub BtnModify_Click(sender As Object, e As EventArgs) Handles BtnModify.Click
         FormModifyBooks.ShowDialog()
+    End Sub
+
+    Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
+        FormDeleteBooks.ShowDialog()
     End Sub
 End Class
