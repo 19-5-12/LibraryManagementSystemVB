@@ -1,4 +1,4 @@
-﻿Public Class Modify
+﻿Public Class FormModifyBooks
     Private roundedPanels As New Dictionary(Of Panel, Integer)
 
     Private Sub Modify_Load(sender As Object, e As EventArgs) Handles MyBase.Load

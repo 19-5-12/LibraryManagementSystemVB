@@ -39,6 +39,6 @@ Public Class Books
     End Sub
 
     Private Sub BtnModify_Click(sender As Object, e As EventArgs) Handles BtnModify.Click
-        Modify.ShowDialog()
+        FormModifyBooks.ShowDialog()
     End Sub
 End Class
