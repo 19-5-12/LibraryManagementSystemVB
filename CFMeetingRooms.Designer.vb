@@ -42,12 +42,11 @@ Partial Class CFMeetingRooms
         PnlForDataGridView = New Panel()
         DataGridView1 = New DataGridView()
         Panel10 = New Panel()
+        TimerDateTime = New Timer(components)
         Panel1 = New Panel()
         TableLayoutPanel1 = New TableLayoutPanel()
         Panel5 = New Panel()
         TableLayoutPanel2 = New TableLayoutPanel()
-        Panel9 = New Panel()
-        BtnBack = New Button()
         Panel6 = New Panel()
         BtnDelete = New Button()
         Panel4 = New Panel()
@@ -55,7 +54,6 @@ Partial Class CFMeetingRooms
         Panel2 = New Panel()
         BtnAdd = New Button()
         Panel3 = New Panel()
-        TimerDateTime = New Timer(components)
         TBLFill.SuspendLayout()
         PnlBelow.SuspendLayout()
         Panel8.SuspendLayout()
@@ -68,7 +66,6 @@ Partial Class CFMeetingRooms
         Panel1.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
-        Panel9.SuspendLayout()
         Panel6.SuspendLayout()
         Panel4.SuspendLayout()
         Panel2.SuspendLayout()
@@ -78,15 +75,15 @@ Partial Class CFMeetingRooms
         ' 
         TBLFill.ColumnCount = 1
         TBLFill.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TBLFill.Controls.Add(PnlBelow, 0, 1)
         TBLFill.Controls.Add(Panel1, 0, 0)
+        TBLFill.Controls.Add(PnlBelow, 0, 1)
         TBLFill.Dock = DockStyle.Fill
         TBLFill.Location = New Point(0, 0)
         TBLFill.Margin = New Padding(0)
         TBLFill.Name = "TBLFill"
         TBLFill.RowCount = 2
-        TBLFill.RowStyles.Add(New RowStyle(SizeType.Percent, 20F))
-        TBLFill.RowStyles.Add(New RowStyle(SizeType.Percent, 80F))
+        TBLFill.RowStyles.Add(New RowStyle(SizeType.Percent, 8.42F))
+        TBLFill.RowStyles.Add(New RowStyle(SizeType.Percent, 91.58F))
         TBLFill.Size = New Size(967, 570)
         TBLFill.TabIndex = 1
         ' 
@@ -96,10 +93,10 @@ Partial Class CFMeetingRooms
         PnlBelow.Controls.Add(Panel7)
         PnlBelow.Controls.Add(TBLPMeeting)
         PnlBelow.Dock = DockStyle.Fill
-        PnlBelow.Location = New Point(0, 114)
+        PnlBelow.Location = New Point(0, 47)
         PnlBelow.Margin = New Padding(0)
         PnlBelow.Name = "PnlBelow"
-        PnlBelow.Size = New Size(967, 456)
+        PnlBelow.Size = New Size(967, 523)
         PnlBelow.TabIndex = 3
         ' 
         ' Panel8
@@ -107,7 +104,7 @@ Partial Class CFMeetingRooms
         Panel8.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Panel8.Controls.Add(LblDateTimeMeeting)
         Panel8.Controls.Add(Label4)
-        Panel8.Location = New Point(227, 433)
+        Panel8.Location = New Point(227, 500)
         Panel8.Margin = New Padding(0)
         Panel8.Name = "Panel8"
         Panel8.Size = New Size(556, 23)
@@ -140,7 +137,7 @@ Partial Class CFMeetingRooms
         Panel7.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Panel7.Controls.Add(LblDateTime)
         Panel7.Controls.Add(Label2)
-        Panel7.Location = New Point(227, 1501)
+        Panel7.Location = New Point(227, 1568)
         Panel7.Margin = New Padding(0)
         Panel7.Name = "Panel7"
         Panel7.Size = New Size(2857, 23)
@@ -184,7 +181,7 @@ Partial Class CFMeetingRooms
         TBLPMeeting.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
         TBLPMeeting.RowStyles.Add(New RowStyle(SizeType.Absolute, 1F))
         TBLPMeeting.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
-        TBLPMeeting.Size = New Size(931, 369)
+        TBLPMeeting.Size = New Size(931, 436)
         TBLPMeeting.TabIndex = 0
         ' 
         ' TBLTopOfData
@@ -201,7 +198,7 @@ Partial Class CFMeetingRooms
         TBLTopOfData.Name = "TBLTopOfData"
         TBLTopOfData.RowCount = 1
         TBLTopOfData.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        TBLTopOfData.Size = New Size(931, 36)
+        TBLTopOfData.Size = New Size(931, 43)
         TBLTopOfData.TabIndex = 0
         ' 
         ' LblViewAll
@@ -212,7 +209,7 @@ Partial Class CFMeetingRooms
         LblViewAll.Location = New Point(747, 0)
         LblViewAll.Name = "LblViewAll"
         LblViewAll.Padding = New Padding(0, 0, 20, 0)
-        LblViewAll.Size = New Size(181, 36)
+        LblViewAll.Size = New Size(181, 43)
         LblViewAll.TabIndex = 1
         LblViewAll.Text = "View All"
         LblViewAll.TextAlign = ContentAlignment.MiddleRight
@@ -224,7 +221,7 @@ Partial Class CFMeetingRooms
         Label1.ForeColor = Color.DarkSlateGray
         Label1.Location = New Point(3, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(738, 36)
+        Label1.Size = New Size(738, 43)
         Label1.TabIndex = 0
         Label1.Text = "List of Meeting Rooms"
         Label1.TextAlign = ContentAlignment.MiddleLeft
@@ -234,10 +231,10 @@ Partial Class CFMeetingRooms
         PnlForData.BackColor = Color.White
         PnlForData.Controls.Add(PnlForDataGridView)
         PnlForData.Dock = DockStyle.Fill
-        PnlForData.Location = New Point(0, 37)
+        PnlForData.Location = New Point(0, 44)
         PnlForData.Margin = New Padding(0)
         PnlForData.Name = "PnlForData"
-        PnlForData.Size = New Size(931, 332)
+        PnlForData.Size = New Size(931, 392)
         PnlForData.TabIndex = 1
         ' 
         ' PnlForDataGridView
@@ -248,7 +245,7 @@ Partial Class CFMeetingRooms
         PnlForDataGridView.Controls.Add(DataGridView1)
         PnlForDataGridView.Location = New Point(25, 13)
         PnlForDataGridView.Name = "PnlForDataGridView"
-        PnlForDataGridView.Size = New Size(881, 293)
+        PnlForDataGridView.Size = New Size(881, 353)
         PnlForDataGridView.TabIndex = 0
         ' 
         ' DataGridView1
@@ -296,14 +293,14 @@ Partial Class CFMeetingRooms
         DataGridView1.RowTemplate.ReadOnly = True
         DataGridView1.RowTemplate.Resizable = DataGridViewTriState.False
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView1.Size = New Size(881, 293)
+        DataGridView1.Size = New Size(881, 300)
         DataGridView1.TabIndex = 0
         ' 
         ' Panel10
         ' 
         Panel10.BackColor = SystemColors.Control
         Panel10.Dock = DockStyle.Fill
-        Panel10.Location = New Point(3, 39)
+        Panel10.Location = New Point(3, 46)
         Panel10.Name = "Panel10"
         Panel10.Size = New Size(925, 1)
         Panel10.TabIndex = 2
@@ -315,42 +312,40 @@ Partial Class CFMeetingRooms
         Panel1.Location = New Point(0, 0)
         Panel1.Margin = New Padding(0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(967, 114)
-        Panel1.TabIndex = 0
+        Panel1.Size = New Size(967, 47)
+        Panel1.TabIndex = 5
         ' 
         ' TableLayoutPanel1
         ' 
         TableLayoutPanel1.ColumnCount = 2
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 35.6790543F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 64.3209457F))
         TableLayoutPanel1.Controls.Add(Panel5, 1, 0)
         TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 0, 0)
-        TableLayoutPanel1.Dock = DockStyle.Bottom
-        TableLayoutPanel1.Location = New Point(0, 65)
+        TableLayoutPanel1.Dock = DockStyle.Fill
+        TableLayoutPanel1.Location = New Point(0, 0)
         TableLayoutPanel1.Margin = New Padding(0)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 1
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.Size = New Size(967, 49)
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel1.Size = New Size(967, 47)
         TableLayoutPanel1.TabIndex = 0
         ' 
         ' Panel5
         ' 
         Panel5.Dock = DockStyle.Fill
-        Panel5.Location = New Point(486, 3)
+        Panel5.Location = New Point(348, 3)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(478, 43)
+        Panel5.Size = New Size(616, 41)
         Panel5.TabIndex = 2
         ' 
         ' TableLayoutPanel2
         ' 
-        TableLayoutPanel2.ColumnCount = 5
+        TableLayoutPanel2.ColumnCount = 4
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 4.16666651F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
-        TableLayoutPanel2.Controls.Add(Panel9, 4, 0)
         TableLayoutPanel2.Controls.Add(Panel6, 3, 0)
         TableLayoutPanel2.Controls.Add(Panel4, 2, 0)
         TableLayoutPanel2.Controls.Add(Panel2, 1, 0)
@@ -361,42 +356,17 @@ Partial Class CFMeetingRooms
         TableLayoutPanel2.Name = "TableLayoutPanel2"
         TableLayoutPanel2.RowCount = 1
         TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        TableLayoutPanel2.Size = New Size(483, 49)
+        TableLayoutPanel2.Size = New Size(345, 47)
         TableLayoutPanel2.TabIndex = 0
-        ' 
-        ' Panel9
-        ' 
-        Panel9.Controls.Add(BtnBack)
-        Panel9.Dock = DockStyle.Fill
-        Panel9.Location = New Point(370, 5)
-        Panel9.Margin = New Padding(5)
-        Panel9.Name = "Panel9"
-        Panel9.Size = New Size(108, 39)
-        Panel9.TabIndex = 4
-        ' 
-        ' BtnBack
-        ' 
-        BtnBack.BackColor = Color.FromArgb(CByte(112), CByte(128), CByte(148))
-        BtnBack.Dock = DockStyle.Fill
-        BtnBack.FlatStyle = FlatStyle.Flat
-        BtnBack.Font = New Font("Arial", 11F, FontStyle.Bold)
-        BtnBack.ForeColor = Color.White
-        BtnBack.Location = New Point(0, 0)
-        BtnBack.Margin = New Padding(0)
-        BtnBack.Name = "BtnBack"
-        BtnBack.Size = New Size(108, 39)
-        BtnBack.TabIndex = 2
-        BtnBack.Text = "🔙 Back"
-        BtnBack.UseVisualStyleBackColor = False
         ' 
         ' Panel6
         ' 
         Panel6.Controls.Add(BtnDelete)
         Panel6.Dock = DockStyle.Fill
-        Panel6.Location = New Point(255, 5)
+        Panel6.Location = New Point(239, 5)
         Panel6.Margin = New Padding(5)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(105, 39)
+        Panel6.Size = New Size(101, 37)
         Panel6.TabIndex = 3
         ' 
         ' BtnDelete
@@ -409,7 +379,7 @@ Partial Class CFMeetingRooms
         BtnDelete.Location = New Point(0, 0)
         BtnDelete.Margin = New Padding(0)
         BtnDelete.Name = "BtnDelete"
-        BtnDelete.Size = New Size(105, 39)
+        BtnDelete.Size = New Size(101, 37)
         BtnDelete.TabIndex = 2
         BtnDelete.Text = "🗑️ Delete"
         BtnDelete.UseVisualStyleBackColor = False
@@ -418,10 +388,10 @@ Partial Class CFMeetingRooms
         ' 
         Panel4.Controls.Add(BtnModify)
         Panel4.Dock = DockStyle.Fill
-        Panel4.Location = New Point(140, 5)
+        Panel4.Location = New Point(131, 5)
         Panel4.Margin = New Padding(5)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(105, 39)
+        Panel4.Size = New Size(98, 37)
         Panel4.TabIndex = 2
         ' 
         ' BtnModify
@@ -434,7 +404,7 @@ Partial Class CFMeetingRooms
         BtnModify.Location = New Point(0, 0)
         BtnModify.Margin = New Padding(0)
         BtnModify.Name = "BtnModify"
-        BtnModify.Size = New Size(105, 39)
+        BtnModify.Size = New Size(98, 37)
         BtnModify.TabIndex = 2
         BtnModify.Text = "✏️ Modify"
         BtnModify.UseVisualStyleBackColor = False
@@ -443,10 +413,10 @@ Partial Class CFMeetingRooms
         ' 
         Panel2.Controls.Add(BtnAdd)
         Panel2.Dock = DockStyle.Fill
-        Panel2.Location = New Point(25, 5)
+        Panel2.Location = New Point(23, 5)
         Panel2.Margin = New Padding(5)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(105, 39)
+        Panel2.Size = New Size(98, 37)
         Panel2.TabIndex = 0
         ' 
         ' BtnAdd
@@ -459,7 +429,7 @@ Partial Class CFMeetingRooms
         BtnAdd.Location = New Point(0, 0)
         BtnAdd.Margin = New Padding(0)
         BtnAdd.Name = "BtnAdd"
-        BtnAdd.Size = New Size(105, 39)
+        BtnAdd.Size = New Size(98, 37)
         BtnAdd.TabIndex = 1
         BtnAdd.Text = "➕ Add"
         BtnAdd.UseVisualStyleBackColor = False
@@ -469,7 +439,7 @@ Partial Class CFMeetingRooms
         Panel3.Dock = DockStyle.Fill
         Panel3.Location = New Point(3, 3)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(14, 43)
+        Panel3.Size = New Size(12, 41)
         Panel3.TabIndex = 1
         ' 
         ' CFMeetingRooms
@@ -494,7 +464,6 @@ Partial Class CFMeetingRooms
         Panel1.ResumeLayout(False)
         TableLayoutPanel1.ResumeLayout(False)
         TableLayoutPanel2.ResumeLayout(False)
-        Panel9.ResumeLayout(False)
         Panel6.ResumeLayout(False)
         Panel4.ResumeLayout(False)
         Panel2.ResumeLayout(False)
@@ -516,12 +485,12 @@ Partial Class CFMeetingRooms
     Friend WithEvents PnlForData As Panel
     Friend WithEvents PnlForDataGridView As Panel
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TimerDateTime As Timer
+    Friend WithEvents Panel10 As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Panel5 As Panel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents Panel9 As Panel
-    Friend WithEvents BtnBack As Button
     Friend WithEvents Panel6 As Panel
     Friend WithEvents BtnDelete As Button
     Friend WithEvents Panel4 As Panel
@@ -529,6 +498,4 @@ Partial Class CFMeetingRooms
     Friend WithEvents Panel2 As Panel
     Friend WithEvents BtnAdd As Button
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents TimerDateTime As Timer
-    Friend WithEvents Panel10 As Panel
 End Class

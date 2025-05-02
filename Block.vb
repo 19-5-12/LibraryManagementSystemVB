@@ -2,7 +2,7 @@
 
 Public Class Block
     Private Sub Block_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim CRUDBtns As Button() = {BtnAdd, BtnModify, BtnDelete, BtnBack}
+        Dim CRUDBtns As Button() = {BtnAdd, BtnModify, BtnDelete}
         SetupFormUI(CRUDBtns, DataGridView1, TimerDateTime, LblDateTimeBlock, AddressOf LoadBlocksData)
 
     End Sub

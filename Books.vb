@@ -3,7 +3,7 @@
 Public Class Books
 
     Private Sub Books_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim CRUDBtns As Button() = {BtnAdd, BtnModify, BtnDelete, BtnBack}
+        Dim CRUDBtns As Button() = {BtnAdd, BtnModify, BtnDelete}
         SetupFormUI(CRUDBtns, DataGridView1, TimerDateTime, LblDateTimeBook, AddressOf LoadBooksData)
 
     End Sub
@@ -42,13 +42,20 @@ Public Class Books
     End Sub
 
     Private Sub BookAddedHandler(sender As Object, e As EventArgs)
+        LoadBooksData() 
+    End Sub
+
+    Private Sub BtnModify_Click(sender As Object, e As EventArgs) Handles BtnModify.Click
+        Dim modifyForm As New FormModifyBooks()
+        AddHandler modifyForm.BookModified, AddressOf BookModifiedHandler
+        modifyForm.ShowDialog()
+        RemoveHandler modifyForm.BookModified, AddressOf BookModifiedHandler
+    End Sub
+
+    Private Sub BookModifiedHandler(sender As Object, e As EventArgs)
         LoadBooksData()
     End Sub
 
-
-    Private Sub BtnModify_Click(sender As Object, e As EventArgs) Handles BtnModify.Click
-        FormModifyBooks.ShowDialog()
-    End Sub
 
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
         FormDeleteBooks.ShowDialog()
