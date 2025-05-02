@@ -27,6 +27,17 @@ Partial Class CFUser
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         TBLFill = New TableLayoutPanel()
+        Panel1 = New Panel()
+        TableLayoutPanel1 = New TableLayoutPanel()
+        Panel5 = New Panel()
+        TableLayoutPanel2 = New TableLayoutPanel()
+        Panel6 = New Panel()
+        BtnDelete = New Button()
+        Panel4 = New Panel()
+        BtnModify = New Button()
+        Panel2 = New Panel()
+        BtnAdd = New Button()
+        Panel3 = New Panel()
         PnlBelow = New Panel()
         Panel8 = New Panel()
         LblDateTimeUser = New Label()
@@ -43,18 +54,13 @@ Partial Class CFUser
         PnlForDataGridView = New Panel()
         DataGridView1 = New DataGridView()
         TimerDateTime = New Timer(components)
-        Panel1 = New Panel()
-        TableLayoutPanel1 = New TableLayoutPanel()
-        Panel5 = New Panel()
-        TableLayoutPanel2 = New TableLayoutPanel()
-        Panel6 = New Panel()
-        BtnDelete = New Button()
-        Panel4 = New Panel()
-        BtnModify = New Button()
-        Panel2 = New Panel()
-        BtnAdd = New Button()
-        Panel3 = New Panel()
         TBLFill.SuspendLayout()
+        Panel1.SuspendLayout()
+        TableLayoutPanel1.SuspendLayout()
+        TableLayoutPanel2.SuspendLayout()
+        Panel6.SuspendLayout()
+        Panel4.SuspendLayout()
+        Panel2.SuspendLayout()
         PnlBelow.SuspendLayout()
         Panel8.SuspendLayout()
         Panel7.SuspendLayout()
@@ -63,12 +69,6 @@ Partial Class CFUser
         PnlForData.SuspendLayout()
         PnlForDataGridView.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
-        Panel1.SuspendLayout()
-        TableLayoutPanel1.SuspendLayout()
-        TableLayoutPanel2.SuspendLayout()
-        Panel6.SuspendLayout()
-        Panel4.SuspendLayout()
-        Panel2.SuspendLayout()
         SuspendLayout()
         ' 
         ' TBLFill
@@ -86,6 +86,143 @@ Partial Class CFUser
         TBLFill.RowStyles.Add(New RowStyle(SizeType.Percent, 91.58F))
         TBLFill.Size = New Size(967, 570)
         TBLFill.TabIndex = 2
+        ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(TableLayoutPanel1)
+        Panel1.Dock = DockStyle.Fill
+        Panel1.Location = New Point(0, 0)
+        Panel1.Margin = New Padding(0)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(967, 47)
+        Panel1.TabIndex = 5
+        ' 
+        ' TableLayoutPanel1
+        ' 
+        TableLayoutPanel1.ColumnCount = 2
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 35.6790543F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 64.3209457F))
+        TableLayoutPanel1.Controls.Add(Panel5, 1, 0)
+        TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 0, 0)
+        TableLayoutPanel1.Dock = DockStyle.Fill
+        TableLayoutPanel1.Location = New Point(0, 0)
+        TableLayoutPanel1.Margin = New Padding(0)
+        TableLayoutPanel1.Name = "TableLayoutPanel1"
+        TableLayoutPanel1.RowCount = 1
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel1.Size = New Size(967, 47)
+        TableLayoutPanel1.TabIndex = 0
+        ' 
+        ' Panel5
+        ' 
+        Panel5.Dock = DockStyle.Fill
+        Panel5.Location = New Point(348, 3)
+        Panel5.Name = "Panel5"
+        Panel5.Size = New Size(616, 41)
+        Panel5.TabIndex = 2
+        ' 
+        ' TableLayoutPanel2
+        ' 
+        TableLayoutPanel2.ColumnCount = 4
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 4.16666651F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
+        TableLayoutPanel2.Controls.Add(Panel6, 3, 0)
+        TableLayoutPanel2.Controls.Add(Panel4, 2, 0)
+        TableLayoutPanel2.Controls.Add(Panel2, 1, 0)
+        TableLayoutPanel2.Controls.Add(Panel3, 0, 0)
+        TableLayoutPanel2.Dock = DockStyle.Fill
+        TableLayoutPanel2.Location = New Point(0, 0)
+        TableLayoutPanel2.Margin = New Padding(0)
+        TableLayoutPanel2.Name = "TableLayoutPanel2"
+        TableLayoutPanel2.RowCount = 1
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel2.Size = New Size(345, 47)
+        TableLayoutPanel2.TabIndex = 0
+        ' 
+        ' Panel6
+        ' 
+        Panel6.Controls.Add(BtnDelete)
+        Panel6.Dock = DockStyle.Fill
+        Panel6.Location = New Point(239, 5)
+        Panel6.Margin = New Padding(5)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(101, 37)
+        Panel6.TabIndex = 3
+        ' 
+        ' BtnDelete
+        ' 
+        BtnDelete.BackColor = Color.FromArgb(CByte(229), CByte(65), CByte(63))
+        BtnDelete.Dock = DockStyle.Fill
+        BtnDelete.FlatStyle = FlatStyle.Flat
+        BtnDelete.Font = New Font("Arial", 11F, FontStyle.Bold)
+        BtnDelete.ForeColor = Color.White
+        BtnDelete.Location = New Point(0, 0)
+        BtnDelete.Margin = New Padding(0)
+        BtnDelete.Name = "BtnDelete"
+        BtnDelete.Size = New Size(101, 37)
+        BtnDelete.TabIndex = 2
+        BtnDelete.Text = "🗑️ Delete"
+        BtnDelete.UseVisualStyleBackColor = False
+        ' 
+        ' Panel4
+        ' 
+        Panel4.Controls.Add(BtnModify)
+        Panel4.Dock = DockStyle.Fill
+        Panel4.Location = New Point(131, 5)
+        Panel4.Margin = New Padding(5)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(98, 37)
+        Panel4.TabIndex = 2
+        ' 
+        ' BtnModify
+        ' 
+        BtnModify.BackColor = Color.FromArgb(CByte(236), CByte(137), CByte(54))
+        BtnModify.Dock = DockStyle.Fill
+        BtnModify.FlatStyle = FlatStyle.Flat
+        BtnModify.Font = New Font("Arial", 11F, FontStyle.Bold)
+        BtnModify.ForeColor = Color.White
+        BtnModify.Location = New Point(0, 0)
+        BtnModify.Margin = New Padding(0)
+        BtnModify.Name = "BtnModify"
+        BtnModify.Size = New Size(98, 37)
+        BtnModify.TabIndex = 2
+        BtnModify.Text = "✏️ Modify"
+        BtnModify.UseVisualStyleBackColor = False
+        ' 
+        ' Panel2
+        ' 
+        Panel2.Controls.Add(BtnAdd)
+        Panel2.Dock = DockStyle.Fill
+        Panel2.Location = New Point(23, 5)
+        Panel2.Margin = New Padding(5)
+        Panel2.Name = "Panel2"
+        Panel2.Size = New Size(98, 37)
+        Panel2.TabIndex = 0
+        ' 
+        ' BtnAdd
+        ' 
+        BtnAdd.BackColor = Color.FromArgb(CByte(44), CByte(80), CByte(126))
+        BtnAdd.Dock = DockStyle.Fill
+        BtnAdd.FlatStyle = FlatStyle.Flat
+        BtnAdd.Font = New Font("Arial", 11F, FontStyle.Bold)
+        BtnAdd.ForeColor = Color.White
+        BtnAdd.Location = New Point(0, 0)
+        BtnAdd.Margin = New Padding(0)
+        BtnAdd.Name = "BtnAdd"
+        BtnAdd.Size = New Size(98, 37)
+        BtnAdd.TabIndex = 1
+        BtnAdd.Text = "➕ Add"
+        BtnAdd.UseVisualStyleBackColor = False
+        ' 
+        ' Panel3
+        ' 
+        Panel3.Dock = DockStyle.Fill
+        Panel3.Location = New Point(3, 3)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(12, 41)
+        Panel3.TabIndex = 1
         ' 
         ' PnlBelow
         ' 
@@ -305,143 +442,6 @@ Partial Class CFUser
         DataGridView1.Size = New Size(881, 300)
         DataGridView1.TabIndex = 0
         ' 
-        ' Panel1
-        ' 
-        Panel1.Controls.Add(TableLayoutPanel1)
-        Panel1.Dock = DockStyle.Fill
-        Panel1.Location = New Point(0, 0)
-        Panel1.Margin = New Padding(0)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(967, 47)
-        Panel1.TabIndex = 5
-        ' 
-        ' TableLayoutPanel1
-        ' 
-        TableLayoutPanel1.ColumnCount = 2
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 35.6790543F))
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 64.3209457F))
-        TableLayoutPanel1.Controls.Add(Panel5, 1, 0)
-        TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 0, 0)
-        TableLayoutPanel1.Dock = DockStyle.Fill
-        TableLayoutPanel1.Location = New Point(0, 0)
-        TableLayoutPanel1.Margin = New Padding(0)
-        TableLayoutPanel1.Name = "TableLayoutPanel1"
-        TableLayoutPanel1.RowCount = 1
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        TableLayoutPanel1.Size = New Size(967, 47)
-        TableLayoutPanel1.TabIndex = 0
-        ' 
-        ' Panel5
-        ' 
-        Panel5.Dock = DockStyle.Fill
-        Panel5.Location = New Point(348, 3)
-        Panel5.Name = "Panel5"
-        Panel5.Size = New Size(616, 41)
-        Panel5.TabIndex = 2
-        ' 
-        ' TableLayoutPanel2
-        ' 
-        TableLayoutPanel2.ColumnCount = 4
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 4.16666651F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
-        TableLayoutPanel2.Controls.Add(Panel6, 3, 0)
-        TableLayoutPanel2.Controls.Add(Panel4, 2, 0)
-        TableLayoutPanel2.Controls.Add(Panel2, 1, 0)
-        TableLayoutPanel2.Controls.Add(Panel3, 0, 0)
-        TableLayoutPanel2.Dock = DockStyle.Fill
-        TableLayoutPanel2.Location = New Point(0, 0)
-        TableLayoutPanel2.Margin = New Padding(0)
-        TableLayoutPanel2.Name = "TableLayoutPanel2"
-        TableLayoutPanel2.RowCount = 1
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        TableLayoutPanel2.Size = New Size(345, 47)
-        TableLayoutPanel2.TabIndex = 0
-        ' 
-        ' Panel6
-        ' 
-        Panel6.Controls.Add(BtnDelete)
-        Panel6.Dock = DockStyle.Fill
-        Panel6.Location = New Point(239, 5)
-        Panel6.Margin = New Padding(5)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(101, 37)
-        Panel6.TabIndex = 3
-        ' 
-        ' BtnDelete
-        ' 
-        BtnDelete.BackColor = Color.FromArgb(CByte(229), CByte(65), CByte(63))
-        BtnDelete.Dock = DockStyle.Fill
-        BtnDelete.FlatStyle = FlatStyle.Flat
-        BtnDelete.Font = New Font("Arial", 11F, FontStyle.Bold)
-        BtnDelete.ForeColor = Color.White
-        BtnDelete.Location = New Point(0, 0)
-        BtnDelete.Margin = New Padding(0)
-        BtnDelete.Name = "BtnDelete"
-        BtnDelete.Size = New Size(101, 37)
-        BtnDelete.TabIndex = 2
-        BtnDelete.Text = "🗑️ Delete"
-        BtnDelete.UseVisualStyleBackColor = False
-        ' 
-        ' Panel4
-        ' 
-        Panel4.Controls.Add(BtnModify)
-        Panel4.Dock = DockStyle.Fill
-        Panel4.Location = New Point(131, 5)
-        Panel4.Margin = New Padding(5)
-        Panel4.Name = "Panel4"
-        Panel4.Size = New Size(98, 37)
-        Panel4.TabIndex = 2
-        ' 
-        ' BtnModify
-        ' 
-        BtnModify.BackColor = Color.FromArgb(CByte(236), CByte(137), CByte(54))
-        BtnModify.Dock = DockStyle.Fill
-        BtnModify.FlatStyle = FlatStyle.Flat
-        BtnModify.Font = New Font("Arial", 11F, FontStyle.Bold)
-        BtnModify.ForeColor = Color.White
-        BtnModify.Location = New Point(0, 0)
-        BtnModify.Margin = New Padding(0)
-        BtnModify.Name = "BtnModify"
-        BtnModify.Size = New Size(98, 37)
-        BtnModify.TabIndex = 2
-        BtnModify.Text = "✏️ Modify"
-        BtnModify.UseVisualStyleBackColor = False
-        ' 
-        ' Panel2
-        ' 
-        Panel2.Controls.Add(BtnAdd)
-        Panel2.Dock = DockStyle.Fill
-        Panel2.Location = New Point(23, 5)
-        Panel2.Margin = New Padding(5)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(98, 37)
-        Panel2.TabIndex = 0
-        ' 
-        ' BtnAdd
-        ' 
-        BtnAdd.BackColor = Color.FromArgb(CByte(44), CByte(80), CByte(126))
-        BtnAdd.Dock = DockStyle.Fill
-        BtnAdd.FlatStyle = FlatStyle.Flat
-        BtnAdd.Font = New Font("Arial", 11F, FontStyle.Bold)
-        BtnAdd.ForeColor = Color.White
-        BtnAdd.Location = New Point(0, 0)
-        BtnAdd.Margin = New Padding(0)
-        BtnAdd.Name = "BtnAdd"
-        BtnAdd.Size = New Size(98, 37)
-        BtnAdd.TabIndex = 1
-        BtnAdd.Text = "➕ Add"
-        BtnAdd.UseVisualStyleBackColor = False
-        ' 
-        ' Panel3
-        ' 
-        Panel3.Dock = DockStyle.Fill
-        Panel3.Location = New Point(3, 3)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(12, 41)
-        Panel3.TabIndex = 1
-        ' 
         ' CFUser
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -451,6 +451,12 @@ Partial Class CFUser
         Name = "CFUser"
         Text = "CFUser"
         TBLFill.ResumeLayout(False)
+        Panel1.ResumeLayout(False)
+        TableLayoutPanel1.ResumeLayout(False)
+        TableLayoutPanel2.ResumeLayout(False)
+        Panel6.ResumeLayout(False)
+        Panel4.ResumeLayout(False)
+        Panel2.ResumeLayout(False)
         PnlBelow.ResumeLayout(False)
         PnlBelow.PerformLayout()
         Panel8.ResumeLayout(False)
@@ -461,12 +467,6 @@ Partial Class CFUser
         PnlForData.PerformLayout()
         PnlForDataGridView.ResumeLayout(False)
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
-        Panel1.ResumeLayout(False)
-        TableLayoutPanel1.ResumeLayout(False)
-        TableLayoutPanel2.ResumeLayout(False)
-        Panel6.ResumeLayout(False)
-        Panel4.ResumeLayout(False)
-        Panel2.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 

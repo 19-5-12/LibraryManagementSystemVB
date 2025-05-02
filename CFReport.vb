@@ -4,10 +4,6 @@ Public Class CFReport
 
     Private CategoryStats As New Dictionary(Of String, CategoryStat)
     Private Sub CFReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        For Each btn In New Button() {BtnThisMonth, BtnLastMonth, BtnYearToDate, BtnThisQuarter, BtnCustomRange}
-            EnableResponsiveCornerRadius(btn)
-        Next
-
         For Each pnl As Panel In New Panel() {
             PnlRow, PnlCLBar, PnlBarST, PnlBarHistory, PnlBarFiction,
             PnlBarForMemberEngagement, PnlBarStudyRoomA, PnlBarCollaborationSpace, PnlBarConferenceRoom,
@@ -20,7 +16,7 @@ Public Class CFReport
         Next
 
         For Each pnl In New Panel() {PnlBorrowingStatistics, PnlPopularCategories, PNLUserActivity, PnlMeetingRoomUsage}
-            Dim currentPanel = pnl
+            Dim currentPanel = PnlExportPrint
 
             AddHandler currentPanel.Paint, Sub(s, pe)
                                                StyleShadowPanel(DirectCast(s, Panel), pe)
