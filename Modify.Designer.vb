@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormAddBooks
+Partial Class Modify
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,7 @@ Partial Class FormAddBooks
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         PnlFill = New Panel()
-        TLPAddNewBook = New TableLayoutPanel()
+        TLPModifyBook = New TableLayoutPanel()
         PnlFillAddnewBook = New Panel()
         TLPAddNewBookFill = New TableLayoutPanel()
         TLPAddNewBookColumn = New Panel()
@@ -86,12 +86,18 @@ Partial Class FormAddBooks
         PnlForCancel = New Panel()
         PnlBtnCancel = New Panel()
         BtnCancel = New Button()
-        Panel10 = New Panel()
         PnlTopAddNewBook = New Panel()
-        Label1 = New Label()
         Panel20 = New Panel()
+        TableLayoutPanel6 = New TableLayoutPanel()
+        Panel24 = New Panel()
+        PnlSelect = New Panel()
+        PnlBorderSelectID = New Panel()
+        Panel25 = New Panel()
+        TxtSelectID = New TextBox()
+        Panel23 = New Panel()
+        Label1 = New Label()
         PnlFill.SuspendLayout()
-        TLPAddNewBook.SuspendLayout()
+        TLPModifyBook.SuspendLayout()
         PnlFillAddnewBook.SuspendLayout()
         TLPAddNewBookFill.SuspendLayout()
         TLPAddNewBookColumn.SuspendLayout()
@@ -139,60 +145,63 @@ Partial Class FormAddBooks
         PnlForCancel.SuspendLayout()
         PnlBtnCancel.SuspendLayout()
         PnlTopAddNewBook.SuspendLayout()
+        Panel20.SuspendLayout()
+        TableLayoutPanel6.SuspendLayout()
+        Panel24.SuspendLayout()
+        PnlSelect.SuspendLayout()
+        PnlBorderSelectID.SuspendLayout()
+        Panel25.SuspendLayout()
+        Panel23.SuspendLayout()
         SuspendLayout()
         ' 
         ' PnlFill
         ' 
         PnlFill.BackColor = Color.White
-        PnlFill.Controls.Add(TLPAddNewBook)
+        PnlFill.Controls.Add(TLPModifyBook)
         PnlFill.Dock = DockStyle.Fill
         PnlFill.Location = New Point(0, 0)
         PnlFill.Margin = New Padding(5)
         PnlFill.Name = "PnlFill"
         PnlFill.Size = New Size(489, 510)
-        PnlFill.TabIndex = 0
+        PnlFill.TabIndex = 1
         ' 
-        ' TLPAddNewBook
+        ' TLPModifyBook
         ' 
-        TLPAddNewBook.ColumnCount = 1
-        TLPAddNewBook.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TLPAddNewBook.Controls.Add(PnlFillAddnewBook, 0, 2)
-        TLPAddNewBook.Controls.Add(PnlTopAddNewBook, 0, 0)
-        TLPAddNewBook.Controls.Add(Panel20, 0, 1)
-        TLPAddNewBook.Dock = DockStyle.Fill
-        TLPAddNewBook.Location = New Point(0, 0)
-        TLPAddNewBook.Name = "TLPAddNewBook"
-        TLPAddNewBook.RowCount = 3
-        TLPAddNewBook.RowStyles.Add(New RowStyle(SizeType.Percent, 9.333337F))
-        TLPAddNewBook.RowStyles.Add(New RowStyle(SizeType.Absolute, 1F))
-        TLPAddNewBook.RowStyles.Add(New RowStyle(SizeType.Percent, 90.6666641F))
-        TLPAddNewBook.Size = New Size(489, 510)
-        TLPAddNewBook.TabIndex = 0
+        TLPModifyBook.ColumnCount = 1
+        TLPModifyBook.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TLPModifyBook.Controls.Add(PnlFillAddnewBook, 0, 1)
+        TLPModifyBook.Controls.Add(PnlTopAddNewBook, 0, 0)
+        TLPModifyBook.Dock = DockStyle.Fill
+        TLPModifyBook.Location = New Point(0, 0)
+        TLPModifyBook.Name = "TLPModifyBook"
+        TLPModifyBook.RowCount = 2
+        TLPModifyBook.RowStyles.Add(New RowStyle(SizeType.Percent, 12.15686F))
+        TLPModifyBook.RowStyles.Add(New RowStyle(SizeType.Percent, 87.84314F))
+        TLPModifyBook.Size = New Size(489, 510)
+        TLPModifyBook.TabIndex = 0
         ' 
         ' PnlFillAddnewBook
         ' 
         PnlFillAddnewBook.Controls.Add(TLPAddNewBookFill)
         PnlFillAddnewBook.Dock = DockStyle.Fill
-        PnlFillAddnewBook.Location = New Point(3, 51)
+        PnlFillAddnewBook.Location = New Point(3, 64)
         PnlFillAddnewBook.Name = "PnlFillAddnewBook"
-        PnlFillAddnewBook.Size = New Size(483, 456)
+        PnlFillAddnewBook.Size = New Size(483, 443)
         PnlFillAddnewBook.TabIndex = 1
         ' 
         ' TLPAddNewBookFill
         ' 
         TLPAddNewBookFill.ColumnCount = 1
         TLPAddNewBookFill.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TLPAddNewBookFill.Controls.Add(TLPAddNewBookColumn, 0, 1)
-        TLPAddNewBookFill.Controls.Add(PnlCancelAdd, 0, 2)
-        TLPAddNewBookFill.Controls.Add(Panel10, 0, 0)
+        TLPAddNewBookFill.Controls.Add(TLPAddNewBookColumn, 0, 0)
+        TLPAddNewBookFill.Controls.Add(PnlCancelAdd, 0, 1)
         TLPAddNewBookFill.Dock = DockStyle.Fill
         TLPAddNewBookFill.Location = New Point(0, 0)
         TLPAddNewBookFill.Name = "TLPAddNewBookFill"
-        TLPAddNewBookFill.RowCount = 3
-        TLPAddNewBookFill.RowStyles.Add(New RowStyle(SizeType.Absolute, 0F))
+        TLPAddNewBookFill.RowCount = 2
         TLPAddNewBookFill.RowStyles.Add(New RowStyle(SizeType.Percent, 89.05473F))
         TLPAddNewBookFill.RowStyles.Add(New RowStyle(SizeType.Percent, 10.9452705F))
-        TLPAddNewBookFill.Size = New Size(483, 456)
+        TLPAddNewBookFill.Size = New Size(483, 443)
         TLPAddNewBookFill.TabIndex = 0
         ' 
         ' TLPAddNewBookColumn
@@ -201,7 +210,7 @@ Partial Class FormAddBooks
         TLPAddNewBookColumn.Dock = DockStyle.Fill
         TLPAddNewBookColumn.Location = New Point(3, 3)
         TLPAddNewBookColumn.Name = "TLPAddNewBookColumn"
-        TLPAddNewBookColumn.Size = New Size(477, 400)
+        TLPAddNewBookColumn.Size = New Size(477, 388)
         TLPAddNewBookColumn.TabIndex = 0
         ' 
         ' TLPVariablesAddNewBook
@@ -226,14 +235,14 @@ Partial Class FormAddBooks
         TLPVariablesAddNewBook.RowStyles.Add(New RowStyle(SizeType.Percent, 14.2857141F))
         TLPVariablesAddNewBook.RowStyles.Add(New RowStyle(SizeType.Percent, 14.2857141F))
         TLPVariablesAddNewBook.RowStyles.Add(New RowStyle(SizeType.Percent, 14.2857141F))
-        TLPVariablesAddNewBook.Size = New Size(477, 400)
+        TLPVariablesAddNewBook.Size = New Size(477, 388)
         TLPVariablesAddNewBook.TabIndex = 0
         ' 
         ' Panel17
         ' 
         Panel17.Controls.Add(TableLayoutPanel5)
         Panel17.Dock = DockStyle.Fill
-        Panel17.Location = New Point(3, 345)
+        Panel17.Location = New Point(3, 333)
         Panel17.Name = "Panel17"
         Panel17.Size = New Size(471, 52)
         Panel17.TabIndex = 6
@@ -311,9 +320,9 @@ Partial Class FormAddBooks
         ' 
         Panel14.Controls.Add(TableLayoutPanel4)
         Panel14.Dock = DockStyle.Fill
-        Panel14.Location = New Point(3, 288)
+        Panel14.Location = New Point(3, 278)
         Panel14.Name = "Panel14"
-        Panel14.Size = New Size(471, 51)
+        Panel14.Size = New Size(471, 49)
         Panel14.TabIndex = 5
         ' 
         ' TableLayoutPanel4
@@ -328,7 +337,7 @@ Partial Class FormAddBooks
         TableLayoutPanel4.Name = "TableLayoutPanel4"
         TableLayoutPanel4.RowCount = 1
         TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel4.Size = New Size(471, 51)
+        TableLayoutPanel4.Size = New Size(471, 49)
         TableLayoutPanel4.TabIndex = 0
         ' 
         ' PnlBorderPubYear
@@ -338,7 +347,7 @@ Partial Class FormAddBooks
         PnlBorderPubYear.Location = New Point(162, 5)
         PnlBorderPubYear.Margin = New Padding(0, 5, 0, 5)
         PnlBorderPubYear.Name = "PnlBorderPubYear"
-        PnlBorderPubYear.Size = New Size(309, 41)
+        PnlBorderPubYear.Size = New Size(309, 39)
         PnlBorderPubYear.TabIndex = 1
         ' 
         ' Panel18
@@ -351,7 +360,7 @@ Partial Class FormAddBooks
         Panel18.Margin = New Padding(0)
         Panel18.Name = "Panel18"
         Panel18.Padding = New Padding(10, 5, 0, 0)
-        Panel18.Size = New Size(309, 41)
+        Panel18.Size = New Size(309, 39)
         Panel18.TabIndex = 0
         ' 
         ' DateTimePicker1
@@ -371,17 +380,17 @@ Partial Class FormAddBooks
         Panel19.Dock = DockStyle.Fill
         Panel19.Location = New Point(3, 3)
         Panel19.Name = "Panel19"
-        Panel19.Size = New Size(156, 45)
+        Panel19.Size = New Size(156, 43)
         Panel19.TabIndex = 0
         ' 
         ' Label8
         ' 
         Label8.Dock = DockStyle.Fill
-        Label8.Font = New Font("Arial", 13F)
+        Label8.Font = New Font("Arial", 11F, FontStyle.Bold)
         Label8.ForeColor = Color.DarkSlateGray
         Label8.Location = New Point(0, 0)
         Label8.Name = "Label8"
-        Label8.Size = New Size(156, 45)
+        Label8.Size = New Size(156, 43)
         Label8.TabIndex = 0
         Label8.Text = "PUBLICATION YEAR"
         Label8.TextAlign = ContentAlignment.MiddleRight
@@ -390,9 +399,9 @@ Partial Class FormAddBooks
         ' 
         Panel11.Controls.Add(TableLayoutPanel3)
         Panel11.Dock = DockStyle.Fill
-        Panel11.Location = New Point(3, 231)
+        Panel11.Location = New Point(3, 223)
         Panel11.Name = "Panel11"
-        Panel11.Size = New Size(471, 51)
+        Panel11.Size = New Size(471, 49)
         Panel11.TabIndex = 4
         ' 
         ' TableLayoutPanel3
@@ -407,7 +416,7 @@ Partial Class FormAddBooks
         TableLayoutPanel3.Name = "TableLayoutPanel3"
         TableLayoutPanel3.RowCount = 1
         TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel3.Size = New Size(471, 51)
+        TableLayoutPanel3.Size = New Size(471, 49)
         TableLayoutPanel3.TabIndex = 0
         ' 
         ' PnlBorderCategory
@@ -417,7 +426,7 @@ Partial Class FormAddBooks
         PnlBorderCategory.Location = New Point(162, 5)
         PnlBorderCategory.Margin = New Padding(0, 5, 0, 5)
         PnlBorderCategory.Name = "PnlBorderCategory"
-        PnlBorderCategory.Size = New Size(309, 41)
+        PnlBorderCategory.Size = New Size(309, 39)
         PnlBorderCategory.TabIndex = 1
         ' 
         ' Panel15
@@ -430,7 +439,7 @@ Partial Class FormAddBooks
         Panel15.Margin = New Padding(0)
         Panel15.Name = "Panel15"
         Panel15.Padding = New Padding(10, 5, 0, 0)
-        Panel15.Size = New Size(309, 41)
+        Panel15.Size = New Size(309, 39)
         Panel15.TabIndex = 0
         ' 
         ' ComboCategory
@@ -452,7 +461,7 @@ Partial Class FormAddBooks
         Panel16.Dock = DockStyle.Fill
         Panel16.Location = New Point(3, 3)
         Panel16.Name = "Panel16"
-        Panel16.Size = New Size(156, 45)
+        Panel16.Size = New Size(156, 43)
         Panel16.TabIndex = 0
         ' 
         ' Label7
@@ -462,7 +471,7 @@ Partial Class FormAddBooks
         Label7.ForeColor = Color.DarkSlateGray
         Label7.Location = New Point(0, 0)
         Label7.Name = "Label7"
-        Label7.Size = New Size(156, 45)
+        Label7.Size = New Size(156, 43)
         Label7.TabIndex = 0
         Label7.Text = "CATEGORY"
         Label7.TextAlign = ContentAlignment.MiddleRight
@@ -471,9 +480,9 @@ Partial Class FormAddBooks
         ' 
         Panel7.Controls.Add(TableLayoutPanel2)
         Panel7.Dock = DockStyle.Fill
-        Panel7.Location = New Point(3, 174)
+        Panel7.Location = New Point(3, 168)
         Panel7.Name = "Panel7"
-        Panel7.Size = New Size(471, 51)
+        Panel7.Size = New Size(471, 49)
         Panel7.TabIndex = 3
         ' 
         ' TableLayoutPanel2
@@ -488,7 +497,7 @@ Partial Class FormAddBooks
         TableLayoutPanel2.Name = "TableLayoutPanel2"
         TableLayoutPanel2.RowCount = 1
         TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel2.Size = New Size(471, 51)
+        TableLayoutPanel2.Size = New Size(471, 49)
         TableLayoutPanel2.TabIndex = 0
         ' 
         ' PnlBorderIBSN
@@ -498,7 +507,7 @@ Partial Class FormAddBooks
         PnlBorderIBSN.Location = New Point(162, 5)
         PnlBorderIBSN.Margin = New Padding(0, 5, 0, 5)
         PnlBorderIBSN.Name = "PnlBorderIBSN"
-        PnlBorderIBSN.Size = New Size(309, 41)
+        PnlBorderIBSN.Size = New Size(309, 39)
         PnlBorderIBSN.TabIndex = 1
         ' 
         ' Panel12
@@ -511,7 +520,7 @@ Partial Class FormAddBooks
         Panel12.Margin = New Padding(0)
         Panel12.Name = "Panel12"
         Panel12.Padding = New Padding(0, 5, 0, 0)
-        Panel12.Size = New Size(309, 41)
+        Panel12.Size = New Size(309, 39)
         Panel12.TabIndex = 0
         ' 
         ' TxtISBN
@@ -530,7 +539,7 @@ Partial Class FormAddBooks
         Panel13.Dock = DockStyle.Fill
         Panel13.Location = New Point(3, 3)
         Panel13.Name = "Panel13"
-        Panel13.Size = New Size(156, 45)
+        Panel13.Size = New Size(156, 43)
         Panel13.TabIndex = 0
         ' 
         ' Label6
@@ -540,7 +549,7 @@ Partial Class FormAddBooks
         Label6.ForeColor = Color.DarkSlateGray
         Label6.Location = New Point(0, 0)
         Label6.Name = "Label6"
-        Label6.Size = New Size(156, 45)
+        Label6.Size = New Size(156, 43)
         Label6.TabIndex = 0
         Label6.Text = "ISBN"
         Label6.TextAlign = ContentAlignment.MiddleRight
@@ -549,9 +558,9 @@ Partial Class FormAddBooks
         ' 
         Panel2.Controls.Add(TableLayoutPanel1)
         Panel2.Dock = DockStyle.Fill
-        Panel2.Location = New Point(3, 117)
+        Panel2.Location = New Point(3, 113)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(471, 51)
+        Panel2.Size = New Size(471, 49)
         Panel2.TabIndex = 2
         ' 
         ' TableLayoutPanel1
@@ -566,7 +575,7 @@ Partial Class FormAddBooks
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 1
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.Size = New Size(471, 51)
+        TableLayoutPanel1.Size = New Size(471, 49)
         TableLayoutPanel1.TabIndex = 0
         ' 
         ' PnlBorderAuthor
@@ -576,7 +585,7 @@ Partial Class FormAddBooks
         PnlBorderAuthor.Location = New Point(162, 5)
         PnlBorderAuthor.Margin = New Padding(0, 5, 0, 5)
         PnlBorderAuthor.Name = "PnlBorderAuthor"
-        PnlBorderAuthor.Size = New Size(309, 41)
+        PnlBorderAuthor.Size = New Size(309, 39)
         PnlBorderAuthor.TabIndex = 1
         ' 
         ' Panel8
@@ -589,7 +598,7 @@ Partial Class FormAddBooks
         Panel8.Margin = New Padding(0)
         Panel8.Name = "Panel8"
         Panel8.Padding = New Padding(0, 5, 0, 0)
-        Panel8.Size = New Size(309, 41)
+        Panel8.Size = New Size(309, 39)
         Panel8.TabIndex = 0
         ' 
         ' TxtAuthor
@@ -608,7 +617,7 @@ Partial Class FormAddBooks
         Panel9.Dock = DockStyle.Fill
         Panel9.Location = New Point(3, 3)
         Panel9.Name = "Panel9"
-        Panel9.Size = New Size(156, 45)
+        Panel9.Size = New Size(156, 43)
         Panel9.TabIndex = 0
         ' 
         ' Label4
@@ -618,7 +627,7 @@ Partial Class FormAddBooks
         Label4.ForeColor = Color.DarkSlateGray
         Label4.Location = New Point(0, 0)
         Label4.Name = "Label4"
-        Label4.Size = New Size(156, 45)
+        Label4.Size = New Size(156, 43)
         Label4.TabIndex = 0
         Label4.Text = "AUTHOR"
         Label4.TextAlign = ContentAlignment.MiddleRight
@@ -627,9 +636,9 @@ Partial Class FormAddBooks
         ' 
         PnlTitle.Controls.Add(TLPTitle)
         PnlTitle.Dock = DockStyle.Fill
-        PnlTitle.Location = New Point(3, 60)
+        PnlTitle.Location = New Point(3, 58)
         PnlTitle.Name = "PnlTitle"
-        PnlTitle.Size = New Size(471, 51)
+        PnlTitle.Size = New Size(471, 49)
         PnlTitle.TabIndex = 1
         ' 
         ' TLPTitle
@@ -644,7 +653,7 @@ Partial Class FormAddBooks
         TLPTitle.Name = "TLPTitle"
         TLPTitle.RowCount = 1
         TLPTitle.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TLPTitle.Size = New Size(471, 51)
+        TLPTitle.Size = New Size(471, 49)
         TLPTitle.TabIndex = 0
         ' 
         ' Panel3
@@ -654,7 +663,7 @@ Partial Class FormAddBooks
         Panel3.Location = New Point(162, 5)
         Panel3.Margin = New Padding(0, 5, 0, 5)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(309, 41)
+        Panel3.Size = New Size(309, 39)
         Panel3.TabIndex = 1
         ' 
         ' Panel4
@@ -667,7 +676,7 @@ Partial Class FormAddBooks
         Panel4.Margin = New Padding(0)
         Panel4.Name = "Panel4"
         Panel4.Padding = New Padding(0, 5, 0, 0)
-        Panel4.Size = New Size(309, 41)
+        Panel4.Size = New Size(309, 39)
         Panel4.TabIndex = 0
         ' 
         ' TxtTitle
@@ -686,7 +695,7 @@ Partial Class FormAddBooks
         Panel5.Dock = DockStyle.Fill
         Panel5.Location = New Point(3, 3)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(156, 45)
+        Panel5.Size = New Size(156, 43)
         Panel5.TabIndex = 0
         ' 
         ' Label5
@@ -696,7 +705,7 @@ Partial Class FormAddBooks
         Label5.ForeColor = Color.DarkSlateGray
         Label5.Location = New Point(0, 0)
         Label5.Name = "Label5"
-        Label5.Size = New Size(156, 45)
+        Label5.Size = New Size(156, 43)
         Label5.TabIndex = 0
         Label5.Text = "TITLE"
         Label5.TextAlign = ContentAlignment.MiddleRight
@@ -707,7 +716,7 @@ Partial Class FormAddBooks
         PnlBookID.Dock = DockStyle.Fill
         PnlBookID.Location = New Point(3, 3)
         PnlBookID.Name = "PnlBookID"
-        PnlBookID.Size = New Size(471, 51)
+        PnlBookID.Size = New Size(471, 49)
         PnlBookID.TabIndex = 0
         ' 
         ' TLPBookID
@@ -722,7 +731,7 @@ Partial Class FormAddBooks
         TLPBookID.Name = "TLPBookID"
         TLPBookID.RowCount = 1
         TLPBookID.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TLPBookID.Size = New Size(471, 51)
+        TLPBookID.Size = New Size(471, 49)
         TLPBookID.TabIndex = 0
         ' 
         ' PnlTxtForBookID
@@ -732,7 +741,7 @@ Partial Class FormAddBooks
         PnlTxtForBookID.Location = New Point(162, 5)
         PnlTxtForBookID.Margin = New Padding(0, 5, 0, 5)
         PnlTxtForBookID.Name = "PnlTxtForBookID"
-        PnlTxtForBookID.Size = New Size(309, 41)
+        PnlTxtForBookID.Size = New Size(309, 39)
         PnlTxtForBookID.TabIndex = 1
         ' 
         ' PnlFakeTextBox
@@ -744,7 +753,7 @@ Partial Class FormAddBooks
         PnlFakeTextBox.Location = New Point(0, 0)
         PnlFakeTextBox.Margin = New Padding(0)
         PnlFakeTextBox.Name = "PnlFakeTextBox"
-        PnlFakeTextBox.Size = New Size(309, 41)
+        PnlFakeTextBox.Size = New Size(309, 39)
         PnlFakeTextBox.TabIndex = 0
         ' 
         ' Label3
@@ -755,7 +764,7 @@ Partial Class FormAddBooks
         Label3.Location = New Point(0, 0)
         Label3.Name = "Label3"
         Label3.Padding = New Padding(6, 9, 0, 0)
-        Label3.Size = New Size(309, 41)
+        Label3.Size = New Size(309, 39)
         Label3.TabIndex = 0
         Label3.Text = "Auto"
         ' 
@@ -765,7 +774,7 @@ Partial Class FormAddBooks
         PnlForLabelBookID.Dock = DockStyle.Fill
         PnlForLabelBookID.Location = New Point(3, 3)
         PnlForLabelBookID.Name = "PnlForLabelBookID"
-        PnlForLabelBookID.Size = New Size(156, 45)
+        PnlForLabelBookID.Size = New Size(156, 43)
         PnlForLabelBookID.TabIndex = 0
         ' 
         ' Label2
@@ -775,7 +784,7 @@ Partial Class FormAddBooks
         Label2.ForeColor = Color.DarkSlateGray
         Label2.Location = New Point(0, 0)
         Label2.Name = "Label2"
-        Label2.Size = New Size(156, 45)
+        Label2.Size = New Size(156, 43)
         Label2.TabIndex = 0
         Label2.Text = "BOOK ID"
         Label2.TextAlign = ContentAlignment.MiddleRight
@@ -784,9 +793,9 @@ Partial Class FormAddBooks
         ' 
         PnlCancelAdd.Controls.Add(TLPCancelAdd)
         PnlCancelAdd.Dock = DockStyle.Fill
-        PnlCancelAdd.Location = New Point(3, 409)
+        PnlCancelAdd.Location = New Point(3, 397)
         PnlCancelAdd.Name = "PnlCancelAdd"
-        PnlCancelAdd.Size = New Size(477, 44)
+        PnlCancelAdd.Size = New Size(477, 43)
         PnlCancelAdd.TabIndex = 1
         ' 
         ' TLPCancelAdd
@@ -801,7 +810,7 @@ Partial Class FormAddBooks
         TLPCancelAdd.Name = "TLPCancelAdd"
         TLPCancelAdd.RowCount = 1
         TLPCancelAdd.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TLPCancelAdd.Size = New Size(477, 44)
+        TLPCancelAdd.Size = New Size(477, 43)
         TLPCancelAdd.TabIndex = 0
         ' 
         ' PnlForBtnAdd
@@ -810,7 +819,7 @@ Partial Class FormAddBooks
         PnlForBtnAdd.Dock = DockStyle.Fill
         PnlForBtnAdd.Location = New Point(362, 3)
         PnlForBtnAdd.Name = "PnlForBtnAdd"
-        PnlForBtnAdd.Size = New Size(112, 38)
+        PnlForBtnAdd.Size = New Size(112, 37)
         PnlForBtnAdd.TabIndex = 1
         ' 
         ' Panel1
@@ -819,16 +828,16 @@ Partial Class FormAddBooks
         Panel1.Dock = DockStyle.Left
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(96, 38)
+        Panel1.Size = New Size(109, 37)
         Panel1.TabIndex = 1
         ' 
         ' Panel6
         ' 
         Panel6.Controls.Add(BtnAddBook)
         Panel6.Dock = DockStyle.Right
-        Panel6.Location = New Point(1, 0)
+        Panel6.Location = New Point(0, 0)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(95, 38)
+        Panel6.Size = New Size(109, 37)
         Panel6.TabIndex = 0
         ' 
         ' BtnAddBook
@@ -841,9 +850,9 @@ Partial Class FormAddBooks
         BtnAddBook.ForeColor = Color.White
         BtnAddBook.Location = New Point(0, 0)
         BtnAddBook.Name = "BtnAddBook"
-        BtnAddBook.Size = New Size(95, 38)
+        BtnAddBook.Size = New Size(109, 37)
         BtnAddBook.TabIndex = 0
-        BtnAddBook.Text = "Add Book"
+        BtnAddBook.Text = "Save Changes"
         BtnAddBook.UseVisualStyleBackColor = False
         ' 
         ' PnlForCancel
@@ -852,7 +861,7 @@ Partial Class FormAddBooks
         PnlForCancel.Dock = DockStyle.Fill
         PnlForCancel.Location = New Point(3, 3)
         PnlForCancel.Name = "PnlForCancel"
-        PnlForCancel.Size = New Size(353, 38)
+        PnlForCancel.Size = New Size(353, 37)
         PnlForCancel.TabIndex = 0
         ' 
         ' PnlBtnCancel
@@ -861,7 +870,7 @@ Partial Class FormAddBooks
         PnlBtnCancel.Dock = DockStyle.Right
         PnlBtnCancel.Location = New Point(258, 0)
         PnlBtnCancel.Name = "PnlBtnCancel"
-        PnlBtnCancel.Size = New Size(95, 38)
+        PnlBtnCancel.Size = New Size(95, 37)
         PnlBtnCancel.TabIndex = 0
         ' 
         ' BtnCancel
@@ -874,67 +883,138 @@ Partial Class FormAddBooks
         BtnCancel.ForeColor = Color.FromArgb(CByte(87), CByte(94), CByte(102))
         BtnCancel.Location = New Point(0, 0)
         BtnCancel.Name = "BtnCancel"
-        BtnCancel.Size = New Size(95, 38)
+        BtnCancel.Size = New Size(95, 37)
         BtnCancel.TabIndex = 0
         BtnCancel.Text = "Cancel"
         BtnCancel.UseVisualStyleBackColor = False
         ' 
-        ' Panel10
-        ' 
-        Panel10.BackColor = SystemColors.Control
-        Panel10.BorderStyle = BorderStyle.Fixed3D
-        Panel10.Dock = DockStyle.Fill
-        Panel10.Location = New Point(3, 3)
-        Panel10.Name = "Panel10"
-        Panel10.Size = New Size(477, 1)
-        Panel10.TabIndex = 2
-        ' 
         ' PnlTopAddNewBook
         ' 
-        PnlTopAddNewBook.Controls.Add(Label1)
+        PnlTopAddNewBook.BackColor = SystemColors.Control
+        PnlTopAddNewBook.Controls.Add(Panel20)
         PnlTopAddNewBook.Dock = DockStyle.Fill
-        PnlTopAddNewBook.Location = New Point(0, 0)
-        PnlTopAddNewBook.Margin = New Padding(0)
+        PnlTopAddNewBook.Location = New Point(3, 3)
+        PnlTopAddNewBook.Margin = New Padding(3, 3, 3, 0)
         PnlTopAddNewBook.Name = "PnlTopAddNewBook"
-        PnlTopAddNewBook.Size = New Size(489, 47)
+        PnlTopAddNewBook.Size = New Size(483, 58)
         PnlTopAddNewBook.TabIndex = 0
+        ' 
+        ' Panel20
+        ' 
+        Panel20.Controls.Add(TableLayoutPanel6)
+        Panel20.Dock = DockStyle.Fill
+        Panel20.Location = New Point(0, 0)
+        Panel20.Name = "Panel20"
+        Panel20.Padding = New Padding(30, 0, 0, 0)
+        Panel20.Size = New Size(483, 58)
+        Panel20.TabIndex = 0
+        ' 
+        ' TableLayoutPanel6
+        ' 
+        TableLayoutPanel6.ColumnCount = 1
+        TableLayoutPanel6.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel6.Controls.Add(Panel24, 0, 1)
+        TableLayoutPanel6.Controls.Add(Panel23, 0, 0)
+        TableLayoutPanel6.Dock = DockStyle.Fill
+        TableLayoutPanel6.Location = New Point(30, 0)
+        TableLayoutPanel6.Name = "TableLayoutPanel6"
+        TableLayoutPanel6.RowCount = 2
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel6.Size = New Size(453, 58)
+        TableLayoutPanel6.TabIndex = 0
+        ' 
+        ' Panel24
+        ' 
+        Panel24.Controls.Add(PnlSelect)
+        Panel24.Dock = DockStyle.Fill
+        Panel24.Location = New Point(10, 29)
+        Panel24.Margin = New Padding(10, 0, 50, 2)
+        Panel24.Name = "Panel24"
+        Panel24.Size = New Size(393, 27)
+        Panel24.TabIndex = 2
+        ' 
+        ' PnlSelect
+        ' 
+        PnlSelect.BackColor = Color.White
+        PnlSelect.Controls.Add(PnlBorderSelectID)
+        PnlSelect.Dock = DockStyle.Fill
+        PnlSelect.ForeColor = Color.Black
+        PnlSelect.Location = New Point(0, 0)
+        PnlSelect.Margin = New Padding(0)
+        PnlSelect.Name = "PnlSelect"
+        PnlSelect.Size = New Size(393, 27)
+        PnlSelect.TabIndex = 0
+        ' 
+        ' PnlBorderSelectID
+        ' 
+        PnlBorderSelectID.Controls.Add(Panel25)
+        PnlBorderSelectID.Dock = DockStyle.Fill
+        PnlBorderSelectID.Location = New Point(0, 0)
+        PnlBorderSelectID.Margin = New Padding(0, 5, 0, 5)
+        PnlBorderSelectID.Name = "PnlBorderSelectID"
+        PnlBorderSelectID.Size = New Size(393, 27)
+        PnlBorderSelectID.TabIndex = 2
+        ' 
+        ' Panel25
+        ' 
+        Panel25.BackColor = Color.White
+        Panel25.Controls.Add(TxtSelectID)
+        Panel25.Dock = DockStyle.Fill
+        Panel25.ForeColor = Color.Black
+        Panel25.Location = New Point(0, 0)
+        Panel25.Margin = New Padding(0)
+        Panel25.Name = "Panel25"
+        Panel25.Padding = New Padding(0, 5, 0, 0)
+        Panel25.Size = New Size(393, 27)
+        Panel25.TabIndex = 0
+        ' 
+        ' TxtSelectID
+        ' 
+        TxtSelectID.BorderStyle = BorderStyle.None
+        TxtSelectID.Font = New Font("Arial", 11F)
+        TxtSelectID.Location = New Point(12, 3)
+        TxtSelectID.Name = "TxtSelectID"
+        TxtSelectID.Size = New Size(267, 17)
+        TxtSelectID.TabIndex = 0
+        TxtSelectID.Text = "Enter"
+        ' 
+        ' Panel23
+        ' 
+        Panel23.Controls.Add(Label1)
+        Panel23.Dock = DockStyle.Fill
+        Panel23.Location = New Point(3, 3)
+        Panel23.Name = "Panel23"
+        Panel23.Size = New Size(447, 23)
+        Panel23.TabIndex = 0
         ' 
         ' Label1
         ' 
         Label1.Dock = DockStyle.Fill
-        Label1.Font = New Font("Arial", 14F, FontStyle.Bold)
+        Label1.Font = New Font("Arial", 12F, FontStyle.Bold)
         Label1.ForeColor = Color.DarkSlateGray
         Label1.Location = New Point(0, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(489, 47)
-        Label1.TabIndex = 0
-        Label1.Text = "   Add New Book"
+        Label1.Size = New Size(447, 23)
+        Label1.TabIndex = 1
+        Label1.Text = "Select a book to modify:"
         Label1.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' Panel20
-        ' 
-        Panel20.BackColor = SystemColors.Control
-        Panel20.Dock = DockStyle.Fill
-        Panel20.Location = New Point(3, 50)
-        Panel20.Name = "Panel20"
-        Panel20.Size = New Size(483, 1)
-        Panel20.TabIndex = 2
-        ' 
-        ' FormAddBooks
+        ' Modify
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.Control
         ClientSize = New Size(489, 510)
         ControlBox = False
         Controls.Add(PnlFill)
-        DoubleBuffered = True
         FormBorderStyle = FormBorderStyle.None
-        Name = "FormAddBooks"
+        MaximizeBox = False
+        MinimizeBox = False
+        Name = "Modify"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "FormAddBooks"
+        Text = "Modify"
         PnlFill.ResumeLayout(False)
-        TLPAddNewBook.ResumeLayout(False)
+        TLPModifyBook.ResumeLayout(False)
         PnlFillAddnewBook.ResumeLayout(False)
         TLPAddNewBookFill.ResumeLayout(False)
         TLPAddNewBookColumn.ResumeLayout(False)
@@ -986,61 +1066,30 @@ Partial Class FormAddBooks
         PnlForCancel.ResumeLayout(False)
         PnlBtnCancel.ResumeLayout(False)
         PnlTopAddNewBook.ResumeLayout(False)
+        Panel20.ResumeLayout(False)
+        TableLayoutPanel6.ResumeLayout(False)
+        Panel24.ResumeLayout(False)
+        PnlSelect.ResumeLayout(False)
+        PnlBorderSelectID.ResumeLayout(False)
+        Panel25.ResumeLayout(False)
+        Panel25.PerformLayout()
+        Panel23.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents PnlFill As Panel
-    Friend WithEvents TLPAddNewBook As TableLayoutPanel
+    Friend WithEvents TLPModifyBook As TableLayoutPanel
     Friend WithEvents PnlFillAddnewBook As Panel
-    Friend WithEvents PnlTopAddNewBook As Panel
-    Friend WithEvents Label1 As Label
     Friend WithEvents TLPAddNewBookFill As TableLayoutPanel
     Friend WithEvents TLPAddNewBookColumn As Panel
     Friend WithEvents TLPVariablesAddNewBook As TableLayoutPanel
-    Friend WithEvents PnlCancelAdd As Panel
-    Friend WithEvents PnlBookID As Panel
-    Friend WithEvents TLPBookID As TableLayoutPanel
-    Friend WithEvents PnlForLabelBookID As Panel
-    Friend WithEvents Label2 As Label
-    Friend WithEvents PnlTxtForBookID As Panel
-    Friend WithEvents PnlFakeTextBox As Panel
-    Friend WithEvents Label3 As Label
-    Friend WithEvents PnlTitle As Panel
-    Friend WithEvents TLPTitle As TableLayoutPanel
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents TxtTitle As TextBox
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents Label5 As Label
-    Friend WithEvents TLPCancelAdd As TableLayoutPanel
-    Friend WithEvents PnlForBtnAdd As Panel
-    Friend WithEvents PnlForCancel As Panel
-    Friend WithEvents PnlBtnCancel As Panel
-    Friend WithEvents BtnCancel As Button
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents BtnAddBook As Button
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents PnlBorderAuthor As Panel
-    Friend WithEvents Panel8 As Panel
-    Friend WithEvents TxtAuthor As TextBox
-    Friend WithEvents Panel9 As Panel
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Panel7 As Panel
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents PnlBorderIBSN As Panel
-    Friend WithEvents Panel12 As Panel
-    Friend WithEvents TxtISBN As TextBox
-    Friend WithEvents Panel13 As Panel
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Panel11 As Panel
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
-    Friend WithEvents PnlBorderCategory As Panel
-    Friend WithEvents Panel15 As Panel
-    Friend WithEvents ComboCategory As ComboBox
-    Friend WithEvents Panel16 As Panel
-    Friend WithEvents Label7 As Label
+    Friend WithEvents Panel17 As Panel
+    Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
+    Friend WithEvents PnlBorderQuantity As Panel
+    Friend WithEvents Panel21 As Panel
+    Friend WithEvents TxtQuantity As TextBox
+    Friend WithEvents Panel22 As Panel
+    Friend WithEvents Label9 As Label
     Friend WithEvents Panel14 As Panel
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents PnlBorderPubYear As Panel
@@ -1048,13 +1097,58 @@ Partial Class FormAddBooks
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Panel19 As Panel
     Friend WithEvents Label8 As Label
-    Friend WithEvents Panel17 As Panel
-    Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
-    Friend WithEvents PnlBorderQuantity As Panel
-    Friend WithEvents Panel21 As Panel
-    Friend WithEvents Panel22 As Panel
-    Friend WithEvents Label9 As Label
-    Friend WithEvents TxtQuantity As TextBox
-    Friend WithEvents Panel10 As Panel
+    Friend WithEvents Panel11 As Panel
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents PnlBorderCategory As Panel
+    Friend WithEvents Panel15 As Panel
+    Friend WithEvents ComboCategory As ComboBox
+    Friend WithEvents Panel16 As Panel
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents PnlBorderIBSN As Panel
+    Friend WithEvents Panel12 As Panel
+    Friend WithEvents TxtISBN As TextBox
+    Friend WithEvents Panel13 As Panel
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents PnlBorderAuthor As Panel
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents TxtAuthor As TextBox
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents Label4 As Label
+    Friend WithEvents PnlTitle As Panel
+    Friend WithEvents TLPTitle As TableLayoutPanel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents TxtTitle As TextBox
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Label5 As Label
+    Friend WithEvents PnlBookID As Panel
+    Friend WithEvents TLPBookID As TableLayoutPanel
+    Friend WithEvents PnlTxtForBookID As Panel
+    Friend WithEvents PnlFakeTextBox As Panel
+    Friend WithEvents Label3 As Label
+    Friend WithEvents PnlForLabelBookID As Panel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents PnlCancelAdd As Panel
+    Friend WithEvents TLPCancelAdd As TableLayoutPanel
+    Friend WithEvents PnlForBtnAdd As Panel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents BtnAddBook As Button
+    Friend WithEvents PnlForCancel As Panel
+    Friend WithEvents PnlBtnCancel As Panel
+    Friend WithEvents BtnCancel As Button
+    Friend WithEvents PnlTopAddNewBook As Panel
     Friend WithEvents Panel20 As Panel
+    Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
+    Friend WithEvents Panel24 As Panel
+    Friend WithEvents PnlSelect As Panel
+    Friend WithEvents Panel23 As Panel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents PnlBorderSelectID As Panel
+    Friend WithEvents Panel25 As Panel
+    Friend WithEvents TxtSelectID As TextBox
 End Class

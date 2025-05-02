@@ -37,4 +37,8 @@ Public Class Books
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         FormAddBooks.ShowDialog()
     End Sub
+
+    Private Sub BtnModify_Click(sender As Object, e As EventArgs) Handles BtnModify.Click
+        Modify.ShowDialog()
+    End Sub
 End Class
