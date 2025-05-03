@@ -10,14 +10,21 @@ Public Class Books
 
     Private Sub LoadBooksData()
         Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
-        Dim query As String = "SELECT BOOK_ID AS ""Book ID"",
-                                      TITLE AS ""Title"",
-                                      AUTHOR AS ""Author"",
-                                      ISBN,
-                                      CATEGORY AS ""Category"",
-                                      PUBLICATION_YEAR AS ""Publication Date"",
-                                      QUANTITY_AVAILABLE AS ""Quantity"",
-                                      NULL AS ""Status"" FROM TBL_BOOKS"
+        Dim query As String = "
+            SELECT 
+                BOOK_ID AS ""Book ID"",
+                TITLE AS ""Title"",
+                AUTHOR AS ""Author"",
+                ISBN,
+                CATEGORY AS ""Category"",
+                PUBLICATION_YEAR AS ""Publication Date"",
+                QUANTITY_AVAILABLE AS ""Quantity"",
+                CASE 
+                    WHEN QUANTITY_AVAILABLE > 0 THEN 'Available'
+                    ELSE 'Unavailable'
+                END AS ""Status""
+            FROM 
+                TBL_BOOKS"
 
         Using conn As New OracleConnection(connectionString)
             Dim cmd As New OracleCommand(query, conn)

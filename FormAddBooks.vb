@@ -54,25 +54,6 @@ Public Class FormAddBooks
         Me.Close()
     End Sub
 
-    Private Sub SetupPlaceholder(txtBox As TextBox, placeholder As String)
-        txtBox.Text = placeholder
-        txtBox.ForeColor = Color.Gray
-
-        AddHandler txtBox.GotFocus, Sub(sender, e)
-                                        If txtBox.Text = placeholder Then
-                                            txtBox.Text = ""
-                                            txtBox.ForeColor = SystemColors.WindowText
-                                        End If
-                                    End Sub
-
-        AddHandler txtBox.LostFocus, Sub(sender, e)
-                                         If txtBox.Text = "" Then
-                                             txtBox.Text = placeholder
-                                             txtBox.ForeColor = Color.Gray
-                                         End If
-                                     End Sub
-    End Sub
-
     Private Sub BtnAddBook_Click(sender As Object, e As EventArgs) Handles BtnAddBook.Click
         Dim connStr As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
 

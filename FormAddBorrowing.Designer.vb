@@ -30,48 +30,51 @@ Partial Class FormAddBorrowing
         TLPVariablesAddNewBook = New TableLayoutPanel()
         Panel17 = New Panel()
         TableLayoutPanel5 = New TableLayoutPanel()
-        PnlBorderQuantity = New Panel()
+        PnlBorderStatus = New Panel()
         Panel21 = New Panel()
+        ComboStatus = New ComboBox()
         Panel22 = New Panel()
         Label9 = New Label()
         Panel14 = New Panel()
         TableLayoutPanel4 = New TableLayoutPanel()
-        PnlBorderPubYear = New Panel()
+        PnlBorderReturnDate = New Panel()
         Panel18 = New Panel()
-        DateTimePicker1 = New DateTimePicker()
+        DTPReturnDate = New DateTimePicker()
         Panel19 = New Panel()
         Label8 = New Label()
         Panel11 = New Panel()
         TableLayoutPanel3 = New TableLayoutPanel()
-        PnlBorderCategory = New Panel()
+        PnlBorderDueDate = New Panel()
         Panel15 = New Panel()
+        DTPDueDate = New DateTimePicker()
         Panel16 = New Panel()
         Label7 = New Label()
         Panel7 = New Panel()
         TableLayoutPanel2 = New TableLayoutPanel()
-        PnlBorderIBSN = New Panel()
+        PnlBorderBorrowedDate = New Panel()
         Panel12 = New Panel()
+        DTPBorrowedDate = New DateTimePicker()
         Panel13 = New Panel()
         Label6 = New Label()
         Panel2 = New Panel()
         TableLayoutPanel1 = New TableLayoutPanel()
-        PnlBorderAuthor = New Panel()
+        PnlBorderBookID = New Panel()
         Panel8 = New Panel()
-        TxtAuthor = New TextBox()
+        TxtBookID = New TextBox()
         Panel9 = New Panel()
         Label4 = New Label()
         PnlTitle = New Panel()
         TLPTitle = New TableLayoutPanel()
-        Panel3 = New Panel()
+        PnlBorderStudentID = New Panel()
         Panel4 = New Panel()
-        TxtTitle = New TextBox()
+        TxtStudentID = New TextBox()
         Panel5 = New Panel()
         Label5 = New Label()
         PnlBookID = New Panel()
         TLPBookID = New TableLayoutPanel()
-        PnlBorderBookID = New Panel()
+        PnlBorderBorrowID = New Panel()
         Panel24 = New Panel()
-        TxtBookID = New TextBox()
+        TxtBorrowID = New TextBox()
         PnlForLabelBookID = New Panel()
         Label2 = New Label()
         PnlCancelAdd = New Panel()
@@ -79,7 +82,7 @@ Partial Class FormAddBorrowing
         PnlForBtnAdd = New Panel()
         Panel1 = New Panel()
         Panel6 = New Panel()
-        BtnAddBook = New Button()
+        BtnAddBorrowed = New Button()
         PnlForCancel = New Panel()
         PnlBtnCancel = New Panel()
         BtnCancel = New Button()
@@ -87,9 +90,6 @@ Partial Class FormAddBorrowing
         PnlTopAddNewBook = New Panel()
         Label1 = New Label()
         Panel20 = New Panel()
-        ComboBox1 = New ComboBox()
-        DateTimePicker2 = New DateTimePicker()
-        DateTimePicker3 = New DateTimePicker()
         PnlFill.SuspendLayout()
         TLPAddNewBook.SuspendLayout()
         PnlFillAddnewBook.SuspendLayout()
@@ -98,37 +98,37 @@ Partial Class FormAddBorrowing
         TLPVariablesAddNewBook.SuspendLayout()
         Panel17.SuspendLayout()
         TableLayoutPanel5.SuspendLayout()
-        PnlBorderQuantity.SuspendLayout()
+        PnlBorderStatus.SuspendLayout()
         Panel21.SuspendLayout()
         Panel22.SuspendLayout()
         Panel14.SuspendLayout()
         TableLayoutPanel4.SuspendLayout()
-        PnlBorderPubYear.SuspendLayout()
+        PnlBorderReturnDate.SuspendLayout()
         Panel18.SuspendLayout()
         Panel19.SuspendLayout()
         Panel11.SuspendLayout()
         TableLayoutPanel3.SuspendLayout()
-        PnlBorderCategory.SuspendLayout()
+        PnlBorderDueDate.SuspendLayout()
         Panel15.SuspendLayout()
         Panel16.SuspendLayout()
         Panel7.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
-        PnlBorderIBSN.SuspendLayout()
+        PnlBorderBorrowedDate.SuspendLayout()
         Panel12.SuspendLayout()
         Panel13.SuspendLayout()
         Panel2.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
-        PnlBorderAuthor.SuspendLayout()
+        PnlBorderBookID.SuspendLayout()
         Panel8.SuspendLayout()
         Panel9.SuspendLayout()
         PnlTitle.SuspendLayout()
         TLPTitle.SuspendLayout()
-        Panel3.SuspendLayout()
+        PnlBorderStudentID.SuspendLayout()
         Panel4.SuspendLayout()
         Panel5.SuspendLayout()
         PnlBookID.SuspendLayout()
         TLPBookID.SuspendLayout()
-        PnlBorderBookID.SuspendLayout()
+        PnlBorderBorrowID.SuspendLayout()
         Panel24.SuspendLayout()
         PnlForLabelBookID.SuspendLayout()
         PnlCancelAdd.SuspendLayout()
@@ -243,7 +243,7 @@ Partial Class FormAddBorrowing
         TableLayoutPanel5.ColumnCount = 2
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 34.4418068F))
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 65.5582F))
-        TableLayoutPanel5.Controls.Add(PnlBorderQuantity, 1, 0)
+        TableLayoutPanel5.Controls.Add(PnlBorderStatus, 1, 0)
         TableLayoutPanel5.Controls.Add(Panel22, 0, 0)
         TableLayoutPanel5.Dock = DockStyle.Fill
         TableLayoutPanel5.Location = New Point(0, 0)
@@ -253,20 +253,20 @@ Partial Class FormAddBorrowing
         TableLayoutPanel5.Size = New Size(455, 50)
         TableLayoutPanel5.TabIndex = 0
         ' 
-        ' PnlBorderQuantity
+        ' PnlBorderStatus
         ' 
-        PnlBorderQuantity.Controls.Add(Panel21)
-        PnlBorderQuantity.Dock = DockStyle.Fill
-        PnlBorderQuantity.Location = New Point(156, 5)
-        PnlBorderQuantity.Margin = New Padding(0, 5, 0, 5)
-        PnlBorderQuantity.Name = "PnlBorderQuantity"
-        PnlBorderQuantity.Size = New Size(299, 40)
-        PnlBorderQuantity.TabIndex = 1
+        PnlBorderStatus.Controls.Add(Panel21)
+        PnlBorderStatus.Dock = DockStyle.Fill
+        PnlBorderStatus.Location = New Point(156, 5)
+        PnlBorderStatus.Margin = New Padding(0, 5, 0, 5)
+        PnlBorderStatus.Name = "PnlBorderStatus"
+        PnlBorderStatus.Size = New Size(299, 40)
+        PnlBorderStatus.TabIndex = 1
         ' 
         ' Panel21
         ' 
         Panel21.BackColor = Color.White
-        Panel21.Controls.Add(ComboBox1)
+        Panel21.Controls.Add(ComboStatus)
         Panel21.Dock = DockStyle.Fill
         Panel21.ForeColor = Color.Black
         Panel21.Location = New Point(0, 0)
@@ -275,6 +275,20 @@ Partial Class FormAddBorrowing
         Panel21.Padding = New Padding(10, 5, 0, 0)
         Panel21.Size = New Size(299, 40)
         Panel21.TabIndex = 0
+        ' 
+        ' ComboStatus
+        ' 
+        ComboStatus.BackColor = Color.White
+        ComboStatus.Dock = DockStyle.Fill
+        ComboStatus.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboStatus.FlatStyle = FlatStyle.Flat
+        ComboStatus.Font = New Font("Arial", 11F)
+        ComboStatus.FormattingEnabled = True
+        ComboStatus.Items.AddRange(New Object() {"Borrowing", "Returned", "Overdue"})
+        ComboStatus.Location = New Point(10, 5)
+        ComboStatus.Name = "ComboStatus"
+        ComboStatus.Size = New Size(289, 25)
+        ComboStatus.TabIndex = 1
         ' 
         ' Panel22
         ' 
@@ -311,7 +325,7 @@ Partial Class FormAddBorrowing
         TableLayoutPanel4.ColumnCount = 2
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 34.4418068F))
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 65.5582F))
-        TableLayoutPanel4.Controls.Add(PnlBorderPubYear, 1, 0)
+        TableLayoutPanel4.Controls.Add(PnlBorderReturnDate, 1, 0)
         TableLayoutPanel4.Controls.Add(Panel19, 0, 0)
         TableLayoutPanel4.Dock = DockStyle.Fill
         TableLayoutPanel4.Location = New Point(0, 0)
@@ -321,20 +335,20 @@ Partial Class FormAddBorrowing
         TableLayoutPanel4.Size = New Size(455, 46)
         TableLayoutPanel4.TabIndex = 0
         ' 
-        ' PnlBorderPubYear
+        ' PnlBorderReturnDate
         ' 
-        PnlBorderPubYear.Controls.Add(Panel18)
-        PnlBorderPubYear.Dock = DockStyle.Fill
-        PnlBorderPubYear.Location = New Point(156, 5)
-        PnlBorderPubYear.Margin = New Padding(0, 5, 0, 5)
-        PnlBorderPubYear.Name = "PnlBorderPubYear"
-        PnlBorderPubYear.Size = New Size(299, 36)
-        PnlBorderPubYear.TabIndex = 1
+        PnlBorderReturnDate.Controls.Add(Panel18)
+        PnlBorderReturnDate.Dock = DockStyle.Fill
+        PnlBorderReturnDate.Location = New Point(156, 5)
+        PnlBorderReturnDate.Margin = New Padding(0, 5, 0, 5)
+        PnlBorderReturnDate.Name = "PnlBorderReturnDate"
+        PnlBorderReturnDate.Size = New Size(299, 36)
+        PnlBorderReturnDate.TabIndex = 1
         ' 
         ' Panel18
         ' 
         Panel18.BackColor = Color.White
-        Panel18.Controls.Add(DateTimePicker1)
+        Panel18.Controls.Add(DTPReturnDate)
         Panel18.Dock = DockStyle.Fill
         Panel18.ForeColor = Color.Black
         Panel18.Location = New Point(0, 0)
@@ -344,16 +358,16 @@ Partial Class FormAddBorrowing
         Panel18.Size = New Size(299, 36)
         Panel18.TabIndex = 0
         ' 
-        ' DateTimePicker1
+        ' DTPReturnDate
         ' 
-        DateTimePicker1.CalendarMonthBackground = Color.White
-        DateTimePicker1.Dock = DockStyle.Fill
-        DateTimePicker1.Font = New Font("Arial", 11F)
-        DateTimePicker1.Format = DateTimePickerFormat.Short
-        DateTimePicker1.Location = New Point(10, 5)
-        DateTimePicker1.Name = "DateTimePicker1"
-        DateTimePicker1.Size = New Size(289, 24)
-        DateTimePicker1.TabIndex = 0
+        DTPReturnDate.CalendarMonthBackground = Color.White
+        DTPReturnDate.Dock = DockStyle.Fill
+        DTPReturnDate.Font = New Font("Arial", 11F)
+        DTPReturnDate.Format = DateTimePickerFormat.Short
+        DTPReturnDate.Location = New Point(10, 5)
+        DTPReturnDate.Name = "DTPReturnDate"
+        DTPReturnDate.Size = New Size(289, 24)
+        DTPReturnDate.TabIndex = 0
         ' 
         ' Panel19
         ' 
@@ -390,7 +404,7 @@ Partial Class FormAddBorrowing
         TableLayoutPanel3.ColumnCount = 2
         TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 34.4418068F))
         TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 65.5582F))
-        TableLayoutPanel3.Controls.Add(PnlBorderCategory, 1, 0)
+        TableLayoutPanel3.Controls.Add(PnlBorderDueDate, 1, 0)
         TableLayoutPanel3.Controls.Add(Panel16, 0, 0)
         TableLayoutPanel3.Dock = DockStyle.Fill
         TableLayoutPanel3.Location = New Point(0, 0)
@@ -400,20 +414,20 @@ Partial Class FormAddBorrowing
         TableLayoutPanel3.Size = New Size(455, 46)
         TableLayoutPanel3.TabIndex = 0
         ' 
-        ' PnlBorderCategory
+        ' PnlBorderDueDate
         ' 
-        PnlBorderCategory.Controls.Add(Panel15)
-        PnlBorderCategory.Dock = DockStyle.Fill
-        PnlBorderCategory.Location = New Point(156, 5)
-        PnlBorderCategory.Margin = New Padding(0, 5, 0, 5)
-        PnlBorderCategory.Name = "PnlBorderCategory"
-        PnlBorderCategory.Size = New Size(299, 36)
-        PnlBorderCategory.TabIndex = 1
+        PnlBorderDueDate.Controls.Add(Panel15)
+        PnlBorderDueDate.Dock = DockStyle.Fill
+        PnlBorderDueDate.Location = New Point(156, 5)
+        PnlBorderDueDate.Margin = New Padding(0, 5, 0, 5)
+        PnlBorderDueDate.Name = "PnlBorderDueDate"
+        PnlBorderDueDate.Size = New Size(299, 36)
+        PnlBorderDueDate.TabIndex = 1
         ' 
         ' Panel15
         ' 
         Panel15.BackColor = Color.White
-        Panel15.Controls.Add(DateTimePicker2)
+        Panel15.Controls.Add(DTPDueDate)
         Panel15.Dock = DockStyle.Fill
         Panel15.ForeColor = Color.Black
         Panel15.Location = New Point(0, 0)
@@ -422,6 +436,17 @@ Partial Class FormAddBorrowing
         Panel15.Padding = New Padding(10, 5, 0, 0)
         Panel15.Size = New Size(299, 36)
         Panel15.TabIndex = 0
+        ' 
+        ' DTPDueDate
+        ' 
+        DTPDueDate.CalendarMonthBackground = Color.White
+        DTPDueDate.Dock = DockStyle.Fill
+        DTPDueDate.Font = New Font("Arial", 11F)
+        DTPDueDate.Format = DateTimePickerFormat.Short
+        DTPDueDate.Location = New Point(10, 5)
+        DTPDueDate.Name = "DTPDueDate"
+        DTPDueDate.Size = New Size(289, 24)
+        DTPDueDate.TabIndex = 1
         ' 
         ' Panel16
         ' 
@@ -458,7 +483,7 @@ Partial Class FormAddBorrowing
         TableLayoutPanel2.ColumnCount = 2
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 34.4418068F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 65.5582F))
-        TableLayoutPanel2.Controls.Add(PnlBorderIBSN, 1, 0)
+        TableLayoutPanel2.Controls.Add(PnlBorderBorrowedDate, 1, 0)
         TableLayoutPanel2.Controls.Add(Panel13, 0, 0)
         TableLayoutPanel2.Dock = DockStyle.Fill
         TableLayoutPanel2.Location = New Point(0, 0)
@@ -468,20 +493,20 @@ Partial Class FormAddBorrowing
         TableLayoutPanel2.Size = New Size(455, 46)
         TableLayoutPanel2.TabIndex = 0
         ' 
-        ' PnlBorderIBSN
+        ' PnlBorderBorrowedDate
         ' 
-        PnlBorderIBSN.Controls.Add(Panel12)
-        PnlBorderIBSN.Dock = DockStyle.Fill
-        PnlBorderIBSN.Location = New Point(156, 5)
-        PnlBorderIBSN.Margin = New Padding(0, 5, 0, 5)
-        PnlBorderIBSN.Name = "PnlBorderIBSN"
-        PnlBorderIBSN.Size = New Size(299, 36)
-        PnlBorderIBSN.TabIndex = 1
+        PnlBorderBorrowedDate.Controls.Add(Panel12)
+        PnlBorderBorrowedDate.Dock = DockStyle.Fill
+        PnlBorderBorrowedDate.Location = New Point(156, 5)
+        PnlBorderBorrowedDate.Margin = New Padding(0, 5, 0, 5)
+        PnlBorderBorrowedDate.Name = "PnlBorderBorrowedDate"
+        PnlBorderBorrowedDate.Size = New Size(299, 36)
+        PnlBorderBorrowedDate.TabIndex = 1
         ' 
         ' Panel12
         ' 
         Panel12.BackColor = Color.White
-        Panel12.Controls.Add(DateTimePicker3)
+        Panel12.Controls.Add(DTPBorrowedDate)
         Panel12.Dock = DockStyle.Fill
         Panel12.ForeColor = Color.Black
         Panel12.Location = New Point(0, 0)
@@ -490,6 +515,17 @@ Partial Class FormAddBorrowing
         Panel12.Padding = New Padding(10, 5, 0, 0)
         Panel12.Size = New Size(299, 36)
         Panel12.TabIndex = 0
+        ' 
+        ' DTPBorrowedDate
+        ' 
+        DTPBorrowedDate.CalendarMonthBackground = Color.White
+        DTPBorrowedDate.Dock = DockStyle.Fill
+        DTPBorrowedDate.Font = New Font("Arial", 11F)
+        DTPBorrowedDate.Format = DateTimePickerFormat.Short
+        DTPBorrowedDate.Location = New Point(10, 5)
+        DTPBorrowedDate.Name = "DTPBorrowedDate"
+        DTPBorrowedDate.Size = New Size(289, 24)
+        DTPBorrowedDate.TabIndex = 1
         ' 
         ' Panel13
         ' 
@@ -526,7 +562,7 @@ Partial Class FormAddBorrowing
         TableLayoutPanel1.ColumnCount = 2
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 34.4418068F))
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 65.5582F))
-        TableLayoutPanel1.Controls.Add(PnlBorderAuthor, 1, 0)
+        TableLayoutPanel1.Controls.Add(PnlBorderBookID, 1, 0)
         TableLayoutPanel1.Controls.Add(Panel9, 0, 0)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(0, 0)
@@ -536,20 +572,20 @@ Partial Class FormAddBorrowing
         TableLayoutPanel1.Size = New Size(455, 46)
         TableLayoutPanel1.TabIndex = 0
         ' 
-        ' PnlBorderAuthor
+        ' PnlBorderBookID
         ' 
-        PnlBorderAuthor.Controls.Add(Panel8)
-        PnlBorderAuthor.Dock = DockStyle.Fill
-        PnlBorderAuthor.Location = New Point(156, 5)
-        PnlBorderAuthor.Margin = New Padding(0, 5, 0, 5)
-        PnlBorderAuthor.Name = "PnlBorderAuthor"
-        PnlBorderAuthor.Size = New Size(299, 36)
-        PnlBorderAuthor.TabIndex = 1
+        PnlBorderBookID.Controls.Add(Panel8)
+        PnlBorderBookID.Dock = DockStyle.Fill
+        PnlBorderBookID.Location = New Point(156, 5)
+        PnlBorderBookID.Margin = New Padding(0, 5, 0, 5)
+        PnlBorderBookID.Name = "PnlBorderBookID"
+        PnlBorderBookID.Size = New Size(299, 36)
+        PnlBorderBookID.TabIndex = 1
         ' 
         ' Panel8
         ' 
         Panel8.BackColor = Color.White
-        Panel8.Controls.Add(TxtAuthor)
+        Panel8.Controls.Add(TxtBookID)
         Panel8.Dock = DockStyle.Fill
         Panel8.ForeColor = Color.Black
         Panel8.Location = New Point(0, 0)
@@ -559,15 +595,15 @@ Partial Class FormAddBorrowing
         Panel8.Size = New Size(299, 36)
         Panel8.TabIndex = 0
         ' 
-        ' TxtAuthor
+        ' TxtBookID
         ' 
-        TxtAuthor.BorderStyle = BorderStyle.None
-        TxtAuthor.Font = New Font("Arial", 11F)
-        TxtAuthor.Location = New Point(13, 7)
-        TxtAuthor.Name = "TxtAuthor"
-        TxtAuthor.Size = New Size(267, 17)
-        TxtAuthor.TabIndex = 0
-        TxtAuthor.Text = "Enter"
+        TxtBookID.BorderStyle = BorderStyle.None
+        TxtBookID.Font = New Font("Arial", 11F)
+        TxtBookID.Location = New Point(13, 7)
+        TxtBookID.Name = "TxtBookID"
+        TxtBookID.Size = New Size(267, 17)
+        TxtBookID.TabIndex = 0
+        TxtBookID.Text = "Enter"
         ' 
         ' Panel9
         ' 
@@ -604,7 +640,7 @@ Partial Class FormAddBorrowing
         TLPTitle.ColumnCount = 2
         TLPTitle.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 34.4418068F))
         TLPTitle.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 65.5582F))
-        TLPTitle.Controls.Add(Panel3, 1, 0)
+        TLPTitle.Controls.Add(PnlBorderStudentID, 1, 0)
         TLPTitle.Controls.Add(Panel5, 0, 0)
         TLPTitle.Dock = DockStyle.Fill
         TLPTitle.Location = New Point(0, 0)
@@ -614,20 +650,20 @@ Partial Class FormAddBorrowing
         TLPTitle.Size = New Size(455, 46)
         TLPTitle.TabIndex = 0
         ' 
-        ' Panel3
+        ' PnlBorderStudentID
         ' 
-        Panel3.Controls.Add(Panel4)
-        Panel3.Dock = DockStyle.Fill
-        Panel3.Location = New Point(156, 5)
-        Panel3.Margin = New Padding(0, 5, 0, 5)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(299, 36)
-        Panel3.TabIndex = 1
+        PnlBorderStudentID.Controls.Add(Panel4)
+        PnlBorderStudentID.Dock = DockStyle.Fill
+        PnlBorderStudentID.Location = New Point(156, 5)
+        PnlBorderStudentID.Margin = New Padding(0, 5, 0, 5)
+        PnlBorderStudentID.Name = "PnlBorderStudentID"
+        PnlBorderStudentID.Size = New Size(299, 36)
+        PnlBorderStudentID.TabIndex = 1
         ' 
         ' Panel4
         ' 
         Panel4.BackColor = Color.White
-        Panel4.Controls.Add(TxtTitle)
+        Panel4.Controls.Add(TxtStudentID)
         Panel4.Dock = DockStyle.Fill
         Panel4.ForeColor = Color.Black
         Panel4.Location = New Point(0, 0)
@@ -637,15 +673,15 @@ Partial Class FormAddBorrowing
         Panel4.Size = New Size(299, 36)
         Panel4.TabIndex = 0
         ' 
-        ' TxtTitle
+        ' TxtStudentID
         ' 
-        TxtTitle.BorderStyle = BorderStyle.None
-        TxtTitle.Font = New Font("Arial", 11F)
-        TxtTitle.Location = New Point(13, 7)
-        TxtTitle.Name = "TxtTitle"
-        TxtTitle.Size = New Size(267, 17)
-        TxtTitle.TabIndex = 0
-        TxtTitle.Text = "Enter"
+        TxtStudentID.BorderStyle = BorderStyle.None
+        TxtStudentID.Font = New Font("Arial", 11F)
+        TxtStudentID.Location = New Point(13, 7)
+        TxtStudentID.Name = "TxtStudentID"
+        TxtStudentID.Size = New Size(267, 17)
+        TxtStudentID.TabIndex = 0
+        TxtStudentID.Text = "Enter"
         ' 
         ' Panel5
         ' 
@@ -682,7 +718,7 @@ Partial Class FormAddBorrowing
         TLPBookID.ColumnCount = 2
         TLPBookID.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 34.4418068F))
         TLPBookID.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 65.5582F))
-        TLPBookID.Controls.Add(PnlBorderBookID, 1, 0)
+        TLPBookID.Controls.Add(PnlBorderBorrowID, 1, 0)
         TLPBookID.Controls.Add(PnlForLabelBookID, 0, 0)
         TLPBookID.Dock = DockStyle.Fill
         TLPBookID.Location = New Point(0, 0)
@@ -692,20 +728,20 @@ Partial Class FormAddBorrowing
         TLPBookID.Size = New Size(455, 46)
         TLPBookID.TabIndex = 0
         ' 
-        ' PnlBorderBookID
+        ' PnlBorderBorrowID
         ' 
-        PnlBorderBookID.Controls.Add(Panel24)
-        PnlBorderBookID.Dock = DockStyle.Fill
-        PnlBorderBookID.Location = New Point(156, 5)
-        PnlBorderBookID.Margin = New Padding(0, 5, 0, 5)
-        PnlBorderBookID.Name = "PnlBorderBookID"
-        PnlBorderBookID.Size = New Size(299, 36)
-        PnlBorderBookID.TabIndex = 2
+        PnlBorderBorrowID.Controls.Add(Panel24)
+        PnlBorderBorrowID.Dock = DockStyle.Fill
+        PnlBorderBorrowID.Location = New Point(156, 5)
+        PnlBorderBorrowID.Margin = New Padding(0, 5, 0, 5)
+        PnlBorderBorrowID.Name = "PnlBorderBorrowID"
+        PnlBorderBorrowID.Size = New Size(299, 36)
+        PnlBorderBorrowID.TabIndex = 2
         ' 
         ' Panel24
         ' 
         Panel24.BackColor = Color.White
-        Panel24.Controls.Add(TxtBookID)
+        Panel24.Controls.Add(TxtBorrowID)
         Panel24.Dock = DockStyle.Fill
         Panel24.ForeColor = Color.Black
         Panel24.Location = New Point(0, 0)
@@ -715,15 +751,15 @@ Partial Class FormAddBorrowing
         Panel24.Size = New Size(299, 36)
         Panel24.TabIndex = 0
         ' 
-        ' TxtBookID
+        ' TxtBorrowID
         ' 
-        TxtBookID.BorderStyle = BorderStyle.None
-        TxtBookID.Font = New Font("Arial", 11F)
-        TxtBookID.Location = New Point(13, 7)
-        TxtBookID.Name = "TxtBookID"
-        TxtBookID.Size = New Size(267, 17)
-        TxtBookID.TabIndex = 0
-        TxtBookID.Text = "Enter"
+        TxtBorrowID.BorderStyle = BorderStyle.None
+        TxtBorrowID.Font = New Font("Arial", 11F)
+        TxtBorrowID.Location = New Point(13, 7)
+        TxtBorrowID.Name = "TxtBorrowID"
+        TxtBorrowID.Size = New Size(267, 17)
+        TxtBorrowID.TabIndex = 0
+        TxtBorrowID.Text = "Enter"
         ' 
         ' PnlForLabelBookID
         ' 
@@ -790,27 +826,27 @@ Partial Class FormAddBorrowing
         ' 
         ' Panel6
         ' 
-        Panel6.Controls.Add(BtnAddBook)
+        Panel6.Controls.Add(BtnAddBorrowed)
         Panel6.Dock = DockStyle.Right
         Panel6.Location = New Point(1, 0)
         Panel6.Name = "Panel6"
         Panel6.Size = New Size(95, 34)
         Panel6.TabIndex = 0
         ' 
-        ' BtnAddBook
+        ' BtnAddBorrowed
         ' 
-        BtnAddBook.BackColor = Color.FromArgb(CByte(46), CByte(80), CByte(127))
-        BtnAddBook.Dock = DockStyle.Fill
-        BtnAddBook.FlatAppearance.BorderSize = 0
-        BtnAddBook.FlatStyle = FlatStyle.Flat
-        BtnAddBook.Font = New Font("Arial", 10F)
-        BtnAddBook.ForeColor = Color.White
-        BtnAddBook.Location = New Point(0, 0)
-        BtnAddBook.Name = "BtnAddBook"
-        BtnAddBook.Size = New Size(95, 34)
-        BtnAddBook.TabIndex = 0
-        BtnAddBook.Text = "Add Book"
-        BtnAddBook.UseVisualStyleBackColor = False
+        BtnAddBorrowed.BackColor = Color.FromArgb(CByte(46), CByte(80), CByte(127))
+        BtnAddBorrowed.Dock = DockStyle.Fill
+        BtnAddBorrowed.FlatAppearance.BorderSize = 0
+        BtnAddBorrowed.FlatStyle = FlatStyle.Flat
+        BtnAddBorrowed.Font = New Font("Arial", 10F)
+        BtnAddBorrowed.ForeColor = Color.White
+        BtnAddBorrowed.Location = New Point(0, 0)
+        BtnAddBorrowed.Name = "BtnAddBorrowed"
+        BtnAddBorrowed.Size = New Size(95, 34)
+        BtnAddBorrowed.TabIndex = 0
+        BtnAddBorrowed.Text = "Add Book"
+        BtnAddBorrowed.UseVisualStyleBackColor = False
         ' 
         ' PnlForCancel
         ' 
@@ -886,41 +922,6 @@ Partial Class FormAddBorrowing
         Panel20.Size = New Size(467, 1)
         Panel20.TabIndex = 2
         ' 
-        ' ComboBox1
-        ' 
-        ComboBox1.BackColor = Color.White
-        ComboBox1.Dock = DockStyle.Fill
-        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
-        ComboBox1.Font = New Font("Arial", 11F)
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"Borrowing", "Returned", "Overdue"})
-        ComboBox1.Location = New Point(10, 5)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(289, 25)
-        ComboBox1.TabIndex = 1
-        ' 
-        ' DateTimePicker2
-        ' 
-        DateTimePicker2.CalendarMonthBackground = Color.White
-        DateTimePicker2.Dock = DockStyle.Fill
-        DateTimePicker2.Font = New Font("Arial", 11F)
-        DateTimePicker2.Format = DateTimePickerFormat.Short
-        DateTimePicker2.Location = New Point(10, 5)
-        DateTimePicker2.Name = "DateTimePicker2"
-        DateTimePicker2.Size = New Size(289, 24)
-        DateTimePicker2.TabIndex = 1
-        ' 
-        ' DateTimePicker3
-        ' 
-        DateTimePicker3.CalendarMonthBackground = Color.White
-        DateTimePicker3.Dock = DockStyle.Fill
-        DateTimePicker3.Font = New Font("Arial", 11F)
-        DateTimePicker3.Format = DateTimePickerFormat.Short
-        DateTimePicker3.Location = New Point(10, 5)
-        DateTimePicker3.Name = "DateTimePicker3"
-        DateTimePicker3.Size = New Size(289, 24)
-        DateTimePicker3.TabIndex = 1
-        ' 
         ' FormAddBorrowing
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -939,39 +940,39 @@ Partial Class FormAddBorrowing
         TLPVariablesAddNewBook.ResumeLayout(False)
         Panel17.ResumeLayout(False)
         TableLayoutPanel5.ResumeLayout(False)
-        PnlBorderQuantity.ResumeLayout(False)
+        PnlBorderStatus.ResumeLayout(False)
         Panel21.ResumeLayout(False)
         Panel22.ResumeLayout(False)
         Panel14.ResumeLayout(False)
         TableLayoutPanel4.ResumeLayout(False)
-        PnlBorderPubYear.ResumeLayout(False)
+        PnlBorderReturnDate.ResumeLayout(False)
         Panel18.ResumeLayout(False)
         Panel19.ResumeLayout(False)
         Panel11.ResumeLayout(False)
         TableLayoutPanel3.ResumeLayout(False)
-        PnlBorderCategory.ResumeLayout(False)
+        PnlBorderDueDate.ResumeLayout(False)
         Panel15.ResumeLayout(False)
         Panel16.ResumeLayout(False)
         Panel7.ResumeLayout(False)
         TableLayoutPanel2.ResumeLayout(False)
-        PnlBorderIBSN.ResumeLayout(False)
+        PnlBorderBorrowedDate.ResumeLayout(False)
         Panel12.ResumeLayout(False)
         Panel13.ResumeLayout(False)
         Panel2.ResumeLayout(False)
         TableLayoutPanel1.ResumeLayout(False)
-        PnlBorderAuthor.ResumeLayout(False)
+        PnlBorderBookID.ResumeLayout(False)
         Panel8.ResumeLayout(False)
         Panel8.PerformLayout()
         Panel9.ResumeLayout(False)
         PnlTitle.ResumeLayout(False)
         TLPTitle.ResumeLayout(False)
-        Panel3.ResumeLayout(False)
+        PnlBorderStudentID.ResumeLayout(False)
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
         Panel5.ResumeLayout(False)
         PnlBookID.ResumeLayout(False)
         TLPBookID.ResumeLayout(False)
-        PnlBorderBookID.ResumeLayout(False)
+        PnlBorderBorrowID.ResumeLayout(False)
         Panel24.ResumeLayout(False)
         Panel24.PerformLayout()
         PnlForLabelBookID.ResumeLayout(False)
@@ -994,48 +995,48 @@ Partial Class FormAddBorrowing
     Friend WithEvents TLPVariablesAddNewBook As TableLayoutPanel
     Friend WithEvents Panel17 As Panel
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
-    Friend WithEvents PnlBorderQuantity As Panel
+    Friend WithEvents PnlBorderStatus As Panel
     Friend WithEvents Panel21 As Panel
     Friend WithEvents Panel22 As Panel
     Friend WithEvents Label9 As Label
     Friend WithEvents Panel14 As Panel
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
-    Friend WithEvents PnlBorderPubYear As Panel
+    Friend WithEvents PnlBorderReturnDate As Panel
     Friend WithEvents Panel18 As Panel
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents DTPReturnDate As DateTimePicker
     Friend WithEvents Panel19 As Panel
     Friend WithEvents Label8 As Label
     Friend WithEvents Panel11 As Panel
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
-    Friend WithEvents PnlBorderCategory As Panel
+    Friend WithEvents PnlBorderDueDate As Panel
     Friend WithEvents Panel15 As Panel
     Friend WithEvents Panel16 As Panel
     Friend WithEvents Label7 As Label
     Friend WithEvents Panel7 As Panel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents PnlBorderIBSN As Panel
+    Friend WithEvents PnlBorderBorrowedDate As Panel
     Friend WithEvents Panel12 As Panel
     Friend WithEvents Panel13 As Panel
     Friend WithEvents Label6 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents PnlBorderAuthor As Panel
+    Friend WithEvents PnlBorderBookID As Panel
     Friend WithEvents Panel8 As Panel
-    Friend WithEvents TxtAuthor As TextBox
+    Friend WithEvents TxtBookID As TextBox
     Friend WithEvents Panel9 As Panel
     Friend WithEvents Label4 As Label
     Friend WithEvents PnlTitle As Panel
     Friend WithEvents TLPTitle As TableLayoutPanel
-    Friend WithEvents Panel3 As Panel
+    Friend WithEvents PnlBorderStudentID As Panel
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents TxtTitle As TextBox
+    Friend WithEvents TxtStudentID As TextBox
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label5 As Label
     Friend WithEvents PnlBookID As Panel
     Friend WithEvents TLPBookID As TableLayoutPanel
-    Friend WithEvents PnlBorderBookID As Panel
+    Friend WithEvents PnlBorderBorrowID As Panel
     Friend WithEvents Panel24 As Panel
-    Friend WithEvents TxtBookID As TextBox
+    Friend WithEvents TxtBorrowID As TextBox
     Friend WithEvents PnlForLabelBookID As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents PnlCancelAdd As Panel
@@ -1043,7 +1044,7 @@ Partial Class FormAddBorrowing
     Friend WithEvents PnlForBtnAdd As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel6 As Panel
-    Friend WithEvents BtnAddBook As Button
+    Friend WithEvents BtnAddBorrowed As Button
     Friend WithEvents PnlForCancel As Panel
     Friend WithEvents PnlBtnCancel As Panel
     Friend WithEvents BtnCancel As Button
@@ -1051,7 +1052,7 @@ Partial Class FormAddBorrowing
     Friend WithEvents PnlTopAddNewBook As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel20 As Panel
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents DateTimePicker3 As DateTimePicker
+    Friend WithEvents ComboStatus As ComboBox
+    Friend WithEvents DTPDueDate As DateTimePicker
+    Friend WithEvents DTPBorrowedDate As DateTimePicker
 End Class
