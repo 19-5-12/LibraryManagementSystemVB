@@ -1,9 +1,16 @@
 ﻿Imports System.Configuration
 Imports Oracle.ManagedDataAccess.Client
 Public Class CFReport
+    Private SelectedStartDate As Date?
+    Private SelectedEndDate As Date?
 
     Private CategoryStats As New Dictionary(Of String, CategoryStat)
     Private Sub CFReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+        ComboSearchDate.Items.Insert(0, "Select Date")
+        ComboSearchDate.SelectedIndex = 0
+
         For Each pnl As Panel In New Panel() {
             PnlRow, PnlCLBar, PnlBarST, PnlBarHistory, PnlBarFiction,
             PnlBarForMemberEngagement, PnlBarStudyRoomA, PnlBarCollaborationSpace, PnlBarConferenceRoom,
@@ -95,8 +102,8 @@ Public Class CFReport
         Dim newRegistrations As Integer = Integer.Parse(LblNumberOfNewRegistration.Text)
 
         Dim engagementRate As Double = CalculateMemberEngagement(activeMembers, libraryVisits, booksBorrowed, newRegistrations)
-        SetEngagementBar(PnlBarBackMemberEngagement, PnlFillBarMemberEngagement, engagementRate)
-        LblPercentMemberEngagement.Text = engagementRate.ToString("0.0") & "%"
+        SetEngagementBar(PnlBarBackMemberEngagement, PnlFillBarMemberEngagement, Math.Min(engagementRate, 100.0))
+        LblPercentMemberEngagement.Text = Math.Min(engagementRate, 100.0).ToString("0.0") & "%"
     End Sub
 
     Private Sub SetupRoomBars()
@@ -125,4 +132,176 @@ Public Class CFReport
         Next
     End Sub
 
+    Private Sub BtnViewStats_Click(sender As Object, e As EventArgs) Handles BtnViewStats.Click
+        If SelectedStartDate.HasValue AndAlso SelectedEndDate.HasValue Then
+            LoadStats(SelectedStartDate.Value, SelectedEndDate.Value)
+        Else
+            MessageBox.Show("Please select a valid date range first.")
+        End If
+    End Sub
+
+    Private Sub ComboSearchDate_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboSearchDate.SelectedIndexChanged
+        If ComboSearchDate.SelectedIndex = 0 Then
+            SelectedStartDate = Nothing
+            SelectedEndDate = Nothing
+            Exit Sub
+        End If
+
+        Dim startDate As Date
+        Dim endDate As Date = Date.Today
+
+        Select Case ComboSearchDate.SelectedItem.ToString()
+            Case "Today"
+                startDate = Date.Today
+            Case "This Week"
+                startDate = Date.Today.AddDays(-CInt(Date.Today.DayOfWeek))
+            Case "This Month"
+                startDate = New Date(Date.Today.Year, Date.Today.Month, 1)
+            Case "This Year"
+                startDate = New Date(Date.Today.Year, 1, 1)
+            Case "Custom Range"
+                MessageBox.Show("Custom range not implemented yet.")
+                Exit Sub
+            Case Else
+                Exit Sub
+        End Select
+
+        SelectedStartDate = startDate
+        SelectedEndDate = endDate
+
+    End Sub
+
+    Private Sub LoadStats(startDate As Date, endDate As Date)
+        Dim connStr As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
+
+        Try
+            Using conn As New OracleConnection(connStr)
+                conn.Open()
+
+                ' Borrowing stats
+                Dim borrowSql As String = "
+                SELECT 
+                    COUNT(*) AS TotalBorrowed,
+                    SUM(CASE WHEN RETURN_DATE IS NOT NULL THEN 1 ELSE 0 END) AS Returned,
+                    SUM(CASE WHEN RETURN_DATE IS NULL THEN 1 ELSE 0 END) AS Outstanding,
+                    SUM(CASE WHEN RETURN_DATE > RETURN_DUE_DATE THEN 1 ELSE 0 END) AS Overdue
+                FROM TBL_BORROWING
+                WHERE BORROW_DATE BETWEEN :startDate AND :endDate"
+
+                Using cmd As New OracleCommand(borrowSql, conn)
+                    cmd.Parameters.Add(":startDate", OracleDbType.Date).Value = startDate
+                    cmd.Parameters.Add(":endDate", OracleDbType.Date).Value = endDate
+
+                    Using reader = cmd.ExecuteReader()
+                        If reader.Read() Then
+                            Dim total = SafeToInt(reader("TotalBorrowed"))
+                            Dim returned = SafeToInt(reader("Returned"))
+                            Dim outstanding = SafeToInt(reader("Outstanding"))
+                            Dim overdue = SafeToInt(reader("Overdue"))
+
+                            LblNumberOfTotalBooks.Text = total.ToString()
+                            LblNumberOfBooksReturned.Text = returned.ToString()
+                            LblNumberOfBooksOutstanding.Text = outstanding.ToString()
+                            LblNumOfOverdueReturns.Text = overdue.ToString()
+
+                            UpdateReturnRateBar(Nothing, Nothing)
+                        End If
+                    End Using
+                End Using
+
+                ' Room bookings
+                Dim roomSql As String = "
+                SELECT R.ROOM_NAME, COUNT(*) AS Bookings
+                FROM TBL_ROOM_BOOKING B
+                JOIN TBL_ROOM R ON B.ROOM_ID = R.ROOM_ID
+                WHERE B.BOOK_DATE BETWEEN :startDate AND :endDate
+                GROUP BY R.ROOM_NAME
+"
+
+                Dim roomData As New Dictionary(Of String, Integer)
+                Using cmd As New OracleCommand(roomSql, conn)
+                    cmd.Parameters.Add(":startDate", OracleDbType.Date).Value = startDate
+                    cmd.Parameters.Add(":endDate", OracleDbType.Date).Value = endDate
+
+                    Using reader = cmd.ExecuteReader()
+                        While reader.Read()
+                            roomData(reader("ROOM_NAME").ToString()) = Convert.ToInt32(reader("Bookings"))
+                        End While
+                    End Using
+                End Using
+
+                UpdateRoomBars(roomData)
+
+                ' User activity
+                Dim userSql As String = "
+                SELECT
+                    (SELECT COUNT(*) FROM TBL_STUDENT WHERE STUDENT_STATUS = 'Studying') AS ActiveMembers,
+                    (SELECT COUNT(*) FROM TBL_STUDENT WHERE TIME_IN BETWEEN :startDate AND :endDate) AS Visits,
+                    (SELECT COUNT(DISTINCT USER_ID) FROM TBL_BORROWING WHERE BORROW_DATE BETWEEN :startDate AND :endDate) AS UniqueBorrowers,
+                    (SELECT COUNT(*) FROM TBL_STUDENT WHERE REGISTERED_DATE BETWEEN :startDate AND :endDate) AS NewRegistrations
+                FROM DUAL"
+
+                Using cmd As New OracleCommand(userSql, conn)
+                    cmd.Parameters.Add(":startDate", OracleDbType.Date).Value = startDate
+                    cmd.Parameters.Add(":endDate", OracleDbType.Date).Value = endDate
+
+                    Using reader = cmd.ExecuteReader()
+                        If reader.Read() Then
+                            LblNumberOfActiveMembers.Text = SafeToString(reader("ActiveMembers"))
+                            LblNumberOfLibraryVisits.Text = SafeToString(reader("Visits"))
+                            LblNumberOfBooksBorrowed.Text = SafeToString(reader("UniqueBorrowers"))
+                            LblNumberOfNewRegistration.Text = SafeToString(reader("NewRegistrations"))
+                            UpdateEngagementBar(Nothing, Nothing)
+                        End If
+                    End Using
+                End Using
+
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub UpdateRoomBars(roomData As Dictionary(Of String, Integer))
+        Dim totalBookings = roomData.Values.Sum()
+        Dim roomPanels As New Dictionary(Of String, Panel) From {
+        {"Study Room A", PnlFillStudyRoomA},
+        {"Study Room B", PnlFillCollaborationSpace},
+        {"Study Room C", PnlFillConferenceRoom},
+        {"Study Room D", PnlFillQuietStudyRoom},
+        {"Study Room E", PnlFillMediaLab}
+    }
+
+        For Each kvp In roomPanels
+            Dim roomName = kvp.Key
+            Dim fillPanel = kvp.Value
+            Dim backPanel = DirectCast(fillPanel.Parent, Panel)
+            Dim bookings = If(roomData.ContainsKey(roomName), roomData(roomName), 0)
+            SetRoomBookingBar(fillPanel, bookings, totalBookings, backPanel.Width)
+        Next
+    End Sub
+
+    ' Safely converts a database value to Integer
+    Private Function SafeToInt(value As Object) As Integer
+        If IsDBNull(value) OrElse value Is Nothing Then
+            Return 0
+        End If
+        Return Convert.ToInt32(value)
+    End Function
+
+    ' Safely converts a database value to String
+    Private Function SafeToString(value As Object) As String
+        If IsDBNull(value) OrElse value Is Nothing Then
+            Return String.Empty
+        End If
+        Return value.ToString()
+    End Function
+
+    ' Safely converts a database value to Double
+    Private Function SafeToDouble(value As Object) As Double
+        If IsDBNull(value) OrElse value Is Nothing Then
+            Return 0.0
+        End If
+        Return Convert.ToDouble(value)
+    End Function
 End Class

@@ -28,7 +28,19 @@ Partial Class CFReport
         Panel1 = New Panel()
         TableLayoutPanel1 = New TableLayoutPanel()
         Panel2 = New Panel()
-        TableLayoutPanel3 = New TableLayoutPanel()
+        TLPSearch = New TableLayoutPanel()
+        PnlForSearchDate = New Panel()
+        ComboSearchDate = New ComboBox()
+        PnlViewStExPrnt = New Panel()
+        TableLayoutPanel20 = New TableLayoutPanel()
+        PnlViewStatistics = New Panel()
+        BtnViewStats = New Button()
+        PnlExportPrint = New Panel()
+        TLPExportPrint = New TableLayoutPanel()
+        PnlPrint = New Panel()
+        BtnPrint = New Button()
+        PnlExport = New Panel()
+        BtnExport = New Button()
         TableLayoutPanel2 = New TableLayoutPanel()
         PnlParentForm = New Panel()
         TableLayoutPanel4 = New TableLayoutPanel()
@@ -139,12 +151,12 @@ Partial Class CFReport
         Panel21 = New Panel()
         Label6 = New Label()
         Panel18 = New Panel()
-        Label3 = New Label()
+        LblNumOfOverdueReturns = New Label()
         TLPBooksOutstanding = New TableLayoutPanel()
         Panel20 = New Panel()
         Label5 = New Label()
         Panel17 = New Panel()
-        Label2 = New Label()
+        LblNumberOfBooksOutstanding = New Label()
         TLPBooksReturned = New TableLayoutPanel()
         PnlForLabelBooksReturned = New Panel()
         LblBooksReturned = New Label()
@@ -228,21 +240,20 @@ Partial Class CFReport
         LblDateTimeMeeting = New Label()
         Label11 = New Label()
         TimerDateTime = New Timer(components)
-        PnlViewStExPrnt = New Panel()
-        TableLayoutPanel20 = New TableLayoutPanel()
-        PnlViewStatistics = New Panel()
-        BtnViewStats = New Button()
-        PnlExportPrint = New Panel()
-        TLPExportPrint = New TableLayoutPanel()
-        PnlExport = New Panel()
-        BtnExport = New Button()
-        PnlPrint = New Panel()
-        BtnPrint = New Button()
         PanelFill.SuspendLayout()
         TBLPFill.SuspendLayout()
         Panel1.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
         Panel2.SuspendLayout()
+        TLPSearch.SuspendLayout()
+        PnlForSearchDate.SuspendLayout()
+        PnlViewStExPrnt.SuspendLayout()
+        TableLayoutPanel20.SuspendLayout()
+        PnlViewStatistics.SuspendLayout()
+        PnlExportPrint.SuspendLayout()
+        TLPExportPrint.SuspendLayout()
+        PnlPrint.SuspendLayout()
+        PnlExport.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
         PnlParentForm.SuspendLayout()
         TableLayoutPanel4.SuspendLayout()
@@ -381,13 +392,6 @@ Partial Class CFReport
         Panel45.SuspendLayout()
         Panel50.SuspendLayout()
         TableLayoutPanel14.SuspendLayout()
-        PnlViewStExPrnt.SuspendLayout()
-        TableLayoutPanel20.SuspendLayout()
-        PnlViewStatistics.SuspendLayout()
-        PnlExportPrint.SuspendLayout()
-        TLPExportPrint.SuspendLayout()
-        PnlExport.SuspendLayout()
-        PnlPrint.SuspendLayout()
         SuspendLayout()
         ' 
         ' PanelFill
@@ -444,7 +448,7 @@ Partial Class CFReport
         ' 
         ' Panel2
         ' 
-        Panel2.Controls.Add(TableLayoutPanel3)
+        Panel2.Controls.Add(TLPSearch)
         Panel2.Dock = DockStyle.Fill
         Panel2.Location = New Point(13, 3)
         Panel2.Margin = New Padding(13, 3, 3, 3)
@@ -452,19 +456,163 @@ Partial Class CFReport
         Panel2.Size = New Size(313, 37)
         Panel2.TabIndex = 0
         ' 
-        ' TableLayoutPanel3
+        ' TLPSearch
         ' 
-        TableLayoutPanel3.ColumnCount = 3
-        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
-        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
-        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
-        TableLayoutPanel3.Dock = DockStyle.Fill
-        TableLayoutPanel3.Location = New Point(0, 0)
-        TableLayoutPanel3.Name = "TableLayoutPanel3"
-        TableLayoutPanel3.RowCount = 1
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        TableLayoutPanel3.Size = New Size(313, 37)
-        TableLayoutPanel3.TabIndex = 0
+        TLPSearch.ColumnCount = 3
+        TLPSearch.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TLPSearch.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TLPSearch.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TLPSearch.Controls.Add(PnlForSearchDate, 2, 0)
+        TLPSearch.Dock = DockStyle.Fill
+        TLPSearch.Location = New Point(0, 0)
+        TLPSearch.Name = "TLPSearch"
+        TLPSearch.RowCount = 1
+        TLPSearch.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TLPSearch.Size = New Size(313, 37)
+        TLPSearch.TabIndex = 0
+        ' 
+        ' PnlForSearchDate
+        ' 
+        PnlForSearchDate.Controls.Add(ComboSearchDate)
+        PnlForSearchDate.Dock = DockStyle.Fill
+        PnlForSearchDate.Location = New Point(211, 3)
+        PnlForSearchDate.Name = "PnlForSearchDate"
+        PnlForSearchDate.Size = New Size(99, 31)
+        PnlForSearchDate.TabIndex = 0
+        ' 
+        ' ComboSearchDate
+        ' 
+        ComboSearchDate.Dock = DockStyle.Fill
+        ComboSearchDate.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboSearchDate.Font = New Font("Arial", 9F)
+        ComboSearchDate.FormattingEnabled = True
+        ComboSearchDate.Items.AddRange(New Object() {"Today", "This Week", "This Month", "This Year", "Custom Range"})
+        ComboSearchDate.Location = New Point(0, 0)
+        ComboSearchDate.Name = "ComboSearchDate"
+        ComboSearchDate.Size = New Size(99, 23)
+        ComboSearchDate.TabIndex = 0
+        ' 
+        ' PnlViewStExPrnt
+        ' 
+        PnlViewStExPrnt.Controls.Add(TableLayoutPanel20)
+        PnlViewStExPrnt.Dock = DockStyle.Fill
+        PnlViewStExPrnt.Location = New Point(332, 3)
+        PnlViewStExPrnt.Name = "PnlViewStExPrnt"
+        PnlViewStExPrnt.Size = New Size(531, 37)
+        PnlViewStExPrnt.TabIndex = 1
+        ' 
+        ' TableLayoutPanel20
+        ' 
+        TableLayoutPanel20.ColumnCount = 2
+        TableLayoutPanel20.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 26.1770248F))
+        TableLayoutPanel20.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 73.8229752F))
+        TableLayoutPanel20.Controls.Add(PnlViewStatistics, 0, 0)
+        TableLayoutPanel20.Controls.Add(PnlExportPrint, 1, 0)
+        TableLayoutPanel20.Dock = DockStyle.Fill
+        TableLayoutPanel20.Location = New Point(0, 0)
+        TableLayoutPanel20.Name = "TableLayoutPanel20"
+        TableLayoutPanel20.RowCount = 1
+        TableLayoutPanel20.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel20.Size = New Size(531, 37)
+        TableLayoutPanel20.TabIndex = 0
+        ' 
+        ' PnlViewStatistics
+        ' 
+        PnlViewStatistics.Controls.Add(BtnViewStats)
+        PnlViewStatistics.Dock = DockStyle.Fill
+        PnlViewStatistics.Location = New Point(3, 3)
+        PnlViewStatistics.Name = "PnlViewStatistics"
+        PnlViewStatistics.Size = New Size(133, 31)
+        PnlViewStatistics.TabIndex = 0
+        ' 
+        ' BtnViewStats
+        ' 
+        BtnViewStats.BackColor = Color.FromArgb(CByte(53), CByte(153), CByte(218))
+        BtnViewStats.Dock = DockStyle.Fill
+        BtnViewStats.FlatAppearance.BorderSize = 0
+        BtnViewStats.FlatStyle = FlatStyle.Flat
+        BtnViewStats.Font = New Font("Arial", 9F)
+        BtnViewStats.ForeColor = Color.White
+        BtnViewStats.Location = New Point(0, 0)
+        BtnViewStats.Name = "BtnViewStats"
+        BtnViewStats.Size = New Size(133, 31)
+        BtnViewStats.TabIndex = 0
+        BtnViewStats.Text = "📊 View Statistics"
+        BtnViewStats.UseVisualStyleBackColor = False
+        ' 
+        ' PnlExportPrint
+        ' 
+        PnlExportPrint.Controls.Add(TLPExportPrint)
+        PnlExportPrint.Dock = DockStyle.Fill
+        PnlExportPrint.Location = New Point(149, 3)
+        PnlExportPrint.Margin = New Padding(10, 3, 3, 3)
+        PnlExportPrint.Name = "PnlExportPrint"
+        PnlExportPrint.Size = New Size(379, 31)
+        PnlExportPrint.TabIndex = 1
+        ' 
+        ' TLPExportPrint
+        ' 
+        TLPExportPrint.ColumnCount = 2
+        TLPExportPrint.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 28.2383423F))
+        TLPExportPrint.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 71.76166F))
+        TLPExportPrint.Controls.Add(PnlPrint, 1, 0)
+        TLPExportPrint.Controls.Add(PnlExport, 0, 0)
+        TLPExportPrint.Dock = DockStyle.Fill
+        TLPExportPrint.Location = New Point(0, 0)
+        TLPExportPrint.Name = "TLPExportPrint"
+        TLPExportPrint.RowCount = 1
+        TLPExportPrint.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TLPExportPrint.Size = New Size(379, 31)
+        TLPExportPrint.TabIndex = 0
+        ' 
+        ' PnlPrint
+        ' 
+        PnlPrint.Controls.Add(BtnPrint)
+        PnlPrint.Dock = DockStyle.Left
+        PnlPrint.Location = New Point(112, 3)
+        PnlPrint.Margin = New Padding(5, 3, 3, 3)
+        PnlPrint.Name = "PnlPrint"
+        PnlPrint.Size = New Size(103, 25)
+        PnlPrint.TabIndex = 1
+        ' 
+        ' BtnPrint
+        ' 
+        BtnPrint.BackColor = Color.FromArgb(CByte(229), CByte(128), CByte(35))
+        BtnPrint.Dock = DockStyle.Fill
+        BtnPrint.FlatAppearance.BorderSize = 0
+        BtnPrint.FlatStyle = FlatStyle.Flat
+        BtnPrint.Font = New Font("Arial", 9F)
+        BtnPrint.ForeColor = Color.White
+        BtnPrint.Location = New Point(0, 0)
+        BtnPrint.Name = "BtnPrint"
+        BtnPrint.Size = New Size(103, 25)
+        BtnPrint.TabIndex = 1
+        BtnPrint.Text = "🖨️ Print"
+        BtnPrint.UseVisualStyleBackColor = False
+        ' 
+        ' PnlExport
+        ' 
+        PnlExport.Controls.Add(BtnExport)
+        PnlExport.Dock = DockStyle.Fill
+        PnlExport.Location = New Point(3, 3)
+        PnlExport.Name = "PnlExport"
+        PnlExport.Size = New Size(101, 25)
+        PnlExport.TabIndex = 0
+        ' 
+        ' BtnExport
+        ' 
+        BtnExport.BackColor = Color.FromArgb(CByte(41), CByte(173), CByte(96))
+        BtnExport.Dock = DockStyle.Fill
+        BtnExport.FlatAppearance.BorderSize = 0
+        BtnExport.FlatStyle = FlatStyle.Flat
+        BtnExport.Font = New Font("Arial", 9F)
+        BtnExport.ForeColor = Color.White
+        BtnExport.Location = New Point(0, 0)
+        BtnExport.Name = "BtnExport"
+        BtnExport.Size = New Size(101, 25)
+        BtnExport.TabIndex = 1
+        BtnExport.Text = "⬇️ Export"
+        BtnExport.UseVisualStyleBackColor = False
         ' 
         ' TableLayoutPanel2
         ' 
@@ -730,7 +878,7 @@ Partial Class CFReport
         Label24.Name = "Label24"
         Label24.Size = New Size(402, 17)
         Label24.TabIndex = 1
-        Label24.Text = "Media Lab"
+        Label24.Text = "Meeting Room E"
         Label24.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PnlForBarML
@@ -819,7 +967,7 @@ Partial Class CFReport
         Label21.Name = "Label21"
         Label21.Size = New Size(402, 16)
         Label21.TabIndex = 1
-        Label21.Text = "Quiet Study Room"
+        Label21.Text = "Meeting Room D"
         Label21.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PnlForBarQSR
@@ -908,7 +1056,7 @@ Partial Class CFReport
         Label20.Name = "Label20"
         Label20.Size = New Size(402, 16)
         Label20.TabIndex = 1
-        Label20.Text = "Conference Room"
+        Label20.Text = "Meeting Room C"
         Label20.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PnlForBarCR
@@ -997,7 +1145,7 @@ Partial Class CFReport
         Label17.Name = "Label17"
         Label17.Size = New Size(402, 16)
         Label17.TabIndex = 1
-        Label17.Text = "Collaboration Space"
+        Label17.Text = "Meeting Room B"
         Label17.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PnlForBarCS
@@ -1086,7 +1234,7 @@ Partial Class CFReport
         Label16.Name = "Label16"
         Label16.Size = New Size(402, 16)
         Label16.TabIndex = 1
-        Label16.Text = "Study Room A"
+        Label16.Text = "Meeting Room A"
         Label16.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PnlForBarRoomA
@@ -1341,7 +1489,7 @@ Partial Class CFReport
         Label13.Name = "Label13"
         Label13.Size = New Size(347, 26)
         Label13.TabIndex = 1
-        Label13.Text = "Books Borrowed"
+        Label13.Text = "Student Borrowing Books"
         Label13.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Panel36
@@ -1782,7 +1930,7 @@ Partial Class CFReport
         ' 
         ' Panel18
         ' 
-        Panel18.Controls.Add(Label3)
+        Panel18.Controls.Add(LblNumOfOverdueReturns)
         Panel18.Dock = DockStyle.Fill
         Panel18.Location = New Point(0, 0)
         Panel18.Margin = New Padding(0)
@@ -1790,17 +1938,17 @@ Partial Class CFReport
         Panel18.Size = New Size(61, 34)
         Panel18.TabIndex = 1
         ' 
-        ' Label3
+        ' LblNumOfOverdueReturns
         ' 
-        Label3.Dock = DockStyle.Fill
-        Label3.Font = New Font("Arial", 15F, FontStyle.Bold)
-        Label3.ForeColor = Color.DarkSlateGray
-        Label3.Location = New Point(0, 0)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(61, 34)
-        Label3.TabIndex = 0
-        Label3.Text = "23"
-        Label3.TextAlign = ContentAlignment.MiddleCenter
+        LblNumOfOverdueReturns.Dock = DockStyle.Fill
+        LblNumOfOverdueReturns.Font = New Font("Arial", 15F, FontStyle.Bold)
+        LblNumOfOverdueReturns.ForeColor = Color.DarkSlateGray
+        LblNumOfOverdueReturns.Location = New Point(0, 0)
+        LblNumOfOverdueReturns.Name = "LblNumOfOverdueReturns"
+        LblNumOfOverdueReturns.Size = New Size(61, 34)
+        LblNumOfOverdueReturns.TabIndex = 0
+        LblNumOfOverdueReturns.Text = "23"
+        LblNumOfOverdueReturns.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TLPBooksOutstanding
         ' 
@@ -1841,7 +1989,7 @@ Partial Class CFReport
         ' 
         ' Panel17
         ' 
-        Panel17.Controls.Add(Label2)
+        Panel17.Controls.Add(LblNumberOfBooksOutstanding)
         Panel17.Dock = DockStyle.Fill
         Panel17.Location = New Point(0, 0)
         Panel17.Margin = New Padding(0)
@@ -1849,17 +1997,17 @@ Partial Class CFReport
         Panel17.Size = New Size(61, 32)
         Panel17.TabIndex = 1
         ' 
-        ' Label2
+        ' LblNumberOfBooksOutstanding
         ' 
-        Label2.Dock = DockStyle.Fill
-        Label2.Font = New Font("Arial", 15F, FontStyle.Bold)
-        Label2.ForeColor = Color.DarkSlateGray
-        Label2.Location = New Point(0, 0)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(61, 32)
-        Label2.TabIndex = 0
-        Label2.Text = "32"
-        Label2.TextAlign = ContentAlignment.MiddleCenter
+        LblNumberOfBooksOutstanding.Dock = DockStyle.Fill
+        LblNumberOfBooksOutstanding.Font = New Font("Arial", 15F, FontStyle.Bold)
+        LblNumberOfBooksOutstanding.ForeColor = Color.DarkSlateGray
+        LblNumberOfBooksOutstanding.Location = New Point(0, 0)
+        LblNumberOfBooksOutstanding.Name = "LblNumberOfBooksOutstanding"
+        LblNumberOfBooksOutstanding.Size = New Size(61, 32)
+        LblNumberOfBooksOutstanding.TabIndex = 0
+        LblNumberOfBooksOutstanding.Text = "32"
+        LblNumberOfBooksOutstanding.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TLPBooksReturned
         ' 
@@ -2821,128 +2969,6 @@ Partial Class CFReport
         Label11.Text = "© 2025 Quezon City University Library Management System | Current Time:"
         Label11.TextAlign = ContentAlignment.MiddleRight
         ' 
-        ' PnlViewStExPrnt
-        ' 
-        PnlViewStExPrnt.Controls.Add(TableLayoutPanel20)
-        PnlViewStExPrnt.Dock = DockStyle.Fill
-        PnlViewStExPrnt.Location = New Point(332, 3)
-        PnlViewStExPrnt.Name = "PnlViewStExPrnt"
-        PnlViewStExPrnt.Size = New Size(531, 37)
-        PnlViewStExPrnt.TabIndex = 1
-        ' 
-        ' TableLayoutPanel20
-        ' 
-        TableLayoutPanel20.ColumnCount = 2
-        TableLayoutPanel20.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 26.1770248F))
-        TableLayoutPanel20.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 73.8229752F))
-        TableLayoutPanel20.Controls.Add(PnlViewStatistics, 0, 0)
-        TableLayoutPanel20.Controls.Add(PnlExportPrint, 1, 0)
-        TableLayoutPanel20.Dock = DockStyle.Fill
-        TableLayoutPanel20.Location = New Point(0, 0)
-        TableLayoutPanel20.Name = "TableLayoutPanel20"
-        TableLayoutPanel20.RowCount = 1
-        TableLayoutPanel20.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel20.Size = New Size(531, 37)
-        TableLayoutPanel20.TabIndex = 0
-        ' 
-        ' PnlViewStatistics
-        ' 
-        PnlViewStatistics.Controls.Add(BtnViewStats)
-        PnlViewStatistics.Dock = DockStyle.Fill
-        PnlViewStatistics.Location = New Point(3, 3)
-        PnlViewStatistics.Name = "PnlViewStatistics"
-        PnlViewStatistics.Size = New Size(133, 31)
-        PnlViewStatistics.TabIndex = 0
-        ' 
-        ' BtnViewStats
-        ' 
-        BtnViewStats.BackColor = Color.FromArgb(CByte(53), CByte(153), CByte(218))
-        BtnViewStats.Dock = DockStyle.Fill
-        BtnViewStats.FlatAppearance.BorderSize = 0
-        BtnViewStats.FlatStyle = FlatStyle.Flat
-        BtnViewStats.Font = New Font("Arial", 9F)
-        BtnViewStats.ForeColor = Color.White
-        BtnViewStats.Location = New Point(0, 0)
-        BtnViewStats.Name = "BtnViewStats"
-        BtnViewStats.Size = New Size(133, 31)
-        BtnViewStats.TabIndex = 0
-        BtnViewStats.Text = "📊 View Statistics"
-        BtnViewStats.UseVisualStyleBackColor = False
-        ' 
-        ' PnlExportPrint
-        ' 
-        PnlExportPrint.Controls.Add(TLPExportPrint)
-        PnlExportPrint.Dock = DockStyle.Fill
-        PnlExportPrint.Location = New Point(149, 3)
-        PnlExportPrint.Margin = New Padding(10, 3, 3, 3)
-        PnlExportPrint.Name = "PnlExportPrint"
-        PnlExportPrint.Size = New Size(379, 31)
-        PnlExportPrint.TabIndex = 1
-        ' 
-        ' TLPExportPrint
-        ' 
-        TLPExportPrint.ColumnCount = 2
-        TLPExportPrint.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 28.2383423F))
-        TLPExportPrint.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 71.76166F))
-        TLPExportPrint.Controls.Add(PnlPrint, 1, 0)
-        TLPExportPrint.Controls.Add(PnlExport, 0, 0)
-        TLPExportPrint.Dock = DockStyle.Fill
-        TLPExportPrint.Location = New Point(0, 0)
-        TLPExportPrint.Name = "TLPExportPrint"
-        TLPExportPrint.RowCount = 1
-        TLPExportPrint.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TLPExportPrint.Size = New Size(379, 31)
-        TLPExportPrint.TabIndex = 0
-        ' 
-        ' PnlExport
-        ' 
-        PnlExport.Controls.Add(BtnExport)
-        PnlExport.Dock = DockStyle.Fill
-        PnlExport.Location = New Point(3, 3)
-        PnlExport.Name = "PnlExport"
-        PnlExport.Size = New Size(101, 25)
-        PnlExport.TabIndex = 0
-        ' 
-        ' BtnExport
-        ' 
-        BtnExport.BackColor = Color.FromArgb(CByte(41), CByte(173), CByte(96))
-        BtnExport.Dock = DockStyle.Fill
-        BtnExport.FlatAppearance.BorderSize = 0
-        BtnExport.FlatStyle = FlatStyle.Flat
-        BtnExport.Font = New Font("Arial", 9F)
-        BtnExport.ForeColor = Color.White
-        BtnExport.Location = New Point(0, 0)
-        BtnExport.Name = "BtnExport"
-        BtnExport.Size = New Size(101, 25)
-        BtnExport.TabIndex = 1
-        BtnExport.Text = "⬇️ Export"
-        BtnExport.UseVisualStyleBackColor = False
-        ' 
-        ' PnlPrint
-        ' 
-        PnlPrint.Controls.Add(BtnPrint)
-        PnlPrint.Dock = DockStyle.Left
-        PnlPrint.Location = New Point(112, 3)
-        PnlPrint.Margin = New Padding(5, 3, 3, 3)
-        PnlPrint.Name = "PnlPrint"
-        PnlPrint.Size = New Size(103, 25)
-        PnlPrint.TabIndex = 1
-        ' 
-        ' BtnPrint
-        ' 
-        BtnPrint.BackColor = Color.FromArgb(CByte(229), CByte(128), CByte(35))
-        BtnPrint.Dock = DockStyle.Fill
-        BtnPrint.FlatAppearance.BorderSize = 0
-        BtnPrint.FlatStyle = FlatStyle.Flat
-        BtnPrint.Font = New Font("Arial", 9F)
-        BtnPrint.ForeColor = Color.White
-        BtnPrint.Location = New Point(0, 0)
-        BtnPrint.Name = "BtnPrint"
-        BtnPrint.Size = New Size(103, 25)
-        BtnPrint.TabIndex = 1
-        BtnPrint.Text = "🖨️ Print"
-        BtnPrint.UseVisualStyleBackColor = False
-        ' 
         ' CFReport
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -2956,6 +2982,15 @@ Partial Class CFReport
         Panel1.ResumeLayout(False)
         TableLayoutPanel1.ResumeLayout(False)
         Panel2.ResumeLayout(False)
+        TLPSearch.ResumeLayout(False)
+        PnlForSearchDate.ResumeLayout(False)
+        PnlViewStExPrnt.ResumeLayout(False)
+        TableLayoutPanel20.ResumeLayout(False)
+        PnlViewStatistics.ResumeLayout(False)
+        PnlExportPrint.ResumeLayout(False)
+        TLPExportPrint.ResumeLayout(False)
+        PnlPrint.ResumeLayout(False)
+        PnlExport.ResumeLayout(False)
         TableLayoutPanel2.ResumeLayout(False)
         PnlParentForm.ResumeLayout(False)
         TableLayoutPanel4.ResumeLayout(False)
@@ -3094,13 +3129,6 @@ Partial Class CFReport
         Panel45.ResumeLayout(False)
         Panel50.ResumeLayout(False)
         TableLayoutPanel14.ResumeLayout(False)
-        PnlViewStExPrnt.ResumeLayout(False)
-        TableLayoutPanel20.ResumeLayout(False)
-        PnlViewStatistics.ResumeLayout(False)
-        PnlExportPrint.ResumeLayout(False)
-        TLPExportPrint.ResumeLayout(False)
-        PnlExport.ResumeLayout(False)
-        PnlPrint.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -3218,12 +3246,12 @@ Partial Class CFReport
     Friend WithEvents Panel21 As Panel
     Friend WithEvents Label6 As Label
     Friend WithEvents Panel18 As Panel
-    Friend WithEvents Label3 As Label
+    Friend WithEvents LblNumOfOverdueReturns As Label
     Friend WithEvents TLPBooksOutstanding As TableLayoutPanel
     Friend WithEvents Panel20 As Panel
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel17 As Panel
-    Friend WithEvents Label2 As Label
+    Friend WithEvents LblNumberOfBooksOutstanding As Label
     Friend WithEvents TLPBooksReturned As TableLayoutPanel
     Friend WithEvents PnlForLabelBooksReturned As Panel
     Friend WithEvents LblBooksReturned As Label
@@ -3308,7 +3336,7 @@ Partial Class CFReport
     Friend WithEvents Label11 As Label
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents TLPSearch As TableLayoutPanel
     Friend WithEvents PnlViewStExPrnt As Panel
     Friend WithEvents TableLayoutPanel20 As TableLayoutPanel
     Friend WithEvents PnlViewStatistics As Panel
@@ -3319,4 +3347,6 @@ Partial Class CFReport
     Friend WithEvents BtnPrint As Button
     Friend WithEvents PnlExport As Panel
     Friend WithEvents BtnExport As Button
+    Friend WithEvents PnlForSearchDate As Panel
+    Friend WithEvents ComboSearchDate As ComboBox
 End Class
