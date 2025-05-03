@@ -94,11 +94,13 @@ Public Class FormAddBorrowing
                     insertCmd.Parameters.Add(":dueDate", OracleDbType.Date).Value = DTPDueDate.Value
 
                     ' Set RETURN_DATE based on status
-                    If status = "Borrowing" Then
-                        insertCmd.Parameters.Add(":returnDate", OracleDbType.Date).Value = DBNull.Value
+                    Dim returnDateParam As New OracleParameter(":returnDate", OracleDbType.Date)
+                    If status = "BORROWING" Then
+                        returnDateParam.Value = DBNull.Value
                     Else
-                        insertCmd.Parameters.Add(":returnDate", OracleDbType.Date).Value = DTPReturnDate.Value
+                        returnDateParam.Value = DTPReturnDate.Value
                     End If
+                    insertCmd.Parameters.Add(returnDateParam)
 
                     insertCmd.Parameters.Add(":status", OracleDbType.Varchar2).Value = status
 
@@ -132,7 +134,7 @@ Public Class FormAddBorrowing
                 End If
 
                 MessageBox.Show("Borrowing record added successfully.")
-                RaiseEvent BookAdded(Me, EventArgs.Empty)
+                RaiseEvent BorrowAdded(Me, EventArgs.Empty)
                 Me.Close()
 
             End Using

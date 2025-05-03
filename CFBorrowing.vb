@@ -71,4 +71,15 @@ Public Class CFBorrowing
     Private Sub BorrowModifiedHandler(sender As Object, e As EventArgs)
         LoadBorrowingData()
     End Sub
+
+    Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
+        Dim deleteForm As New FormDeleteBorrowing()
+        AddHandler deleteForm.BookDeleted, AddressOf BorrowDeletedHandler
+        deleteForm.ShowDialog()
+        RemoveHandler deleteForm.BookDeleted, AddressOf BorrowDeletedHandler
+    End Sub
+
+    Private Sub BorrowDeletedHandler(sender As Object, e As EventArgs)
+        LoadBorrowingData()
+    End Sub
 End Class

@@ -11,7 +11,7 @@ Public Class FormModifyBorrowing
         DTPReturnDate.MaxDate = DateTime.Today
         DTPReturnDate.MinDate = DateTime.Today.AddYears(-200)
 
-        Dim paddedPanels = {PnlBorderBookID, PnlBorderBorrowID, PnlBorderStudentID, PnlBorderBorrowedDate,
+        Dim paddedPanels = {PnlBorderSelectID, PnlBorderBookID, PnlBorderBorrowID, PnlBorderStudentID, PnlBorderBorrowedDate,
             PnlBorderDueDate, PnlBorderReturnDate, PnlBorderStatus}
         For Each pnl In paddedPanels
             pnl.Padding = New Padding(3)
@@ -21,6 +21,7 @@ Public Class FormModifyBorrowing
         SetupPlaceholder(TxtBorrowID, "Enter Borrowing ID")
         SetupPlaceholder(TxtStudentID, "Enter Student ID")
         SetupPlaceholder(TxtBookID, "Enter Book ID")
+        SetupPlaceholder(TxtSelectID, "Enter Borrowing ID to modify")
 
         roundedPanels.Add(PnlFill, 20)
         roundedPanels.Add(PnlBorderBorrowID, 5)
@@ -30,6 +31,7 @@ Public Class FormModifyBorrowing
         roundedPanels.Add(PnlBorderDueDate, 5)
         roundedPanels.Add(PnlBorderReturnDate, 5)
         roundedPanels.Add(PnlBorderStatus, 5)
+        roundedPanels.Add(PnlBorderSelectID, 5)
     End Sub
 
     Private Sub Modify_Shown(sender As Object, e As EventArgs) Handles Me.Shown
@@ -171,7 +173,7 @@ Public Class FormModifyBorrowing
                         End If
 
                         MessageBox.Show("Borrowing record updated successfully.")
-                        RaiseEvent BookModified(Me, EventArgs.Empty)
+                        RaiseEvent BorrowModified(Me, EventArgs.Empty)
                         Me.Close()
                     Else
                         MessageBox.Show("No record updated.")

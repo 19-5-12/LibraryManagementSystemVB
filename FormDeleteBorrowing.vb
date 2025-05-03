@@ -38,7 +38,7 @@ Public Class FormDeleteBorrowing
         Dim borrowingId As String = TxtSelectID.Text.Trim()
 
         If Not IsNumeric(borrowingId) Then
-            MessageBox.Show("Please enter a valid numeric Borrowing ID.")
+            MessageBox.Show("Please enter a valid numeric Borrow ID.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
@@ -49,34 +49,37 @@ Public Class FormDeleteBorrowing
             Using conn As New OracleConnection(connStr)
                 conn.Open()
 
-                ' Step 1: Get BOOK_ID from borrowing record
-                Dim getBookIdCmd As New OracleCommand("SELECT BOOK_ID FROM TBL_BORROWING WHERE BORROWING_ID = :id", conn)
+                ' Step 1: Retrieve the BOOK_ID
+                Dim getBookIdSql = "SELECT BOOK_ID FROM TBL_BORROWING WHERE BORROWING_ID = :id"
+                Dim getBookIdCmd As New OracleCommand(getBookIdSql, conn)
                 getBookIdCmd.Parameters.Add(":id", OracleDbType.Int32).Value = Integer.Parse(borrowingId)
                 Dim bookIdObj = getBookIdCmd.ExecuteScalar()
 
                 If bookIdObj Is Nothing Then
-                    MessageBox.Show("Borrowing ID not found.")
+                    MessageBox.Show("Borrow ID not found.")
                     Return
                 End If
 
                 Dim bookId As Integer = Convert.ToInt32(bookIdObj)
 
-                ' Step 2: Delete the borrowing record
-                Dim deleteCmd As New OracleCommand("DELETE FROM TBL_BORROWING WHERE BORROWING_ID = :id", conn)
+                ' Step 2: Delete from TBL_BORROWING
+                Dim deleteSql = "DELETE FROM TBL_BORROWING WHERE BORROWING_ID = :id"
+                Dim deleteCmd As New OracleCommand(deleteSql, conn)
                 deleteCmd.Parameters.Add(":id", OracleDbType.Int32).Value = borrowingId
                 Dim rowsDeleted = deleteCmd.ExecuteNonQuery()
 
                 If rowsDeleted > 0 Then
-                    ' Step 3: Restore book quantity
-                    Dim updateBookCmd As New OracleCommand("UPDATE TBL_BOOKS SET QUANTITY = QUANTITY + 1 WHERE BOOK_ID = :bookId", conn)
+                    ' Step 3: Restore the book (increase quantity)
+                    Dim updateBookSql = "UPDATE TBL_BOOKS SET QUANTITY_AVAILABLE = QUANTITY_AVAILABLE + 1 WHERE BOOK_ID = :bookId"
+                    Dim updateBookCmd As New OracleCommand(updateBookSql, conn)
                     updateBookCmd.Parameters.Add(":bookId", OracleDbType.Int32).Value = bookId
                     updateBookCmd.ExecuteNonQuery()
 
-                    MessageBox.Show("Borrowing record deleted and book restored.")
+                    MessageBox.Show("Borrowing record deleted and book quantity restored.")
                     RaiseEvent BookDeleted(Me, EventArgs.Empty)
                     Me.Close()
                 Else
-                    MessageBox.Show("Borrowing record not found or failed to delete.")
+                    MessageBox.Show("Deletion failed. Borrow ID may not exist.")
                 End If
 
             End Using
@@ -84,6 +87,7 @@ Public Class FormDeleteBorrowing
             MessageBox.Show("Error: " & ex.Message)
         End Try
     End Sub
+
 
 
 End Class
