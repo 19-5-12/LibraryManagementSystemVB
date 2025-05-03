@@ -20,8 +20,12 @@ Public Class CFDashboard
         TimerDateTime.Interval = 1000
         TimerDateTime.Start()
         UpdateTimeLabel()
+        LoadOverdueReturnsCount()
 
         LoadAttendanceData()
+        LoadBorrowedBooksCount()
+        LoadTotalBooksQuantity()
+
         DataGridView1.EnableHeadersVisualStyles = False
         SetDataGridHeaderWhite(DataGridView1)
 
@@ -46,6 +50,61 @@ Public Class CFDashboard
 
             DataGridView1.DataSource = dt
 
+        End Using
+    End Sub
+
+    Private Sub LoadBorrowedBooksCount()
+        Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
+        Dim query As String = "SELECT COUNT(*) FROM TBL_BORROWING WHERE RETURN_DATE IS NULL"
+
+        Using conn As New OracleConnection(connectionString)
+            Dim cmd As New OracleCommand(query, conn)
+
+            Try
+                conn.Open()
+                Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                LblNumBorrowed.Text = count.ToString()
+            Catch ex As Exception
+                MessageBox.Show("Error loading borrowed books count: " & ex.Message)
+            End Try
+        End Using
+    End Sub
+
+    Private Sub LoadTotalBooksQuantity()
+        Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
+        Dim query As String = "SELECT SUM(QUANTITY_AVAILABLE) FROM TBL_BOOKS"
+
+        Using conn As New OracleConnection(connectionString)
+            Dim cmd As New OracleCommand(query, conn)
+
+            Try
+                conn.Open()
+                Dim totalQuantity As Object = cmd.ExecuteScalar()
+                If totalQuantity IsNot DBNull.Value Then
+                    LblNumTotalBooks.Text = totalQuantity.ToString()
+                Else
+                    LblNumTotalBooks.Text = "0"
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Error loading total books quantity: " & ex.Message)
+            End Try
+        End Using
+    End Sub
+
+    Private Sub LoadOverdueReturnsCount()
+        Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
+        Dim query As String = "SELECT COUNT(*) FROM TBL_BORROWING WHERE RETURN_DATE IS NULL AND RETURN_DUE_DATE < SYSDATE"
+
+        Using conn As New OracleConnection(connectionString)
+            Dim cmd As New OracleCommand(query, conn)
+
+            Try
+                conn.Open()
+                Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                LblNumOverdue.Text = count.ToString()
+            Catch ex As Exception
+                MessageBox.Show("Error loading overdue returns: " & ex.Message)
+            End Try
         End Using
     End Sub
 

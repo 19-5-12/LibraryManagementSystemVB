@@ -2,7 +2,6 @@
 
 Public Class FormAddBooks
     Public Event BookAdded As EventHandler
-    Private roundedPanels As New Dictionary(Of Panel, Integer)
 
     Private Sub FormAddBooks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         roundedPanels.Clear()

@@ -9,7 +9,7 @@ Public Class Block
 
     Private Sub LoadBlocksData()
         Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
-        Dim query As String = "SELECT BANNED_ID AS ""ID"",
+        Dim query As String = "SELECT BANNED_ID AS ""Block ID"",
                                       STUDENT_NAME AS ""Student Name"",
                                       USER_ID AS ""ID"",
                                       BANNED_START_DATE AS ""Block Date"",

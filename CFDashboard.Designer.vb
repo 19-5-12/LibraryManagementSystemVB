@@ -259,7 +259,7 @@ Partial Class CFDashboard
         PictureBox4.Margin = New Padding(0)
         PictureBox4.Name = "PictureBox4"
         PictureBox4.Size = New Size(48, 44)
-        PictureBox4.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox4.SizeMode = PictureBoxSizeMode.CenterImage
         PictureBox4.TabIndex = 0
         PictureBox4.TabStop = False
         ' 
@@ -399,7 +399,7 @@ Partial Class CFDashboard
         PictureBox3.Margin = New Padding(0)
         PictureBox3.Name = "PictureBox3"
         PictureBox3.Size = New Size(48, 44)
-        PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox3.SizeMode = PictureBoxSizeMode.CenterImage
         PictureBox3.TabIndex = 0
         PictureBox3.TabStop = False
         ' 
@@ -539,7 +539,7 @@ Partial Class CFDashboard
         PictureBox2.Margin = New Padding(0)
         PictureBox2.Name = "PictureBox2"
         PictureBox2.Size = New Size(48, 44)
-        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox2.SizeMode = PictureBoxSizeMode.CenterImage
         PictureBox2.TabIndex = 0
         PictureBox2.TabStop = False
         ' 
@@ -680,7 +680,7 @@ Partial Class CFDashboard
         PictureBox1.Margin = New Padding(0)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(48, 44)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.SizeMode = PictureBoxSizeMode.CenterImage
         PictureBox1.TabIndex = 0
         PictureBox1.TabStop = False
         ' 
@@ -854,7 +854,7 @@ Partial Class CFDashboard
         Label1.Name = "Label1"
         Label1.Size = New Size(738, 36)
         Label1.TabIndex = 0
-        Label1.Text = "Recent Student Attendance"
+        Label1.Text = "Student Attendance"
         Label1.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PnlForData

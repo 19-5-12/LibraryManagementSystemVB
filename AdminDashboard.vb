@@ -220,6 +220,7 @@
         BtnCurrentlyHighlighted = BtnBooks
         HighlightButton(BtnBooks)
         LblAdminDashBoard.Text = "Book Management"
+        HideSearchAddBtn()
     End Sub
 
     Private Sub BtnDashboard_Click(sender As Object, e As EventArgs) Handles BtnDashboard.Click
@@ -227,6 +228,8 @@
         BtnCurrentlyHighlighted = BtnDashboard
         HighlightButton(BtnDashboard)
         LblAdminDashBoard.Text = "Admin Dashboard"
+        Panel15.Show()
+        Panel17.Show()
     End Sub
 
     Private Sub BtnBlock_Click(sender As Object, e As EventArgs) Handles BtnBlock.Click
@@ -234,13 +237,15 @@
         BtnCurrentlyHighlighted = BtnBlock
         HighlightButton(BtnBlock)
         LblAdminDashBoard.Text = "Blocking Management"
+        HideSearchAddBtn()
     End Sub
 
     Private Sub BtnMeeting_Click(sender As Object, e As EventArgs) Handles BtnMeeting.Click
         ChildForm(New CFMeetingRooms())
         BtnCurrentlyHighlighted = BtnMeeting
         HighlightButton(BtnMeeting)
-        LblAdminDashBoard.Text = "Meeting Room Management"
+        LblAdminDashBoard.Text = "Room Availability"
+        HideSearchAddBtn()
     End Sub
 
     Private Sub BtnReport_Click(sender As Object, e As EventArgs) Handles BtnReport.Click
@@ -254,6 +259,7 @@
         BtnCurrentlyHighlighted = BtnBorrowing
         HighlightButton(BtnBorrowing)
         LblAdminDashBoard.Text = "Books Borrowed Management"
+        HideSearchAddBtn()
     End Sub
 
     Private Sub BtnUser_Click(sender As Object, e As EventArgs) Handles BtnUser.Click
@@ -261,6 +267,7 @@
         BtnCurrentlyHighlighted = BtnUser
         HighlightButton(BtnUser)
         LblAdminDashBoard.Text = "Users Management"
+        HideSearchAddBtn()
     End Sub
 
     Private Sub BtnSettings_Click(sender As Object, e As EventArgs) Handles BtnSettings.Click
@@ -268,5 +275,11 @@
         BtnCurrentlyHighlighted = BtnSettings
         HighlightButton(BtnSettings)
         LblAdminDashBoard.Text = "Settings"
+        HideSearchAddBtn()
+    End Sub
+
+    Public Sub HideSearchAddBtn()
+        Panel15.Hide()
+        Panel17.Hide()
     End Sub
 End Class

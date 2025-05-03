@@ -438,7 +438,6 @@ Partial Class Block
         DataGridView1.GridColor = Color.White
         DataGridView1.Location = New Point(0, 0)
         DataGridView1.Margin = New Padding(0)
-        DataGridView1.MaximumSize = New Size(0, 300)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.ReadOnly = True
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
@@ -451,7 +450,7 @@ Partial Class Block
         DataGridView1.RowTemplate.ReadOnly = True
         DataGridView1.RowTemplate.Resizable = DataGridViewTriState.False
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView1.Size = New Size(881, 300)
+        DataGridView1.Size = New Size(881, 353)
         DataGridView1.TabIndex = 0
         ' 
         ' Block

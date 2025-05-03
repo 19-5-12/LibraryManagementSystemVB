@@ -289,7 +289,6 @@ Partial Class CFBorrowing
         DataGridView1.GridColor = Color.White
         DataGridView1.Location = New Point(0, 0)
         DataGridView1.Margin = New Padding(0)
-        DataGridView1.MaximumSize = New Size(0, 300)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.ReadOnly = True
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
@@ -302,8 +301,8 @@ Partial Class CFBorrowing
         DataGridView1.RowTemplate.ReadOnly = True
         DataGridView1.RowTemplate.Resizable = DataGridViewTriState.False
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView1.Size = New Size(881, 300)
-        DataGridView1.TabIndex = 0
+        DataGridView1.Size = New Size(881, 352)
+        DataGridView1.TabIndex = 1
         ' 
         ' Panel1
         ' 
@@ -484,7 +483,6 @@ Partial Class CFBorrowing
     Friend WithEvents Label1 As Label
     Friend WithEvents PnlForData As Panel
     Friend WithEvents PnlForDataGridView As Panel
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents TimerDateTime As Timer
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Panel1 As Panel
@@ -498,4 +496,5 @@ Partial Class CFBorrowing
     Friend WithEvents Panel2 As Panel
     Friend WithEvents BtnAdd As Button
     Friend WithEvents Panel3 As Panel
+    Friend WithEvents DataGridView1 As DataGridView
 End Class

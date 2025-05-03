@@ -16,7 +16,7 @@ Public Class CFBorrowing
                                 b.BORROW_DATE AS ""Borrowed Date"",
                                 b.RETURN_DUE_DATE AS ""Due Date"",
                                 b.RETURN_DATE AS ""Return Date"",
-                                NULL AS ""Status"" 
+                                b.STATUS AS ""STATUS"" 
                            FROM 
                                 TBL_BORROWING b
                            JOIN 
@@ -36,5 +36,16 @@ Public Class CFBorrowing
 
     Private Sub TBLPBorrowing_Paint(sender As Object, e As PaintEventArgs) Handles TBLPBorrowing.Paint
         StyleShadowPanel(CType(sender, Panel), e)
+    End Sub
+
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
+        Dim addForm As New FormAddBorrowing()
+        AddHandler addForm.BookAdded, AddressOf BookAddedHandler
+        addForm.ShowDialog()
+        RemoveHandler addForm.BookAdded, AddressOf BookAddedHandler
+    End Sub
+
+    Private Sub BookAddedHandler(sender As Object, e As EventArgs)
+        LoadBorrowingData()
     End Sub
 End Class

@@ -16,7 +16,7 @@ Public Class CFReport
         Next
 
         For Each pnl In New Panel() {PnlBorrowingStatistics, PnlPopularCategories, PNLUserActivity, PnlMeetingRoomUsage}
-            Dim currentPanel = PnlExportPrint
+            Dim currentPanel = pnl
 
             AddHandler currentPanel.Paint, Sub(s, pe)
                                                StyleShadowPanel(DirectCast(s, Panel), pe)
