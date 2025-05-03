@@ -995,7 +995,7 @@ Partial Class FormModifyBooks
         Label1.Name = "Label1"
         Label1.Size = New Size(447, 23)
         Label1.TabIndex = 1
-        Label1.Text = "Select a book ID to modify:"
+        Label1.Text = "Select a book ID to MODIFY:"
         Label1.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' FormModifyBooks

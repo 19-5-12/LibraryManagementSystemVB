@@ -149,7 +149,7 @@ Partial Class FormAddBorrowing
         PnlFill.Location = New Point(0, 0)
         PnlFill.Margin = New Padding(5)
         PnlFill.Name = "PnlFill"
-        PnlFill.Size = New Size(473, 471)
+        PnlFill.Size = New Size(489, 510)
         PnlFill.TabIndex = 1
         ' 
         ' TLPAddNewBook
@@ -166,16 +166,16 @@ Partial Class FormAddBorrowing
         TLPAddNewBook.RowStyles.Add(New RowStyle(SizeType.Percent, 9.333337F))
         TLPAddNewBook.RowStyles.Add(New RowStyle(SizeType.Absolute, 2F))
         TLPAddNewBook.RowStyles.Add(New RowStyle(SizeType.Percent, 90.6666641F))
-        TLPAddNewBook.Size = New Size(473, 471)
+        TLPAddNewBook.Size = New Size(489, 510)
         TLPAddNewBook.TabIndex = 0
         ' 
         ' PnlFillAddnewBook
         ' 
         PnlFillAddnewBook.Controls.Add(TLPAddNewBookFill)
         PnlFillAddnewBook.Dock = DockStyle.Fill
-        PnlFillAddnewBook.Location = New Point(3, 48)
+        PnlFillAddnewBook.Location = New Point(3, 52)
         PnlFillAddnewBook.Name = "PnlFillAddnewBook"
-        PnlFillAddnewBook.Size = New Size(467, 420)
+        PnlFillAddnewBook.Size = New Size(483, 455)
         PnlFillAddnewBook.TabIndex = 1
         ' 
         ' TLPAddNewBookFill
@@ -192,7 +192,7 @@ Partial Class FormAddBorrowing
         TLPAddNewBookFill.RowStyles.Add(New RowStyle(SizeType.Absolute, 0F))
         TLPAddNewBookFill.RowStyles.Add(New RowStyle(SizeType.Percent, 89.05473F))
         TLPAddNewBookFill.RowStyles.Add(New RowStyle(SizeType.Percent, 10.9452705F))
-        TLPAddNewBookFill.Size = New Size(467, 420)
+        TLPAddNewBookFill.Size = New Size(483, 455)
         TLPAddNewBookFill.TabIndex = 0
         ' 
         ' TLPAddNewBookColumn
@@ -201,7 +201,7 @@ Partial Class FormAddBorrowing
         TLPAddNewBookColumn.Dock = DockStyle.Fill
         TLPAddNewBookColumn.Location = New Point(3, 3)
         TLPAddNewBookColumn.Name = "TLPAddNewBookColumn"
-        TLPAddNewBookColumn.Size = New Size(461, 368)
+        TLPAddNewBookColumn.Size = New Size(477, 399)
         TLPAddNewBookColumn.TabIndex = 0
         ' 
         ' TLPVariablesAddNewBook
@@ -226,16 +226,16 @@ Partial Class FormAddBorrowing
         TLPVariablesAddNewBook.RowStyles.Add(New RowStyle(SizeType.Percent, 14.2857141F))
         TLPVariablesAddNewBook.RowStyles.Add(New RowStyle(SizeType.Percent, 14.2857141F))
         TLPVariablesAddNewBook.RowStyles.Add(New RowStyle(SizeType.Percent, 14.2857141F))
-        TLPVariablesAddNewBook.Size = New Size(461, 368)
+        TLPVariablesAddNewBook.Size = New Size(477, 399)
         TLPVariablesAddNewBook.TabIndex = 0
         ' 
         ' Panel17
         ' 
         Panel17.Controls.Add(TableLayoutPanel5)
         Panel17.Dock = DockStyle.Fill
-        Panel17.Location = New Point(3, 315)
+        Panel17.Location = New Point(3, 345)
         Panel17.Name = "Panel17"
-        Panel17.Size = New Size(455, 50)
+        Panel17.Size = New Size(471, 51)
         Panel17.TabIndex = 6
         ' 
         ' TableLayoutPanel5
@@ -250,17 +250,17 @@ Partial Class FormAddBorrowing
         TableLayoutPanel5.Name = "TableLayoutPanel5"
         TableLayoutPanel5.RowCount = 1
         TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel5.Size = New Size(455, 50)
+        TableLayoutPanel5.Size = New Size(471, 51)
         TableLayoutPanel5.TabIndex = 0
         ' 
         ' PnlBorderStatus
         ' 
         PnlBorderStatus.Controls.Add(Panel21)
         PnlBorderStatus.Dock = DockStyle.Fill
-        PnlBorderStatus.Location = New Point(156, 5)
+        PnlBorderStatus.Location = New Point(162, 5)
         PnlBorderStatus.Margin = New Padding(0, 5, 0, 5)
         PnlBorderStatus.Name = "PnlBorderStatus"
-        PnlBorderStatus.Size = New Size(299, 40)
+        PnlBorderStatus.Size = New Size(309, 41)
         PnlBorderStatus.TabIndex = 1
         ' 
         ' Panel21
@@ -273,7 +273,7 @@ Partial Class FormAddBorrowing
         Panel21.Margin = New Padding(0)
         Panel21.Name = "Panel21"
         Panel21.Padding = New Padding(10, 5, 0, 0)
-        Panel21.Size = New Size(299, 40)
+        Panel21.Size = New Size(309, 41)
         Panel21.TabIndex = 0
         ' 
         ' ComboStatus
@@ -284,10 +284,10 @@ Partial Class FormAddBorrowing
         ComboStatus.FlatStyle = FlatStyle.Flat
         ComboStatus.Font = New Font("Arial", 11F)
         ComboStatus.FormattingEnabled = True
-        ComboStatus.Items.AddRange(New Object() {"Borrowing", "Returned", "Overdue"})
+        ComboStatus.Items.AddRange(New Object() {"BORROWING", "RETURNED", "OVERDUE", "RETURNED OVERDUE"})
         ComboStatus.Location = New Point(10, 5)
         ComboStatus.Name = "ComboStatus"
-        ComboStatus.Size = New Size(289, 25)
+        ComboStatus.Size = New Size(299, 25)
         ComboStatus.TabIndex = 1
         ' 
         ' Panel22
@@ -296,7 +296,7 @@ Partial Class FormAddBorrowing
         Panel22.Dock = DockStyle.Fill
         Panel22.Location = New Point(3, 3)
         Panel22.Name = "Panel22"
-        Panel22.Size = New Size(150, 44)
+        Panel22.Size = New Size(156, 45)
         Panel22.TabIndex = 0
         ' 
         ' Label9
@@ -306,7 +306,7 @@ Partial Class FormAddBorrowing
         Label9.ForeColor = Color.DarkSlateGray
         Label9.Location = New Point(0, 0)
         Label9.Name = "Label9"
-        Label9.Size = New Size(150, 44)
+        Label9.Size = New Size(156, 45)
         Label9.TabIndex = 0
         Label9.Text = "Status"
         Label9.TextAlign = ContentAlignment.MiddleRight
@@ -315,9 +315,9 @@ Partial Class FormAddBorrowing
         ' 
         Panel14.Controls.Add(TableLayoutPanel4)
         Panel14.Dock = DockStyle.Fill
-        Panel14.Location = New Point(3, 263)
+        Panel14.Location = New Point(3, 288)
         Panel14.Name = "Panel14"
-        Panel14.Size = New Size(455, 46)
+        Panel14.Size = New Size(471, 51)
         Panel14.TabIndex = 5
         ' 
         ' TableLayoutPanel4
@@ -332,17 +332,17 @@ Partial Class FormAddBorrowing
         TableLayoutPanel4.Name = "TableLayoutPanel4"
         TableLayoutPanel4.RowCount = 1
         TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel4.Size = New Size(455, 46)
+        TableLayoutPanel4.Size = New Size(471, 51)
         TableLayoutPanel4.TabIndex = 0
         ' 
         ' PnlBorderReturnDate
         ' 
         PnlBorderReturnDate.Controls.Add(Panel18)
         PnlBorderReturnDate.Dock = DockStyle.Fill
-        PnlBorderReturnDate.Location = New Point(156, 5)
+        PnlBorderReturnDate.Location = New Point(162, 5)
         PnlBorderReturnDate.Margin = New Padding(0, 5, 0, 5)
         PnlBorderReturnDate.Name = "PnlBorderReturnDate"
-        PnlBorderReturnDate.Size = New Size(299, 36)
+        PnlBorderReturnDate.Size = New Size(309, 41)
         PnlBorderReturnDate.TabIndex = 1
         ' 
         ' Panel18
@@ -355,7 +355,7 @@ Partial Class FormAddBorrowing
         Panel18.Margin = New Padding(0)
         Panel18.Name = "Panel18"
         Panel18.Padding = New Padding(10, 5, 0, 0)
-        Panel18.Size = New Size(299, 36)
+        Panel18.Size = New Size(309, 41)
         Panel18.TabIndex = 0
         ' 
         ' DTPReturnDate
@@ -366,7 +366,7 @@ Partial Class FormAddBorrowing
         DTPReturnDate.Format = DateTimePickerFormat.Short
         DTPReturnDate.Location = New Point(10, 5)
         DTPReturnDate.Name = "DTPReturnDate"
-        DTPReturnDate.Size = New Size(289, 24)
+        DTPReturnDate.Size = New Size(299, 24)
         DTPReturnDate.TabIndex = 0
         ' 
         ' Panel19
@@ -375,7 +375,7 @@ Partial Class FormAddBorrowing
         Panel19.Dock = DockStyle.Fill
         Panel19.Location = New Point(3, 3)
         Panel19.Name = "Panel19"
-        Panel19.Size = New Size(150, 40)
+        Panel19.Size = New Size(156, 45)
         Panel19.TabIndex = 0
         ' 
         ' Label8
@@ -385,7 +385,7 @@ Partial Class FormAddBorrowing
         Label8.ForeColor = Color.DarkSlateGray
         Label8.Location = New Point(0, 0)
         Label8.Name = "Label8"
-        Label8.Size = New Size(150, 40)
+        Label8.Size = New Size(156, 45)
         Label8.TabIndex = 0
         Label8.Text = "Return Date"
         Label8.TextAlign = ContentAlignment.MiddleRight
@@ -394,9 +394,9 @@ Partial Class FormAddBorrowing
         ' 
         Panel11.Controls.Add(TableLayoutPanel3)
         Panel11.Dock = DockStyle.Fill
-        Panel11.Location = New Point(3, 211)
+        Panel11.Location = New Point(3, 231)
         Panel11.Name = "Panel11"
-        Panel11.Size = New Size(455, 46)
+        Panel11.Size = New Size(471, 51)
         Panel11.TabIndex = 4
         ' 
         ' TableLayoutPanel3
@@ -411,17 +411,17 @@ Partial Class FormAddBorrowing
         TableLayoutPanel3.Name = "TableLayoutPanel3"
         TableLayoutPanel3.RowCount = 1
         TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel3.Size = New Size(455, 46)
+        TableLayoutPanel3.Size = New Size(471, 51)
         TableLayoutPanel3.TabIndex = 0
         ' 
         ' PnlBorderDueDate
         ' 
         PnlBorderDueDate.Controls.Add(Panel15)
         PnlBorderDueDate.Dock = DockStyle.Fill
-        PnlBorderDueDate.Location = New Point(156, 5)
+        PnlBorderDueDate.Location = New Point(162, 5)
         PnlBorderDueDate.Margin = New Padding(0, 5, 0, 5)
         PnlBorderDueDate.Name = "PnlBorderDueDate"
-        PnlBorderDueDate.Size = New Size(299, 36)
+        PnlBorderDueDate.Size = New Size(309, 41)
         PnlBorderDueDate.TabIndex = 1
         ' 
         ' Panel15
@@ -434,7 +434,7 @@ Partial Class FormAddBorrowing
         Panel15.Margin = New Padding(0)
         Panel15.Name = "Panel15"
         Panel15.Padding = New Padding(10, 5, 0, 0)
-        Panel15.Size = New Size(299, 36)
+        Panel15.Size = New Size(309, 41)
         Panel15.TabIndex = 0
         ' 
         ' DTPDueDate
@@ -445,7 +445,7 @@ Partial Class FormAddBorrowing
         DTPDueDate.Format = DateTimePickerFormat.Short
         DTPDueDate.Location = New Point(10, 5)
         DTPDueDate.Name = "DTPDueDate"
-        DTPDueDate.Size = New Size(289, 24)
+        DTPDueDate.Size = New Size(299, 24)
         DTPDueDate.TabIndex = 1
         ' 
         ' Panel16
@@ -454,7 +454,7 @@ Partial Class FormAddBorrowing
         Panel16.Dock = DockStyle.Fill
         Panel16.Location = New Point(3, 3)
         Panel16.Name = "Panel16"
-        Panel16.Size = New Size(150, 40)
+        Panel16.Size = New Size(156, 45)
         Panel16.TabIndex = 0
         ' 
         ' Label7
@@ -464,7 +464,7 @@ Partial Class FormAddBorrowing
         Label7.ForeColor = Color.DarkSlateGray
         Label7.Location = New Point(0, 0)
         Label7.Name = "Label7"
-        Label7.Size = New Size(150, 40)
+        Label7.Size = New Size(156, 45)
         Label7.TabIndex = 0
         Label7.Text = "Due Date"
         Label7.TextAlign = ContentAlignment.MiddleRight
@@ -473,9 +473,9 @@ Partial Class FormAddBorrowing
         ' 
         Panel7.Controls.Add(TableLayoutPanel2)
         Panel7.Dock = DockStyle.Fill
-        Panel7.Location = New Point(3, 159)
+        Panel7.Location = New Point(3, 174)
         Panel7.Name = "Panel7"
-        Panel7.Size = New Size(455, 46)
+        Panel7.Size = New Size(471, 51)
         Panel7.TabIndex = 3
         ' 
         ' TableLayoutPanel2
@@ -490,17 +490,17 @@ Partial Class FormAddBorrowing
         TableLayoutPanel2.Name = "TableLayoutPanel2"
         TableLayoutPanel2.RowCount = 1
         TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel2.Size = New Size(455, 46)
+        TableLayoutPanel2.Size = New Size(471, 51)
         TableLayoutPanel2.TabIndex = 0
         ' 
         ' PnlBorderBorrowedDate
         ' 
         PnlBorderBorrowedDate.Controls.Add(Panel12)
         PnlBorderBorrowedDate.Dock = DockStyle.Fill
-        PnlBorderBorrowedDate.Location = New Point(156, 5)
+        PnlBorderBorrowedDate.Location = New Point(162, 5)
         PnlBorderBorrowedDate.Margin = New Padding(0, 5, 0, 5)
         PnlBorderBorrowedDate.Name = "PnlBorderBorrowedDate"
-        PnlBorderBorrowedDate.Size = New Size(299, 36)
+        PnlBorderBorrowedDate.Size = New Size(309, 41)
         PnlBorderBorrowedDate.TabIndex = 1
         ' 
         ' Panel12
@@ -513,7 +513,7 @@ Partial Class FormAddBorrowing
         Panel12.Margin = New Padding(0)
         Panel12.Name = "Panel12"
         Panel12.Padding = New Padding(10, 5, 0, 0)
-        Panel12.Size = New Size(299, 36)
+        Panel12.Size = New Size(309, 41)
         Panel12.TabIndex = 0
         ' 
         ' DTPBorrowedDate
@@ -524,7 +524,7 @@ Partial Class FormAddBorrowing
         DTPBorrowedDate.Format = DateTimePickerFormat.Short
         DTPBorrowedDate.Location = New Point(10, 5)
         DTPBorrowedDate.Name = "DTPBorrowedDate"
-        DTPBorrowedDate.Size = New Size(289, 24)
+        DTPBorrowedDate.Size = New Size(299, 24)
         DTPBorrowedDate.TabIndex = 1
         ' 
         ' Panel13
@@ -533,7 +533,7 @@ Partial Class FormAddBorrowing
         Panel13.Dock = DockStyle.Fill
         Panel13.Location = New Point(3, 3)
         Panel13.Name = "Panel13"
-        Panel13.Size = New Size(150, 40)
+        Panel13.Size = New Size(156, 45)
         Panel13.TabIndex = 0
         ' 
         ' Label6
@@ -543,7 +543,7 @@ Partial Class FormAddBorrowing
         Label6.ForeColor = Color.DarkSlateGray
         Label6.Location = New Point(0, 0)
         Label6.Name = "Label6"
-        Label6.Size = New Size(150, 40)
+        Label6.Size = New Size(156, 45)
         Label6.TabIndex = 0
         Label6.Text = "Borrowed Date"
         Label6.TextAlign = ContentAlignment.MiddleRight
@@ -552,9 +552,9 @@ Partial Class FormAddBorrowing
         ' 
         Panel2.Controls.Add(TableLayoutPanel1)
         Panel2.Dock = DockStyle.Fill
-        Panel2.Location = New Point(3, 107)
+        Panel2.Location = New Point(3, 117)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(455, 46)
+        Panel2.Size = New Size(471, 51)
         Panel2.TabIndex = 2
         ' 
         ' TableLayoutPanel1
@@ -569,17 +569,17 @@ Partial Class FormAddBorrowing
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 1
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel1.Size = New Size(455, 46)
+        TableLayoutPanel1.Size = New Size(471, 51)
         TableLayoutPanel1.TabIndex = 0
         ' 
         ' PnlBorderBookID
         ' 
         PnlBorderBookID.Controls.Add(Panel8)
         PnlBorderBookID.Dock = DockStyle.Fill
-        PnlBorderBookID.Location = New Point(156, 5)
+        PnlBorderBookID.Location = New Point(162, 5)
         PnlBorderBookID.Margin = New Padding(0, 5, 0, 5)
         PnlBorderBookID.Name = "PnlBorderBookID"
-        PnlBorderBookID.Size = New Size(299, 36)
+        PnlBorderBookID.Size = New Size(309, 41)
         PnlBorderBookID.TabIndex = 1
         ' 
         ' Panel8
@@ -592,7 +592,7 @@ Partial Class FormAddBorrowing
         Panel8.Margin = New Padding(0)
         Panel8.Name = "Panel8"
         Panel8.Padding = New Padding(0, 5, 0, 0)
-        Panel8.Size = New Size(299, 36)
+        Panel8.Size = New Size(309, 41)
         Panel8.TabIndex = 0
         ' 
         ' TxtBookID
@@ -611,7 +611,7 @@ Partial Class FormAddBorrowing
         Panel9.Dock = DockStyle.Fill
         Panel9.Location = New Point(3, 3)
         Panel9.Name = "Panel9"
-        Panel9.Size = New Size(150, 40)
+        Panel9.Size = New Size(156, 45)
         Panel9.TabIndex = 0
         ' 
         ' Label4
@@ -621,7 +621,7 @@ Partial Class FormAddBorrowing
         Label4.ForeColor = Color.DarkSlateGray
         Label4.Location = New Point(0, 0)
         Label4.Name = "Label4"
-        Label4.Size = New Size(150, 40)
+        Label4.Size = New Size(156, 45)
         Label4.TabIndex = 0
         Label4.Text = "Book ID"
         Label4.TextAlign = ContentAlignment.MiddleRight
@@ -630,9 +630,9 @@ Partial Class FormAddBorrowing
         ' 
         PnlTitle.Controls.Add(TLPTitle)
         PnlTitle.Dock = DockStyle.Fill
-        PnlTitle.Location = New Point(3, 55)
+        PnlTitle.Location = New Point(3, 60)
         PnlTitle.Name = "PnlTitle"
-        PnlTitle.Size = New Size(455, 46)
+        PnlTitle.Size = New Size(471, 51)
         PnlTitle.TabIndex = 1
         ' 
         ' TLPTitle
@@ -647,17 +647,17 @@ Partial Class FormAddBorrowing
         TLPTitle.Name = "TLPTitle"
         TLPTitle.RowCount = 1
         TLPTitle.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TLPTitle.Size = New Size(455, 46)
+        TLPTitle.Size = New Size(471, 51)
         TLPTitle.TabIndex = 0
         ' 
         ' PnlBorderStudentID
         ' 
         PnlBorderStudentID.Controls.Add(Panel4)
         PnlBorderStudentID.Dock = DockStyle.Fill
-        PnlBorderStudentID.Location = New Point(156, 5)
+        PnlBorderStudentID.Location = New Point(162, 5)
         PnlBorderStudentID.Margin = New Padding(0, 5, 0, 5)
         PnlBorderStudentID.Name = "PnlBorderStudentID"
-        PnlBorderStudentID.Size = New Size(299, 36)
+        PnlBorderStudentID.Size = New Size(309, 41)
         PnlBorderStudentID.TabIndex = 1
         ' 
         ' Panel4
@@ -670,7 +670,7 @@ Partial Class FormAddBorrowing
         Panel4.Margin = New Padding(0)
         Panel4.Name = "Panel4"
         Panel4.Padding = New Padding(0, 5, 0, 0)
-        Panel4.Size = New Size(299, 36)
+        Panel4.Size = New Size(309, 41)
         Panel4.TabIndex = 0
         ' 
         ' TxtStudentID
@@ -689,7 +689,7 @@ Partial Class FormAddBorrowing
         Panel5.Dock = DockStyle.Fill
         Panel5.Location = New Point(3, 3)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(150, 40)
+        Panel5.Size = New Size(156, 45)
         Panel5.TabIndex = 0
         ' 
         ' Label5
@@ -699,7 +699,7 @@ Partial Class FormAddBorrowing
         Label5.ForeColor = Color.DarkSlateGray
         Label5.Location = New Point(0, 0)
         Label5.Name = "Label5"
-        Label5.Size = New Size(150, 40)
+        Label5.Size = New Size(156, 45)
         Label5.TabIndex = 0
         Label5.Text = "Student ID"
         Label5.TextAlign = ContentAlignment.MiddleRight
@@ -710,7 +710,7 @@ Partial Class FormAddBorrowing
         PnlBookID.Dock = DockStyle.Fill
         PnlBookID.Location = New Point(3, 3)
         PnlBookID.Name = "PnlBookID"
-        PnlBookID.Size = New Size(455, 46)
+        PnlBookID.Size = New Size(471, 51)
         PnlBookID.TabIndex = 0
         ' 
         ' TLPBookID
@@ -725,17 +725,17 @@ Partial Class FormAddBorrowing
         TLPBookID.Name = "TLPBookID"
         TLPBookID.RowCount = 1
         TLPBookID.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TLPBookID.Size = New Size(455, 46)
+        TLPBookID.Size = New Size(471, 51)
         TLPBookID.TabIndex = 0
         ' 
         ' PnlBorderBorrowID
         ' 
         PnlBorderBorrowID.Controls.Add(Panel24)
         PnlBorderBorrowID.Dock = DockStyle.Fill
-        PnlBorderBorrowID.Location = New Point(156, 5)
+        PnlBorderBorrowID.Location = New Point(162, 5)
         PnlBorderBorrowID.Margin = New Padding(0, 5, 0, 5)
         PnlBorderBorrowID.Name = "PnlBorderBorrowID"
-        PnlBorderBorrowID.Size = New Size(299, 36)
+        PnlBorderBorrowID.Size = New Size(309, 41)
         PnlBorderBorrowID.TabIndex = 2
         ' 
         ' Panel24
@@ -748,7 +748,7 @@ Partial Class FormAddBorrowing
         Panel24.Margin = New Padding(0)
         Panel24.Name = "Panel24"
         Panel24.Padding = New Padding(0, 5, 0, 0)
-        Panel24.Size = New Size(299, 36)
+        Panel24.Size = New Size(309, 41)
         Panel24.TabIndex = 0
         ' 
         ' TxtBorrowID
@@ -767,7 +767,7 @@ Partial Class FormAddBorrowing
         PnlForLabelBookID.Dock = DockStyle.Fill
         PnlForLabelBookID.Location = New Point(3, 3)
         PnlForLabelBookID.Name = "PnlForLabelBookID"
-        PnlForLabelBookID.Size = New Size(150, 40)
+        PnlForLabelBookID.Size = New Size(156, 45)
         PnlForLabelBookID.TabIndex = 0
         ' 
         ' Label2
@@ -777,7 +777,7 @@ Partial Class FormAddBorrowing
         Label2.ForeColor = Color.DarkSlateGray
         Label2.Location = New Point(0, 0)
         Label2.Name = "Label2"
-        Label2.Size = New Size(150, 40)
+        Label2.Size = New Size(156, 45)
         Label2.TabIndex = 0
         Label2.Text = "Borrow ID"
         Label2.TextAlign = ContentAlignment.MiddleRight
@@ -786,9 +786,9 @@ Partial Class FormAddBorrowing
         ' 
         PnlCancelAdd.Controls.Add(TLPCancelAdd)
         PnlCancelAdd.Dock = DockStyle.Fill
-        PnlCancelAdd.Location = New Point(3, 377)
+        PnlCancelAdd.Location = New Point(3, 408)
         PnlCancelAdd.Name = "PnlCancelAdd"
-        PnlCancelAdd.Size = New Size(461, 40)
+        PnlCancelAdd.Size = New Size(477, 44)
         PnlCancelAdd.TabIndex = 1
         ' 
         ' TLPCancelAdd
@@ -803,16 +803,16 @@ Partial Class FormAddBorrowing
         TLPCancelAdd.Name = "TLPCancelAdd"
         TLPCancelAdd.RowCount = 1
         TLPCancelAdd.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TLPCancelAdd.Size = New Size(461, 40)
+        TLPCancelAdd.Size = New Size(477, 44)
         TLPCancelAdd.TabIndex = 0
         ' 
         ' PnlForBtnAdd
         ' 
         PnlForBtnAdd.Controls.Add(Panel1)
         PnlForBtnAdd.Dock = DockStyle.Fill
-        PnlForBtnAdd.Location = New Point(350, 3)
+        PnlForBtnAdd.Location = New Point(362, 3)
         PnlForBtnAdd.Name = "PnlForBtnAdd"
-        PnlForBtnAdd.Size = New Size(108, 34)
+        PnlForBtnAdd.Size = New Size(112, 38)
         PnlForBtnAdd.TabIndex = 1
         ' 
         ' Panel1
@@ -821,7 +821,7 @@ Partial Class FormAddBorrowing
         Panel1.Dock = DockStyle.Left
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(96, 34)
+        Panel1.Size = New Size(96, 38)
         Panel1.TabIndex = 1
         ' 
         ' Panel6
@@ -830,7 +830,7 @@ Partial Class FormAddBorrowing
         Panel6.Dock = DockStyle.Right
         Panel6.Location = New Point(1, 0)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(95, 34)
+        Panel6.Size = New Size(95, 38)
         Panel6.TabIndex = 0
         ' 
         ' BtnAddBorrowed
@@ -843,7 +843,7 @@ Partial Class FormAddBorrowing
         BtnAddBorrowed.ForeColor = Color.White
         BtnAddBorrowed.Location = New Point(0, 0)
         BtnAddBorrowed.Name = "BtnAddBorrowed"
-        BtnAddBorrowed.Size = New Size(95, 34)
+        BtnAddBorrowed.Size = New Size(95, 38)
         BtnAddBorrowed.TabIndex = 0
         BtnAddBorrowed.Text = "Add Book"
         BtnAddBorrowed.UseVisualStyleBackColor = False
@@ -854,16 +854,16 @@ Partial Class FormAddBorrowing
         PnlForCancel.Dock = DockStyle.Fill
         PnlForCancel.Location = New Point(3, 3)
         PnlForCancel.Name = "PnlForCancel"
-        PnlForCancel.Size = New Size(341, 34)
+        PnlForCancel.Size = New Size(353, 38)
         PnlForCancel.TabIndex = 0
         ' 
         ' PnlBtnCancel
         ' 
         PnlBtnCancel.Controls.Add(BtnCancel)
         PnlBtnCancel.Dock = DockStyle.Right
-        PnlBtnCancel.Location = New Point(246, 0)
+        PnlBtnCancel.Location = New Point(258, 0)
         PnlBtnCancel.Name = "PnlBtnCancel"
-        PnlBtnCancel.Size = New Size(95, 34)
+        PnlBtnCancel.Size = New Size(95, 38)
         PnlBtnCancel.TabIndex = 0
         ' 
         ' BtnCancel
@@ -876,7 +876,7 @@ Partial Class FormAddBorrowing
         BtnCancel.ForeColor = Color.FromArgb(CByte(87), CByte(94), CByte(102))
         BtnCancel.Location = New Point(0, 0)
         BtnCancel.Name = "BtnCancel"
-        BtnCancel.Size = New Size(95, 34)
+        BtnCancel.Size = New Size(95, 38)
         BtnCancel.TabIndex = 0
         BtnCancel.Text = "Cancel"
         BtnCancel.UseVisualStyleBackColor = False
@@ -888,7 +888,7 @@ Partial Class FormAddBorrowing
         Panel10.Dock = DockStyle.Fill
         Panel10.Location = New Point(3, 3)
         Panel10.Name = "Panel10"
-        Panel10.Size = New Size(461, 1)
+        Panel10.Size = New Size(477, 1)
         Panel10.TabIndex = 2
         ' 
         ' PnlTopAddNewBook
@@ -898,7 +898,7 @@ Partial Class FormAddBorrowing
         PnlTopAddNewBook.Location = New Point(0, 0)
         PnlTopAddNewBook.Margin = New Padding(0)
         PnlTopAddNewBook.Name = "PnlTopAddNewBook"
-        PnlTopAddNewBook.Size = New Size(473, 43)
+        PnlTopAddNewBook.Size = New Size(489, 47)
         PnlTopAddNewBook.TabIndex = 0
         ' 
         ' Label1
@@ -908,7 +908,7 @@ Partial Class FormAddBorrowing
         Label1.ForeColor = Color.DarkSlateGray
         Label1.Location = New Point(0, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(473, 43)
+        Label1.Size = New Size(489, 47)
         Label1.TabIndex = 0
         Label1.Text = "   Add New Borrowing"
         Label1.TextAlign = ContentAlignment.MiddleLeft
@@ -917,16 +917,16 @@ Partial Class FormAddBorrowing
         ' 
         Panel20.BackColor = SystemColors.Control
         Panel20.Dock = DockStyle.Fill
-        Panel20.Location = New Point(3, 46)
+        Panel20.Location = New Point(3, 50)
         Panel20.Name = "Panel20"
-        Panel20.Size = New Size(467, 1)
+        Panel20.Size = New Size(483, 1)
         Panel20.TabIndex = 2
         ' 
         ' FormAddBorrowing
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(473, 471)
+        ClientSize = New Size(489, 510)
         Controls.Add(PnlFill)
         FormBorderStyle = FormBorderStyle.None
         Name = "FormAddBorrowing"

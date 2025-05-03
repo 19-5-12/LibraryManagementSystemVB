@@ -2,12 +2,14 @@
 
 Public Class FormAddBorrowing
 
-    Public Event BookAdded As EventHandler
+    Public Event BorrowAdded As EventHandler
     Private Sub FormAddBorrowing_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         roundedPanels.Clear()
 
         ComboStatus.Items.Insert(0, "Select Status")
         ComboStatus.SelectedIndex = 0
+
+        DTPReturnDate.MaxDate = DateTime.Now.Date
 
         Dim paddedPanels = {PnlBorderBookID, PnlBorderBorrowID, PnlBorderStudentID, PnlBorderBorrowedDate,
             PnlBorderDueDate, PnlBorderReturnDate, PnlBorderStatus}
@@ -122,7 +124,7 @@ Public Class FormAddBorrowing
                         updateCmd.Parameters.Add(":bookId", OracleDbType.Int32).Value = Integer.Parse(TxtBookID.Text)
                         Dim rowsAffected = updateCmd.ExecuteNonQuery()
 
-                        If rowsAffected = 0 And status = "Borrowing" Then
+                        If rowsAffected = 0 And status = "BORROWING" Then
                             MessageBox.Show("Warning: Book not available or quantity already zero.")
                             Return
                         End If
