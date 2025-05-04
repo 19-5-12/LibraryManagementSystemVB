@@ -48,7 +48,7 @@
         HighlightButton(BtnDashboard)
 
         ApplyCursorHand(BtnAdd)
-
+        PnlSearch.Hide()
 
     End Sub
 

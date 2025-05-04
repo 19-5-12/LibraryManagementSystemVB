@@ -12,7 +12,7 @@ Public Class FormModifyBlock
         DTPBlockExpiration.MaxDate = DateTime.MaxValue  ' Allow future dates
 
         Dim paddedPanels = {PnlBorderBookID, PnlBorderBorrowID, PnlBorderStudentID, PnlBorderBorrowedDate,
-            PnlBorderDueDate, PnlBorderStatus}
+            PnlBorderDueDate, PnlBorderStatus, PnlBorderSelectID}
         For Each pnl In paddedPanels
             pnl.Padding = New Padding(3)
         Next
@@ -30,11 +30,12 @@ Public Class FormModifyBlock
         roundedPanels.Add(PnlBorderBorrowedDate, 5)
         roundedPanels.Add(PnlBorderDueDate, 5)
         roundedPanels.Add(PnlBorderStatus, 5)
+        roundedPanels.Add(PnlBorderSelectID, 5)
     End Sub
 
     Private Sub Panel_Paint(sender As Object, e As PaintEventArgs) Handles PnlFill.Paint, PnlBorderBookID.Paint,
         PnlBorderBorrowID.Paint, PnlBorderStudentID.Paint, PnlBorderBorrowedDate.Paint, PnlBorderDueDate.Paint,
-        PnlBorderStatus.Paint
+        PnlBorderStatus.Paint, PnlBorderSelectID.Paint
 
         Dim pnl = DirectCast(sender, Panel)
         If roundedPanels.ContainsKey(pnl) Then

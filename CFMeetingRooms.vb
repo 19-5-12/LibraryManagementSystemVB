@@ -15,7 +15,7 @@ Public Class CFMeetingRooms
             B.BOOKING_ID AS ""Booking ID"",
             R.ROOM_NAME AS ""Room Name"",
             S.FIRST_NAME || ' ' || S.LAST_NAME AS ""Booked By"",
-            B.BOOK_DATE AS ""Book Date"",
+            B.BOOK_DATE AS ""Booked Date"",
             B.TIME_FROM AS ""Time From"",
             B.TIME_TO AS ""Time To"",
             B.AVAILABILITY AS ""Next Available""
@@ -40,4 +40,36 @@ Public Class CFMeetingRooms
         StyleShadowPanel(CType(sender, Panel), e)
     End Sub
 
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
+        Dim addForm As New FormAddMeeting()
+        AddHandler addForm.MeetingAdded, AddressOf MeetingAddedHandler
+        addForm.ShowDialog()
+        RemoveHandler addForm.MeetingAdded, AddressOf MeetingAddedHandler
+    End Sub
+
+    Private Sub MeetingAddedHandler(sender As Object, e As EventArgs)
+        LoadMeetingData()
+    End Sub
+
+    Private Sub BtnModify_Click(sender As Object, e As EventArgs) Handles BtnModify.Click
+        Dim addForm As New FormModifyMeeting()
+        AddHandler addForm.MeetingModified, AddressOf MeetingModifiedHandler
+        addForm.ShowDialog()
+        RemoveHandler addForm.MeetingModified, AddressOf MeetingModifiedHandler
+    End Sub
+
+    Private Sub MeetingModifiedHandler(sender As Object, e As EventArgs)
+        LoadMeetingData()
+    End Sub
+
+    Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
+        Dim addForm As New FormDeleteMeeting()
+        AddHandler addForm.MeetingDeleted, AddressOf MeetingDeletedHandler
+        addForm.ShowDialog()
+        RemoveHandler addForm.MeetingDeleted, AddressOf MeetingDeletedHandler
+    End Sub
+
+    Private Sub MeetingDeletedHandler(sender As Object, e As EventArgs)
+        LoadMeetingData()
+    End Sub
 End Class

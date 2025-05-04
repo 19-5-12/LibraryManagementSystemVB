@@ -49,9 +49,7 @@ Partial Class LoginForm
         TLPForgotTerms = New TableLayoutPanel()
         Panel15 = New Panel()
         Panel16 = New Panel()
-        TermsAndCondition = New LinkLabel()
         Panel14 = New Panel()
-        ForgotPassword = New LinkLabel()
         Panel13 = New Panel()
         BtnLogin = New Button()
         Panel17 = New Panel()
@@ -98,8 +96,6 @@ Partial Class LoginForm
         Panel12.SuspendLayout()
         TLPForgotTerms.SuspendLayout()
         Panel15.SuspendLayout()
-        Panel16.SuspendLayout()
-        Panel14.SuspendLayout()
         Panel13.SuspendLayout()
         Panel17.SuspendLayout()
         Panel18.SuspendLayout()
@@ -442,7 +438,6 @@ Partial Class LoginForm
         ' 
         ' Panel16
         ' 
-        Panel16.Controls.Add(TermsAndCondition)
         Panel16.Dock = DockStyle.Fill
         Panel16.Location = New Point(0, 0)
         Panel16.Margin = New Padding(0)
@@ -450,38 +445,14 @@ Partial Class LoginForm
         Panel16.Size = New Size(186, 74)
         Panel16.TabIndex = 1
         ' 
-        ' TermsAndCondition
-        ' 
-        TermsAndCondition.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        TermsAndCondition.AutoSize = True
-        TermsAndCondition.Font = New Font("Arial", 9F)
-        TermsAndCondition.Location = New Point(40, 6)
-        TermsAndCondition.Name = "TermsAndCondition"
-        TermsAndCondition.Size = New Size(129, 15)
-        TermsAndCondition.TabIndex = 0
-        TermsAndCondition.TabStop = True
-        TermsAndCondition.Text = "Terms and Conditions"
-        ' 
         ' Panel14
         ' 
-        Panel14.Controls.Add(ForgotPassword)
         Panel14.Dock = DockStyle.Fill
         Panel14.Location = New Point(0, 0)
         Panel14.Margin = New Padding(0)
         Panel14.Name = "Panel14"
         Panel14.Size = New Size(185, 74)
         Panel14.TabIndex = 0
-        ' 
-        ' ForgotPassword
-        ' 
-        ForgotPassword.AutoSize = True
-        ForgotPassword.Font = New Font("Arial", 9F)
-        ForgotPassword.Location = New Point(26, 5)
-        ForgotPassword.Name = "ForgotPassword"
-        ForgotPassword.Size = New Size(108, 15)
-        ForgotPassword.TabIndex = 0
-        ForgotPassword.TabStop = True
-        ForgotPassword.Text = "Forgot Password?"
         ' 
         ' Panel13
         ' 
@@ -808,10 +779,6 @@ Partial Class LoginForm
         Panel12.ResumeLayout(False)
         TLPForgotTerms.ResumeLayout(False)
         Panel15.ResumeLayout(False)
-        Panel16.ResumeLayout(False)
-        Panel16.PerformLayout()
-        Panel14.ResumeLayout(False)
-        Panel14.PerformLayout()
         Panel13.ResumeLayout(False)
         Panel17.ResumeLayout(False)
         Panel18.ResumeLayout(False)
@@ -884,9 +851,7 @@ Partial Class LoginForm
     Friend WithEvents TLPForgotTerms As TableLayoutPanel
     Friend WithEvents Panel15 As Panel
     Friend WithEvents Panel14 As Panel
-    Friend WithEvents ForgotPassword As LinkLabel
     Friend WithEvents Panel16 As Panel
-    Friend WithEvents TermsAndCondition As LinkLabel
     Friend WithEvents Panel17 As Panel
     Friend WithEvents Panel18 As Panel
     Friend WithEvents Label12 As Label

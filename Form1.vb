@@ -1,7 +1,9 @@
 ﻿Imports System.Drawing.Drawing2D
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports Oracle.ManagedDataAccess.Client
 
 Public Class LoginForm
+    Private connStr As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.FormBorderStyle = FormBorderStyle.Sizable
         Me.Region = Nothing ' Remove rounded corners from form
@@ -16,9 +18,6 @@ Public Class LoginForm
         TxtPass1.ForeColor = Color.Gray
 
         btnFocus.Focus()
-
-        ForgotPassword.LinkBehavior = LinkBehavior.NeverUnderline
-        TermsAndCondition.LinkBehavior = LinkBehavior.NeverUnderline
 
         ApplyCursorHand(BtnLogin)
 
@@ -125,21 +124,40 @@ Public Class LoginForm
     End Sub
 
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
-        If TxtUser1.Text = "a" And
-            TxtPass1.Text = "a" Then
-            TxtUser1.Text = "Enter your Username"
-            TxtUser1.ForeColor = Color.LightGray
+        Dim username As String = TxtUser1.Text.Trim()
+        Dim password As String = TxtPass1.Text.Trim()
 
-            TxtPass1.Text = "Enter your Password"
-            TxtPass1.ForeColor = Color.LightGray
-            TxtPass1.PasswordChar = ""
-
-            Me.Hide()
-            AdminDashboard.Show()
-
-        Else
-            MessageBox.Show("Wrong Username or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If username = "Enter your Username" OrElse password = "Enter your Password" Then
+            MessageBox.Show("Please enter your username and password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
         End If
 
+        Using conn As New OracleConnection(connStr)
+            Try
+                conn.Open()
+                Dim query As String = "SELECT COUNT(*) FROM TBL_USER WHERE USERNAME = :username AND PASSWORD = :password"
+                Using cmd As New OracleCommand(query, conn)
+                    cmd.Parameters.Add(New OracleParameter("username", username))
+                    cmd.Parameters.Add(New OracleParameter("password", password))
+
+                    Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                    If count > 0 Then
+                        TxtUser1.Text = "Enter your Username"
+                        TxtUser1.ForeColor = Color.Gray
+                        TxtPass1.Text = "Enter your Password"
+                        TxtPass1.ForeColor = Color.Gray
+                        TxtPass1.PasswordChar = ""
+
+                        Me.Hide()
+                        AdminDashboard.Show()
+                    Else
+                        MessageBox.Show("Wrong Username or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Database connection error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End Using
     End Sub
+
 End Class
