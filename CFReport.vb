@@ -44,33 +44,6 @@ Public Class CFReport
         AddShadowBetweenRows(TLPUserActivity, 0, 1)
         AddShadowBetweenRows(TLPMeetingRoomUsage, 0, 1)
 
-        CategoryStats.Add("Classic Literature", New CategoryStat With {
-            .Value = 43,
-            .FillPanel = PnlFillBarCL,
-            .BackPanel = PnlBackBarCL
-        })
-
-        CategoryStats.Add("Science & Technology", New CategoryStat With {
-            .Value = 37,
-            .FillPanel = PnlFIllBarST,
-            .BackPanel = PnlBackBarST
-        })
-
-        CategoryStats.Add("History", New CategoryStat With {
-            .Value = 32,
-            .FillPanel = PnlFillBarHistory,
-            .BackPanel = PnlBackBarHistory
-        })
-
-        CategoryStats.Add("Fiction", New CategoryStat With {
-            .Value = 28,
-            .FillPanel = PnlFillBarFiction,
-            .BackPanel = PnlBackBarFiction
-        })
-
-        AddHandler PnlBarBack.Resize, AddressOf UpdateReturnRateBar
-        AddHandler PnlBarBackMemberEngagement.Resize, AddressOf UpdateEngagementBar
-
         SetupRoomBars()
 
 
@@ -179,7 +152,39 @@ Public Class CFReport
 
     End Sub
 
+    Private Sub UpdatePopularCategoryBars()
+        ' Get the numeric values from the labels
+        Dim cl As Integer = SafeToInt(LblFOrNumberOfCL.Text)
+        Dim st As Integer = SafeToInt(LblForNumbersOfST.Text)
+        Dim history As Integer = SafeToInt(LblForNumberOfHistory.Text)
+        Dim fiction As Integer = SafeToInt(LblForNumberOfFiction.Text)
+
+        ' Calculate total
+        Dim totalBorrowed = cl + st + history + fiction
+        If totalBorrowed = 0 Then totalBorrowed = 1 ' Prevent division by zero
+
+        ' Define max width
+        Dim maxBarWidth As Integer = PnlBackBarCL.Width
+
+        ' Set bar widths based on percentage of total
+        PnlFillBarCL.Width = CInt((cl / totalBorrowed) * maxBarWidth)
+        PnlFIllBarST.Width = CInt((st / totalBorrowed) * maxBarWidth)
+        PnlFillBarHistory.Width = CInt((history / totalBorrowed) * maxBarWidth)
+        PnlFillBarFiction.Width = CInt((fiction / totalBorrowed) * maxBarWidth)
+    End Sub
+
     Private Sub LoadStats(startDate As Date, endDate As Date)
+
+        LblNumberOfTotalBooks.Text = "0"
+        LblNumberOfBooksReturned.Text = "0"
+        LblNumberOfBooksOutstanding.Text = "0"
+        LblNumOfOverdueReturns.Text = "0"
+        LblNumberOfActiveMembers.Text = "0"
+        LblNumberOfLibraryVisits.Text = "0"
+        LblNumberOfBooksBorrowed.Text = "0"
+        LblNumberOfNewRegistration.Text = "0"
+        LblNumbersOfTotalBookings.Text = "0"
+
         Dim connStr As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
 
         Try
@@ -207,8 +212,8 @@ Public Class CFReport
                             Dim outstanding = SafeToInt(reader("Outstanding"))
                             Dim overdue = SafeToInt(reader("Overdue"))
 
-                            LblNumberOfTotalBooks.Text = total.ToString()
-                            LblNumberOfBooksReturned.Text = returned.ToString()
+                            LblNumberOfTotalBooks.Text = SafeToString(reader("TotalBorrowed"))
+                            LblNumberOfBooksReturned.Text = SafeToString(reader("Returned"))
                             LblNumberOfBooksOutstanding.Text = outstanding.ToString()
                             LblNumOfOverdueReturns.Text = overdue.ToString()
 
@@ -293,28 +298,45 @@ Public Class CFReport
 
                 ' Popular categories
                 Dim categorySql As String = "
-SELECT C.CATEGORY_NAME, COUNT(*) AS BorrowedCount
+SELECT BK.CATEGORY, COUNT(*) AS BorrowedCount
 FROM TBL_BORROWING B
-JOIN TBL_BOOK BK ON B.BOOK_ID = BK.BOOK_ID
-JOIN TBL_CATEGORY C ON BK.CATEGORY_ID = C.CATEGORY_ID
+JOIN TBL_BOOKS BK ON B.BOOK_ID = BK.BOOK_ID
 WHERE B.BORROW_DATE BETWEEN :startDate AND :endDate
-AND C.CATEGORY_NAME IN ('Classic Literature', 'Science and Technology', 'History', 'Fiction')
-GROUP BY C.CATEGORY_NAME
-"
+AND BK.CATEGORY IN ('Classic Literature', 'Science and Technology', 'History', 'Fiction')
+GROUP BY BK.CATEGORY"
+
 
                 Using cmd As New OracleCommand(categorySql, conn)
                     cmd.Parameters.Add(":startDate", OracleDbType.Date).Value = startDate
                     cmd.Parameters.Add(":endDate", OracleDbType.Date).Value = endDate
 
                     Using reader = cmd.ExecuteReader()
-                        While reader.Read()
-                            Dim category = reader("CATEGORY_NAME").ToString()
-                            Dim count = SafeToInt(reader("BorrowedCount"))
+                        ' Reset first
+                        LblFOrNumberOfCL.Text = "0"
+                        LblForNumbersOfST.Text = "0"
+                        LblForNumberOfHistory.Text = "0"
+                        LblForNumberOfFiction.Text = "0"
 
+                        ' Then overwrite if found in query
+                        While reader.Read()
+                            Dim category = reader("CATEGORY").ToString()
+                            Dim count = SafeToInt(reader("BorrowedCount"))
                             If CategoryStats.ContainsKey(category) Then
                                 CategoryStats(category).Value = count
                             End If
+
+                            Select Case category
+                                Case "Classic Literature"
+                                    LblFOrNumberOfCL.Text = count.ToString()
+                                Case "Science and Technology", "Science & Technology"
+                                    LblForNumbersOfST.Text = count.ToString()
+                                Case "History"
+                                    LblForNumberOfHistory.Text = count.ToString()
+                                Case "Fiction"
+                                    LblForNumberOfFiction.Text = count.ToString()
+                            End Select
                         End While
+
                     End Using
                 End Using
 
@@ -322,7 +344,7 @@ GROUP BY C.CATEGORY_NAME
                 For Each stat In CategoryStats.Values
                     SetCategoryBarProgress(stat.FillPanel, stat.Value, stat.BackPanel.Width)
                 Next
-
+                UpdatePopularCategoryBars()
 
             End Using
         Catch ex As Exception
@@ -360,7 +382,7 @@ GROUP BY C.CATEGORY_NAME
     ' Safely converts a database value to String
     Private Function SafeToString(value As Object) As String
         If IsDBNull(value) OrElse value Is Nothing Then
-            Return String.Empty
+            Return "0"
         End If
         Return value.ToString()
     End Function
