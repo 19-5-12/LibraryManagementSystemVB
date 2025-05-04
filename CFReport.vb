@@ -352,22 +352,33 @@ Public Class CFReport
 
                 ' User activity
                 Dim userSql As String = "
-                SELECT
-                    (SELECT COUNT(*) FROM TBL_STUDENT WHERE STUDENT_STATUS = 'Studying') AS ActiveMembers,
-                    (SELECT COUNT(*) FROM TBL_STUDENT 
-                    WHERE TIME_IN BETWEEN :startDate AND :endDate) AS LibraryVisits,
+SELECT
+    (SELECT COUNT(*) 
+     FROM TBL_STUDENT s
+     WHERE s.STUDENT_STATUS = 'Studying'
+     AND NOT EXISTS (
+         SELECT 1 FROM TBL_BANNED b 
+         WHERE b.USER_ID = s.STUDENT_ID
+         AND b.STATUS = 'Active'
+         AND b.BANNED_END_DATE >= TRUNC(SYSDATE)
+     )) AS ActiveMembers,
 
-                    (SELECT COUNT(*) FROM TBL_BORROWING 
-                    WHERE RETURN_DATE IS NULL AND BORROW_DATE BETWEEN :startDate AND :endDate) AS BooksBorrowed,
-                    (
-                        SELECT COUNT(DISTINCT STUDENT_ID) FROM (
-                            SELECT STUDENT_ID FROM TBL_STUDENT WHERE TIME_IN BETWEEN :startDate AND :endDate
-                            UNION
-                            SELECT USER_ID AS STUDENT_ID FROM TBL_BORROWING 
-                            WHERE RETURN_DATE IS NULL AND BORROW_DATE BETWEEN :startDate AND :endDate
-                        )
-                    ) AS EngagementCount
-                FROM DUAL"
+    (SELECT COUNT(*) FROM TBL_STUDENT 
+     WHERE TIME_IN BETWEEN :startDate AND :endDate) AS LibraryVisits,
+
+    (SELECT COUNT(*) FROM TBL_BORROWING 
+     WHERE RETURN_DATE IS NULL AND BORROW_DATE BETWEEN :startDate AND :endDate) AS BooksBorrowed,
+    
+    (
+        SELECT COUNT(DISTINCT STUDENT_ID) FROM (
+            SELECT STUDENT_ID FROM TBL_STUDENT WHERE TIME_IN BETWEEN :startDate AND :endDate
+            UNION
+            SELECT USER_ID AS STUDENT_ID FROM TBL_BORROWING 
+            WHERE RETURN_DATE IS NULL AND BORROW_DATE BETWEEN :startDate AND :endDate
+        )
+    ) AS EngagementCount
+FROM DUAL"
+
 
                 Using cmd As New OracleCommand(userSql, conn)
                     cmd.Parameters.Add(":startDate", OracleDbType.Date).Value = startDate
@@ -378,11 +389,12 @@ Public Class CFReport
                             LblNumberOfActiveMembers.Text = SafeToString(reader("ActiveMembers"))
                             LblNumberOfLibraryVisits.Text = SafeToString(reader("LibraryVisits"))
                             LblNumberOfBooksBorrowed.Text = SafeToString(reader("BooksBorrowed"))
-                            LblNumberOfNewRegistration.Text = SafeToString(reader("EngagementCount")) ' if you still want NewRegistrations, you'll need to re-add it
+                            LblNumberOfNewRegistration.Text = SafeToString(reader("EngagementCount"))
                             UpdateEngagementBar(Nothing, Nothing)
                         End If
                     End Using
                 End Using
+
 
                 ' Popular categories
                 Dim categorySql As String = "

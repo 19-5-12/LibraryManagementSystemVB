@@ -82,6 +82,18 @@ Public Class FormAddBorrowing
             Using conn As New OracleConnection(connStr)
                 conn.Open()
 
+                Dim bannedCheckSql As String = "SELECT COUNT(*) FROM TBL_BANNED WHERE USER_ID = :studentId AND STATUS = 'Active' AND BANNED_END_DATE >= TRUNC(SYSDATE)"
+                Using bannedCmd As New OracleCommand(bannedCheckSql, conn)
+                    bannedCmd.Parameters.Add(":studentId", OracleDbType.Int32).Value = Integer.Parse(TxtStudentID.Text)
+
+                    Dim bannedCount As Integer = Convert.ToInt32(bannedCmd.ExecuteScalar())
+                    If bannedCount > 0 Then
+                        MessageBox.Show("This student is currently banned and cannot borrow books.")
+                        Return
+                    End If
+                End Using
+
+
                 ' Insert into TBL_BORROWING
                 Dim insertSql As String = "INSERT INTO TBL_BORROWING (BORROWING_ID, USER_ID, BOOK_ID, BORROW_DATE, RETURN_DUE_DATE, RETURN_DATE, STATUS) " &
                                           "VALUES (:borrowId, :studentId, :bookId, :borrowedDate, :dueDate, :returnDate, :status)"
@@ -113,12 +125,12 @@ Public Class FormAddBorrowing
 
                 ' Update QUANTITY_AVAILABLE depending on status
                 Dim updateSql As String
-                If status = "Borrowing" Then
+                If status = "BORROWING" Then
                     updateSql = "UPDATE TBL_BOOKS SET QUANTITY_AVAILABLE = QUANTITY_AVAILABLE - 1 WHERE BOOK_ID = :bookId AND QUANTITY_AVAILABLE > 0"
-                ElseIf status = "Returned" Then
+                ElseIf status = "RETURNED" Then
                     updateSql = "UPDATE TBL_BOOKS SET QUANTITY_AVAILABLE = QUANTITY_AVAILABLE + 1 WHERE BOOK_ID = :bookId"
                 Else
-                    updateSql = "" ' Overdue - no quantity change
+                    updateSql = "" ' OVERDUE or others - no quantity change
                 End If
 
                 If updateSql <> "" Then
@@ -142,6 +154,5 @@ Public Class FormAddBorrowing
             MessageBox.Show("Error: " & ex.Message)
         End Try
     End Sub
-
 
 End Class

@@ -147,8 +147,7 @@ Public Class FormModifyBooks
                     cmd.Parameters.Add(":author", TxtAuthor.Text)
                     cmd.Parameters.Add(":isbn", TxtISBN.Text)
                     cmd.Parameters.Add(":category", ComboCategory.SelectedItem.ToString())
-                    Dim pubDate As Date = DateTimePicker1.Value
-                    cmd.Parameters.Add(":pubdate", pubDate)
+                    cmd.Parameters.Add(":pubyear", OracleDbType.Date).Value = DateTimePicker1.Value
                     cmd.Parameters.Add(":quantity", TxtQuantity.Text)
                     cmd.Parameters.Add(":bookId", TxtBookID.Text)
 

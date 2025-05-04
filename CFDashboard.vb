@@ -180,7 +180,14 @@ Public Class CFDashboard
 
     Private Sub LoadActiveStudentsCount()
         Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
-        Dim query As String = "SELECT COUNT(*) FROM TBL_STUDENT WHERE STUDENT_STATUS = 'Studying'"
+
+        ' Count active students (Studying status) who are not currently blocked
+        Dim query As String = "SELECT COUNT(*) FROM TBL_STUDENT s " &
+                          "WHERE s.STUDENT_STATUS = 'Studying' " &
+                          "AND NOT EXISTS (SELECT 1 FROM TBL_BANNED b " &
+                          "WHERE b.USER_ID = s.STUDENT_ID " &
+                          "AND b.STATUS = 'Active' " &
+                          "AND b.BANNED_END_DATE >= TRUNC(SYSDATE))"
 
         Using conn As New OracleConnection(connectionString)
             Dim cmd As New OracleCommand(query, conn)

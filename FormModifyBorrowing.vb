@@ -54,6 +54,8 @@ Public Class FormModifyBorrowing
             e.SuppressKeyPress = True
             LoadBorrowingDataByID()
 
+
+
         End If
     End Sub
 
@@ -107,12 +109,32 @@ Public Class FormModifyBorrowing
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         End Try
+
+
     End Sub
+
+    Private Function DetermineStatus(currentStatus As String, dueDate As Date, returnDate As Date) As String
+        If currentStatus = "RETURNED" OrElse currentStatus = "RETURNED OVERDUE" Then
+            If returnDate > dueDate Then
+                Return "RETURNED OVERDUE"
+            ElseIf returnDate > Date.Today Then
+                MessageBox.Show("Return date cannot be in the future.")
+                Return ""
+            Else
+                Return "RETURNED"
+            End If
+        ElseIf currentStatus = "BORROWING" AndAlso dueDate < Date.Today Then
+            Return "OVERDUE"
+        Else
+            Return currentStatus
+        End If
+    End Function
 
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
         Dim connStr As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
 
+        ' Validate inputs
         If Not IsNumeric(TxtBorrowID.Text) OrElse Not IsNumeric(TxtStudentID.Text) OrElse Not IsNumeric(TxtBookID.Text) Then
             MessageBox.Show("Borrow ID, Student ID, and Book ID must all be valid numbers.")
             Return
@@ -123,33 +145,58 @@ Public Class FormModifyBorrowing
             Return
         End If
 
-        Dim status As String = ComboStatus.SelectedItem.ToString()
-        Dim returnDate As Object = If(status = "BORROWING", DBNull.Value, CType(DTPReturnDate.Value, Object))
+        ' Determine the new status
+        Dim status As String = DetermineStatus(ComboStatus.SelectedItem.ToString(), DTPDueDate.Value.Date, DTPReturnDate.Value.Date)
+        If String.IsNullOrEmpty(status) Then Return
 
-        If status = "RETURNED" AndAlso DTPReturnDate.Value.Date > DateTime.Now.Date Then
-            MessageBox.Show("Return date cannot be in the future.")
-            Return
-        End If
+        Dim returnDate As Object = If(status = "BORROWING" Or status = "OVERDUE", DBNull.Value, CType(DTPReturnDate.Value, Object))
 
         Try
             Using conn As New OracleConnection(connStr)
                 conn.Open()
 
-                ' Get current status of record
+                ' Get current status
                 Dim previousStatus As String = ""
                 Using checkCmd As New OracleCommand("SELECT STATUS FROM TBL_BORROWING WHERE BORROWING_ID = :id", conn)
                     checkCmd.Parameters.Add(":id", TxtBorrowID.Text)
                     previousStatus = checkCmd.ExecuteScalar()?.ToString()
                 End Using
 
+                If status = "BORROWING" OrElse status = "OVERDUE" OrElse status = "RETURNED OVERDUE" OrElse status = "RETURNED" Then
+                    Dim bannedCheckSql As String = "SELECT COUNT(*) FROM TBL_BANNED WHERE USER_ID = :studentId AND STATUS = 'Active' AND BANNED_END_DATE >= TRUNC(SYSDATE)"
+                    Using bannedCmd As New OracleCommand(bannedCheckSql, conn)
+                        bannedCmd.Parameters.Add(":studentId", OracleDbType.Int32).Value = Integer.Parse(TxtStudentID.Text)
+
+                        Dim bannedCount As Integer = Convert.ToInt32(bannedCmd.ExecuteScalar())
+                        If bannedCount > 0 Then
+                            MessageBox.Show("This student is currently banned and cannot be assigned a borrowing status.")
+                            Return
+                        End If
+                    End Using
+                End If
+
+                ' Only check quantity if changing TO BORROWING status
+                If (previousStatus <> "BORROWING" AndAlso previousStatus <> "OVERDUE") AndAlso status = "BORROWING" Then
+                    Dim checkQtySql As String = "SELECT QUANTITY_AVAILABLE FROM TBL_BOOKS WHERE BOOK_ID = :bookId"
+                    Using checkQtyCmd As New OracleCommand(checkQtySql, conn)
+                        checkQtyCmd.Parameters.Add(":bookId", TxtBookID.Text)
+                        Dim qtyAvailable = Convert.ToInt32(checkQtyCmd.ExecuteScalar())
+                        If qtyAvailable <= 0 Then
+                            MessageBox.Show("Cannot set status to BORROWING. No available copies of this book.")
+                            Return
+                        End If
+                    End Using
+                End If
+
+                ' Update borrowing record
                 Dim sql As String = "UPDATE TBL_BORROWING 
-                                 SET USER_ID = :studentId, 
-                                     BOOK_ID = :bookId, 
-                                     BORROW_DATE = :borrowDate, 
-                                     RETURN_DUE_DATE = :dueDate, 
-                                     RETURN_DATE = :returnDate, 
-                                     STATUS = :status 
-                                 WHERE BORROWING_ID = :borrowId"
+                             SET USER_ID = :studentId, 
+                                 BOOK_ID = :bookId, 
+                                 BORROW_DATE = :borrowDate, 
+                                 RETURN_DUE_DATE = :dueDate, 
+                                 RETURN_DATE = :returnDate, 
+                                 STATUS = :status 
+                             WHERE BORROWING_ID = :borrowId"
 
                 Using cmd As New OracleCommand(sql, conn)
                     cmd.Parameters.Add(":studentId", TxtStudentID.Text)
@@ -162,9 +209,18 @@ Public Class FormModifyBorrowing
 
                     Dim rowsAffected = cmd.ExecuteNonQuery()
                     If rowsAffected > 0 Then
-                        ' Handle quantity adjustment
-                        If previousStatus <> "RETURNED" AndAlso status = "RETURNED" Then
-                            ' Increase quantity by 1
+                        ' Update quantity accordingly
+                        If (previousStatus <> "BORROWING" AndAlso previousStatus <> "OVERDUE") AndAlso
+                       (status = "BORROWING" OrElse status = "OVERDUE") Then
+                            ' Reduce quantity when changing to BORROWING or OVERDUE
+                            Dim reduceQtySql = "UPDATE TBL_BOOKS SET QUANTITY_AVAILABLE = QUANTITY_AVAILABLE - 1 WHERE BOOK_ID = :bookId AND QUANTITY_AVAILABLE > 0"
+                            Using reduceQtyCmd As New OracleCommand(reduceQtySql, conn)
+                                reduceQtyCmd.Parameters.Add(":bookId", TxtBookID.Text)
+                                reduceQtyCmd.ExecuteNonQuery()
+                            End Using
+                        ElseIf (previousStatus = "BORROWING" OrElse previousStatus = "OVERDUE") AndAlso
+                           (status = "RETURNED" OrElse status = "RETURNED OVERDUE") Then
+                            ' Increase quantity when changing from BORROWING/OVERDUE to RETURNED statuses
                             Dim updateQtySql = "UPDATE TBL_BOOKS SET QUANTITY_AVAILABLE = QUANTITY_AVAILABLE + 1 WHERE BOOK_ID = :bookId"
                             Using updateQtyCmd As New OracleCommand(updateQtySql, conn)
                                 updateQtyCmd.Parameters.Add(":bookId", TxtBookID.Text)
@@ -184,5 +240,6 @@ Public Class FormModifyBorrowing
             MessageBox.Show("Error: " & ex.Message)
         End Try
     End Sub
+
 
 End Class

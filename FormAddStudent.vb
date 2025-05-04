@@ -72,22 +72,41 @@ Public Class FormAddStudent
         Return True
     End Function
 
-
     Private Function InsertAttendanceRecord() As Boolean
         Dim connStr As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
         Dim status As String = ComboStatus.SelectedItem.ToString()
-
-        Dim insertSql As String = "INSERT INTO TBL_ATTENDANCE (ATTENDANCE_ID, STUDENT_ID, ATTENDANCE_DATE, TIME_IN, STATUS) " &
-                                  "VALUES (:attendance_id, :student_id, :attendance_date, :time_in, :status)"
 
         Try
             Using conn As New OracleConnection(connStr)
                 conn.Open()
 
+                ' Check if student is actively banned
+                Dim bannedCheckSql As String = "SELECT COUNT(*) FROM TBL_BANNED " &
+                                              "WHERE USER_ID = :studentId " &
+                                              "AND STATUS = 'Active' " &
+                                              "AND BANNED_END_DATE >= TRUNC(SYSDATE)"
+
+                Using bannedCmd As New OracleCommand(bannedCheckSql, conn)
+                    bannedCmd.Parameters.Add(":studentId", OracleDbType.Int32).Value = Integer.Parse(TxtStudentID.Text)
+                    Dim bannedCount As Integer = Convert.ToInt32(bannedCmd.ExecuteScalar())
+
+                    If bannedCount > 0 Then
+                        MessageBox.Show("This student is currently banned and cannot record attendance.",
+                                      "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return False
+                    End If
+                End Using
+
+                ' Proceed with insert if not banned
+                Dim insertSql As String = "INSERT INTO TBL_ATTENDANCE " &
+                                        "(ATTENDANCE_ID, STUDENT_ID, ATTENDANCE_DATE, TIME_IN, STATUS) " &
+                                        "VALUES (:attendance_id, :student_id, :attendance_date, :time_in, :status)"
+
                 Using cmd As New OracleCommand(insertSql, conn)
                     cmd.Parameters.Add(":attendance_id", OracleDbType.Int32).Value = Integer.Parse(TxtAttendanceID.Text)
                     cmd.Parameters.Add(":student_id", OracleDbType.Int32).Value = Integer.Parse(TxtStudentID.Text)
                     cmd.Parameters.Add(":attendance_date", OracleDbType.Date).Value = DTPDate.Value.Date
+
                     Dim fullDateTime As DateTime = DTPDate.Value.Date + DTPTimeIn.Value.TimeOfDay
                     cmd.Parameters.Add(":time_in", OracleDbType.TimeStamp).Value = fullDateTime
                     cmd.Parameters.Add(":status", OracleDbType.Varchar2).Value = status
@@ -129,5 +148,4 @@ Public Class FormAddStudent
             e.Handled = True
         End If
     End Sub
-
 End Class
