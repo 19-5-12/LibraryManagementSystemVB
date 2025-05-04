@@ -29,8 +29,20 @@ Partial Class CFReport
         TableLayoutPanel1 = New TableLayoutPanel()
         Panel2 = New Panel()
         TLPSearch = New TableLayoutPanel()
+        PnlDateEnd = New Panel()
+        TableLayoutPanel21 = New TableLayoutPanel()
+        Panel6 = New Panel()
+        Label2 = New Label()
+        Panel7 = New Panel()
+        DateTimePickerEnd = New DateTimePicker()
         PnlForSearchDate = New Panel()
         ComboSearchDate = New ComboBox()
+        PnlDateStart = New Panel()
+        TableLayoutPanel3 = New TableLayoutPanel()
+        Panel3 = New Panel()
+        Label1 = New Label()
+        Panel4 = New Panel()
+        DateTimePickerStart = New DateTimePicker()
         PnlViewStExPrnt = New Panel()
         TableLayoutPanel20 = New TableLayoutPanel()
         PnlViewStatistics = New Panel()
@@ -99,7 +111,7 @@ Partial Class CFReport
         PnlFillStudyRoomA = New Panel()
         TableLayoutPanel22 = New TableLayoutPanel()
         Panel69 = New Panel()
-        Label27 = New Label()
+        LblDateMeetingRoomUsage = New Label()
         Panel70 = New Panel()
         Label28 = New Label()
         PNLUserActivity = New Panel()
@@ -140,7 +152,7 @@ Partial Class CFReport
         LblPercentMemberEngagement = New Label()
         TLPTopUserActivity = New TableLayoutPanel()
         Panel48 = New Panel()
-        Label22 = New Label()
+        LblDateUserActivity = New Label()
         Panel49 = New Panel()
         Label23 = New Label()
         PnlBorrowingStatistics = New Panel()
@@ -181,7 +193,7 @@ Partial Class CFReport
         LblReturnRatePercent = New Label()
         TLPTopBorrowingStatistics = New TableLayoutPanel()
         PnlforLabelDateBorrowingStatistics = New Panel()
-        LblBorrowingDate = New Label()
+        LblDateBorrowingStatistics = New Label()
         PnlForLblBorrowingStatistics = New Panel()
         LblBorrowingStatistics = New Label()
         PnlPopularCategories = New Panel()
@@ -231,7 +243,7 @@ Partial Class CFReport
         Label8 = New Label()
         TableLayoutPanel6 = New TableLayoutPanel()
         Panel22 = New Panel()
-        Label1 = New Label()
+        LblDatePopularCategories = New Label()
         Panel23 = New Panel()
         Label4 = New Label()
         Panel45 = New Panel()
@@ -246,7 +258,15 @@ Partial Class CFReport
         TableLayoutPanel1.SuspendLayout()
         Panel2.SuspendLayout()
         TLPSearch.SuspendLayout()
+        PnlDateEnd.SuspendLayout()
+        TableLayoutPanel21.SuspendLayout()
+        Panel6.SuspendLayout()
+        Panel7.SuspendLayout()
         PnlForSearchDate.SuspendLayout()
+        PnlDateStart.SuspendLayout()
+        TableLayoutPanel3.SuspendLayout()
+        Panel3.SuspendLayout()
+        Panel4.SuspendLayout()
         PnlViewStExPrnt.SuspendLayout()
         TableLayoutPanel20.SuspendLayout()
         PnlViewStatistics.SuspendLayout()
@@ -462,7 +482,9 @@ Partial Class CFReport
         TLPSearch.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TLPSearch.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         TLPSearch.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
+        TLPSearch.Controls.Add(PnlDateEnd, 1, 0)
         TLPSearch.Controls.Add(PnlForSearchDate, 2, 0)
+        TLPSearch.Controls.Add(PnlDateStart, 0, 0)
         TLPSearch.Dock = DockStyle.Fill
         TLPSearch.Location = New Point(0, 0)
         TLPSearch.Name = "TLPSearch"
@@ -471,13 +493,81 @@ Partial Class CFReport
         TLPSearch.Size = New Size(313, 37)
         TLPSearch.TabIndex = 0
         ' 
+        ' PnlDateEnd
+        ' 
+        PnlDateEnd.Controls.Add(TableLayoutPanel21)
+        PnlDateEnd.Dock = DockStyle.Fill
+        PnlDateEnd.Location = New Point(104, 0)
+        PnlDateEnd.Margin = New Padding(0)
+        PnlDateEnd.Name = "PnlDateEnd"
+        PnlDateEnd.Size = New Size(104, 37)
+        PnlDateEnd.TabIndex = 2
+        ' 
+        ' TableLayoutPanel21
+        ' 
+        TableLayoutPanel21.ColumnCount = 1
+        TableLayoutPanel21.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel21.Controls.Add(Panel6, 0, 0)
+        TableLayoutPanel21.Controls.Add(Panel7, 0, 1)
+        TableLayoutPanel21.Dock = DockStyle.Fill
+        TableLayoutPanel21.Location = New Point(0, 0)
+        TableLayoutPanel21.Margin = New Padding(0)
+        TableLayoutPanel21.Name = "TableLayoutPanel21"
+        TableLayoutPanel21.RowCount = 2
+        TableLayoutPanel21.RowStyles.Add(New RowStyle(SizeType.Percent, 43.2432442F))
+        TableLayoutPanel21.RowStyles.Add(New RowStyle(SizeType.Percent, 56.7567558F))
+        TableLayoutPanel21.Size = New Size(104, 37)
+        TableLayoutPanel21.TabIndex = 0
+        ' 
+        ' Panel6
+        ' 
+        Panel6.Controls.Add(Label2)
+        Panel6.Dock = DockStyle.Fill
+        Panel6.Location = New Point(0, 0)
+        Panel6.Margin = New Padding(0)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(104, 16)
+        Panel6.TabIndex = 0
+        ' 
+        ' Label2
+        ' 
+        Label2.Dock = DockStyle.Fill
+        Label2.Font = New Font("Arial", 9F)
+        Label2.Location = New Point(0, 0)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(104, 16)
+        Label2.TabIndex = 0
+        Label2.Text = "Date End"
+        Label2.TextAlign = ContentAlignment.TopCenter
+        ' 
+        ' Panel7
+        ' 
+        Panel7.Controls.Add(DateTimePickerEnd)
+        Panel7.Dock = DockStyle.Fill
+        Panel7.Location = New Point(0, 16)
+        Panel7.Margin = New Padding(0)
+        Panel7.Name = "Panel7"
+        Panel7.Size = New Size(104, 21)
+        Panel7.TabIndex = 1
+        ' 
+        ' DateTimePickerEnd
+        ' 
+        DateTimePickerEnd.Dock = DockStyle.Fill
+        DateTimePickerEnd.Font = New Font("Arial", 9F)
+        DateTimePickerEnd.Format = DateTimePickerFormat.Short
+        DateTimePickerEnd.Location = New Point(0, 0)
+        DateTimePickerEnd.Name = "DateTimePickerEnd"
+        DateTimePickerEnd.Size = New Size(104, 21)
+        DateTimePickerEnd.TabIndex = 0
+        ' 
         ' PnlForSearchDate
         ' 
         PnlForSearchDate.Controls.Add(ComboSearchDate)
         PnlForSearchDate.Dock = DockStyle.Fill
-        PnlForSearchDate.Location = New Point(211, 3)
+        PnlForSearchDate.Location = New Point(211, 8)
+        PnlForSearchDate.Margin = New Padding(3, 8, 3, 3)
         PnlForSearchDate.Name = "PnlForSearchDate"
-        PnlForSearchDate.Size = New Size(99, 31)
+        PnlForSearchDate.Size = New Size(99, 26)
         PnlForSearchDate.TabIndex = 0
         ' 
         ' ComboSearchDate
@@ -491,6 +581,73 @@ Partial Class CFReport
         ComboSearchDate.Name = "ComboSearchDate"
         ComboSearchDate.Size = New Size(99, 23)
         ComboSearchDate.TabIndex = 0
+        ' 
+        ' PnlDateStart
+        ' 
+        PnlDateStart.Controls.Add(TableLayoutPanel3)
+        PnlDateStart.Dock = DockStyle.Fill
+        PnlDateStart.Location = New Point(0, 0)
+        PnlDateStart.Margin = New Padding(0)
+        PnlDateStart.Name = "PnlDateStart"
+        PnlDateStart.Size = New Size(104, 37)
+        PnlDateStart.TabIndex = 1
+        ' 
+        ' TableLayoutPanel3
+        ' 
+        TableLayoutPanel3.ColumnCount = 1
+        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel3.Controls.Add(Panel3, 0, 0)
+        TableLayoutPanel3.Controls.Add(Panel4, 0, 1)
+        TableLayoutPanel3.Dock = DockStyle.Fill
+        TableLayoutPanel3.Location = New Point(0, 0)
+        TableLayoutPanel3.Margin = New Padding(0)
+        TableLayoutPanel3.Name = "TableLayoutPanel3"
+        TableLayoutPanel3.RowCount = 2
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 43.2432442F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 56.7567558F))
+        TableLayoutPanel3.Size = New Size(104, 37)
+        TableLayoutPanel3.TabIndex = 0
+        ' 
+        ' Panel3
+        ' 
+        Panel3.Controls.Add(Label1)
+        Panel3.Dock = DockStyle.Fill
+        Panel3.Location = New Point(0, 0)
+        Panel3.Margin = New Padding(0)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(104, 16)
+        Panel3.TabIndex = 0
+        ' 
+        ' Label1
+        ' 
+        Label1.Dock = DockStyle.Fill
+        Label1.Font = New Font("Arial", 9F)
+        Label1.Location = New Point(0, 0)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(104, 16)
+        Label1.TabIndex = 0
+        Label1.Text = "Date Start"
+        Label1.TextAlign = ContentAlignment.TopCenter
+        ' 
+        ' Panel4
+        ' 
+        Panel4.Controls.Add(DateTimePickerStart)
+        Panel4.Dock = DockStyle.Fill
+        Panel4.Location = New Point(0, 16)
+        Panel4.Margin = New Padding(0)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(104, 21)
+        Panel4.TabIndex = 1
+        ' 
+        ' DateTimePickerStart
+        ' 
+        DateTimePickerStart.Dock = DockStyle.Fill
+        DateTimePickerStart.Font = New Font("Arial", 9F)
+        DateTimePickerStart.Format = DateTimePickerFormat.Short
+        DateTimePickerStart.Location = New Point(0, 0)
+        DateTimePickerStart.Name = "DateTimePickerStart"
+        DateTimePickerStart.Size = New Size(104, 21)
+        DateTimePickerStart.TabIndex = 0
         ' 
         ' PnlViewStExPrnt
         ' 
@@ -724,7 +881,6 @@ Partial Class CFReport
         LblLastUpdatedMeetingRoom.Name = "LblLastUpdatedMeetingRoom"
         LblLastUpdatedMeetingRoom.Size = New Size(404, 15)
         LblLastUpdatedMeetingRoom.TabIndex = 1
-        LblLastUpdatedMeetingRoom.Text = "Last updated: 04-07-2025 10:30 AM"
         LblLastUpdatedMeetingRoom.TextAlign = ContentAlignment.BottomRight
         ' 
         ' TableLayoutPanel9
@@ -809,7 +965,7 @@ Partial Class CFReport
         LblNumbersOfTotalBookings.Name = "LblNumbersOfTotalBookings"
         LblNumbersOfTotalBookings.Size = New Size(31, 22)
         LblNumbersOfTotalBookings.TabIndex = 0
-        LblNumbersOfTotalBookings.Text = "87"
+        LblNumbersOfTotalBookings.Text = "0"
         ' 
         ' TLPVariablesMeetingRoomUsage
         ' 
@@ -918,7 +1074,7 @@ Partial Class CFReport
         PnlFillMediaLab.Dock = DockStyle.Left
         PnlFillMediaLab.Location = New Point(0, 0)
         PnlFillMediaLab.Name = "PnlFillMediaLab"
-        PnlFillMediaLab.Size = New Size(31, 9)
+        PnlFillMediaLab.Size = New Size(0, 9)
         PnlFillMediaLab.TabIndex = 0
         ' 
         ' Panel59
@@ -1007,7 +1163,7 @@ Partial Class CFReport
         PnlFillQuietStudyRoom.Dock = DockStyle.Left
         PnlFillQuietStudyRoom.Location = New Point(0, 0)
         PnlFillQuietStudyRoom.Name = "PnlFillQuietStudyRoom"
-        PnlFillQuietStudyRoom.Size = New Size(31, 9)
+        PnlFillQuietStudyRoom.Size = New Size(0, 9)
         PnlFillQuietStudyRoom.TabIndex = 0
         ' 
         ' Panel53
@@ -1096,7 +1252,7 @@ Partial Class CFReport
         PnlFillConferenceRoom.Dock = DockStyle.Left
         PnlFillConferenceRoom.Location = New Point(0, 0)
         PnlFillConferenceRoom.Name = "PnlFillConferenceRoom"
-        PnlFillConferenceRoom.Size = New Size(31, 9)
+        PnlFillConferenceRoom.Size = New Size(0, 9)
         PnlFillConferenceRoom.TabIndex = 0
         ' 
         ' Panel26
@@ -1185,7 +1341,7 @@ Partial Class CFReport
         PnlFillCollaborationSpace.Dock = DockStyle.Left
         PnlFillCollaborationSpace.Location = New Point(0, 0)
         PnlFillCollaborationSpace.Name = "PnlFillCollaborationSpace"
-        PnlFillCollaborationSpace.Size = New Size(31, 9)
+        PnlFillCollaborationSpace.Size = New Size(0, 9)
         PnlFillCollaborationSpace.TabIndex = 0
         ' 
         ' PnlForStudyRoomA
@@ -1274,7 +1430,7 @@ Partial Class CFReport
         PnlFillStudyRoomA.Dock = DockStyle.Left
         PnlFillStudyRoomA.Location = New Point(0, 0)
         PnlFillStudyRoomA.Name = "PnlFillStudyRoomA"
-        PnlFillStudyRoomA.Size = New Size(31, 9)
+        PnlFillStudyRoomA.Size = New Size(0, 9)
         PnlFillStudyRoomA.TabIndex = 0
         ' 
         ' TableLayoutPanel22
@@ -1295,24 +1451,24 @@ Partial Class CFReport
         ' 
         ' Panel69
         ' 
-        Panel69.Controls.Add(Label27)
+        Panel69.Controls.Add(LblDateMeetingRoomUsage)
         Panel69.Dock = DockStyle.Fill
         Panel69.Location = New Point(211, 3)
         Panel69.Name = "Panel69"
         Panel69.Size = New Size(203, 32)
         Panel69.TabIndex = 1
         ' 
-        ' Label27
+        ' LblDateMeetingRoomUsage
         ' 
-        Label27.Dock = DockStyle.Fill
-        Label27.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label27.ForeColor = Color.DarkSlateGray
-        Label27.Location = New Point(0, 0)
-        Label27.Name = "Label27"
-        Label27.Size = New Size(203, 32)
-        Label27.TabIndex = 1
-        Label27.Text = "April 2025"
-        Label27.TextAlign = ContentAlignment.MiddleRight
+        LblDateMeetingRoomUsage.Dock = DockStyle.Fill
+        LblDateMeetingRoomUsage.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LblDateMeetingRoomUsage.ForeColor = Color.DarkSlateGray
+        LblDateMeetingRoomUsage.Location = New Point(0, 0)
+        LblDateMeetingRoomUsage.Name = "LblDateMeetingRoomUsage"
+        LblDateMeetingRoomUsage.Size = New Size(203, 32)
+        LblDateMeetingRoomUsage.TabIndex = 1
+        LblDateMeetingRoomUsage.Text = "April 2025"
+        LblDateMeetingRoomUsage.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' Panel70
         ' 
@@ -1452,7 +1608,7 @@ Partial Class CFReport
         LblNumberOfNewRegistration.Name = "LblNumberOfNewRegistration"
         LblNumberOfNewRegistration.Size = New Size(61, 34)
         LblNumberOfNewRegistration.TabIndex = 0
-        LblNumberOfNewRegistration.Text = "45"
+        LblNumberOfNewRegistration.Text = "0"
         LblNumberOfNewRegistration.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TableLayoutPanel11
@@ -1511,7 +1667,7 @@ Partial Class CFReport
         LblNumberOfBooksBorrowed.Name = "LblNumberOfBooksBorrowed"
         LblNumberOfBooksBorrowed.Size = New Size(61, 32)
         LblNumberOfBooksBorrowed.TabIndex = 0
-        LblNumberOfBooksBorrowed.Text = "186"
+        LblNumberOfBooksBorrowed.Text = "0"
         LblNumberOfBooksBorrowed.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TableLayoutPanel12
@@ -1570,7 +1726,7 @@ Partial Class CFReport
         LblNumberOfLibraryVisits.Name = "LblNumberOfLibraryVisits"
         LblNumberOfLibraryVisits.Size = New Size(61, 32)
         LblNumberOfLibraryVisits.TabIndex = 0
-        LblNumberOfLibraryVisits.Text = "762"
+        LblNumberOfLibraryVisits.Text = "0"
         LblNumberOfLibraryVisits.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TLPActiveMembers
@@ -1607,7 +1763,7 @@ Partial Class CFReport
         LblNumberOfActiveMembers.Name = "LblNumberOfActiveMembers"
         LblNumberOfActiveMembers.Size = New Size(61, 32)
         LblNumberOfActiveMembers.TabIndex = 0
-        LblNumberOfActiveMembers.Text = "1024"
+        LblNumberOfActiveMembers.Text = "0"
         LblNumberOfActiveMembers.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Panel40
@@ -1708,7 +1864,7 @@ Partial Class CFReport
         PnlFillBarMemberEngagement.Dock = DockStyle.Left
         PnlFillBarMemberEngagement.Location = New Point(0, 0)
         PnlFillBarMemberEngagement.Name = "PnlFillBarMemberEngagement"
-        PnlFillBarMemberEngagement.Size = New Size(34, 9)
+        PnlFillBarMemberEngagement.Size = New Size(0, 9)
         PnlFillBarMemberEngagement.TabIndex = 1
         ' 
         ' TableLayoutPanel15
@@ -1748,7 +1904,6 @@ Partial Class CFReport
         LblLastUpdatedUserActivity.Padding = New Padding(0, 0, 0, 1)
         LblLastUpdatedUserActivity.Size = New Size(200, 15)
         LblLastUpdatedUserActivity.TabIndex = 0
-        LblLastUpdatedUserActivity.Text = "Last updated: 04-07-2025 10:30 AM"
         LblLastUpdatedUserActivity.TextAlign = ContentAlignment.TopRight
         ' 
         ' Panel47
@@ -1790,24 +1945,24 @@ Partial Class CFReport
         ' 
         ' Panel48
         ' 
-        Panel48.Controls.Add(Label22)
+        Panel48.Controls.Add(LblDateUserActivity)
         Panel48.Dock = DockStyle.Fill
         Panel48.Location = New Point(211, 3)
         Panel48.Name = "Panel48"
         Panel48.Size = New Size(203, 32)
         Panel48.TabIndex = 1
         ' 
-        ' Label22
+        ' LblDateUserActivity
         ' 
-        Label22.Dock = DockStyle.Fill
-        Label22.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label22.ForeColor = Color.DarkSlateGray
-        Label22.Location = New Point(0, 0)
-        Label22.Name = "Label22"
-        Label22.Size = New Size(203, 32)
-        Label22.TabIndex = 1
-        Label22.Text = "April 2025"
-        Label22.TextAlign = ContentAlignment.MiddleRight
+        LblDateUserActivity.Dock = DockStyle.Fill
+        LblDateUserActivity.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LblDateUserActivity.ForeColor = Color.DarkSlateGray
+        LblDateUserActivity.Location = New Point(0, 0)
+        LblDateUserActivity.Name = "LblDateUserActivity"
+        LblDateUserActivity.Size = New Size(203, 32)
+        LblDateUserActivity.TabIndex = 1
+        LblDateUserActivity.Text = "April 2025"
+        LblDateUserActivity.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' Panel49
         ' 
@@ -1947,7 +2102,7 @@ Partial Class CFReport
         LblNumOfOverdueReturns.Name = "LblNumOfOverdueReturns"
         LblNumOfOverdueReturns.Size = New Size(61, 34)
         LblNumOfOverdueReturns.TabIndex = 0
-        LblNumOfOverdueReturns.Text = "23"
+        LblNumOfOverdueReturns.Text = "0"
         LblNumOfOverdueReturns.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TLPBooksOutstanding
@@ -2006,7 +2161,7 @@ Partial Class CFReport
         LblNumberOfBooksOutstanding.Name = "LblNumberOfBooksOutstanding"
         LblNumberOfBooksOutstanding.Size = New Size(61, 32)
         LblNumberOfBooksOutstanding.TabIndex = 0
-        LblNumberOfBooksOutstanding.Text = "32"
+        LblNumberOfBooksOutstanding.Text = "0"
         LblNumberOfBooksOutstanding.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TLPBooksReturned
@@ -2065,7 +2220,7 @@ Partial Class CFReport
         LblNumberOfBooksReturned.Name = "LblNumberOfBooksReturned"
         LblNumberOfBooksReturned.Size = New Size(61, 32)
         LblNumberOfBooksReturned.TabIndex = 0
-        LblNumberOfBooksReturned.Text = "154"
+        LblNumberOfBooksReturned.Text = "0"
         LblNumberOfBooksReturned.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TLPTotalBooksBorrowed
@@ -2102,7 +2257,7 @@ Partial Class CFReport
         LblNumberOfTotalBooks.Name = "LblNumberOfTotalBooks"
         LblNumberOfTotalBooks.Size = New Size(61, 32)
         LblNumberOfTotalBooks.TabIndex = 0
-        LblNumberOfTotalBooks.Text = "186"
+        LblNumberOfTotalBooks.Text = "0"
         LblNumberOfTotalBooks.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' PnlForLabelTableBooksBorrowed
@@ -2203,7 +2358,7 @@ Partial Class CFReport
         PnlBarFill.Dock = DockStyle.Left
         PnlBarFill.Location = New Point(0, 0)
         PnlBarFill.Name = "PnlBarFill"
-        PnlBarFill.Size = New Size(34, 9)
+        PnlBarFill.Size = New Size(0, 9)
         PnlBarFill.TabIndex = 1
         ' 
         ' TLPBelowReturnRate
@@ -2243,7 +2398,6 @@ Partial Class CFReport
         LblBorrowingStatisticsUpdate.Padding = New Padding(0, 0, 0, 1)
         LblBorrowingStatisticsUpdate.Size = New Size(200, 15)
         LblBorrowingStatisticsUpdate.TabIndex = 0
-        LblBorrowingStatisticsUpdate.Text = "Last updated: 04-07-2025 10:30 AM"
         LblBorrowingStatisticsUpdate.TextAlign = ContentAlignment.TopRight
         ' 
         ' PnlForLabelPercent
@@ -2285,24 +2439,24 @@ Partial Class CFReport
         ' 
         ' PnlforLabelDateBorrowingStatistics
         ' 
-        PnlforLabelDateBorrowingStatistics.Controls.Add(LblBorrowingDate)
+        PnlforLabelDateBorrowingStatistics.Controls.Add(LblDateBorrowingStatistics)
         PnlforLabelDateBorrowingStatistics.Dock = DockStyle.Fill
         PnlforLabelDateBorrowingStatistics.Location = New Point(211, 3)
         PnlforLabelDateBorrowingStatistics.Name = "PnlforLabelDateBorrowingStatistics"
         PnlforLabelDateBorrowingStatistics.Size = New Size(203, 32)
         PnlforLabelDateBorrowingStatistics.TabIndex = 1
         ' 
-        ' LblBorrowingDate
+        ' LblDateBorrowingStatistics
         ' 
-        LblBorrowingDate.Dock = DockStyle.Fill
-        LblBorrowingDate.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        LblBorrowingDate.ForeColor = Color.DarkSlateGray
-        LblBorrowingDate.Location = New Point(0, 0)
-        LblBorrowingDate.Name = "LblBorrowingDate"
-        LblBorrowingDate.Size = New Size(203, 32)
-        LblBorrowingDate.TabIndex = 1
-        LblBorrowingDate.Text = "April 2025"
-        LblBorrowingDate.TextAlign = ContentAlignment.MiddleRight
+        LblDateBorrowingStatistics.Dock = DockStyle.Fill
+        LblDateBorrowingStatistics.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LblDateBorrowingStatistics.ForeColor = Color.DarkSlateGray
+        LblDateBorrowingStatistics.Location = New Point(0, 0)
+        LblDateBorrowingStatistics.Name = "LblDateBorrowingStatistics"
+        LblDateBorrowingStatistics.Size = New Size(203, 32)
+        LblDateBorrowingStatistics.TabIndex = 1
+        LblDateBorrowingStatistics.Text = "April 2025"
+        LblDateBorrowingStatistics.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' PnlForLblBorrowingStatistics
         ' 
@@ -2376,7 +2530,6 @@ Partial Class CFReport
         Label7.Name = "Label7"
         Label7.Size = New Size(404, 15)
         Label7.TabIndex = 1
-        Label7.Text = "Last updated: 04-07-2025 10:30 AM"
         Label7.TextAlign = ContentAlignment.BottomRight
         ' 
         ' TLPVariablesPopularCategories
@@ -2449,7 +2602,7 @@ Partial Class CFReport
         PnlFillBarFiction.Dock = DockStyle.Left
         PnlFillBarFiction.Location = New Point(0, 0)
         PnlFillBarFiction.Name = "PnlFillBarFiction"
-        PnlFillBarFiction.Size = New Size(34, 9)
+        PnlFillBarFiction.Size = New Size(0, 9)
         PnlFillBarFiction.TabIndex = 1
         ' 
         ' TLPTopFiction
@@ -2486,7 +2639,7 @@ Partial Class CFReport
         LblForNumberOfFiction.Name = "LblForNumberOfFiction"
         LblForNumberOfFiction.Size = New Size(36, 22)
         LblForNumberOfFiction.TabIndex = 0
-        LblForNumberOfFiction.Text = "28"
+        LblForNumberOfFiction.Text = "0"
         LblForNumberOfFiction.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Panel35
@@ -2562,7 +2715,7 @@ Partial Class CFReport
         PnlFillBarHistory.Dock = DockStyle.Left
         PnlFillBarHistory.Location = New Point(0, 0)
         PnlFillBarHistory.Name = "PnlFillBarHistory"
-        PnlFillBarHistory.Size = New Size(34, 8)
+        PnlFillBarHistory.Size = New Size(0, 8)
         PnlFillBarHistory.TabIndex = 1
         ' 
         ' TLPTopHistory
@@ -2599,7 +2752,7 @@ Partial Class CFReport
         LblForNumberOfHistory.Name = "LblForNumberOfHistory"
         LblForNumberOfHistory.Size = New Size(36, 21)
         LblForNumberOfHistory.TabIndex = 0
-        LblForNumberOfHistory.Text = "32"
+        LblForNumberOfHistory.Text = "0"
         LblForNumberOfHistory.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Panel33
@@ -2675,7 +2828,7 @@ Partial Class CFReport
         PnlFIllBarST.Dock = DockStyle.Left
         PnlFIllBarST.Location = New Point(0, 0)
         PnlFIllBarST.Name = "PnlFIllBarST"
-        PnlFIllBarST.Size = New Size(34, 8)
+        PnlFIllBarST.Size = New Size(0, 8)
         PnlFIllBarST.TabIndex = 1
         ' 
         ' TLPSTTop
@@ -2712,7 +2865,7 @@ Partial Class CFReport
         LblForNumbersOfST.Name = "LblForNumbersOfST"
         LblForNumbersOfST.Size = New Size(36, 21)
         LblForNumbersOfST.TabIndex = 0
-        LblForNumbersOfST.Text = "37"
+        LblForNumbersOfST.Text = "0"
         LblForNumbersOfST.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Panel31
@@ -2788,7 +2941,7 @@ Partial Class CFReport
         PnlFillBarCL.Dock = DockStyle.Left
         PnlFillBarCL.Location = New Point(0, 0)
         PnlFillBarCL.Name = "PnlFillBarCL"
-        PnlFillBarCL.Size = New Size(34, 8)
+        PnlFillBarCL.Size = New Size(0, 8)
         PnlFillBarCL.TabIndex = 1
         ' 
         ' TLPClassicLiterature
@@ -2825,7 +2978,7 @@ Partial Class CFReport
         LblFOrNumberOfCL.Name = "LblFOrNumberOfCL"
         LblFOrNumberOfCL.Size = New Size(36, 21)
         LblFOrNumberOfCL.TabIndex = 0
-        LblFOrNumberOfCL.Text = "43"
+        LblFOrNumberOfCL.Text = "0"
         LblFOrNumberOfCL.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Panel25
@@ -2868,24 +3021,24 @@ Partial Class CFReport
         ' 
         ' Panel22
         ' 
-        Panel22.Controls.Add(Label1)
+        Panel22.Controls.Add(LblDatePopularCategories)
         Panel22.Dock = DockStyle.Fill
         Panel22.Location = New Point(211, 3)
         Panel22.Name = "Panel22"
         Panel22.Size = New Size(203, 32)
         Panel22.TabIndex = 1
         ' 
-        ' Label1
+        ' LblDatePopularCategories
         ' 
-        Label1.Dock = DockStyle.Fill
-        Label1.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = Color.DarkSlateGray
-        Label1.Location = New Point(0, 0)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(203, 32)
-        Label1.TabIndex = 1
-        Label1.Text = "April 2025"
-        Label1.TextAlign = ContentAlignment.MiddleRight
+        LblDatePopularCategories.Dock = DockStyle.Fill
+        LblDatePopularCategories.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LblDatePopularCategories.ForeColor = Color.DarkSlateGray
+        LblDatePopularCategories.Location = New Point(0, 0)
+        LblDatePopularCategories.Name = "LblDatePopularCategories"
+        LblDatePopularCategories.Size = New Size(203, 32)
+        LblDatePopularCategories.TabIndex = 1
+        LblDatePopularCategories.Text = "April 2025"
+        LblDatePopularCategories.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' Panel23
         ' 
@@ -2983,7 +3136,15 @@ Partial Class CFReport
         TableLayoutPanel1.ResumeLayout(False)
         Panel2.ResumeLayout(False)
         TLPSearch.ResumeLayout(False)
+        PnlDateEnd.ResumeLayout(False)
+        TableLayoutPanel21.ResumeLayout(False)
+        Panel6.ResumeLayout(False)
+        Panel7.ResumeLayout(False)
         PnlForSearchDate.ResumeLayout(False)
+        PnlDateStart.ResumeLayout(False)
+        TableLayoutPanel3.ResumeLayout(False)
+        Panel3.ResumeLayout(False)
+        Panel4.ResumeLayout(False)
         PnlViewStExPrnt.ResumeLayout(False)
         TableLayoutPanel20.ResumeLayout(False)
         PnlViewStatistics.ResumeLayout(False)
@@ -3194,7 +3355,7 @@ Partial Class CFReport
     Friend WithEvents PnlFillStudyRoomA As Panel
     Friend WithEvents TableLayoutPanel22 As TableLayoutPanel
     Friend WithEvents Panel69 As Panel
-    Friend WithEvents Label27 As Label
+    Friend WithEvents LblDateMeetingRoomUsage As Label
     Friend WithEvents Panel70 As Panel
     Friend WithEvents Label28 As Label
     Friend WithEvents PNLUserActivity As Panel
@@ -3235,7 +3396,7 @@ Partial Class CFReport
     Friend WithEvents LblPercentMemberEngagement As Label
     Friend WithEvents TLPTopUserActivity As TableLayoutPanel
     Friend WithEvents Panel48 As Panel
-    Friend WithEvents Label22 As Label
+    Friend WithEvents LblDateUserActivity As Label
     Friend WithEvents Panel49 As Panel
     Friend WithEvents Label23 As Label
     Friend WithEvents PnlBorrowingStatistics As Panel
@@ -3271,18 +3432,16 @@ Partial Class CFReport
     Friend WithEvents PnlBarFill As Panel
     Friend WithEvents TLPBelowReturnRate As TableLayoutPanel
     Friend WithEvents PnlForBorrowingStatisticsUpdate As Panel
-    Friend WithEvents LblBorrowingStatisticsUpdate As Label
     Friend WithEvents PnlForLabelPercent As Panel
     Friend WithEvents LblReturnRatePercent As Label
     Friend WithEvents TLPTopBorrowingStatistics As TableLayoutPanel
     Friend WithEvents PnlforLabelDateBorrowingStatistics As Panel
-    Friend WithEvents LblBorrowingDate As Label
+    Friend WithEvents LblDateBorrowingStatistics As Label
     Friend WithEvents PnlForLblBorrowingStatistics As Panel
     Friend WithEvents LblBorrowingStatistics As Label
     Friend WithEvents PnlPopularCategories As Panel
     Friend WithEvents TLPPopularCategories As TableLayoutPanel
     Friend WithEvents TLPPopularCategoriesFill As TableLayoutPanel
-    Friend WithEvents Label7 As Label
     Friend WithEvents TLPVariablesPopularCategories As TableLayoutPanel
     Friend WithEvents TLPFiction As TableLayoutPanel
     Friend WithEvents PnlForFictionBar As Panel
@@ -3326,7 +3485,7 @@ Partial Class CFReport
     Friend WithEvents Label8 As Label
     Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
     Friend WithEvents Panel22 As Panel
-    Friend WithEvents Label1 As Label
+    Friend WithEvents LblDatePopularCategories As Label
     Friend WithEvents Panel23 As Panel
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel45 As Panel
@@ -3349,4 +3508,18 @@ Partial Class CFReport
     Friend WithEvents BtnExport As Button
     Friend WithEvents PnlForSearchDate As Panel
     Friend WithEvents ComboSearchDate As ComboBox
+    Friend WithEvents LblBorrowingStatisticsUpdate As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents PnlDateStart As Panel
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents DateTimePickerStart As DateTimePicker
+    Friend WithEvents PnlDateEnd As Panel
+    Friend WithEvents TableLayoutPanel21 As TableLayoutPanel
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents DateTimePickerEnd As DateTimePicker
 End Class

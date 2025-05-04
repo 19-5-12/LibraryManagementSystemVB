@@ -6,9 +6,10 @@ Public Class CFReport
 
     Private CategoryStats As New Dictionary(Of String, CategoryStat)
     Private Sub CFReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DateTimePickerStart.MaxDate = DateTime.Today
+        DateTimePickerEnd.MaxDate = DateTime.Today
 
-
-        ComboSearchDate.Items.Insert(0, "Select Date")
+        ComboSearchDate.Items.Insert(0, "Select Date Range")
         ComboSearchDate.SelectedIndex = 0
 
         For Each pnl As Panel In New Panel() {
@@ -88,25 +89,37 @@ Public Class CFReport
     End Sub
 
     Private Sub SetupRoomBars()
-        Dim totalBookings As Integer = 87 ' Or get dynamically if needed
+        ' Initialize fill widths to 0 at startup
+        For Each fillPanel As Panel In New Panel() {
+        PnlFillStudyRoomA,
+        PnlFillCollaborationSpace,
+        PnlFillConferenceRoom,
+        PnlFillQuietStudyRoom,
+        PnlFillMediaLab
+    }
+            fillPanel.Width = 0
+        Next
+
+        ' Dummy data will be overwritten later by actual stats
+        Dim totalBookings As Integer = 87 ' Optional fallback
 
         Dim roomData As New Dictionary(Of Panel, Integer) From {
-        {PnlFillStudyRoomA, 37},
-        {PnlFillCollaborationSpace, 25},
-        {PnlFillConferenceRoom, 15},
-        {PnlFillQuietStudyRoom, 7},
-        {PnlFillMediaLab, 5}
+        {PnlFillStudyRoomA, 0},
+        {PnlFillCollaborationSpace, 0},
+        {PnlFillConferenceRoom, 0},
+        {PnlFillQuietStudyRoom, 0},
+        {PnlFillMediaLab, 0}
     }
 
         For Each kvp In roomData
             Dim fillPanel = kvp.Key
             Dim bookings = kvp.Value
-            Dim backPanel = DirectCast(fillPanel.Parent, Panel) ' Assuming FillPanel inside a BackPanel
+            Dim backPanel = DirectCast(fillPanel.Parent, Panel) ' Assuming FillPanel is inside BackPanel
 
-            ' Set bar immediately
+            ' Set initial bar (width is already zero)
             SetRoomBookingBar(fillPanel, bookings, totalBookings, backPanel.Width)
 
-            ' Handle resizing dynamically
+            ' Handle dynamic resize later
             AddHandler backPanel.Resize, Sub()
                                              SetRoomBookingBar(fillPanel, bookings, totalBookings, backPanel.Width)
                                          End Sub
@@ -114,7 +127,13 @@ Public Class CFReport
     End Sub
 
     Private Sub BtnViewStats_Click(sender As Object, e As EventArgs) Handles BtnViewStats.Click
+        If ComboSearchDate.SelectedItem.ToString() = "Custom Range" Then
+            SelectedStartDate = DateTimePickerStart.Value.Date
+            SelectedEndDate = DateTimePickerEnd.Value.Date
+        End If
+
         If SelectedStartDate.HasValue AndAlso SelectedEndDate.HasValue Then
+            UpdateDateLabels() ' Add this line
             LoadStats(SelectedStartDate.Value, SelectedEndDate.Value)
         Else
             MessageBox.Show("Please select a valid date range first.")
@@ -125,6 +144,8 @@ Public Class CFReport
         If ComboSearchDate.SelectedIndex = 0 Then
             SelectedStartDate = Nothing
             SelectedEndDate = Nothing
+            PnlDateStart.Visible = False
+            PnlDateEnd.Visible = False
             Exit Sub
         End If
 
@@ -138,10 +159,13 @@ Public Class CFReport
                 startDate = Date.Today.AddDays(-CInt(Date.Today.DayOfWeek))
             Case "This Month"
                 startDate = New Date(Date.Today.Year, Date.Today.Month, 1)
+                endDate = startDate.AddMonths(1).AddDays(-1)
             Case "This Year"
                 startDate = New Date(Date.Today.Year, 1, 1)
+                endDate = New Date(Date.Today.Year, 12, 31)
             Case "Custom Range"
-                MessageBox.Show("Custom range not implemented yet.")
+                PnlDateStart.Visible = True
+                PnlDateEnd.Visible = True
                 Exit Sub
             Case Else
                 Exit Sub
@@ -149,7 +173,10 @@ Public Class CFReport
 
         SelectedStartDate = startDate
         SelectedEndDate = endDate
+        PnlDateStart.Visible = False
+        PnlDateEnd.Visible = False
 
+        UpdateDateLabels()
     End Sub
 
     Private Sub UpdatePopularCategoryBars()
@@ -172,6 +199,57 @@ Public Class CFReport
         PnlFillBarHistory.Width = CInt((history / totalBorrowed) * maxBarWidth)
         PnlFillBarFiction.Width = CInt((fiction / totalBorrowed) * maxBarWidth)
     End Sub
+
+    Private Sub UpdateDateLabels()
+        If Not SelectedStartDate.HasValue OrElse Not SelectedEndDate.HasValue Then Return
+
+        Dim startDate = SelectedStartDate.Value
+        Dim endDate = SelectedEndDate.Value
+        Dim labelText As String = ""
+
+        Select Case ComboSearchDate.SelectedItem?.ToString()
+            Case "This Week"
+                ' Start from Monday
+                Dim monday = Date.Today.AddDays(-(CInt(Date.Today.DayOfWeek) - 1))
+                If Date.Today.DayOfWeek = DayOfWeek.Sunday Then
+                    monday = Date.Today.AddDays(-6)
+                End If
+
+                ' End on Sunday or today, whichever is earlier
+                Dim sunday = monday.AddDays(6)
+                Dim displayEndDate = If(Date.Today < sunday, Date.Today, sunday)
+
+                labelText = monday.ToString("MMMM d") & "–" &
+                        If(displayEndDate.Month = monday.Month,
+                           displayEndDate.ToString("d, yyyy"),
+                           displayEndDate.ToString("MMMM d, yyyy"))
+
+            Case "Custom Range"
+                labelText = startDate.ToString("MMMM d, yyyy") & " – " & endDate.ToString("MMMM d, yyyy")
+
+            Case Else
+                If startDate = endDate Then
+                    labelText = startDate.ToString("MMMM d, yyyy")
+                ElseIf startDate.Day = 1 AndAlso endDate = startDate.AddMonths(1).AddDays(-1) Then
+                    labelText = startDate.ToString("MMMM yyyy")
+                ElseIf startDate.Month = 1 AndAlso startDate.Day = 1 AndAlso endDate.Month = 12 AndAlso endDate.Day = 31 Then
+                    labelText = startDate.ToString("yyyy")
+                Else
+                    labelText = startDate.ToString("MMMM d") & "–" &
+                            If(endDate.Month = startDate.Month,
+                               endDate.ToString("d, yyyy"),
+                               endDate.ToString("MMMM d, yyyy"))
+                End If
+        End Select
+
+        ' Update all related labels
+        LblDateBorrowingStatistics.Text = labelText
+        LblDatePopularCategories.Text = labelText
+        LblDateUserActivity.Text = labelText
+        LblDateMeetingRoomUsage.Text = labelText
+    End Sub
+
+
 
     Private Sub LoadStats(startDate As Date, endDate As Date)
 
