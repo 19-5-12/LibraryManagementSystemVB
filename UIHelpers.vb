@@ -52,6 +52,11 @@ Module UIHelpers
                 path.AddArc(mainRect.X, mainRect.Bottom - radius, radius, radius, 90, 90)
                 path.CloseFigure()
                 pnl.Region = New Region(path)
+
+                Using pen As New Pen(Color.LightGray, 2)
+                    e.Graphics.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
+                    e.Graphics.DrawPath(pen, path)
+                End Using
             End Using
         End Using
     End Sub
@@ -242,6 +247,11 @@ Module UIHelpers
         path.CloseFigure()
 
         tbl.Region = New Region(path)
+
+        Using pen As New Pen(Color.LightGray, 2)
+            e.Graphics.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
+            e.Graphics.DrawPath(pen, path)
+        End Using
     End Sub
 
     Public Sub MakeRoundedPanel(panel As Panel, radius As Integer, e As PaintEventArgs)

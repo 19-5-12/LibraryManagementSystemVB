@@ -282,4 +282,23 @@
         Panel15.Hide()
         Panel17.Hide()
     End Sub
+
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
+        Dim addForm As New FormAddStudent()
+        AddHandler addForm.AttendanceAdded, AddressOf AttendanceAddedHandler
+        addForm.ShowDialog()
+        RemoveHandler addForm.AttendanceAdded, AddressOf AttendanceAddedHandler
+    End Sub
+
+    Private Sub AttendanceAddedHandler(sender As Object, e As EventArgs)
+        ' Find and refresh the CFDashboard instance
+        For Each control As Control In PnlChildForm.Controls
+            If TypeOf control Is CFDashboard Then
+                Dim dashboard As CFDashboard = DirectCast(control, CFDashboard)
+                dashboard.LoadAttendanceData()
+                Return
+            End If
+        Next
+    End Sub
+
 End Class

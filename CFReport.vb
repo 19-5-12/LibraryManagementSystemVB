@@ -12,6 +12,20 @@ Public Class CFReport
         ComboSearchDate.Items.Insert(0, "Select Date Range")
         ComboSearchDate.SelectedIndex = 0
 
+        roundedPanels.Clear()
+
+        Dim paddedPanels = {PnlBorrowingStatistics, PnlPopularCategories, PNLUserActivity, PnlMeetingRoomUsage, PnlDateStart, PnlDateEnd}
+        For Each pnl In paddedPanels
+            pnl.Padding = New Padding(3)
+        Next
+
+        roundedPanels.Add(PnlBorrowingStatistics, 5)
+        roundedPanels.Add(PnlPopularCategories, 5)
+        roundedPanels.Add(PNLUserActivity, 5)
+        roundedPanels.Add(PnlMeetingRoomUsage, 5)
+        roundedPanels.Add(PnlDateStart, 5)
+        roundedPanels.Add(PnlDateEnd, 5)
+
         For Each pnl As Panel In New Panel() {
             PnlRow, PnlCLBar, PnlBarST, PnlBarHistory, PnlBarFiction,
             PnlBarForMemberEngagement, PnlBarStudyRoomA, PnlBarCollaborationSpace, PnlBarConferenceRoom,
@@ -23,17 +37,6 @@ Public Class CFReport
                                            End Sub
         Next
 
-        For Each pnl In New Panel() {PnlBorrowingStatistics, PnlPopularCategories, PNLUserActivity, PnlMeetingRoomUsage}
-            Dim currentPanel = pnl
-
-            AddHandler currentPanel.Paint, Sub(s, pe)
-                                               StyleShadowPanel(DirectCast(s, Panel), pe)
-                                           End Sub
-
-            AddHandler currentPanel.Resize, Sub(s, args)
-                                                currentPanel.Invalidate()
-                                            End Sub
-        Next
 
         TimerDateTime.Interval = 1000
         TimerDateTime.Start()
@@ -46,8 +49,15 @@ Public Class CFReport
         AddShadowBetweenRows(TLPMeetingRoomUsage, 0, 1)
 
         SetupRoomBars()
+    End Sub
 
+    Private Sub Panel_Paint(sender As Object, e As PaintEventArgs) Handles PnlBorrowingStatistics.Paint, PnlPopularCategories.Paint,
+        PNLUserActivity.Paint, PnlMeetingRoomUsage.Paint, PnlDateStart.Paint, PnlDateEnd.Paint
 
+        Dim pnl = DirectCast(sender, Panel)
+        If roundedPanels.ContainsKey(pnl) Then
+            MakeRoundedPanel(pnl, roundedPanels(pnl), e)
+        End If
     End Sub
 
     Private Sub CFReport_Shown(sender As Object, e As EventArgs) Handles Me.Shown

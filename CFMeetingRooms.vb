@@ -5,6 +5,7 @@ Public Class CFMeetingRooms
         Dim CRUDBtns As Button() = {BtnAdd, BtnModify, BtnDelete}
         SetupFormUI(CRUDBtns, DataGridView1, TimerDateTime, LblDateTimeMeeting, AddressOf LoadMeetingData)
 
+        TBLPMeeting.Padding = New Padding(3)
     End Sub
 
     Private Sub LoadMeetingData()

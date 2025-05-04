@@ -6,6 +6,8 @@ Public Class Books
         Dim CRUDBtns As Button() = {BtnAdd, BtnModify, BtnDelete}
         SetupFormUI(CRUDBtns, DataGridView1, TimerDateTime, LblDateTimeBook, AddressOf LoadBooksData)
 
+
+        TBLListOfBooks.Padding = New Padding(3)
     End Sub
 
     Private Sub LoadBooksData()

@@ -544,10 +544,10 @@ Partial Class CFReport
         ' 
         Panel7.Controls.Add(DateTimePickerEnd)
         Panel7.Dock = DockStyle.Fill
-        Panel7.Location = New Point(0, 16)
-        Panel7.Margin = New Padding(0)
+        Panel7.Location = New Point(2, 16)
+        Panel7.Margin = New Padding(2, 0, 0, 0)
         Panel7.Name = "Panel7"
-        Panel7.Size = New Size(104, 21)
+        Panel7.Size = New Size(102, 21)
         Panel7.TabIndex = 1
         ' 
         ' DateTimePickerEnd
@@ -557,17 +557,17 @@ Partial Class CFReport
         DateTimePickerEnd.Format = DateTimePickerFormat.Short
         DateTimePickerEnd.Location = New Point(0, 0)
         DateTimePickerEnd.Name = "DateTimePickerEnd"
-        DateTimePickerEnd.Size = New Size(104, 21)
+        DateTimePickerEnd.Size = New Size(102, 21)
         DateTimePickerEnd.TabIndex = 0
         ' 
         ' PnlForSearchDate
         ' 
         PnlForSearchDate.Controls.Add(ComboSearchDate)
         PnlForSearchDate.Dock = DockStyle.Fill
-        PnlForSearchDate.Location = New Point(211, 8)
-        PnlForSearchDate.Margin = New Padding(3, 8, 3, 3)
+        PnlForSearchDate.Location = New Point(211, 11)
+        PnlForSearchDate.Margin = New Padding(3, 11, 3, 3)
         PnlForSearchDate.Name = "PnlForSearchDate"
-        PnlForSearchDate.Size = New Size(99, 26)
+        PnlForSearchDate.Size = New Size(99, 23)
         PnlForSearchDate.TabIndex = 0
         ' 
         ' ComboSearchDate
@@ -634,9 +634,9 @@ Partial Class CFReport
         Panel4.Controls.Add(DateTimePickerStart)
         Panel4.Dock = DockStyle.Fill
         Panel4.Location = New Point(0, 16)
-        Panel4.Margin = New Padding(0)
+        Panel4.Margin = New Padding(0, 0, 2, 0)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(104, 21)
+        Panel4.Size = New Size(102, 21)
         Panel4.TabIndex = 1
         ' 
         ' DateTimePickerStart
@@ -646,7 +646,7 @@ Partial Class CFReport
         DateTimePickerStart.Format = DateTimePickerFormat.Short
         DateTimePickerStart.Location = New Point(0, 0)
         DateTimePickerStart.Name = "DateTimePickerStart"
-        DateTimePickerStart.Size = New Size(104, 21)
+        DateTimePickerStart.Size = New Size(102, 21)
         DateTimePickerStart.TabIndex = 0
         ' 
         ' PnlViewStExPrnt

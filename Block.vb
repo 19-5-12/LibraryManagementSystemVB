@@ -5,6 +5,8 @@ Public Class Block
         Dim CRUDBtns As Button() = {BtnAdd, BtnModify, BtnDelete}
         SetupFormUI(CRUDBtns, DataGridView1, TimerDateTime, LblDateTimeBlock, AddressOf LoadBlocksData)
 
+
+        TBLPBlock.Padding = New Padding(3)
     End Sub
 
     Private Sub LoadBlocksData()
@@ -31,5 +33,9 @@ Public Class Block
 
     Private Sub TBLPBlock_Paint(sender As Object, e As PaintEventArgs) Handles TBLPBlock.Paint
         StyleShadowPanel(CType(sender, Panel), e)
+    End Sub
+
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
+
     End Sub
 End Class

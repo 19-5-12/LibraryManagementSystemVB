@@ -5,6 +5,8 @@ Public Class CFBorrowing
         Dim CRUDBtns As Button() = {BtnAdd, BtnModify, BtnDelete}
         SetupFormUI(CRUDBtns, DataGridView1, TimerDateTime, LblDateTimeBorrowing, AddressOf LoadBorrowingData)
 
+
+        TBLPBorrowing.Padding = New Padding(3)
     End Sub
 
     Private Sub LoadBorrowingData()
