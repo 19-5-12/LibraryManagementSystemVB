@@ -9,14 +9,20 @@ Public Class CFMeetingRooms
 
     Private Sub LoadMeetingData()
         Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
-        Dim query As String = "SELECT ROOM_ID AS ""Room ID"",
-                                      ROOM_NAME AS ""Room Name"",
-                                      CAPACITY AS ""Capacity"",
-                                      NULL AS ""Features"",
-                                      NULL AS ""Current Booking"",
-                                      AVAILABILITY AS ""Next Available"",
-                                      NULL AS ""Status""
-                                      FROM TBL_ROOM"
+        Dim query As String = "
+        SELECT 
+            B.BOOKING_ID AS ""Booking ID"",
+            R.ROOM_NAME AS ""Room Name"",
+            S.FIRST_NAME || ' ' || S.LAST_NAME AS ""Booked By"",
+            B.BOOK_DATE AS ""Book Date"",
+            B.TIME_FROM AS ""Time From"",
+            B.TIME_TO AS ""Time To"",
+            B.AVAILABILITY AS ""Next Available""
+        FROM TBL_ROOM_BOOKING B
+        JOIN TBL_ROOM R ON B.ROOM_ID = R.ROOM_ID
+        JOIN TBL_STUDENT S ON B.USER_ID = S.STUDENT_ID
+        ORDER BY B.BOOK_DATE DESC, B.TIME_FROM"
+
 
         Using conn As New OracleConnection(connectionString)
             Dim cmd As New OracleCommand(query, conn)

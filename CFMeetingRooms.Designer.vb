@@ -47,13 +47,12 @@ Partial Class CFMeetingRooms
         Label2 = New Label()
         TBLPMeeting = New TableLayoutPanel()
         TBLTopOfData = New TableLayoutPanel()
-        LblViewAll = New Label()
         Label1 = New Label()
         PnlForData = New Panel()
         PnlForDataGridView = New Panel()
+        DataGridView1 = New DataGridView()
         Panel10 = New Panel()
         TimerDateTime = New Timer(components)
-        DataGridView1 = New DataGridView()
         TBLFill.SuspendLayout()
         Panel1.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
@@ -324,10 +323,8 @@ Partial Class CFMeetingRooms
         ' TBLTopOfData
         ' 
         TBLTopOfData.BackColor = Color.White
-        TBLTopOfData.ColumnCount = 2
+        TBLTopOfData.ColumnCount = 1
         TBLTopOfData.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 80F))
-        TBLTopOfData.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20F))
-        TBLTopOfData.Controls.Add(LblViewAll, 1, 0)
         TBLTopOfData.Controls.Add(Label1, 0, 0)
         TBLTopOfData.Dock = DockStyle.Fill
         TBLTopOfData.Location = New Point(0, 0)
@@ -338,19 +335,6 @@ Partial Class CFMeetingRooms
         TBLTopOfData.Size = New Size(931, 43)
         TBLTopOfData.TabIndex = 0
         ' 
-        ' LblViewAll
-        ' 
-        LblViewAll.Dock = DockStyle.Fill
-        LblViewAll.Font = New Font("Arial", 10F)
-        LblViewAll.ForeColor = Color.Blue
-        LblViewAll.Location = New Point(747, 0)
-        LblViewAll.Name = "LblViewAll"
-        LblViewAll.Padding = New Padding(0, 0, 20, 0)
-        LblViewAll.Size = New Size(181, 43)
-        LblViewAll.TabIndex = 1
-        LblViewAll.Text = "View All"
-        LblViewAll.TextAlign = ContentAlignment.MiddleRight
-        ' 
         ' Label1
         ' 
         Label1.Dock = DockStyle.Fill
@@ -358,7 +342,7 @@ Partial Class CFMeetingRooms
         Label1.ForeColor = Color.DarkSlateGray
         Label1.Location = New Point(3, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(738, 43)
+        Label1.Size = New Size(925, 43)
         Label1.TabIndex = 0
         Label1.Text = "List of Meeting Rooms"
         Label1.TextAlign = ContentAlignment.MiddleLeft
@@ -384,15 +368,6 @@ Partial Class CFMeetingRooms
         PnlForDataGridView.Name = "PnlForDataGridView"
         PnlForDataGridView.Size = New Size(881, 353)
         PnlForDataGridView.TabIndex = 0
-        ' 
-        ' Panel10
-        ' 
-        Panel10.BackColor = SystemColors.Control
-        Panel10.Dock = DockStyle.Fill
-        Panel10.Location = New Point(3, 46)
-        Panel10.Name = "Panel10"
-        Panel10.Size = New Size(925, 1)
-        Panel10.TabIndex = 2
         ' 
         ' DataGridView1
         ' 
@@ -441,6 +416,15 @@ Partial Class CFMeetingRooms
         DataGridView1.Size = New Size(881, 353)
         DataGridView1.TabIndex = 1
         ' 
+        ' Panel10
+        ' 
+        Panel10.BackColor = SystemColors.Control
+        Panel10.Dock = DockStyle.Fill
+        Panel10.Location = New Point(3, 46)
+        Panel10.Name = "Panel10"
+        Panel10.Size = New Size(925, 1)
+        Panel10.TabIndex = 2
+        ' 
         ' CFMeetingRooms
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -479,7 +463,6 @@ Partial Class CFMeetingRooms
     Friend WithEvents Label2 As Label
     Friend WithEvents TBLPMeeting As TableLayoutPanel
     Friend WithEvents TBLTopOfData As TableLayoutPanel
-    Friend WithEvents LblViewAll As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents PnlForData As Panel
     Friend WithEvents PnlForDataGridView As Panel

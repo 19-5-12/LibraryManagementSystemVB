@@ -96,14 +96,22 @@ Public Class CFReport
     End Sub
 
     Private Sub UpdateEngagementBar(sender As Object, e As EventArgs)
-        Dim activeMembers As Integer = Integer.Parse(LblNumberOfActiveMembers.Text)
-        Dim libraryVisits As Integer = Integer.Parse(LblNumberOfLibraryVisits.Text)
-        Dim booksBorrowed As Integer = Integer.Parse(LblNumberOfBooksBorrowed.Text)
-        Dim newRegistrations As Integer = Integer.Parse(LblNumberOfNewRegistration.Text)
+        Dim activeMembers As Integer = SafeToInt(LblNumberOfActiveMembers.Text)
+        Dim engagedMembers As Integer = SafeToInt(LblNumberOfLibraryVisits.Text) ' temp variable, corrected below
+        Dim engagementCount As Integer = SafeToInt(LblNumberOfNewRegistration.Text) ' this now holds EngagementCount
 
-        Dim engagementRate As Double = CalculateMemberEngagement(activeMembers, libraryVisits, booksBorrowed, newRegistrations)
-        SetEngagementBar(PnlBarBackMemberEngagement, PnlFillBarMemberEngagement, Math.Min(engagementRate, 100.0))
-        LblPercentMemberEngagement.Text = Math.Min(engagementRate, 100.0).ToString("0.0") & "%"
+        ' Calculate percentage safely
+        Dim engagementRate As Double = 0
+        If activeMembers > 0 Then
+            engagementRate = (engagementCount / activeMembers) * 100.0
+        End If
+
+        ' Clamp to max 100 for visuals
+        engagementRate = Math.Min(engagementRate, 100.0)
+
+        ' Set progress bar and label
+        SetEngagementBar(PnlBarBackMemberEngagement, PnlFillBarMemberEngagement, engagementRate)
+        LblPercentMemberEngagement.Text = engagementRate.ToString("0.0") & "%"
     End Sub
 
     Private Sub SetupRoomBars()
@@ -230,15 +238,42 @@ Public Class CFReport
                     End Using
                 End Using
 
+                Dim totalBookingsSql As String = "
+                    SELECT COUNT(BOOKING_ID) AS TotalBookings
+                        FROM TBL_ROOM_BOOKING
+                        WHERE BOOK_DATE BETWEEN :startDate AND :endDate"
+
+                Using cmd As New OracleCommand(totalBookingsSql, conn)
+                    cmd.Parameters.Add(":startDate", OracleDbType.Date).Value = startDate
+                    cmd.Parameters.Add(":endDate", OracleDbType.Date).Value = endDate
+
+                    Using reader = cmd.ExecuteReader()
+                        If reader.Read() Then
+                            LblNumbersOfTotalBookings.Text = SafeToString(reader("TotalBookings"))
+                        End If
+                    End Using
+                End Using
+
+
                 UpdateRoomBars(roomData)
 
                 ' User activity
                 Dim userSql As String = "
                 SELECT
                     (SELECT COUNT(*) FROM TBL_STUDENT WHERE STUDENT_STATUS = 'Studying') AS ActiveMembers,
-                    (SELECT COUNT(*) FROM TBL_STUDENT WHERE TIME_IN BETWEEN :startDate AND :endDate) AS Visits,
-                    (SELECT COUNT(DISTINCT USER_ID) FROM TBL_BORROWING WHERE BORROW_DATE BETWEEN :startDate AND :endDate) AS UniqueBorrowers,
-                    (SELECT COUNT(*) FROM TBL_STUDENT WHERE REGISTERED_DATE BETWEEN :startDate AND :endDate) AS NewRegistrations
+                    (SELECT COUNT(*) FROM TBL_STUDENT 
+                    WHERE TIME_IN BETWEEN :startDate AND :endDate) AS LibraryVisits,
+
+                    (SELECT COUNT(*) FROM TBL_BORROWING 
+                    WHERE RETURN_DATE IS NULL AND BORROW_DATE BETWEEN :startDate AND :endDate) AS BooksBorrowed,
+                    (
+                        SELECT COUNT(DISTINCT STUDENT_ID) FROM (
+                            SELECT STUDENT_ID FROM TBL_STUDENT WHERE TIME_IN BETWEEN :startDate AND :endDate
+                            UNION
+                            SELECT USER_ID AS STUDENT_ID FROM TBL_BORROWING 
+                            WHERE RETURN_DATE IS NULL AND BORROW_DATE BETWEEN :startDate AND :endDate
+                        )
+                    ) AS EngagementCount
                 FROM DUAL"
 
                 Using cmd As New OracleCommand(userSql, conn)
@@ -248,13 +283,46 @@ Public Class CFReport
                     Using reader = cmd.ExecuteReader()
                         If reader.Read() Then
                             LblNumberOfActiveMembers.Text = SafeToString(reader("ActiveMembers"))
-                            LblNumberOfLibraryVisits.Text = SafeToString(reader("Visits"))
-                            LblNumberOfBooksBorrowed.Text = SafeToString(reader("UniqueBorrowers"))
-                            LblNumberOfNewRegistration.Text = SafeToString(reader("NewRegistrations"))
+                            LblNumberOfLibraryVisits.Text = SafeToString(reader("LibraryVisits"))
+                            LblNumberOfBooksBorrowed.Text = SafeToString(reader("BooksBorrowed"))
+                            LblNumberOfNewRegistration.Text = SafeToString(reader("EngagementCount")) ' if you still want NewRegistrations, you'll need to re-add it
                             UpdateEngagementBar(Nothing, Nothing)
                         End If
                     End Using
                 End Using
+
+                ' Popular categories
+                Dim categorySql As String = "
+SELECT C.CATEGORY_NAME, COUNT(*) AS BorrowedCount
+FROM TBL_BORROWING B
+JOIN TBL_BOOK BK ON B.BOOK_ID = BK.BOOK_ID
+JOIN TBL_CATEGORY C ON BK.CATEGORY_ID = C.CATEGORY_ID
+WHERE B.BORROW_DATE BETWEEN :startDate AND :endDate
+AND C.CATEGORY_NAME IN ('Classic Literature', 'Science and Technology', 'History', 'Fiction')
+GROUP BY C.CATEGORY_NAME
+"
+
+                Using cmd As New OracleCommand(categorySql, conn)
+                    cmd.Parameters.Add(":startDate", OracleDbType.Date).Value = startDate
+                    cmd.Parameters.Add(":endDate", OracleDbType.Date).Value = endDate
+
+                    Using reader = cmd.ExecuteReader()
+                        While reader.Read()
+                            Dim category = reader("CATEGORY_NAME").ToString()
+                            Dim count = SafeToInt(reader("BorrowedCount"))
+
+                            If CategoryStats.ContainsKey(category) Then
+                                CategoryStats(category).Value = count
+                            End If
+                        End While
+                    End Using
+                End Using
+
+                ' Redraw popular categories bars
+                For Each stat In CategoryStats.Values
+                    SetCategoryBarProgress(stat.FillPanel, stat.Value, stat.BackPanel.Width)
+                Next
+
 
             End Using
         Catch ex As Exception
@@ -265,11 +333,11 @@ Public Class CFReport
     Private Sub UpdateRoomBars(roomData As Dictionary(Of String, Integer))
         Dim totalBookings = roomData.Values.Sum()
         Dim roomPanels As New Dictionary(Of String, Panel) From {
-        {"Study Room A", PnlFillStudyRoomA},
-        {"Study Room B", PnlFillCollaborationSpace},
-        {"Study Room C", PnlFillConferenceRoom},
-        {"Study Room D", PnlFillQuietStudyRoom},
-        {"Study Room E", PnlFillMediaLab}
+        {"Meeting Room A", PnlFillStudyRoomA},
+        {"Meeting Room B", PnlFillCollaborationSpace},
+        {"Meeting Room C", PnlFillConferenceRoom},
+        {"Meeting Room D", PnlFillQuietStudyRoom},
+        {"Meeting Room E", PnlFillMediaLab}
     }
 
         For Each kvp In roomPanels

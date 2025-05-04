@@ -49,7 +49,6 @@ Partial Class Block
         TBLPBlock = New TableLayoutPanel()
         Panel10 = New Panel()
         TBLTopOfData = New TableLayoutPanel()
-        LblViewAll = New Label()
         Label1 = New Label()
         PnlForData = New Panel()
         PnlForDataGridView = New Panel()
@@ -345,10 +344,8 @@ Partial Class Block
         ' TBLTopOfData
         ' 
         TBLTopOfData.BackColor = Color.White
-        TBLTopOfData.ColumnCount = 2
+        TBLTopOfData.ColumnCount = 1
         TBLTopOfData.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 80F))
-        TBLTopOfData.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20F))
-        TBLTopOfData.Controls.Add(LblViewAll, 1, 0)
         TBLTopOfData.Controls.Add(Label1, 0, 0)
         TBLTopOfData.Dock = DockStyle.Fill
         TBLTopOfData.Location = New Point(0, 0)
@@ -359,19 +356,6 @@ Partial Class Block
         TBLTopOfData.Size = New Size(931, 43)
         TBLTopOfData.TabIndex = 0
         ' 
-        ' LblViewAll
-        ' 
-        LblViewAll.Dock = DockStyle.Fill
-        LblViewAll.Font = New Font("Arial", 10F)
-        LblViewAll.ForeColor = Color.Blue
-        LblViewAll.Location = New Point(747, 0)
-        LblViewAll.Name = "LblViewAll"
-        LblViewAll.Padding = New Padding(0, 0, 20, 0)
-        LblViewAll.Size = New Size(181, 43)
-        LblViewAll.TabIndex = 1
-        LblViewAll.Text = "View All"
-        LblViewAll.TextAlign = ContentAlignment.MiddleRight
-        ' 
         ' Label1
         ' 
         Label1.Dock = DockStyle.Fill
@@ -379,7 +363,7 @@ Partial Class Block
         Label1.ForeColor = Color.DarkSlateGray
         Label1.Location = New Point(3, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(738, 43)
+        Label1.Size = New Size(925, 43)
         Label1.TabIndex = 0
         Label1.Text = "List of Blocked Students"
         Label1.TextAlign = ContentAlignment.MiddleLeft
@@ -493,7 +477,6 @@ Partial Class Block
     Friend WithEvents Label2 As Label
     Friend WithEvents TBLPBlock As TableLayoutPanel
     Friend WithEvents TBLTopOfData As TableLayoutPanel
-    Friend WithEvents LblViewAll As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents PnlForData As Panel
     Friend WithEvents PnlForDataGridView As Panel
