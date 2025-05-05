@@ -611,8 +611,8 @@ Partial Class FormAddStudent
         ' TLPCancelAdd
         ' 
         TLPCancelAdd.ColumnCount = 2
-        TLPCancelAdd.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 75.4098358F))
-        TLPCancelAdd.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 24.5901642F))
+        TLPCancelAdd.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 72.53669F))
+        TLPCancelAdd.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 27.4633121F))
         TLPCancelAdd.Controls.Add(PnlForBtnAdd, 1, 0)
         TLPCancelAdd.Controls.Add(PnlForCancel, 0, 0)
         TLPCancelAdd.Dock = DockStyle.Fill
@@ -627,9 +627,9 @@ Partial Class FormAddStudent
         ' 
         PnlForBtnAdd.Controls.Add(Panel1)
         PnlForBtnAdd.Dock = DockStyle.Fill
-        PnlForBtnAdd.Location = New Point(362, 3)
+        PnlForBtnAdd.Location = New Point(349, 3)
         PnlForBtnAdd.Name = "PnlForBtnAdd"
-        PnlForBtnAdd.Size = New Size(112, 37)
+        PnlForBtnAdd.Size = New Size(125, 37)
         PnlForBtnAdd.TabIndex = 1
         ' 
         ' Panel1
@@ -638,16 +638,16 @@ Partial Class FormAddStudent
         Panel1.Dock = DockStyle.Left
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(96, 37)
+        Panel1.Size = New Size(126, 37)
         Panel1.TabIndex = 1
         ' 
         ' Panel6
         ' 
         Panel6.Controls.Add(BtnAddAttendance)
         Panel6.Dock = DockStyle.Right
-        Panel6.Location = New Point(1, 0)
+        Panel6.Location = New Point(0, 0)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(95, 37)
+        Panel6.Size = New Size(126, 37)
         Panel6.TabIndex = 0
         ' 
         ' BtnAddAttendance
@@ -660,9 +660,9 @@ Partial Class FormAddStudent
         BtnAddAttendance.ForeColor = Color.White
         BtnAddAttendance.Location = New Point(0, 0)
         BtnAddAttendance.Name = "BtnAddAttendance"
-        BtnAddAttendance.Size = New Size(95, 37)
+        BtnAddAttendance.Size = New Size(126, 37)
         BtnAddAttendance.TabIndex = 0
-        BtnAddAttendance.Text = "Add Book"
+        BtnAddAttendance.Text = "Add Attendance"
         BtnAddAttendance.UseVisualStyleBackColor = False
         ' 
         ' PnlForCancel
@@ -671,14 +671,14 @@ Partial Class FormAddStudent
         PnlForCancel.Dock = DockStyle.Fill
         PnlForCancel.Location = New Point(3, 3)
         PnlForCancel.Name = "PnlForCancel"
-        PnlForCancel.Size = New Size(353, 37)
+        PnlForCancel.Size = New Size(340, 37)
         PnlForCancel.TabIndex = 0
         ' 
         ' PnlBtnCancel
         ' 
         PnlBtnCancel.Controls.Add(BtnCancel)
         PnlBtnCancel.Dock = DockStyle.Right
-        PnlBtnCancel.Location = New Point(258, 0)
+        PnlBtnCancel.Location = New Point(245, 0)
         PnlBtnCancel.Name = "PnlBtnCancel"
         PnlBtnCancel.Size = New Size(95, 37)
         PnlBtnCancel.TabIndex = 0

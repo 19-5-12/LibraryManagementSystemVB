@@ -821,7 +821,7 @@ Partial Class FormAddBorrowing
         Panel1.Dock = DockStyle.Left
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(96, 38)
+        Panel1.Size = New Size(109, 38)
         Panel1.TabIndex = 1
         ' 
         ' Panel6
@@ -830,7 +830,7 @@ Partial Class FormAddBorrowing
         Panel6.Dock = DockStyle.Right
         Panel6.Location = New Point(1, 0)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(95, 38)
+        Panel6.Size = New Size(108, 38)
         Panel6.TabIndex = 0
         ' 
         ' BtnAddBorrowed
@@ -843,9 +843,9 @@ Partial Class FormAddBorrowing
         BtnAddBorrowed.ForeColor = Color.White
         BtnAddBorrowed.Location = New Point(0, 0)
         BtnAddBorrowed.Name = "BtnAddBorrowed"
-        BtnAddBorrowed.Size = New Size(95, 38)
+        BtnAddBorrowed.Size = New Size(108, 38)
         BtnAddBorrowed.TabIndex = 0
-        BtnAddBorrowed.Text = "Add Book"
+        BtnAddBorrowed.Text = "Add Borrowing"
         BtnAddBorrowed.UseVisualStyleBackColor = False
         ' 
         ' PnlForCancel
