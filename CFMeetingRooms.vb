@@ -40,13 +40,6 @@ Public Class CFMeetingRooms
         StyleShadowPanel(CType(sender, Panel), e)
     End Sub
 
-    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
-        Dim addForm As New FormAddMeeting()
-        AddHandler addForm.MeetingAdded, AddressOf MeetingAddedHandler
-        addForm.ShowDialog()
-        RemoveHandler addForm.MeetingAdded, AddressOf MeetingAddedHandler
-    End Sub
-
     Private Sub MeetingAddedHandler(sender As Object, e As EventArgs)
         LoadMeetingData()
     End Sub

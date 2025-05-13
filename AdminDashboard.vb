@@ -9,8 +9,8 @@
     Private Sub AdminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Style sidebar buttons
         Dim sidebarButtons As Button() = {
-            BtnDashboard, BtnBooks, BtnBorrowing, BtnBlock,
-            BtnMeeting, BtnReport, BtnUser, BtnSettings
+            BtnDashboard, BtnBooks, BtnMonitoring,
+            BtnMeeting
         }
 
         For Each btn In sidebarButtons
@@ -219,7 +219,7 @@
         ChildForm(New Books())
         BtnCurrentlyHighlighted = BtnBooks
         HighlightButton(BtnBooks)
-        LblAdminDashBoard.Text = "Book Management"
+        LblAdminDashBoard.Text = "Books Monitoring"
         HideSearchAddBtn()
     End Sub
 
@@ -232,49 +232,19 @@
         Panel17.Show()
     End Sub
 
-    Private Sub BtnBlock_Click(sender As Object, e As EventArgs) Handles BtnBlock.Click
-        ChildForm(New Block())
-        BtnCurrentlyHighlighted = BtnBlock
-        HighlightButton(BtnBlock)
-        LblAdminDashBoard.Text = "Blocking Management"
-        HideSearchAddBtn()
-    End Sub
-
-    Private Sub BtnMeeting_Click(sender As Object, e As EventArgs) Handles BtnMeeting.Click
-        ChildForm(New CFMeetingRooms())
+    Private Sub BtnMeeting_Click(sender As Object, e As EventArgs)
+        ChildForm(New CFMeetingRooms)
         BtnCurrentlyHighlighted = BtnMeeting
         HighlightButton(BtnMeeting)
         LblAdminDashBoard.Text = "Room Availability"
         HideSearchAddBtn()
     End Sub
 
-    Private Sub BtnReport_Click(sender As Object, e As EventArgs) Handles BtnReport.Click
-        ReportChildForm(New CFReport()) ' Replace CFReport with your actual form
-        BtnCurrentlyHighlighted = BtnReport
-        HighlightButton(BtnReport)
-    End Sub
-
-    Private Sub BtnBorrowing_Click(sender As Object, e As EventArgs) Handles BtnBorrowing.Click
+    Private Sub BtnBorrowing_Click(sender As Object, e As EventArgs) Handles BtnMonitoring.Click
         ChildForm(New CFBorrowing())
-        BtnCurrentlyHighlighted = BtnBorrowing
-        HighlightButton(BtnBorrowing)
-        LblAdminDashBoard.Text = "Books Borrowed Management"
-        HideSearchAddBtn()
-    End Sub
-
-    Private Sub BtnUser_Click(sender As Object, e As EventArgs) Handles BtnUser.Click
-        ChildForm(New CFUser())
-        BtnCurrentlyHighlighted = BtnUser
-        HighlightButton(BtnUser)
-        LblAdminDashBoard.Text = "Users Management"
-        HideSearchAddBtn()
-    End Sub
-
-    Private Sub BtnSettings_Click(sender As Object, e As EventArgs) Handles BtnSettings.Click
-        ChildForm(New CFSettings())
-        BtnCurrentlyHighlighted = BtnSettings
-        HighlightButton(BtnSettings)
-        LblAdminDashBoard.Text = "Settings"
+        BtnCurrentlyHighlighted = BtnMonitoring
+        HighlightButton(BtnMonitoring)
+        LblAdminDashBoard.Text = "Monitoring"
         HideSearchAddBtn()
     End Sub
 
@@ -301,4 +271,7 @@
         Next
     End Sub
 
+    Private Sub BtnMeeting_Click_1(sender As Object, e As EventArgs) Handles BtnMeeting.Click
+
+    End Sub
 End Class

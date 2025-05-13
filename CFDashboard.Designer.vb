@@ -838,7 +838,7 @@ Partial Class CFDashboard
         Label1.Name = "Label1"
         Label1.Size = New Size(925, 36)
         Label1.TabIndex = 0
-        Label1.Text = "Student Attendance"
+        Label1.Text = "Log Monitoring"
         Label1.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PnlForData

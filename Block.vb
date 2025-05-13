@@ -31,7 +31,7 @@ Public Class Block
                S.LAST_NAME || ', ' || S.FIRST_NAME || ' ' || NVL(S.MIDDLE_NAME, '') AS ""Student Name"",
                TO_CHAR(B.BANNED_DATE, 'DD/MM/YYYY') AS ""Blocked Date"",
                B.BANNED_END_DATE AS ""Expiry Date"",
-               B.REASON AS ""Reason"",
+               B.REASON AS ""Remarks"",
                B.STATUS AS ""Status""
           FROM TBL_BANNED B
     INNER JOIN TBL_STUDENT S ON B.USER_ID = S.STUDENT_ID"

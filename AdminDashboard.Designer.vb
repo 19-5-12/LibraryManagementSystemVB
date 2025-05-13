@@ -34,20 +34,12 @@ Partial Class AdminDashboard
         TableLayoutPanel4 = New TableLayoutPanel()
         TableLayoutPanel5 = New TableLayoutPanel()
         TableLayoutPanel6 = New TableLayoutPanel()
-        BtnReport = New Button()
         BtnMeeting = New Button()
-        BtnBlock = New Button()
-        BtnBorrowing = New Button()
+        BtnMonitoring = New Button()
         BtnBooks = New Button()
         BtnDashboard = New Button()
         Panel5 = New Panel()
         Label3 = New Label()
-        TableLayoutPanel7 = New TableLayoutPanel()
-        Panel6 = New Panel()
-        Label4 = New Label()
-        TableLayoutPanel8 = New TableLayoutPanel()
-        BtnSettings = New Button()
-        BtnUser = New Button()
         TBLAdmin = New TableLayoutPanel()
         Panel11 = New Panel()
         TableLayoutPanel12 = New TableLayoutPanel()
@@ -91,9 +83,6 @@ Partial Class AdminDashboard
         TableLayoutPanel5.SuspendLayout()
         TableLayoutPanel6.SuspendLayout()
         Panel5.SuspendLayout()
-        TableLayoutPanel7.SuspendLayout()
-        Panel6.SuspendLayout()
-        TableLayoutPanel8.SuspendLayout()
         TBLAdmin.SuspendLayout()
         Panel11.SuspendLayout()
         TableLayoutPanel12.SuspendLayout()
@@ -243,7 +232,6 @@ Partial Class AdminDashboard
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 90F))
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 5F))
         TableLayoutPanel4.Controls.Add(TableLayoutPanel5, 1, 0)
-        TableLayoutPanel4.Controls.Add(TableLayoutPanel7, 1, 1)
         TableLayoutPanel4.Dock = DockStyle.Fill
         TableLayoutPanel4.Location = New Point(0, 85)
         TableLayoutPanel4.Margin = New Padding(0)
@@ -274,10 +262,8 @@ Partial Class AdminDashboard
         ' 
         TableLayoutPanel6.ColumnCount = 1
         TableLayoutPanel6.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TableLayoutPanel6.Controls.Add(BtnReport, 0, 5)
-        TableLayoutPanel6.Controls.Add(BtnMeeting, 0, 4)
-        TableLayoutPanel6.Controls.Add(BtnBlock, 0, 3)
-        TableLayoutPanel6.Controls.Add(BtnBorrowing, 0, 2)
+        TableLayoutPanel6.Controls.Add(BtnMeeting, 0, 3)
+        TableLayoutPanel6.Controls.Add(BtnMonitoring, 0, 2)
         TableLayoutPanel6.Controls.Add(BtnBooks, 0, 1)
         TableLayoutPanel6.Controls.Add(BtnDashboard, 0, 0)
         TableLayoutPanel6.Dock = DockStyle.Fill
@@ -294,24 +280,6 @@ Partial Class AdminDashboard
         TableLayoutPanel6.Size = New Size(139, 333)
         TableLayoutPanel6.TabIndex = 0
         ' 
-        ' BtnReport
-        ' 
-        BtnReport.BackgroundImageLayout = ImageLayout.Zoom
-        BtnReport.Dock = DockStyle.Fill
-        BtnReport.FlatStyle = FlatStyle.Flat
-        BtnReport.Font = New Font("Arial", 9F)
-        BtnReport.ForeColor = Color.White
-        BtnReport.ImageAlign = ContentAlignment.MiddleLeft
-        BtnReport.Location = New Point(0, 275)
-        BtnReport.Margin = New Padding(0)
-        BtnReport.Name = "BtnReport"
-        BtnReport.Size = New Size(139, 58)
-        BtnReport.TabIndex = 5
-        BtnReport.Text = "📝 Reports"
-        BtnReport.TextAlign = ContentAlignment.MiddleLeft
-        BtnReport.TextImageRelation = TextImageRelation.ImageBeforeText
-        BtnReport.UseVisualStyleBackColor = True
-        ' 
         ' BtnMeeting
         ' 
         BtnMeeting.BackgroundImageLayout = ImageLayout.Zoom
@@ -320,51 +288,33 @@ Partial Class AdminDashboard
         BtnMeeting.Font = New Font("Arial", 9F)
         BtnMeeting.ForeColor = Color.White
         BtnMeeting.ImageAlign = ContentAlignment.MiddleLeft
-        BtnMeeting.Location = New Point(0, 220)
+        BtnMeeting.Location = New Point(0, 165)
         BtnMeeting.Margin = New Padding(0)
         BtnMeeting.Name = "BtnMeeting"
         BtnMeeting.Size = New Size(139, 55)
-        BtnMeeting.TabIndex = 4
+        BtnMeeting.TabIndex = 5
         BtnMeeting.Text = "🏢 Meeting Rooms"
         BtnMeeting.TextAlign = ContentAlignment.MiddleLeft
         BtnMeeting.TextImageRelation = TextImageRelation.ImageBeforeText
         BtnMeeting.UseVisualStyleBackColor = True
         ' 
-        ' BtnBlock
+        ' BtnMonitoring
         ' 
-        BtnBlock.BackgroundImageLayout = ImageLayout.Zoom
-        BtnBlock.Dock = DockStyle.Fill
-        BtnBlock.FlatStyle = FlatStyle.Flat
-        BtnBlock.Font = New Font("Arial", 9F)
-        BtnBlock.ForeColor = Color.White
-        BtnBlock.ImageAlign = ContentAlignment.MiddleLeft
-        BtnBlock.Location = New Point(0, 165)
-        BtnBlock.Margin = New Padding(0)
-        BtnBlock.Name = "BtnBlock"
-        BtnBlock.Size = New Size(139, 55)
-        BtnBlock.TabIndex = 3
-        BtnBlock.Text = "⛔ Block List"
-        BtnBlock.TextAlign = ContentAlignment.MiddleLeft
-        BtnBlock.TextImageRelation = TextImageRelation.ImageBeforeText
-        BtnBlock.UseVisualStyleBackColor = True
-        ' 
-        ' BtnBorrowing
-        ' 
-        BtnBorrowing.BackgroundImageLayout = ImageLayout.Zoom
-        BtnBorrowing.Dock = DockStyle.Fill
-        BtnBorrowing.FlatStyle = FlatStyle.Flat
-        BtnBorrowing.Font = New Font("Arial", 9F)
-        BtnBorrowing.ForeColor = Color.White
-        BtnBorrowing.ImageAlign = ContentAlignment.MiddleLeft
-        BtnBorrowing.Location = New Point(0, 110)
-        BtnBorrowing.Margin = New Padding(0)
-        BtnBorrowing.Name = "BtnBorrowing"
-        BtnBorrowing.Size = New Size(139, 55)
-        BtnBorrowing.TabIndex = 2
-        BtnBorrowing.Text = "🔃 Borrowing"
-        BtnBorrowing.TextAlign = ContentAlignment.MiddleLeft
-        BtnBorrowing.TextImageRelation = TextImageRelation.ImageBeforeText
-        BtnBorrowing.UseVisualStyleBackColor = True
+        BtnMonitoring.BackgroundImageLayout = ImageLayout.Zoom
+        BtnMonitoring.Dock = DockStyle.Fill
+        BtnMonitoring.FlatStyle = FlatStyle.Flat
+        BtnMonitoring.Font = New Font("Arial", 9F)
+        BtnMonitoring.ForeColor = Color.White
+        BtnMonitoring.ImageAlign = ContentAlignment.MiddleLeft
+        BtnMonitoring.Location = New Point(0, 110)
+        BtnMonitoring.Margin = New Padding(0)
+        BtnMonitoring.Name = "BtnMonitoring"
+        BtnMonitoring.Size = New Size(139, 55)
+        BtnMonitoring.TabIndex = 2
+        BtnMonitoring.Text = "📷 Monitoring"
+        BtnMonitoring.TextAlign = ContentAlignment.MiddleLeft
+        BtnMonitoring.TextImageRelation = TextImageRelation.ImageBeforeText
+        BtnMonitoring.UseVisualStyleBackColor = True
         ' 
         ' BtnBooks
         ' 
@@ -424,98 +374,6 @@ Partial Class AdminDashboard
         Label3.TabIndex = 0
         Label3.Text = "MAIN MENU"
         Label3.TextAlign = ContentAlignment.BottomLeft
-        ' 
-        ' TableLayoutPanel7
-        ' 
-        TableLayoutPanel7.ColumnCount = 1
-        TableLayoutPanel7.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TableLayoutPanel7.Controls.Add(Panel6, 0, 0)
-        TableLayoutPanel7.Controls.Add(TableLayoutPanel8, 0, 1)
-        TableLayoutPanel7.Dock = DockStyle.Fill
-        TableLayoutPanel7.Location = New Point(7, 369)
-        TableLayoutPanel7.Margin = New Padding(0)
-        TableLayoutPanel7.Name = "TableLayoutPanel7"
-        TableLayoutPanel7.RowCount = 2
-        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 23F))
-        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 77F))
-        TableLayoutPanel7.Size = New Size(139, 159)
-        TableLayoutPanel7.TabIndex = 1
-        ' 
-        ' Panel6
-        ' 
-        Panel6.Controls.Add(Label4)
-        Panel6.Dock = DockStyle.Fill
-        Panel6.Location = New Point(0, 0)
-        Panel6.Margin = New Padding(0)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(139, 36)
-        Panel6.TabIndex = 0
-        ' 
-        ' Label4
-        ' 
-        Label4.Dock = DockStyle.Fill
-        Label4.Font = New Font("Arial", 8F)
-        Label4.ForeColor = Color.LightGray
-        Label4.Location = New Point(0, 0)
-        Label4.Name = "Label4"
-        Label4.Padding = New Padding(10, 0, 0, 0)
-        Label4.Size = New Size(139, 36)
-        Label4.TabIndex = 1
-        Label4.Text = "SETTINGS"
-        Label4.TextAlign = ContentAlignment.BottomLeft
-        ' 
-        ' TableLayoutPanel8
-        ' 
-        TableLayoutPanel8.ColumnCount = 1
-        TableLayoutPanel8.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TableLayoutPanel8.Controls.Add(BtnSettings, 0, 1)
-        TableLayoutPanel8.Controls.Add(BtnUser, 0, 0)
-        TableLayoutPanel8.Dock = DockStyle.Fill
-        TableLayoutPanel8.Location = New Point(0, 36)
-        TableLayoutPanel8.Margin = New Padding(0)
-        TableLayoutPanel8.Name = "TableLayoutPanel8"
-        TableLayoutPanel8.RowCount = 3
-        TableLayoutPanel8.RowStyles.Add(New RowStyle(SizeType.Percent, 48F))
-        TableLayoutPanel8.RowStyles.Add(New RowStyle(SizeType.Percent, 48F))
-        TableLayoutPanel8.RowStyles.Add(New RowStyle(SizeType.Percent, 4F))
-        TableLayoutPanel8.Size = New Size(139, 123)
-        TableLayoutPanel8.TabIndex = 1
-        ' 
-        ' BtnSettings
-        ' 
-        BtnSettings.BackgroundImageLayout = ImageLayout.Zoom
-        BtnSettings.Dock = DockStyle.Fill
-        BtnSettings.FlatStyle = FlatStyle.Flat
-        BtnSettings.Font = New Font("Arial", 9F)
-        BtnSettings.ForeColor = Color.White
-        BtnSettings.ImageAlign = ContentAlignment.MiddleLeft
-        BtnSettings.Location = New Point(0, 59)
-        BtnSettings.Margin = New Padding(0)
-        BtnSettings.Name = "BtnSettings"
-        BtnSettings.Size = New Size(139, 59)
-        BtnSettings.TabIndex = 7
-        BtnSettings.Text = "⚙️ Settings"
-        BtnSettings.TextAlign = ContentAlignment.MiddleLeft
-        BtnSettings.TextImageRelation = TextImageRelation.ImageBeforeText
-        BtnSettings.UseVisualStyleBackColor = True
-        ' 
-        ' BtnUser
-        ' 
-        BtnUser.BackgroundImageLayout = ImageLayout.Zoom
-        BtnUser.Dock = DockStyle.Fill
-        BtnUser.FlatStyle = FlatStyle.Flat
-        BtnUser.Font = New Font("Arial", 9F)
-        BtnUser.ForeColor = Color.White
-        BtnUser.ImageAlign = ContentAlignment.MiddleLeft
-        BtnUser.Location = New Point(0, 0)
-        BtnUser.Margin = New Padding(0)
-        BtnUser.Name = "BtnUser"
-        BtnUser.Size = New Size(139, 59)
-        BtnUser.TabIndex = 6
-        BtnUser.Text = "👥 Users"
-        BtnUser.TextAlign = ContentAlignment.MiddleLeft
-        BtnUser.TextImageRelation = TextImageRelation.ImageBeforeText
-        BtnUser.UseVisualStyleBackColor = True
         ' 
         ' TBLAdmin
         ' 
@@ -837,7 +695,7 @@ Partial Class AdminDashboard
         LblAdminDashBoard.Padding = New Padding(20, 10, 0, 0)
         LblAdminDashBoard.Size = New Size(523, 52)
         LblAdminDashBoard.TabIndex = 1
-        LblAdminDashBoard.Text = "Admin Dashboard"
+        LblAdminDashBoard.Text = "Library Dashboard"
         ' 
         ' Panel15
         ' 
@@ -921,9 +779,6 @@ Partial Class AdminDashboard
         TableLayoutPanel5.ResumeLayout(False)
         TableLayoutPanel6.ResumeLayout(False)
         Panel5.ResumeLayout(False)
-        TableLayoutPanel7.ResumeLayout(False)
-        Panel6.ResumeLayout(False)
-        TableLayoutPanel8.ResumeLayout(False)
         TBLAdmin.ResumeLayout(False)
         Panel11.ResumeLayout(False)
         TableLayoutPanel12.ResumeLayout(False)
@@ -967,16 +822,7 @@ Partial Class AdminDashboard
     Friend WithEvents Label3 As Label
     Friend WithEvents BtnDashboard As Button
     Friend WithEvents BtnBooks As Button
-    Friend WithEvents BtnReport As Button
-    Friend WithEvents BtnMeeting As Button
-    Friend WithEvents BtnBlock As Button
-    Friend WithEvents BtnBorrowing As Button
-    Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents Label4 As Label
-    Friend WithEvents TableLayoutPanel8 As TableLayoutPanel
-    Friend WithEvents BtnUser As Button
-    Friend WithEvents BtnSettings As Button
+    Friend WithEvents BtnMonitoring As Button
     Friend WithEvents TBLAdmin As TableLayoutPanel
     Friend WithEvents Panel11 As Panel
     Friend WithEvents TableLayoutPanel12 As TableLayoutPanel
@@ -1009,4 +855,5 @@ Partial Class AdminDashboard
     Friend WithEvents PnlBtnAdd As Panel
     Friend WithEvents BtnAdd As Button
     Friend WithEvents Label10 As Label
+    Friend WithEvents BtnMeeting As Button
 End Class
