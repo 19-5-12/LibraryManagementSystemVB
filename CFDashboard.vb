@@ -46,7 +46,7 @@ Public Class CFDashboard
         AddHandler DataGridView1.CellClick, AddressOf DataGridView1_CellClick
 
         Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
-        Dim query As String = "SELECT a.ATTENDANCE_ID as ""Attendance ID"", " &
+        Dim query As String = "SELECT a.ATTENDANCE_ID as ""Log ID"", " &
                           "a.STUDENT_ID as ""Student ID"", " &
                           "s.LAST_NAME || ', ' || s.FIRST_NAME || ' ' || SUBSTR(s.MIDDLE_NAME, 1, 1) || '.' as ""Student Name"", " &
                           "TO_CHAR(a.ATTENDANCE_DATE, 'DD/MM/YYYY') AS ""Date"", " &
@@ -98,7 +98,7 @@ Public Class CFDashboard
             If status = "Currently In" Then
                 Dim result = MessageBox.Show("Mark this student as Checked Out?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If result = DialogResult.Yes Then
-                    Dim attendanceId = row.Cells("Attendance ID").Value
+                    Dim attendanceId = row.Cells("Log ID").Value
 
                     Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
                     Dim query As String = "UPDATE TBL_ATTENDANCE SET TIME_OUT = :time_out, STATUS = 'Checked Out' WHERE ATTENDANCE_ID = :attendance_id"
@@ -205,6 +205,46 @@ Public Class CFDashboard
 
     Private Sub TLPRecentStudentAttendance_Paint(sender As Object, e As PaintEventArgs) Handles TLPRecentStudentAttendance.Paint
         StyleShadowPanel(CType(sender, Panel), e)
+    End Sub
+
+    ' This method will be called from AdminDashboard
+    Public Sub FilterByStudentID(studentId As String)
+        If String.IsNullOrWhiteSpace(studentId) Then
+            LoadAttendanceData()
+        Else
+            LoadAttendanceDataByID(studentId)
+        End If
+    End Sub
+
+    Private Sub LoadAttendanceDataByID(studentId As String)
+        Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
+        Dim query As String = "SELECT a.ATTENDANCE_ID as ""Log ID"", " &
+                          "a.STUDENT_ID as ""Student ID"", " &
+                          "s.LAST_NAME || ', ' || s.FIRST_NAME || ' ' || SUBSTR(s.MIDDLE_NAME, 1, 1) || '.' as ""Student Name"", " &
+                          "TO_CHAR(a.ATTENDANCE_DATE, 'DD/MM/YYYY') AS ""Date"", " &
+                          "TO_CHAR(a.TIME_IN, 'HH:MI AM') AS ""Time In"", " &
+                          "TO_CHAR(a.TIME_OUT, 'HH:MI AM') as ""Time Out"", " &
+                          "a.STATUS as ""Status"" " &
+                          "FROM TBL_ATTENDANCE a " &
+                          "JOIN TBL_STUDENT s ON a.STUDENT_ID = s.STUDENT_ID " &
+                          "WHERE a.STUDENT_ID = :studentId " &
+                          "ORDER BY a.ATTENDANCE_DATE DESC, a.TIME_IN DESC"
+
+        Using conn As New Oracle.ManagedDataAccess.Client.OracleConnection(connectionString)
+            Using cmd As New Oracle.ManagedDataAccess.Client.OracleCommand(query, conn)
+                cmd.Parameters.Add(":studentId", OracleDbType.Varchar2).Value = studentId
+                Dim adapter As New Oracle.ManagedDataAccess.Client.OracleDataAdapter(cmd)
+                Dim dt As New DataTable()
+                Try
+                    adapter.Fill(dt)
+                    DataGridView1.DataSource = dt
+                Catch ex As Exception
+                    MessageBox.Show("Error loading attendance data: " & ex.Message)
+                End Try
+            End Using
+        End Using
+
+        DataGridView1.Refresh()
     End Sub
 
 End Class

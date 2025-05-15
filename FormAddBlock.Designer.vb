@@ -661,6 +661,7 @@ Partial Class FormAddBlock
         ' TxtBlockID
         ' 
         TxtBlockID.BorderStyle = BorderStyle.None
+        TxtBlockID.Enabled = False
         TxtBlockID.Font = New Font("Arial", 11F)
         TxtBlockID.Location = New Point(13, 7)
         TxtBlockID.Name = "TxtBlockID"

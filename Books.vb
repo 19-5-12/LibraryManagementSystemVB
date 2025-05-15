@@ -65,15 +65,4 @@ Public Class Books
         LoadBooksData()
     End Sub
 
-    Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
-        Dim deleteForm As New FormDeleteBooks()
-        AddHandler deleteForm.BookDeleted, AddressOf BookDeletedHandler
-        deleteForm.ShowDialog()
-        RemoveHandler deleteForm.BookDeleted, AddressOf BookDeletedHandler
-    End Sub
-
-    Private Sub BookDeletedHandler(sender As Object, e As EventArgs)
-        LoadBooksData()
-    End Sub
-
 End Class

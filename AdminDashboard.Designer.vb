@@ -3,7 +3,7 @@ Partial Class AdminDashboard
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -69,9 +69,9 @@ Partial Class AdminDashboard
         Panel15 = New Panel()
         PnlSearch = New Panel()
         Panel16 = New Panel()
-        TxtSearch = New TextBox()
         Label10 = New Label()
         PnlChildForm = New Panel()
+        TxtStudentID = New TextBox()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
         TableLayoutPanel3.SuspendLayout()
@@ -111,8 +111,8 @@ Partial Class AdminDashboard
         ' TableLayoutPanel1
         ' 
         TableLayoutPanel1.ColumnCount = 2
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 85F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15.0F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 85.0F))
         TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 0, 0)
         TableLayoutPanel1.Controls.Add(TBLDashboard, 1, 0)
         TableLayoutPanel1.Dock = DockStyle.Fill
@@ -120,7 +120,7 @@ Partial Class AdminDashboard
         TableLayoutPanel1.Margin = New Padding(0)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 1
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel1.Size = New Size(1037, 661)
         TableLayoutPanel1.TabIndex = 0
         ' 
@@ -128,7 +128,7 @@ Partial Class AdminDashboard
         ' 
         TableLayoutPanel2.BackColor = Color.FromArgb(CByte(45), CByte(62), CByte(80))
         TableLayoutPanel2.ColumnCount = 1
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel2.Controls.Add(TableLayoutPanel3, 0, 0)
         TableLayoutPanel2.Controls.Add(TableLayoutPanel4, 0, 1)
         TableLayoutPanel2.Controls.Add(TBLAdmin, 0, 2)
@@ -137,9 +137,9 @@ Partial Class AdminDashboard
         TableLayoutPanel2.Margin = New Padding(0)
         TableLayoutPanel2.Name = "TableLayoutPanel2"
         TableLayoutPanel2.RowCount = 3
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 13F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 80F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 7F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 13.0F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 80.0F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 7.0F))
         TableLayoutPanel2.Size = New Size(155, 661)
         TableLayoutPanel2.TabIndex = 0
         ' 
@@ -147,7 +147,7 @@ Partial Class AdminDashboard
         ' 
         TableLayoutPanel3.BackColor = Color.FromArgb(CByte(35), CByte(50), CByte(64))
         TableLayoutPanel3.ColumnCount = 1
-        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel3.Controls.Add(Panel1, 0, 0)
         TableLayoutPanel3.Controls.Add(Panel2, 0, 1)
         TableLayoutPanel3.Dock = DockStyle.Fill
@@ -155,8 +155,8 @@ Partial Class AdminDashboard
         TableLayoutPanel3.Margin = New Padding(0)
         TableLayoutPanel3.Name = "TableLayoutPanel3"
         TableLayoutPanel3.RowCount = 2
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel3.Size = New Size(155, 85)
         TableLayoutPanel3.TabIndex = 0
         ' 
@@ -183,7 +183,7 @@ Partial Class AdminDashboard
         ' Label1
         ' 
         Label1.Dock = DockStyle.Fill
-        Label1.Font = New Font("Arial", 10F)
+        Label1.Font = New Font("Arial", 10.0F)
         Label1.ForeColor = Color.White
         Label1.Location = New Point(0, 0)
         Label1.Name = "Label1"
@@ -215,7 +215,7 @@ Partial Class AdminDashboard
         ' Label2
         ' 
         Label2.Dock = DockStyle.Fill
-        Label2.Font = New Font("Arial", 11F, FontStyle.Bold, GraphicsUnit.Pixel)
+        Label2.Font = New Font("Arial", 11.0F, FontStyle.Bold, GraphicsUnit.Pixel)
         Label2.ForeColor = Color.White
         Label2.Location = New Point(0, 0)
         Label2.Name = "Label2"
@@ -228,24 +228,24 @@ Partial Class AdminDashboard
         ' TableLayoutPanel4
         ' 
         TableLayoutPanel4.ColumnCount = 3
-        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 5F))
-        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 90F))
-        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 5F))
+        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 5.0F))
+        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 90.0F))
+        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 5.0F))
         TableLayoutPanel4.Controls.Add(TableLayoutPanel5, 1, 0)
         TableLayoutPanel4.Dock = DockStyle.Fill
         TableLayoutPanel4.Location = New Point(0, 85)
         TableLayoutPanel4.Margin = New Padding(0)
         TableLayoutPanel4.Name = "TableLayoutPanel4"
         TableLayoutPanel4.RowCount = 2
-        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 70F))
-        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 30F))
+        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 70.0F))
+        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 30.0F))
         TableLayoutPanel4.Size = New Size(155, 528)
         TableLayoutPanel4.TabIndex = 1
         ' 
         ' TableLayoutPanel5
         ' 
         TableLayoutPanel5.ColumnCount = 1
-        TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel5.Controls.Add(TableLayoutPanel6, 0, 1)
         TableLayoutPanel5.Controls.Add(Panel5, 0, 0)
         TableLayoutPanel5.Dock = DockStyle.Fill
@@ -253,15 +253,15 @@ Partial Class AdminDashboard
         TableLayoutPanel5.Margin = New Padding(0)
         TableLayoutPanel5.Name = "TableLayoutPanel5"
         TableLayoutPanel5.RowCount = 2
-        TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
-        TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
+        TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 10.0F))
+        TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 90.0F))
         TableLayoutPanel5.Size = New Size(139, 369)
         TableLayoutPanel5.TabIndex = 0
         ' 
         ' TableLayoutPanel6
         ' 
         TableLayoutPanel6.ColumnCount = 1
-        TableLayoutPanel6.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TableLayoutPanel6.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel6.Controls.Add(BtnMeeting, 0, 3)
         TableLayoutPanel6.Controls.Add(BtnMonitoring, 0, 2)
         TableLayoutPanel6.Controls.Add(BtnBooks, 0, 1)
@@ -285,7 +285,7 @@ Partial Class AdminDashboard
         BtnMeeting.BackgroundImageLayout = ImageLayout.Zoom
         BtnMeeting.Dock = DockStyle.Fill
         BtnMeeting.FlatStyle = FlatStyle.Flat
-        BtnMeeting.Font = New Font("Arial", 9F)
+        BtnMeeting.Font = New Font("Arial", 9.0F)
         BtnMeeting.ForeColor = Color.White
         BtnMeeting.ImageAlign = ContentAlignment.MiddleLeft
         BtnMeeting.Location = New Point(0, 165)
@@ -303,7 +303,7 @@ Partial Class AdminDashboard
         BtnMonitoring.BackgroundImageLayout = ImageLayout.Zoom
         BtnMonitoring.Dock = DockStyle.Fill
         BtnMonitoring.FlatStyle = FlatStyle.Flat
-        BtnMonitoring.Font = New Font("Arial", 9F)
+        BtnMonitoring.Font = New Font("Arial", 9.0F)
         BtnMonitoring.ForeColor = Color.White
         BtnMonitoring.ImageAlign = ContentAlignment.MiddleLeft
         BtnMonitoring.Location = New Point(0, 110)
@@ -321,7 +321,7 @@ Partial Class AdminDashboard
         BtnBooks.BackgroundImageLayout = ImageLayout.Zoom
         BtnBooks.Dock = DockStyle.Fill
         BtnBooks.FlatStyle = FlatStyle.Flat
-        BtnBooks.Font = New Font("Arial", 9F)
+        BtnBooks.Font = New Font("Arial", 9.0F)
         BtnBooks.ForeColor = Color.White
         BtnBooks.ImageAlign = ContentAlignment.MiddleLeft
         BtnBooks.Location = New Point(0, 55)
@@ -339,7 +339,7 @@ Partial Class AdminDashboard
         BtnDashboard.BackgroundImageLayout = ImageLayout.Zoom
         BtnDashboard.Dock = DockStyle.Fill
         BtnDashboard.FlatStyle = FlatStyle.Flat
-        BtnDashboard.Font = New Font("Arial", 9F)
+        BtnDashboard.Font = New Font("Arial", 9.0F)
         BtnDashboard.ForeColor = Color.White
         BtnDashboard.ImageAlign = ContentAlignment.MiddleLeft
         BtnDashboard.Location = New Point(0, 0)
@@ -365,7 +365,7 @@ Partial Class AdminDashboard
         ' Label3
         ' 
         Label3.Dock = DockStyle.Fill
-        Label3.Font = New Font("Arial", 8F)
+        Label3.Font = New Font("Arial", 8.0F)
         Label3.ForeColor = Color.LightGray
         Label3.Location = New Point(0, 0)
         Label3.Name = "Label3"
@@ -378,7 +378,7 @@ Partial Class AdminDashboard
         ' TBLAdmin
         ' 
         TBLAdmin.ColumnCount = 1
-        TBLAdmin.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TBLAdmin.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
         TBLAdmin.Controls.Add(Panel11, 0, 1)
         TBLAdmin.Controls.Add(Panel7, 0, 0)
         TBLAdmin.Dock = DockStyle.Fill
@@ -386,8 +386,8 @@ Partial Class AdminDashboard
         TBLAdmin.Margin = New Padding(0)
         TBLAdmin.Name = "TBLAdmin"
         TBLAdmin.RowCount = 2
-        TBLAdmin.RowStyles.Add(New RowStyle(SizeType.Absolute, 5F))
-        TBLAdmin.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TBLAdmin.RowStyles.Add(New RowStyle(SizeType.Absolute, 5.0F))
+        TBLAdmin.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TBLAdmin.Size = New Size(155, 48)
         TBLAdmin.TabIndex = 2
         ' 
@@ -412,14 +412,14 @@ Partial Class AdminDashboard
         TableLayoutPanel12.Margin = New Padding(0)
         TableLayoutPanel12.Name = "TableLayoutPanel12"
         TableLayoutPanel12.RowCount = 1
-        TableLayoutPanel12.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel12.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel12.Size = New Size(155, 43)
         TableLayoutPanel12.TabIndex = 3
         ' 
         ' TableLayoutPanel13
         ' 
         TableLayoutPanel13.ColumnCount = 1
-        TableLayoutPanel13.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel13.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel13.Controls.Add(Panel12, 0, 1)
         TableLayoutPanel13.Controls.Add(Panel13, 0, 0)
         TableLayoutPanel13.Dock = DockStyle.Fill
@@ -427,8 +427,8 @@ Partial Class AdminDashboard
         TableLayoutPanel13.Margin = New Padding(0)
         TableLayoutPanel13.Name = "TableLayoutPanel13"
         TableLayoutPanel13.RowCount = 2
-        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel13.Size = New Size(111, 43)
         TableLayoutPanel13.TabIndex = 0
         ' 
@@ -445,7 +445,7 @@ Partial Class AdminDashboard
         ' Label7
         ' 
         Label7.Dock = DockStyle.Fill
-        Label7.Font = New Font("Arial", 8F)
+        Label7.Font = New Font("Arial", 8.0F)
         Label7.ForeColor = Color.White
         Label7.Location = New Point(0, 0)
         Label7.Name = "Label7"
@@ -467,7 +467,7 @@ Partial Class AdminDashboard
         ' Label8
         ' 
         Label8.Dock = DockStyle.Fill
-        Label8.Font = New Font("Arial", 9F, FontStyle.Bold)
+        Label8.Font = New Font("Arial", 9.0F, FontStyle.Bold)
         Label8.ForeColor = Color.White
         Label8.Location = New Point(0, 0)
         Label8.Name = "Label8"
@@ -517,14 +517,14 @@ Partial Class AdminDashboard
         TableLayoutPanel10.Margin = New Padding(0)
         TableLayoutPanel10.Name = "TableLayoutPanel10"
         TableLayoutPanel10.RowCount = 1
-        TableLayoutPanel10.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel10.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel10.Size = New Size(155, 1)
         TableLayoutPanel10.TabIndex = 3
         ' 
         ' TableLayoutPanel11
         ' 
         TableLayoutPanel11.ColumnCount = 1
-        TableLayoutPanel11.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel11.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel11.Controls.Add(Panel9, 0, 1)
         TableLayoutPanel11.Controls.Add(Panel8, 0, 0)
         TableLayoutPanel11.Dock = DockStyle.Fill
@@ -532,8 +532,8 @@ Partial Class AdminDashboard
         TableLayoutPanel11.Margin = New Padding(0)
         TableLayoutPanel11.Name = "TableLayoutPanel11"
         TableLayoutPanel11.RowCount = 2
-        TableLayoutPanel11.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
-        TableLayoutPanel11.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel11.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel11.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel11.Size = New Size(111, 1)
         TableLayoutPanel11.TabIndex = 0
         ' 
@@ -550,7 +550,7 @@ Partial Class AdminDashboard
         ' Label6
         ' 
         Label6.Dock = DockStyle.Fill
-        Label6.Font = New Font("Arial", 8F)
+        Label6.Font = New Font("Arial", 8.0F)
         Label6.ForeColor = Color.White
         Label6.Location = New Point(0, 0)
         Label6.Name = "Label6"
@@ -572,7 +572,7 @@ Partial Class AdminDashboard
         ' Label5
         ' 
         Label5.Dock = DockStyle.Fill
-        Label5.Font = New Font("Arial", 9F, FontStyle.Bold)
+        Label5.Font = New Font("Arial", 9.0F, FontStyle.Bold)
         Label5.ForeColor = Color.White
         Label5.Location = New Point(0, 0)
         Label5.Name = "Label5"
@@ -604,7 +604,7 @@ Partial Class AdminDashboard
         ' TBLDashboard
         ' 
         TBLDashboard.ColumnCount = 1
-        TBLDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TBLDashboard.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
         TBLDashboard.Controls.Add(PanelTop, 0, 0)
         TBLDashboard.Controls.Add(PnlChildForm, 0, 1)
         TBLDashboard.Dock = DockStyle.Fill
@@ -612,8 +612,8 @@ Partial Class AdminDashboard
         TBLDashboard.Margin = New Padding(0)
         TBLDashboard.Name = "TBLDashboard"
         TBLDashboard.RowCount = 2
-        TBLDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 8F))
-        TBLDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 92F))
+        TBLDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 8.0F))
+        TBLDashboard.RowStyles.Add(New RowStyle(SizeType.Percent, 92.0F))
         TBLDashboard.Size = New Size(882, 661)
         TBLDashboard.TabIndex = 0
         ' 
@@ -631,9 +631,9 @@ Partial Class AdminDashboard
         ' 
         TableLayoutPanel9.BackColor = Color.WhiteSmoke
         TableLayoutPanel9.ColumnCount = 3
-        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 60F))
-        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20F))
-        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20F))
+        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 60.0F))
+        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20.0F))
+        TableLayoutPanel9.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20.0F))
         TableLayoutPanel9.Controls.Add(Panel17, 2, 0)
         TableLayoutPanel9.Controls.Add(LblAdminDashBoard, 0, 0)
         TableLayoutPanel9.Controls.Add(Panel15, 1, 0)
@@ -642,7 +642,7 @@ Partial Class AdminDashboard
         TableLayoutPanel9.Margin = New Padding(0)
         TableLayoutPanel9.Name = "TableLayoutPanel9"
         TableLayoutPanel9.RowCount = 1
-        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel9.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel9.Size = New Size(882, 52)
         TableLayoutPanel9.TabIndex = 0
         ' 
@@ -672,7 +672,7 @@ Partial Class AdminDashboard
         BtnAdd.BackgroundImageLayout = ImageLayout.Zoom
         BtnAdd.Dock = DockStyle.Fill
         BtnAdd.FlatStyle = FlatStyle.Flat
-        BtnAdd.Font = New Font("Arial", 11F)
+        BtnAdd.Font = New Font("Arial", 11.0F)
         BtnAdd.ForeColor = Color.White
         BtnAdd.ImageAlign = ContentAlignment.MiddleLeft
         BtnAdd.Location = New Point(0, 0)
@@ -688,7 +688,7 @@ Partial Class AdminDashboard
         ' LblAdminDashBoard
         ' 
         LblAdminDashBoard.Dock = DockStyle.Fill
-        LblAdminDashBoard.Font = New Font("Arial", 13F, FontStyle.Bold)
+        LblAdminDashBoard.Font = New Font("Arial", 13.0F, FontStyle.Bold)
         LblAdminDashBoard.ForeColor = Color.FromArgb(CByte(64), CByte(70), CByte(88))
         LblAdminDashBoard.Location = New Point(3, 0)
         LblAdminDashBoard.Name = "LblAdminDashBoard"
@@ -720,7 +720,7 @@ Partial Class AdminDashboard
         ' 
         ' Panel16
         ' 
-        Panel16.Controls.Add(TxtSearch)
+        Panel16.Controls.Add(TxtStudentID)
         Panel16.Controls.Add(Label10)
         Panel16.Dock = DockStyle.Fill
         Panel16.Location = New Point(0, 0)
@@ -729,20 +729,10 @@ Partial Class AdminDashboard
         Panel16.Size = New Size(174, 31)
         Panel16.TabIndex = 1
         ' 
-        ' TxtSearch
-        ' 
-        TxtSearch.BorderStyle = BorderStyle.None
-        TxtSearch.Font = New Font("Arial", 11F)
-        TxtSearch.Location = New Point(23, 9)
-        TxtSearch.Margin = New Padding(0)
-        TxtSearch.Name = "TxtSearch"
-        TxtSearch.Size = New Size(129, 17)
-        TxtSearch.TabIndex = 2
-        ' 
         ' Label10
         ' 
         Label10.AutoSize = True
-        Label10.Font = New Font("Arial", 12F)
+        Label10.Font = New Font("Arial", 12.0F)
         Label10.Location = New Point(2, 9)
         Label10.Name = "Label10"
         Label10.Size = New Size(26, 18)
@@ -759,9 +749,17 @@ Partial Class AdminDashboard
         PnlChildForm.Size = New Size(882, 609)
         PnlChildForm.TabIndex = 3
         ' 
+        ' TxtStudentID
+        ' 
+        TxtStudentID.BorderStyle = BorderStyle.FixedSingle
+        TxtStudentID.Location = New Point(23, 6)
+        TxtStudentID.Name = "TxtStudentID"
+        TxtStudentID.Size = New Size(151, 23)
+        TxtStudentID.TabIndex = 4
+        ' 
         ' AdminDashboard
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1037, 661)
         Controls.Add(TableLayoutPanel1)
@@ -850,10 +848,10 @@ Partial Class AdminDashboard
     Friend WithEvents Panel15 As Panel
     Friend WithEvents PnlSearch As Panel
     Friend WithEvents Panel16 As Panel
-    Friend WithEvents TxtSearch As TextBox
     Friend WithEvents Panel17 As Panel
     Friend WithEvents PnlBtnAdd As Panel
     Friend WithEvents BtnAdd As Button
     Friend WithEvents Label10 As Label
     Friend WithEvents BtnMeeting As Button
+    Friend WithEvents TxtStudentID As TextBox
 End Class

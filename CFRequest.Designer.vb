@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class CFBorrowing
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class CFRequests
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class CFBorrowing
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -29,12 +29,12 @@ Partial Class CFBorrowing
         TBLFill = New TableLayoutPanel()
         PnlBelow = New Panel()
         Panel8 = New Panel()
-        LblDateTimeBorrowing = New Label()
+        LblDateTimeRequests = New Label()
         Label4 = New Label()
         Panel7 = New Panel()
         LblDateTime = New Label()
         Label2 = New Label()
-        TBLPBorrowing = New TableLayoutPanel()
+        TBLPRequests = New TableLayoutPanel()
         Panel10 = New Panel()
         TBLTopOfData = New TableLayoutPanel()
         Label1 = New Label()
@@ -71,19 +71,12 @@ Partial Class CFBorrowing
         BtnRequest = New Button()
         PnlForBtnBorrowing = New Panel()
         BtnLog = New Button()
-        Panel6 = New Panel()
-        BtnDelete = New Button()
-        Panel4 = New Panel()
-        BtnModify = New Button()
-        Panel2 = New Panel()
-        BtnAdd = New Button()
-        Panel3 = New Panel()
         TimerDateTime = New Timer(components)
         TBLFill.SuspendLayout()
         PnlBelow.SuspendLayout()
         Panel8.SuspendLayout()
         Panel7.SuspendLayout()
-        TBLPBorrowing.SuspendLayout()
+        TBLPRequests.SuspendLayout()
         TBLTopOfData.SuspendLayout()
         PnlForData.SuspendLayout()
         PnlForDataGridView.SuspendLayout()
@@ -124,13 +117,13 @@ Partial Class CFBorrowing
         TBLFill.RowStyles.Add(New RowStyle(SizeType.Percent, 8.421053F))
         TBLFill.RowStyles.Add(New RowStyle(SizeType.Percent, 91.57895F))
         TBLFill.Size = New Size(967, 570)
-        TBLFill.TabIndex = 1
+        TBLFill.TabIndex = 2
         ' 
         ' PnlBelow
         ' 
         PnlBelow.Controls.Add(Panel8)
         PnlBelow.Controls.Add(Panel7)
-        PnlBelow.Controls.Add(TBLPBorrowing)
+        PnlBelow.Controls.Add(TBLPRequests)
         PnlBelow.Dock = DockStyle.Fill
         PnlBelow.Location = New Point(0, 48)
         PnlBelow.Margin = New Padding(0)
@@ -141,7 +134,7 @@ Partial Class CFBorrowing
         ' Panel8
         ' 
         Panel8.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        Panel8.Controls.Add(LblDateTimeBorrowing)
+        Panel8.Controls.Add(LblDateTimeRequests)
         Panel8.Controls.Add(Label4)
         Panel8.Location = New Point(227, 499)
         Panel8.Margin = New Padding(0)
@@ -149,16 +142,16 @@ Partial Class CFBorrowing
         Panel8.Size = New Size(556, 23)
         Panel8.TabIndex = 2
         ' 
-        ' LblDateTimeBorrowing
+        ' LblDateTimeRequests
         ' 
-        LblDateTimeBorrowing.Font = New Font("Arial", 8F)
-        LblDateTimeBorrowing.ForeColor = Color.Gray
-        LblDateTimeBorrowing.Location = New Point(369, 0)
-        LblDateTimeBorrowing.Name = "LblDateTimeBorrowing"
-        LblDateTimeBorrowing.Size = New Size(184, 23)
-        LblDateTimeBorrowing.TabIndex = 3
-        LblDateTimeBorrowing.Text = "time"
-        LblDateTimeBorrowing.TextAlign = ContentAlignment.MiddleLeft
+        LblDateTimeRequests.Font = New Font("Arial", 8F)
+        LblDateTimeRequests.ForeColor = Color.Gray
+        LblDateTimeRequests.Location = New Point(369, 0)
+        LblDateTimeRequests.Name = "LblDateTimeRequests"
+        LblDateTimeRequests.Size = New Size(184, 23)
+        LblDateTimeRequests.TabIndex = 3
+        LblDateTimeRequests.Text = "time"
+        LblDateTimeRequests.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' Label4
         ' 
@@ -176,10 +169,10 @@ Partial Class CFBorrowing
         Panel7.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Panel7.Controls.Add(LblDateTime)
         Panel7.Controls.Add(Label2)
-        Panel7.Location = New Point(227, 1567)
+        Panel7.Location = New Point(227, 1989)
         Panel7.Margin = New Padding(0)
         Panel7.Name = "Panel7"
-        Panel7.Size = New Size(2857, 23)
+        Panel7.Size = New Size(3624, 23)
         Panel7.TabIndex = 1
         ' 
         ' LblDateTime
@@ -204,24 +197,24 @@ Partial Class CFBorrowing
         Label2.Text = "© 2025 Quezon City University Library Management System | Current Time:"
         Label2.TextAlign = ContentAlignment.MiddleRight
         ' 
-        ' TBLPBorrowing
+        ' TBLPRequests
         ' 
-        TBLPBorrowing.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        TBLPBorrowing.AutoSize = True
-        TBLPBorrowing.BackColor = Color.White
-        TBLPBorrowing.ColumnCount = 1
-        TBLPBorrowing.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        TBLPBorrowing.Controls.Add(Panel10, 0, 1)
-        TBLPBorrowing.Controls.Add(TBLTopOfData, 0, 0)
-        TBLPBorrowing.Controls.Add(PnlForData, 0, 2)
-        TBLPBorrowing.Location = New Point(19, 23)
-        TBLPBorrowing.Name = "TBLPBorrowing"
-        TBLPBorrowing.RowCount = 3
-        TBLPBorrowing.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
-        TBLPBorrowing.RowStyles.Add(New RowStyle(SizeType.Absolute, 1F))
-        TBLPBorrowing.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
-        TBLPBorrowing.Size = New Size(931, 435)
-        TBLPBorrowing.TabIndex = 0
+        TBLPRequests.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        TBLPRequests.AutoSize = True
+        TBLPRequests.BackColor = Color.White
+        TBLPRequests.ColumnCount = 1
+        TBLPRequests.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TBLPRequests.Controls.Add(Panel10, 0, 1)
+        TBLPRequests.Controls.Add(TBLTopOfData, 0, 0)
+        TBLPRequests.Controls.Add(PnlForData, 0, 2)
+        TBLPRequests.Location = New Point(19, 23)
+        TBLPRequests.Name = "TBLPRequests"
+        TBLPRequests.RowCount = 3
+        TBLPRequests.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
+        TBLPRequests.RowStyles.Add(New RowStyle(SizeType.Absolute, 1F))
+        TBLPRequests.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
+        TBLPRequests.Size = New Size(931, 436)
+        TBLPRequests.TabIndex = 0
         ' 
         ' Panel10
         ' 
@@ -256,7 +249,7 @@ Partial Class CFBorrowing
         Label1.Name = "Label1"
         Label1.Size = New Size(925, 43)
         Label1.TabIndex = 0
-        Label1.Text = "List of Borrowed Books"
+        Label1.Text = "List of Requests"
         Label1.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' PnlForData
@@ -267,7 +260,7 @@ Partial Class CFBorrowing
         PnlForData.Location = New Point(0, 44)
         PnlForData.Margin = New Padding(0)
         PnlForData.Name = "PnlForData"
-        PnlForData.Size = New Size(931, 391)
+        PnlForData.Size = New Size(931, 392)
         PnlForData.TabIndex = 1
         ' 
         ' PnlForDataGridView
@@ -314,7 +307,6 @@ Partial Class CFBorrowing
         DataGridView1.Location = New Point(0, 0)
         DataGridView1.Margin = New Padding(0)
         DataGridView1.Name = "DataGridView1"
-        DataGridView1.ReadOnly = True
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -322,7 +314,6 @@ Partial Class CFBorrowing
         DataGridViewCellStyle3.SelectionForeColor = Color.DarkSlateGray
         DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle3
         DataGridView1.RowTemplate.Height = 40
-        DataGridView1.RowTemplate.ReadOnly = True
         DataGridView1.RowTemplate.Resizable = DataGridViewTriState.False
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridView1.Size = New Size(881, 352)
@@ -687,80 +678,21 @@ Partial Class CFBorrowing
         BtnLog.Text = "Borrowing Logs"
         BtnLog.UseVisualStyleBackColor = False
         ' 
-        ' Panel6
-        ' 
-        Panel6.Location = New Point(0, 0)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(200, 100)
-        Panel6.TabIndex = 0
-        ' 
-        ' BtnDelete
-        ' 
-        BtnDelete.Location = New Point(0, 0)
-        BtnDelete.Name = "BtnDelete"
-        BtnDelete.Size = New Size(75, 23)
-        BtnDelete.TabIndex = 0
-        ' 
-        ' Panel4
-        ' 
-        Panel4.Dock = DockStyle.Fill
-        Panel4.Location = New Point(186, 3)
-        Panel4.Name = "Panel4"
-        Panel4.Size = New Size(74, 42)
-        Panel4.TabIndex = 2
-        ' 
-        ' BtnModify
-        ' 
-        BtnModify.Location = New Point(0, 0)
-        BtnModify.Name = "BtnModify"
-        BtnModify.Size = New Size(75, 23)
-        BtnModify.TabIndex = 0
-        ' 
-        ' Panel2
-        ' 
-        Panel2.Dock = DockStyle.Fill
-        Panel2.Location = New Point(270, 3)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(74, 42)
-        Panel2.TabIndex = 0
-        ' 
-        ' BtnAdd
-        ' 
-        BtnAdd.BackColor = Color.FromArgb(CByte(44), CByte(80), CByte(126))
-        BtnAdd.Dock = DockStyle.Fill
-        BtnAdd.FlatStyle = FlatStyle.Flat
-        BtnAdd.Font = New Font("Arial", 11F, FontStyle.Bold)
-        BtnAdd.ForeColor = Color.White
-        BtnAdd.Location = New Point(0, 0)
-        BtnAdd.Margin = New Padding(0)
-        BtnAdd.Name = "BtnAdd"
-        BtnAdd.Size = New Size(98, 38)
-        BtnAdd.TabIndex = 1
-        BtnAdd.Text = "➕ Add"
-        BtnAdd.UseVisualStyleBackColor = False
-        ' 
-        ' Panel3
-        ' 
-        Panel3.Dock = DockStyle.Fill
-        Panel3.Location = New Point(3, 3)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(10, 42)
-        Panel3.TabIndex = 1
-        ' 
-        ' CFBorrowing
+        ' CFRequests
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(967, 570)
         Controls.Add(TBLFill)
-        Name = "CFBorrowing"
-        Text = "CFBorrowing"
+        Name = "CFRequests"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "FormDeleteBooks"
         TBLFill.ResumeLayout(False)
         PnlBelow.ResumeLayout(False)
         PnlBelow.PerformLayout()
         Panel8.ResumeLayout(False)
         Panel7.ResumeLayout(False)
-        TBLPBorrowing.ResumeLayout(False)
+        TBLPRequests.ResumeLayout(False)
         TBLTopOfData.ResumeLayout(False)
         PnlForData.ResumeLayout(False)
         PnlForData.PerformLayout()
@@ -792,49 +724,41 @@ Partial Class CFBorrowing
     Friend WithEvents TBLFill As TableLayoutPanel
     Friend WithEvents PnlBelow As Panel
     Friend WithEvents Panel8 As Panel
-    Friend WithEvents LblDateTimeBorrowing As Label
+    Friend WithEvents LblDateTimeRequests As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel7 As Panel
     Friend WithEvents LblDateTime As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents TBLPBorrowing As TableLayoutPanel
+    Friend WithEvents TBLPRequests As TableLayoutPanel
+    Friend WithEvents Panel10 As Panel
     Friend WithEvents TBLTopOfData As TableLayoutPanel
     Friend WithEvents Label1 As Label
     Friend WithEvents PnlForData As Panel
     Friend WithEvents PnlForDataGridView As Panel
-    Friend WithEvents TimerDateTime As Timer
-    Friend WithEvents Panel10 As Panel
+    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Panel1 As Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents BtnDelete As Button
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents BtnModify As Button
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents BtnAdd As Button
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents Panel14 As Panel
     Friend WithEvents ComboSearchDate As ComboBox
-    Friend WithEvents DateTimePickerStart As DateTimePicker
-    Friend WithEvents DateTimePickerEnd As DateTimePicker
-    Friend WithEvents PnlDateStart As Panel
+    Friend WithEvents Panel9 As Panel
     Friend WithEvents PnlDateEnd As Panel
-    Friend WithEvents BtnViewStats As Button
     Friend WithEvents TableLayoutPanel21 As TableLayoutPanel
     Friend WithEvents Panel12 As Panel
-    Friend WithEvents Panel13 As Panel
     Friend WithEvents Label5 As Label
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
-    Friend WithEvents Panel9 As Panel
-    Friend WithEvents Panel11 As Panel
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Panel14 As Panel
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents Panel13 As Panel
+    Friend WithEvents DateTimePickerEnd As DateTimePicker
     Friend WithEvents PnlViewStatistics As Panel
+    Friend WithEvents BtnViewStats As Button
+    Friend WithEvents Panel11 As Panel
+    Friend WithEvents PnlDateStart As Panel
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents Panel15 As Panel
+    Friend WithEvents Label3 As Label
     Friend WithEvents Panel16 As Panel
+    Friend WithEvents DateTimePickerStart As DateTimePicker
     Friend WithEvents Panel17 As Panel
+    Friend WithEvents Panel5 As Panel
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
     Friend WithEvents PnlForBtnBlock As Panel
     Friend WithEvents BtnExtend As Button
@@ -842,4 +766,5 @@ Partial Class CFBorrowing
     Friend WithEvents BtnRequest As Button
     Friend WithEvents PnlForBtnBorrowing As Panel
     Friend WithEvents BtnLog As Button
+    Friend WithEvents TimerDateTime As Timer
 End Class

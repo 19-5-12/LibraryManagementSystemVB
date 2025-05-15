@@ -6,6 +6,12 @@
     Private ReadOnly DefaultColor As Color = ColorTranslator.FromHtml("#2d3e50")
     Private BtnCurrentlyHighlighted As Button
 
+    Public Event StudentIDSearchChanged(studentId As String)
+
+    Public Sub UpdateDashboardLabel(text As String)
+        LblAdminDashBoard.Text = text
+    End Sub
+
     Private Sub AdminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Style sidebar buttons
         Dim sidebarButtons As Button() = {
@@ -28,10 +34,6 @@
         TBLAdmin.Controls.Add(line, 0, 0)
         TBLAdmin.SetColumnSpan(line, TBLAdmin.ColumnCount)
 
-        ' Setup search panel
-        TxtSearch.Text = "Search..."
-        TxtSearch.ForeColor = Color.Gray
-
         AddHandler PnlSearch.Paint, AddressOf PnlSearch_Paint
         AddHandler PnlSearch.Resize, Sub() PnlSearch.Invalidate()
 
@@ -43,20 +45,15 @@
         AddShadowBetweenRows(TBLDashboard, 0, 1)
 
         ' Load default child form
-        ChildForm(New CFDashboard())
+        Dim dash As New CFDashboard()
+        AddHandler Me.StudentIDSearchChanged, AddressOf dash.FilterByStudentID
+        ChildForm(dash)
         BtnCurrentlyHighlighted = BtnDashboard
         HighlightButton(BtnDashboard)
 
         ApplyCursorHand(BtnAdd)
-        PnlSearch.Hide()
 
-    End Sub
-
-    Private Sub AdminDashboard_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        If String.IsNullOrWhiteSpace(TxtSearch.Text) Then
-            TxtSearch.Text = "Search..."
-            TxtSearch.ForeColor = Color.Gray
-        End If
+        SetupPlaceholder(TxtStudentID, "Search with Student ID")
     End Sub
 
     ' ---------------- Sidebar Button Styling ----------------
@@ -114,20 +111,6 @@
     End Sub
 
     ' ---------------- Search Field ----------------
-    Private Sub TxtSearch_GotFocus(sender As Object, e As EventArgs) Handles TxtSearch.GotFocus
-        If TxtSearch.Text = "Search..." Then
-            TxtSearch.Text = ""
-            TxtSearch.ForeColor = Color.Black
-        End If
-    End Sub
-
-    Private Sub TxtSearch_LostFocus(sender As Object, e As EventArgs) Handles TxtSearch.LostFocus
-        If TxtSearch.Text = "" Then
-            TxtSearch.Text = "Search..."
-            TxtSearch.ForeColor = Color.Gray
-        End If
-    End Sub
-
     Private Sub PnlSearch_Paint(sender As Object, e As PaintEventArgs)
         Dim radius As Integer = PnlSearch.Height \ 2
         Dim path As New Drawing2D.GraphicsPath()
@@ -156,7 +139,7 @@
         childForm.Show()
     End Sub
 
-    Private Sub ReportChildForm(childForm As Form)
+    Public Sub ReportChildForm(childForm As Form)
         TBLDashboard.Controls.Clear()
         TBLDashboard.RowStyles.Clear()
         TBLDashboard.RowCount = 1
@@ -174,6 +157,7 @@
 
         childForm.Show()
     End Sub
+
 
 
     Private Sub RestoreDashboard()
@@ -232,16 +216,17 @@
         Panel17.Show()
     End Sub
 
-    Private Sub BtnMeeting_Click(sender As Object, e As EventArgs)
+    Private Sub BtnMeeting_Click_1(sender As Object, e As EventArgs) Handles BtnMeeting.Click
         ChildForm(New CFMeetingRooms)
         BtnCurrentlyHighlighted = BtnMeeting
         HighlightButton(BtnMeeting)
-        LblAdminDashBoard.Text = "Room Availability"
+        LblAdminDashBoard.Text = "Meeting Rooms"
         HideSearchAddBtn()
     End Sub
 
     Private Sub BtnBorrowing_Click(sender As Object, e As EventArgs) Handles BtnMonitoring.Click
-        ChildForm(New CFBorrowing())
+        Dim monitorForm As New CFMonitoring(Me)
+        ChildForm(monitorForm)
         BtnCurrentlyHighlighted = BtnMonitoring
         HighlightButton(BtnMonitoring)
         LblAdminDashBoard.Text = "Monitoring"
@@ -271,7 +256,11 @@
         Next
     End Sub
 
-    Private Sub BtnMeeting_Click_1(sender As Object, e As EventArgs) Handles BtnMeeting.Click
-
+    Private Sub TxtStudentID_TextChanged(sender As Object, e As EventArgs) Handles TxtStudentID.TextChanged
+        ' Only raise the event if the text is not the placeholder
+        If TxtStudentID.Text <> "Search with Student ID" Then
+            RaiseEvent StudentIDSearchChanged(TxtStudentID.Text.Trim())
+        End If
     End Sub
+
 End Class

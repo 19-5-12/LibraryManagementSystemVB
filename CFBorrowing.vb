@@ -1,15 +1,32 @@
 ﻿Imports Oracle.ManagedDataAccess.Client
 
 Public Class CFBorrowing
+    Private SelectedStartDate As Date?
+    Private SelectedEndDate As Date?
+
     Private Sub CFBorrowing_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim CRUDBtns As Button() = {BtnAdd, BtnModify, BtnDelete}
+        Dim CRUDBtns As Button() = {BtnViewStats}
         SetupFormUI(CRUDBtns, DataGridView1, TimerDateTime, LblDateTimeBorrowing, AddressOf LoadBorrowingData)
 
-
         TBLPBorrowing.Padding = New Padding(3)
+
+        ' Initialize date pickers
+        DateTimePickerStart.MaxDate = DateTime.Today
+        DateTimePickerEnd.MaxDate = DateTime.Today
+
+        ' Hide date panels initially
+        PnlDateStart.Visible = False
+        PnlDateEnd.Visible = False
+
+        ' Setup ComboSearchDate
+        ComboSearchDate.Items.Insert(0, "Select Date Range")
+        ComboSearchDate.SelectedIndex = 0
+
+        ' Show all records on load
+        LoadBorrowingData()
     End Sub
 
-    Private Sub LoadBorrowingData()
+    Private Sub LoadBorrowingData(Optional filterByDate As Boolean = False)
         Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
 
         Using conn As New OracleConnection(connectionString)
@@ -72,10 +89,20 @@ Public Class CFBorrowing
                 b.STATUS AS ""Status""
                 FROM TBL_BORROWING b
                 JOIN TBL_STUDENT s ON b.USER_ID = s.STUDENT_ID
-                JOIN TBL_BOOKS bo ON b.BOOK_ID = bo.BOOK_ID
-                ORDER BY b.BORROW_DATE DESC"
+                JOIN TBL_BOOKS bo ON b.BOOK_ID = bo.BOOK_ID"
+
+            If filterByDate AndAlso SelectedStartDate.HasValue AndAlso SelectedEndDate.HasValue Then
+                selectQuery &= " WHERE b.BORROW_DATE BETWEEN :startDate AND :endDate"
+            End If
+
+            selectQuery &= " ORDER BY b.BORROW_DATE DESC"
 
             Using cmd As New OracleCommand(selectQuery, conn)
+                If filterByDate AndAlso SelectedStartDate.HasValue AndAlso SelectedEndDate.HasValue Then
+                    cmd.Parameters.Add(":startDate", OracleDbType.Date).Value = SelectedStartDate.Value
+                    cmd.Parameters.Add(":endDate", OracleDbType.Date).Value = SelectedEndDate.Value
+                End If
+
                 Dim adapter As New OracleDataAdapter(cmd)
                 Dim dt As New DataTable()
                 adapter.Fill(dt)
@@ -88,36 +115,86 @@ Public Class CFBorrowing
         StyleShadowPanel(CType(sender, Panel), e)
     End Sub
 
-    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
-        Dim addForm As New FormAddBorrowing()
-        AddHandler addForm.BorrowAdded, AddressOf BorrowAddedHandler
-        addForm.ShowDialog()
-        RemoveHandler addForm.BorrowAdded, AddressOf BorrowAddedHandler
+    Private Sub BtnViewStats_Click(sender As Object, e As EventArgs) Handles BtnViewStats.Click
+        If ComboSearchDate.SelectedItem IsNot Nothing AndAlso ComboSearchDate.SelectedItem.ToString = "Custom Range" Then
+            SelectedStartDate = DateTimePickerStart.Value.Date
+            SelectedEndDate = DateTimePickerEnd.Value.Date
+        End If
+
+        If SelectedStartDate.HasValue AndAlso SelectedEndDate.HasValue Then
+            LoadBorrowingData(True)
+        Else
+            MessageBox.Show("Please select a valid date range first.")
+        End If
     End Sub
 
-    Private Sub BorrowAddedHandler(sender As Object, e As EventArgs)
-        LoadBorrowingData()
+    Private Sub ComboSearchDate_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboSearchDate.SelectedIndexChanged
+        If ComboSearchDate.SelectedIndex = 0 Then
+            SelectedStartDate = Nothing
+            SelectedEndDate = Nothing
+            PnlDateStart.Visible = False
+            PnlDateEnd.Visible = False
+            LoadBorrowingData() ' Show all records
+            Exit Sub
+        End If
+
+        Dim startDate As Date
+        Dim endDate = Date.Today
+
+        Select Case ComboSearchDate.SelectedItem.ToString
+            Case "Today"
+                startDate = Date.Today
+                PnlDateStart.Visible = False
+                PnlDateEnd.Visible = False
+            Case "This Week"
+                startDate = Date.Today.AddDays(-CInt(Date.Today.DayOfWeek))
+                PnlDateStart.Visible = False
+                PnlDateEnd.Visible = False
+            Case "This Month"
+                startDate = New Date(Date.Today.Year, Date.Today.Month, 1)
+                endDate = startDate.AddMonths(1).AddDays(-1)
+                PnlDateStart.Visible = False
+                PnlDateEnd.Visible = False
+            Case "This Year"
+                startDate = New Date(Date.Today.Year, 1, 1)
+                endDate = New Date(Date.Today.Year, 12, 31)
+                PnlDateStart.Visible = False
+                PnlDateEnd.Visible = False
+            Case "Custom Range"
+                PnlDateStart.Visible = True
+                PnlDateEnd.Visible = True
+                Exit Sub
+            Case Else
+                Exit Sub
+        End Select
+
+        SelectedStartDate = startDate
+        SelectedEndDate = endDate
+        LoadBorrowingData(True) ' Apply the filter immediately
     End Sub
 
-    Private Sub BtnModify_Click(sender As Object, e As EventArgs) Handles BtnModify.Click
-        Dim modifyForm As New FormModifyBorrowing()
-        AddHandler modifyForm.BorrowModified, AddressOf BorrowModifiedHandler
-        modifyForm.ShowDialog()
-        RemoveHandler modifyForm.BorrowModified, AddressOf BorrowModifiedHandler
+    Private Sub BtnRequest_Click(sender As Object, e As EventArgs) Handles BtnRequest.Click
+        ' Find the parent CFMonitoring form
+        Dim parentForm = Me.Parent
+        While parentForm IsNot Nothing AndAlso Not TypeOf parentForm Is CFMonitoring
+            parentForm = parentForm.Parent
+        End While
+
+        If TypeOf parentForm Is CFMonitoring Then
+            CType(parentForm, CFMonitoring).ChildForm(New CFRequests())
+            CType(parentForm, CFMonitoring).UpdateDashboardLabel("Requests Monitoring")
+        End If
     End Sub
 
-    Private Sub BorrowModifiedHandler(sender As Object, e As EventArgs)
-        LoadBorrowingData()
-    End Sub
+    Private Sub BtnExtend_Click(sender As Object, e As EventArgs) Handles BtnExtend.Click
+        Dim parentForm = Me.Parent
+        While parentForm IsNot Nothing AndAlso Not TypeOf parentForm Is CFMonitoring
+            parentForm = parentForm.Parent
+        End While
 
-    Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
-        Dim deleteForm As New FormDeleteBorrowing()
-        AddHandler deleteForm.BookDeleted, AddressOf BorrowDeletedHandler
-        deleteForm.ShowDialog()
-        RemoveHandler deleteForm.BookDeleted, AddressOf BorrowDeletedHandler
-    End Sub
-
-    Private Sub BorrowDeletedHandler(sender As Object, e As EventArgs)
-        LoadBorrowingData()
+        If TypeOf parentForm Is CFMonitoring Then
+            CType(parentForm, CFMonitoring).ChildForm(New CFExtend())
+            CType(parentForm, CFMonitoring).UpdateDashboardLabel("Borrowing Extention Monitoring")
+        End If
     End Sub
 End Class

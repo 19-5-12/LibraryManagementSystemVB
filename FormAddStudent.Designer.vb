@@ -255,6 +255,7 @@ Partial Class FormAddStudent
         ComboStatus.BackColor = Color.White
         ComboStatus.Dock = DockStyle.Fill
         ComboStatus.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboStatus.Enabled = False
         ComboStatus.FlatStyle = FlatStyle.Flat
         ComboStatus.Font = New Font("Arial", 11F)
         ComboStatus.FormattingEnabled = True
@@ -336,6 +337,7 @@ Partial Class FormAddStudent
         ' 
         DTPTimeIn.CalendarMonthBackground = Color.White
         DTPTimeIn.Dock = DockStyle.Fill
+        DTPTimeIn.Enabled = False
         DTPTimeIn.Font = New Font("Arial", 11F)
         DTPTimeIn.Format = DateTimePickerFormat.Time
         DTPTimeIn.Location = New Point(10, 5)
@@ -415,6 +417,7 @@ Partial Class FormAddStudent
         ' 
         DTPDate.CalendarMonthBackground = Color.White
         DTPDate.Dock = DockStyle.Fill
+        DTPDate.Enabled = False
         DTPDate.Font = New Font("Arial", 11F)
         DTPDate.Format = DateTimePickerFormat.Short
         DTPDate.Location = New Point(10, 5)
@@ -571,6 +574,7 @@ Partial Class FormAddStudent
         ' TxtAttendanceID
         ' 
         TxtAttendanceID.BorderStyle = BorderStyle.None
+        TxtAttendanceID.Enabled = False
         TxtAttendanceID.Font = New Font("Arial", 11F)
         TxtAttendanceID.Location = New Point(13, 7)
         TxtAttendanceID.Name = "TxtAttendanceID"

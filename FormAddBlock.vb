@@ -18,7 +18,7 @@ Public Class FormAddBlock
         Next
         PnlFill.Padding = New Padding(10)
 
-        SetupPlaceholder(TxtBlockID, "Enter Block ID")
+        SetupPlaceholder(TxtBlockID, "Automatic")
         SetupPlaceholder(TxtStudentID, "Enter Student ID")
         SetupPlaceholder(TxtReason, "Enter Reason")
 

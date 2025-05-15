@@ -82,7 +82,7 @@ Public Class Block
     End Sub
 
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
-        Dim addForm As New FormDeleteBlock()
+        Dim addForm As New CFExtend()
         AddHandler addForm.BlockDeleted, AddressOf BlockDeleteHandler
         addForm.ShowDialog()
         RemoveHandler addForm.BlockDeleted, AddressOf BlockDeleteHandler

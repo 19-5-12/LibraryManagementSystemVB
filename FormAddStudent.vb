@@ -6,9 +6,12 @@ Public Class FormAddStudent
     Private Sub FormAddStudent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         roundedPanels.Clear()
 
-        ComboStatus.Items.Insert(0, "Select Status")
+        ' Set default status based on current time
+        SetDefaultStatus()
         ComboStatus.SelectedIndex = 0
 
+        ' Set date to current date
+        DTPDate.Value = DateTime.Now.Date
         DTPDate.MaxDate = DateTime.Now.Date
 
         Dim paddedPanels = {PnlBorderBookID, PnlBorderBorrowID, PnlBorderStudentID, PnlBorderBorrowedDate,
@@ -18,8 +21,10 @@ Public Class FormAddStudent
         Next
         PnlFill.Padding = New Padding(10)
 
-        SetupPlaceholder(TxtAttendanceID, "Enter Attendance ID")
-        SetupPlaceholder(TxtStudentID, "Enter Student ID")
+        ' Generate and set Attendance ID
+        GenerateAttendanceID()
+        TxtAttendanceID.ReadOnly = True
+        UIHelpers.SetupPlaceholder(TxtStudentID, "Enter Student ID")
 
         roundedPanels.Add(PnlFill, 20)
         roundedPanels.Add(PnlBorderBorrowID, 5)
@@ -28,9 +33,33 @@ Public Class FormAddStudent
         roundedPanels.Add(PnlBorderBorrowedDate, 5)
         roundedPanels.Add(PnlBorderDueDate, 5)
 
+        ' Set up time picker
         DTPTimeIn.Format = DateTimePickerFormat.Time
         DTPTimeIn.ShowUpDown = True
         DTPTimeIn.Value = DateTime.Now
+
+        ' Make fields read-only except Student ID
+        DTPDate.Enabled = False
+        DTPTimeIn.Enabled = False
+        ComboStatus.Enabled = False
+    End Sub
+
+    Private Sub SetDefaultStatus()
+        ' Clear existing items
+        ComboStatus.Items.Clear()
+
+        ' Add the two possible statuses
+        ComboStatus.Items.Add("Currently In")
+        ComboStatus.Items.Add("Timed Out")
+
+        ' Set default based on current time
+        ' Assuming library hours are 8 AM to 5 PM
+        Dim currentHour = DateTime.Now.Hour
+        If currentHour >= 8 AndAlso currentHour < 17 Then
+            ComboStatus.SelectedIndex = 0 ' Currently In
+        Else
+            ComboStatus.SelectedIndex = 1 ' Timed Out
+        End If
     End Sub
 
     Private Sub Panel_Paint(sender As Object, e As PaintEventArgs) Handles PnlFill.Paint, PnlBorderBookID.Paint,
@@ -50,22 +79,27 @@ Public Class FormAddStudent
         BtnAddAttendance.Focus()
     End Sub
 
+    Private Sub GenerateAttendanceID()
+        Dim connStr As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
+        Try
+            Using conn As New OracleConnection(connStr)
+                conn.Open()
+                Dim query As String = "SELECT NVL(MAX(ATTENDANCE_ID), 0) + 1 FROM TBL_ATTENDANCE"
+                Using cmd As New OracleCommand(query, conn)
+                    Dim newID As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                    TxtAttendanceID.Text = newID.ToString()
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error generating Attendance ID: " & ex.Message)
+            TxtAttendanceID.Text = "0" ' Set a default value if there's an error
+        End Try
+    End Sub
+
     Private Function ValidateInputs() As Boolean
         If Not IsNumeric(TxtStudentID.Text) Then
             MessageBox.Show("Please enter a valid Student ID.")
             TxtStudentID.Focus()
-            Return False
-        End If
-
-        If ComboStatus.SelectedIndex = 0 Then
-            MessageBox.Show("Please select a valid status.")
-            ComboStatus.Focus()
-            Return False
-        End If
-
-        If DTPDate.Value.Date <> DTPTimeIn.Value.Date Then
-            MessageBox.Show("Date and Time In must be on the same day.")
-            DTPTimeIn.Focus()
             Return False
         End If
 
@@ -74,7 +108,7 @@ Public Class FormAddStudent
 
     Private Function InsertAttendanceRecord() As Boolean
         Dim connStr As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
-        Dim status As String = ComboStatus.SelectedItem.ToString()
+        Dim status As String = ComboStatus.SelectedItem.ToString() ' Get the selected status
 
         Try
             Using conn As New OracleConnection(connStr)
@@ -105,10 +139,8 @@ Public Class FormAddStudent
                 Using cmd As New OracleCommand(insertSql, conn)
                     cmd.Parameters.Add(":attendance_id", OracleDbType.Int32).Value = Integer.Parse(TxtAttendanceID.Text)
                     cmd.Parameters.Add(":student_id", OracleDbType.Int32).Value = Integer.Parse(TxtStudentID.Text)
-                    cmd.Parameters.Add(":attendance_date", OracleDbType.Date).Value = DTPDate.Value.Date
-
-                    Dim fullDateTime As DateTime = DTPDate.Value.Date + DTPTimeIn.Value.TimeOfDay
-                    cmd.Parameters.Add(":time_in", OracleDbType.TimeStamp).Value = fullDateTime
+                    cmd.Parameters.Add(":attendance_date", OracleDbType.Date).Value = DateTime.Now.Date
+                    cmd.Parameters.Add(":time_in", OracleDbType.TimeStamp).Value = DateTime.Now
                     cmd.Parameters.Add(":status", OracleDbType.Varchar2).Value = status
 
                     Dim result = cmd.ExecuteNonQuery()

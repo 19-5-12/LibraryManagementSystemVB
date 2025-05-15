@@ -302,4 +302,17 @@ Module UIHelpers
                                      End Sub
     End Sub
 
+    Public Sub CornerRadius(btn As Button)
+        Dim radius As Integer = 10 ' Adjust for more or less roundness
+        Dim path As New GraphicsPath()
+        path.StartFigure()
+        path.AddArc(New Rectangle(0, 0, radius, radius), 180, 90)
+        path.AddArc(New Rectangle(btn.Width - radius, 0, radius, radius), 270, 90)
+        path.AddArc(New Rectangle(btn.Width - radius, btn.Height - radius, radius, radius), 0, 90)
+        path.AddArc(New Rectangle(0, btn.Height - radius, radius, radius), 90, 90)
+        path.CloseFigure()
+
+        btn.Region = New Region(path)
+    End Sub
+
 End Module

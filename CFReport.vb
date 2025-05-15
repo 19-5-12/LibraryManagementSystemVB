@@ -12,6 +12,16 @@ Public Class CFReport
         ComboSearchDate.Items.Insert(0, "Select Date Range")
         ComboSearchDate.SelectedIndex = 0
 
+        ' Hide date panels initially
+        PnlDateStart.Visible = False
+        PnlDateEnd.Visible = False
+
+        ' Hide date labels initially
+        LblDateBorrowingStatistics.Text = ""
+        LblDatePopularCategories.Text = ""
+        LblDateUserActivity.Text = ""
+        LblDateMeetingRoomUsage.Text = ""
+
         roundedPanels.Clear()
 
         Dim paddedPanels = {PnlBorrowingStatistics, PnlPopularCategories, PNLUserActivity, PnlMeetingRoomUsage, PnlDateStart, PnlDateEnd}
@@ -143,7 +153,7 @@ Public Class CFReport
         End If
 
         If SelectedStartDate.HasValue AndAlso SelectedEndDate.HasValue Then
-            UpdateDateLabels() ' Add this line
+            UpdateDateLabels()
             LoadStats(SelectedStartDate.Value, SelectedEndDate.Value)
         Else
             MessageBox.Show("Please select a valid date range first.")
@@ -165,14 +175,22 @@ Public Class CFReport
         Select Case ComboSearchDate.SelectedItem.ToString()
             Case "Today"
                 startDate = Date.Today
+                PnlDateStart.Visible = False
+                PnlDateEnd.Visible = False
             Case "This Week"
                 startDate = Date.Today.AddDays(-CInt(Date.Today.DayOfWeek))
+                PnlDateStart.Visible = False
+                PnlDateEnd.Visible = False
             Case "This Month"
                 startDate = New Date(Date.Today.Year, Date.Today.Month, 1)
                 endDate = startDate.AddMonths(1).AddDays(-1)
+                PnlDateStart.Visible = False
+                PnlDateEnd.Visible = False
             Case "This Year"
                 startDate = New Date(Date.Today.Year, 1, 1)
                 endDate = New Date(Date.Today.Year, 12, 31)
+                PnlDateStart.Visible = False
+                PnlDateEnd.Visible = False
             Case "Custom Range"
                 PnlDateStart.Visible = True
                 PnlDateEnd.Visible = True
@@ -183,10 +201,6 @@ Public Class CFReport
 
         SelectedStartDate = startDate
         SelectedEndDate = endDate
-        PnlDateStart.Visible = False
-        PnlDateEnd.Visible = False
-
-        UpdateDateLabels()
     End Sub
 
     Private Sub UpdatePopularCategoryBars()

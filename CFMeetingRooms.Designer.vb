@@ -29,14 +29,25 @@ Partial Class CFMeetingRooms
         TBLFill = New TableLayoutPanel()
         Panel1 = New Panel()
         TableLayoutPanel1 = New TableLayoutPanel()
-        Panel5 = New Panel()
         TableLayoutPanel2 = New TableLayoutPanel()
+        Panel14 = New Panel()
+        ComboSearchDate = New ComboBox()
+        Panel5 = New Panel()
+        PnlDateEnd = New Panel()
+        TableLayoutPanel21 = New TableLayoutPanel()
+        Panel12 = New Panel()
+        Label5 = New Label()
+        Panel13 = New Panel()
+        DateTimePickerEnd = New DateTimePicker()
+        PnlViewStatistics = New Panel()
+        BtnViewStats = New Button()
         Panel6 = New Panel()
-        BtnDelete = New Button()
-        Panel4 = New Panel()
-        BtnModify = New Button()
-        Panel2 = New Panel()
-        BtnAdd = New Button()
+        PnlDateStart = New Panel()
+        TableLayoutPanel3 = New TableLayoutPanel()
+        Panel9 = New Panel()
+        Label3 = New Label()
+        Panel11 = New Panel()
+        DateTimePickerStart = New DateTimePicker()
         Panel3 = New Panel()
         PnlBelow = New Panel()
         Panel8 = New Panel()
@@ -57,9 +68,18 @@ Partial Class CFMeetingRooms
         Panel1.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
+        Panel14.SuspendLayout()
+        Panel5.SuspendLayout()
+        PnlDateEnd.SuspendLayout()
+        TableLayoutPanel21.SuspendLayout()
+        Panel12.SuspendLayout()
+        Panel13.SuspendLayout()
+        PnlViewStatistics.SuspendLayout()
         Panel6.SuspendLayout()
-        Panel4.SuspendLayout()
-        Panel2.SuspendLayout()
+        PnlDateStart.SuspendLayout()
+        TableLayoutPanel3.SuspendLayout()
+        Panel9.SuspendLayout()
+        Panel11.SuspendLayout()
         PnlBelow.SuspendLayout()
         Panel8.SuspendLayout()
         Panel7.SuspendLayout()
@@ -99,9 +119,8 @@ Partial Class CFMeetingRooms
         ' TableLayoutPanel1
         ' 
         TableLayoutPanel1.ColumnCount = 2
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 35.6790543F))
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 64.3209457F))
-        TableLayoutPanel1.Controls.Add(Panel5, 1, 0)
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.7755928F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 49.2244072F))
         TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 0, 0)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(0, 0)
@@ -112,24 +131,18 @@ Partial Class CFMeetingRooms
         TableLayoutPanel1.Size = New Size(967, 47)
         TableLayoutPanel1.TabIndex = 0
         ' 
-        ' Panel5
-        ' 
-        Panel5.Dock = DockStyle.Fill
-        Panel5.Location = New Point(348, 3)
-        Panel5.Name = "Panel5"
-        Panel5.Size = New Size(616, 41)
-        Panel5.TabIndex = 2
-        ' 
         ' TableLayoutPanel2
         ' 
-        TableLayoutPanel2.ColumnCount = 4
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 4.16666651F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.958334F))
+        TableLayoutPanel2.ColumnCount = 5
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3.19865322F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.4215889F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 28.7169037F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 22.81059F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 21.5885944F))
+        TableLayoutPanel2.Controls.Add(Panel14, 2, 0)
+        TableLayoutPanel2.Controls.Add(Panel5, 4, 0)
+        TableLayoutPanel2.Controls.Add(PnlViewStatistics, 1, 0)
         TableLayoutPanel2.Controls.Add(Panel6, 3, 0)
-        TableLayoutPanel2.Controls.Add(Panel4, 2, 0)
-        TableLayoutPanel2.Controls.Add(Panel2, 1, 0)
         TableLayoutPanel2.Controls.Add(Panel3, 0, 0)
         TableLayoutPanel2.Dock = DockStyle.Fill
         TableLayoutPanel2.Location = New Point(0, 0)
@@ -137,90 +150,215 @@ Partial Class CFMeetingRooms
         TableLayoutPanel2.Name = "TableLayoutPanel2"
         TableLayoutPanel2.RowCount = 1
         TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        TableLayoutPanel2.Size = New Size(345, 47)
+        TableLayoutPanel2.Size = New Size(491, 47)
         TableLayoutPanel2.TabIndex = 0
+        ' 
+        ' Panel14
+        ' 
+        Panel14.Controls.Add(ComboSearchDate)
+        Panel14.Dock = DockStyle.Fill
+        Panel14.Location = New Point(135, 18)
+        Panel14.Margin = New Padding(5, 18, 5, 5)
+        Panel14.Name = "Panel14"
+        Panel14.Size = New Size(131, 24)
+        Panel14.TabIndex = 8
+        ' 
+        ' ComboSearchDate
+        ' 
+        ComboSearchDate.Dock = DockStyle.Fill
+        ComboSearchDate.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboSearchDate.Font = New Font("Arial", 11F)
+        ComboSearchDate.FormattingEnabled = True
+        ComboSearchDate.Items.AddRange(New Object() {"Today", "This Week", "This Month", "This Year", "Custom Range"})
+        ComboSearchDate.Location = New Point(0, 0)
+        ComboSearchDate.Name = "ComboSearchDate"
+        ComboSearchDate.Size = New Size(131, 25)
+        ComboSearchDate.TabIndex = 1
+        ' 
+        ' Panel5
+        ' 
+        Panel5.Controls.Add(PnlDateEnd)
+        Panel5.Dock = DockStyle.Fill
+        Panel5.Location = New Point(386, 3)
+        Panel5.Name = "Panel5"
+        Panel5.Size = New Size(102, 41)
+        Panel5.TabIndex = 7
+        ' 
+        ' PnlDateEnd
+        ' 
+        PnlDateEnd.Controls.Add(TableLayoutPanel21)
+        PnlDateEnd.Dock = DockStyle.Fill
+        PnlDateEnd.Location = New Point(0, 0)
+        PnlDateEnd.Margin = New Padding(0)
+        PnlDateEnd.Name = "PnlDateEnd"
+        PnlDateEnd.Size = New Size(102, 41)
+        PnlDateEnd.TabIndex = 8
+        ' 
+        ' TableLayoutPanel21
+        ' 
+        TableLayoutPanel21.ColumnCount = 1
+        TableLayoutPanel21.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel21.Controls.Add(Panel12, 0, 0)
+        TableLayoutPanel21.Controls.Add(Panel13, 0, 1)
+        TableLayoutPanel21.Dock = DockStyle.Fill
+        TableLayoutPanel21.Location = New Point(0, 0)
+        TableLayoutPanel21.Margin = New Padding(0)
+        TableLayoutPanel21.Name = "TableLayoutPanel21"
+        TableLayoutPanel21.RowCount = 2
+        TableLayoutPanel21.RowStyles.Add(New RowStyle(SizeType.Percent, 43.2432442F))
+        TableLayoutPanel21.RowStyles.Add(New RowStyle(SizeType.Percent, 56.7567558F))
+        TableLayoutPanel21.Size = New Size(102, 41)
+        TableLayoutPanel21.TabIndex = 0
+        ' 
+        ' Panel12
+        ' 
+        Panel12.Controls.Add(Label5)
+        Panel12.Dock = DockStyle.Fill
+        Panel12.Location = New Point(0, 0)
+        Panel12.Margin = New Padding(0)
+        Panel12.Name = "Panel12"
+        Panel12.Size = New Size(102, 17)
+        Panel12.TabIndex = 0
+        ' 
+        ' Label5
+        ' 
+        Label5.Dock = DockStyle.Fill
+        Label5.Font = New Font("Arial", 9F)
+        Label5.Location = New Point(0, 0)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(102, 17)
+        Label5.TabIndex = 0
+        Label5.Text = "Date End"
+        Label5.TextAlign = ContentAlignment.TopCenter
+        ' 
+        ' Panel13
+        ' 
+        Panel13.Controls.Add(DateTimePickerEnd)
+        Panel13.Dock = DockStyle.Fill
+        Panel13.Location = New Point(2, 17)
+        Panel13.Margin = New Padding(2, 0, 0, 0)
+        Panel13.Name = "Panel13"
+        Panel13.Size = New Size(100, 24)
+        Panel13.TabIndex = 1
+        ' 
+        ' DateTimePickerEnd
+        ' 
+        DateTimePickerEnd.Dock = DockStyle.Fill
+        DateTimePickerEnd.Font = New Font("Arial", 9F)
+        DateTimePickerEnd.Format = DateTimePickerFormat.Short
+        DateTimePickerEnd.Location = New Point(0, 0)
+        DateTimePickerEnd.Name = "DateTimePickerEnd"
+        DateTimePickerEnd.Size = New Size(100, 21)
+        DateTimePickerEnd.TabIndex = 0
+        ' 
+        ' PnlViewStatistics
+        ' 
+        PnlViewStatistics.Controls.Add(BtnViewStats)
+        PnlViewStatistics.Dock = DockStyle.Fill
+        PnlViewStatistics.Location = New Point(18, 15)
+        PnlViewStatistics.Margin = New Padding(3, 15, 3, 5)
+        PnlViewStatistics.Name = "PnlViewStatistics"
+        PnlViewStatistics.Size = New Size(109, 27)
+        PnlViewStatistics.TabIndex = 6
+        ' 
+        ' BtnViewStats
+        ' 
+        BtnViewStats.BackColor = Color.FromArgb(CByte(44), CByte(80), CByte(126))
+        BtnViewStats.Dock = DockStyle.Fill
+        BtnViewStats.FlatAppearance.BorderSize = 0
+        BtnViewStats.FlatStyle = FlatStyle.Flat
+        BtnViewStats.Font = New Font("Arial", 13F)
+        BtnViewStats.ForeColor = Color.White
+        BtnViewStats.Location = New Point(0, 0)
+        BtnViewStats.Name = "BtnViewStats"
+        BtnViewStats.Size = New Size(109, 27)
+        BtnViewStats.TabIndex = 0
+        BtnViewStats.Text = "Load List"
+        BtnViewStats.UseVisualStyleBackColor = False
         ' 
         ' Panel6
         ' 
-        Panel6.Controls.Add(BtnDelete)
+        Panel6.Controls.Add(PnlDateStart)
         Panel6.Dock = DockStyle.Fill
-        Panel6.Location = New Point(239, 5)
+        Panel6.Location = New Point(276, 5)
         Panel6.Margin = New Padding(5)
         Panel6.Name = "Panel6"
-        Panel6.Size = New Size(101, 37)
+        Panel6.Size = New Size(102, 37)
         Panel6.TabIndex = 3
         ' 
-        ' BtnDelete
+        ' PnlDateStart
         ' 
-        BtnDelete.BackColor = Color.FromArgb(CByte(229), CByte(65), CByte(63))
-        BtnDelete.Dock = DockStyle.Fill
-        BtnDelete.FlatStyle = FlatStyle.Flat
-        BtnDelete.Font = New Font("Arial", 11F, FontStyle.Bold)
-        BtnDelete.ForeColor = Color.White
-        BtnDelete.Location = New Point(0, 0)
-        BtnDelete.Margin = New Padding(0)
-        BtnDelete.Name = "BtnDelete"
-        BtnDelete.Size = New Size(101, 37)
-        BtnDelete.TabIndex = 2
-        BtnDelete.Text = "🗑️ Delete"
-        BtnDelete.UseVisualStyleBackColor = False
+        PnlDateStart.Controls.Add(TableLayoutPanel3)
+        PnlDateStart.Dock = DockStyle.Fill
+        PnlDateStart.Location = New Point(0, 0)
+        PnlDateStart.Margin = New Padding(0)
+        PnlDateStart.Name = "PnlDateStart"
+        PnlDateStart.Size = New Size(102, 37)
+        PnlDateStart.TabIndex = 4
         ' 
-        ' Panel4
+        ' TableLayoutPanel3
         ' 
-        Panel4.Controls.Add(BtnModify)
-        Panel4.Dock = DockStyle.Fill
-        Panel4.Location = New Point(131, 5)
-        Panel4.Margin = New Padding(5)
-        Panel4.Name = "Panel4"
-        Panel4.Size = New Size(98, 37)
-        Panel4.TabIndex = 2
+        TableLayoutPanel3.ColumnCount = 1
+        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel3.Controls.Add(Panel9, 0, 0)
+        TableLayoutPanel3.Controls.Add(Panel11, 0, 1)
+        TableLayoutPanel3.Dock = DockStyle.Fill
+        TableLayoutPanel3.Location = New Point(0, 0)
+        TableLayoutPanel3.Margin = New Padding(0)
+        TableLayoutPanel3.Name = "TableLayoutPanel3"
+        TableLayoutPanel3.RowCount = 2
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 43.2432442F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 56.7567558F))
+        TableLayoutPanel3.Size = New Size(102, 37)
+        TableLayoutPanel3.TabIndex = 0
         ' 
-        ' BtnModify
+        ' Panel9
         ' 
-        BtnModify.BackColor = Color.FromArgb(CByte(236), CByte(137), CByte(54))
-        BtnModify.Dock = DockStyle.Fill
-        BtnModify.FlatStyle = FlatStyle.Flat
-        BtnModify.Font = New Font("Arial", 11F, FontStyle.Bold)
-        BtnModify.ForeColor = Color.White
-        BtnModify.Location = New Point(0, 0)
-        BtnModify.Margin = New Padding(0)
-        BtnModify.Name = "BtnModify"
-        BtnModify.Size = New Size(98, 37)
-        BtnModify.TabIndex = 2
-        BtnModify.Text = "✏️ Modify"
-        BtnModify.UseVisualStyleBackColor = False
+        Panel9.Controls.Add(Label3)
+        Panel9.Dock = DockStyle.Fill
+        Panel9.Location = New Point(0, 0)
+        Panel9.Margin = New Padding(0)
+        Panel9.Name = "Panel9"
+        Panel9.Size = New Size(102, 16)
+        Panel9.TabIndex = 0
         ' 
-        ' Panel2
+        ' Label3
         ' 
-        Panel2.Controls.Add(BtnAdd)
-        Panel2.Dock = DockStyle.Fill
-        Panel2.Location = New Point(23, 5)
-        Panel2.Margin = New Padding(5)
-        Panel2.Name = "Panel2"
-        Panel2.Size = New Size(98, 37)
-        Panel2.TabIndex = 0
+        Label3.Dock = DockStyle.Fill
+        Label3.Font = New Font("Arial", 9F)
+        Label3.Location = New Point(0, 0)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(102, 16)
+        Label3.TabIndex = 0
+        Label3.Text = "Date Start"
+        Label3.TextAlign = ContentAlignment.TopCenter
         ' 
-        ' BtnAdd
+        ' Panel11
         ' 
-        BtnAdd.BackColor = Color.FromArgb(CByte(44), CByte(80), CByte(126))
-        BtnAdd.Dock = DockStyle.Fill
-        BtnAdd.FlatStyle = FlatStyle.Flat
-        BtnAdd.Font = New Font("Arial", 11F, FontStyle.Bold)
-        BtnAdd.ForeColor = Color.White
-        BtnAdd.Location = New Point(0, 0)
-        BtnAdd.Margin = New Padding(0)
-        BtnAdd.Name = "BtnAdd"
-        BtnAdd.Size = New Size(98, 37)
-        BtnAdd.TabIndex = 1
-        BtnAdd.Text = "➕ Add"
-        BtnAdd.UseVisualStyleBackColor = False
+        Panel11.Controls.Add(DateTimePickerStart)
+        Panel11.Dock = DockStyle.Fill
+        Panel11.Location = New Point(0, 16)
+        Panel11.Margin = New Padding(0, 0, 2, 0)
+        Panel11.Name = "Panel11"
+        Panel11.Size = New Size(100, 21)
+        Panel11.TabIndex = 1
+        ' 
+        ' DateTimePickerStart
+        ' 
+        DateTimePickerStart.Dock = DockStyle.Fill
+        DateTimePickerStart.Font = New Font("Arial", 9F)
+        DateTimePickerStart.Format = DateTimePickerFormat.Short
+        DateTimePickerStart.Location = New Point(0, 0)
+        DateTimePickerStart.Name = "DateTimePickerStart"
+        DateTimePickerStart.Size = New Size(100, 21)
+        DateTimePickerStart.TabIndex = 0
         ' 
         ' Panel3
         ' 
         Panel3.Dock = DockStyle.Fill
         Panel3.Location = New Point(3, 3)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(12, 41)
+        Panel3.Size = New Size(9, 41)
         Panel3.TabIndex = 1
         ' 
         ' PnlBelow
@@ -371,7 +509,11 @@ Partial Class CFMeetingRooms
         ' 
         ' DataGridView1
         ' 
+        DataGridView1.AllowDrop = True
         DataGridView1.AllowUserToAddRows = False
+        DataGridView1.AllowUserToDeleteRows = False
+        DataGridView1.AllowUserToResizeColumns = False
+        DataGridView1.AllowUserToResizeRows = False
         DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         DataGridView1.BackgroundColor = Color.White
         DataGridView1.BorderStyle = BorderStyle.None
@@ -397,12 +539,12 @@ Partial Class CFMeetingRooms
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.Dock = DockStyle.Fill
+        DataGridView1.EditMode = DataGridViewEditMode.EditOnEnter
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.GridColor = Color.White
         DataGridView1.Location = New Point(0, 0)
         DataGridView1.Margin = New Padding(0)
         DataGridView1.Name = "DataGridView1"
-        DataGridView1.ReadOnly = True
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -410,7 +552,6 @@ Partial Class CFMeetingRooms
         DataGridViewCellStyle3.SelectionForeColor = Color.DarkSlateGray
         DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle3
         DataGridView1.RowTemplate.Height = 40
-        DataGridView1.RowTemplate.ReadOnly = True
         DataGridView1.RowTemplate.Resizable = DataGridViewTriState.False
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridView1.Size = New Size(881, 353)
@@ -437,9 +578,18 @@ Partial Class CFMeetingRooms
         Panel1.ResumeLayout(False)
         TableLayoutPanel1.ResumeLayout(False)
         TableLayoutPanel2.ResumeLayout(False)
+        Panel14.ResumeLayout(False)
+        Panel5.ResumeLayout(False)
+        PnlDateEnd.ResumeLayout(False)
+        TableLayoutPanel21.ResumeLayout(False)
+        Panel12.ResumeLayout(False)
+        Panel13.ResumeLayout(False)
+        PnlViewStatistics.ResumeLayout(False)
         Panel6.ResumeLayout(False)
-        Panel4.ResumeLayout(False)
-        Panel2.ResumeLayout(False)
+        PnlDateStart.ResumeLayout(False)
+        TableLayoutPanel3.ResumeLayout(False)
+        Panel9.ResumeLayout(False)
+        Panel11.ResumeLayout(False)
         PnlBelow.ResumeLayout(False)
         PnlBelow.PerformLayout()
         Panel8.ResumeLayout(False)
@@ -470,14 +620,25 @@ Partial Class CFMeetingRooms
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents Panel5 As Panel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Panel6 As Panel
-    Friend WithEvents BtnDelete As Button
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents BtnModify As Button
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents BtnAdd As Button
     Friend WithEvents Panel3 As Panel
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Panel14 As Panel
+    Friend WithEvents ComboSearchDate As ComboBox
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents PnlDateEnd As Panel
+    Friend WithEvents TableLayoutPanel21 As TableLayoutPanel
+    Friend WithEvents Panel12 As Panel
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Panel13 As Panel
+    Friend WithEvents DateTimePickerEnd As DateTimePicker
+    Friend WithEvents PnlViewStatistics As Panel
+    Friend WithEvents BtnViewStats As Button
+    Friend WithEvents PnlDateStart As Panel
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Panel11 As Panel
+    Friend WithEvents DateTimePickerStart As DateTimePicker
 End Class
