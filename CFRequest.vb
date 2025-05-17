@@ -1,11 +1,14 @@
 ﻿Imports Oracle.ManagedDataAccess.Client
 
 Public Class CFRequests
+    Private isLoading As Boolean = False
+
     Private SelectedStartDate As Date?
     Private SelectedEndDate As Date?
     Private previousStatus As String = ""
 
     Private Sub CFRequests_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        isLoading = True
         Dim CRUDBtns As Button() = {BtnViewStats}
         SetupFormUI(CRUDBtns, DataGridView1, TimerDateTime, LblDateTimeRequests, AddressOf LoadRequestsData)
         TBLPRequests.Padding = New Padding(3)
@@ -19,6 +22,7 @@ Public Class CFRequests
         ComboSearchDate.Items.Insert(0, "Select Date Range")
         ComboSearchDate.SelectedIndex = 0
         ' Show all records on load
+        isLoading = False
         LoadRequestsData()
     End Sub
 
@@ -28,7 +32,7 @@ Public Class CFRequests
         Using conn As New OracleConnection(connectionString)
             conn.Open()
 
-            Dim selectQuery As String = "SELECT " &
+            Dim selectQuery As String = "SELECT DISTINCT " &
                 "r.REQUEST_ID AS ""Request ID"", " &
                 "s.FIRST_NAME || ' ' || s.LAST_NAME AS ""Student Name"", " &
                 "b.TITLE AS ""Book Title"", " &
@@ -43,7 +47,7 @@ Public Class CFRequests
                 selectQuery &= " WHERE r.REQUEST_DATE BETWEEN :startDate AND :endDate"
             End If
 
-            selectQuery &= " ORDER BY r.REQUEST_DATE DESC"
+            selectQuery &= " ORDER BY ""Request Date"" DESC"
 
             Using cmd As New OracleCommand(selectQuery, conn)
                 If filterByDate AndAlso SelectedStartDate.HasValue AndAlso SelectedEndDate.HasValue Then
@@ -158,6 +162,7 @@ Public Class CFRequests
     End Sub
 
     Private Sub ComboSearchDate_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboSearchDate.SelectedIndexChanged
+        If isLoading Then Exit Sub
         If ComboSearchDate.SelectedIndex = 0 Then
             SelectedStartDate = Nothing
             SelectedEndDate = Nothing

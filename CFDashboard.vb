@@ -43,10 +43,11 @@ Public Class CFDashboard
     End Sub
 
     Public Sub LoadAttendanceData()
+        RemoveHandler DataGridView1.CellClick, AddressOf DataGridView1_CellClick
         AddHandler DataGridView1.CellClick, AddressOf DataGridView1_CellClick
 
         Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
-        Dim query As String = "SELECT a.ATTENDANCE_ID as ""Log ID"", " &
+        Dim query As String = "SELECT DISTINCT a.ATTENDANCE_ID as ""Log ID"", " &
                           "a.STUDENT_ID as ""Student ID"", " &
                           "s.LAST_NAME || ', ' || s.FIRST_NAME || ' ' || SUBSTR(s.MIDDLE_NAME, 1, 1) || '.' as ""Student Name"", " &
                           "TO_CHAR(a.ATTENDANCE_DATE, 'DD/MM/YYYY') AS ""Date"", " &
@@ -55,7 +56,7 @@ Public Class CFDashboard
                           "a.STATUS as ""Status"" " &
                           "FROM TBL_ATTENDANCE a " &
                           "JOIN TBL_STUDENT s ON a.STUDENT_ID = s.STUDENT_ID " &
-                          "ORDER BY a.ATTENDANCE_DATE DESC, a.TIME_IN DESC"
+                          "ORDER BY ""Date"" DESC, ""Time In"" DESC"
 
         Using conn As New OracleConnection(connectionString)
             Dim cmd As New OracleCommand(query, conn)
@@ -218,7 +219,7 @@ Public Class CFDashboard
 
     Private Sub LoadAttendanceDataByID(studentId As String)
         Dim connectionString As String = "User Id=SYSTEM;Password=1234;Data Source=localhost:1521/xe"
-        Dim query As String = "SELECT a.ATTENDANCE_ID as ""Log ID"", " &
+        Dim query As String = "SELECT DISTINCT a.ATTENDANCE_ID as ""Log ID"", " &
                           "a.STUDENT_ID as ""Student ID"", " &
                           "s.LAST_NAME || ', ' || s.FIRST_NAME || ' ' || SUBSTR(s.MIDDLE_NAME, 1, 1) || '.' as ""Student Name"", " &
                           "TO_CHAR(a.ATTENDANCE_DATE, 'DD/MM/YYYY') AS ""Date"", " &
@@ -228,7 +229,7 @@ Public Class CFDashboard
                           "FROM TBL_ATTENDANCE a " &
                           "JOIN TBL_STUDENT s ON a.STUDENT_ID = s.STUDENT_ID " &
                           "WHERE a.STUDENT_ID = :studentId " &
-                          "ORDER BY a.ATTENDANCE_DATE DESC, a.TIME_IN DESC"
+                          "ORDER BY ""Date"" DESC, ""Time In"" DESC"
 
         Using conn As New Oracle.ManagedDataAccess.Client.OracleConnection(connectionString)
             Using cmd As New Oracle.ManagedDataAccess.Client.OracleCommand(query, conn)

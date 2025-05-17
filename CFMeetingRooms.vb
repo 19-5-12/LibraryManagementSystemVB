@@ -40,7 +40,7 @@ Public Class CFMeetingRooms
         End Using
 
         Dim query As String = "
-        SELECT 
+        SELECT DISTINCT
             B.BOOKING_ID AS ""Booking ID"",
             R.ROOM_NAME AS ""Room Name"",
             S.FIRST_NAME || ' ' || S.LAST_NAME AS ""Booked By"",

@@ -28,7 +28,7 @@ Public Class CFExtend
         Using conn As New OracleConnection(connectionString)
             conn.Open()
 
-            Dim selectQuery As String = "SELECT " &
+            Dim selectQuery As String = "SELECT DISTINCT " &
                 "e.EXTEND_ID AS ""Extend ID"", " &
                 "e.REQUEST_ID AS ""Request ID"", " &
                 "s.FIRST_NAME || ' ' || s.LAST_NAME AS ""Student Name"", " &
@@ -40,7 +40,7 @@ Public Class CFExtend
                 "JOIN TBL_BOOK_REQUEST r ON e.REQUEST_ID = r.REQUEST_ID " &
                 "JOIN TBL_STUDENT s ON r.STUDENT_ID = s.STUDENT_ID " &
                 "JOIN TBL_BOOKS b ON r.BOOK_ID = b.BOOK_ID " &
-                "ORDER BY e.EXTEND_DATE DESC"
+                "ORDER BY ""Extend Request Date"" DESC"
 
             Using cmd As New OracleCommand(selectQuery, conn)
                 Dim adapter As New OracleDataAdapter(cmd)

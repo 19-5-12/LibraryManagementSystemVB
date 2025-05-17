@@ -114,11 +114,22 @@ Public Class FormAddStudent
             Using conn As New OracleConnection(connStr)
                 conn.Open()
 
-                ' Check if student is actively banned
+                ' 🔍 Check if Student ID exists in TBL_STUDENT
+                Dim studentExistsSql As String = "SELECT COUNT(*) FROM TBL_STUDENT WHERE STUDENT_ID = :studentId"
+                Using checkCmd As New OracleCommand(studentExistsSql, conn)
+                    checkCmd.Parameters.Add(":studentId", OracleDbType.Int32).Value = Integer.Parse(TxtStudentID.Text)
+                    Dim studentExists As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
+                    If studentExists = 0 Then
+                        MessageBox.Show("Student ID not found. Please enter a valid student.", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Return False
+                    End If
+                End Using
+
+                ' 🚫 Check if student is actively banned
                 Dim bannedCheckSql As String = "SELECT COUNT(*) FROM TBL_BANNED " &
-                                              "WHERE USER_ID = :studentId " &
-                                              "AND STATUS = 'Active' " &
-                                              "AND BANNED_END_DATE >= TRUNC(SYSDATE)"
+                                          "WHERE USER_ID = :studentId " &
+                                          "AND STATUS = 'Active' " &
+                                          "AND BANNED_END_DATE >= TRUNC(SYSDATE)"
 
                 Using bannedCmd As New OracleCommand(bannedCheckSql, conn)
                     bannedCmd.Parameters.Add(":studentId", OracleDbType.Int32).Value = Integer.Parse(TxtStudentID.Text)
@@ -126,15 +137,15 @@ Public Class FormAddStudent
 
                     If bannedCount > 0 Then
                         MessageBox.Show("This student is currently banned and cannot record attendance.",
-                                      "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                                  "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                         Return False
                     End If
                 End Using
 
-                ' Proceed with insert if not banned
+                ' ✅ Proceed with insert
                 Dim insertSql As String = "INSERT INTO TBL_ATTENDANCE " &
-                                        "(ATTENDANCE_ID, STUDENT_ID, ATTENDANCE_DATE, TIME_IN, STATUS) " &
-                                        "VALUES (:attendance_id, :student_id, :attendance_date, :time_in, :status)"
+                                    "(ATTENDANCE_ID, STUDENT_ID, ATTENDANCE_DATE, TIME_IN, STATUS) " &
+                                    "VALUES (:attendance_id, :student_id, :attendance_date, :time_in, :status)"
 
                 Using cmd As New OracleCommand(insertSql, conn)
                     cmd.Parameters.Add(":attendance_id", OracleDbType.Int32).Value = Integer.Parse(TxtAttendanceID.Text)
@@ -160,6 +171,7 @@ Public Class FormAddStudent
             Return False
         End Try
     End Function
+
 
     Private Sub BtnAddAttendance_Click(sender As Object, e As EventArgs) Handles BtnAddAttendance.Click
         If ValidateInputs() Then

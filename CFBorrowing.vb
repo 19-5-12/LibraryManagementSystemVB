@@ -79,7 +79,7 @@ Public Class CFBorrowing
             End Using
 
             ' Load the data for display
-            Dim selectQuery As String = "SELECT 
+            Dim selectQuery As String = "SELECT DISTINCT
                 b.BORROWING_ID AS ""Borrow ID"",
                 s.FIRST_NAME || ' ' || s.LAST_NAME AS ""Student Name"",
                 bo.TITLE AS ""Book Title"",
@@ -95,7 +95,7 @@ Public Class CFBorrowing
                 selectQuery &= " WHERE b.BORROW_DATE BETWEEN :startDate AND :endDate"
             End If
 
-            selectQuery &= " ORDER BY b.BORROW_DATE DESC"
+            selectQuery &= " ORDER BY ""Borrowed Date"" DESC"
 
             Using cmd As New OracleCommand(selectQuery, conn)
                 If filterByDate AndAlso SelectedStartDate.HasValue AndAlso SelectedEndDate.HasValue Then
